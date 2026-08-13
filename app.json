@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "Quran, Bible and Science",
+    "slug": "quran-bible-science",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "qbs",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "ios": {
+      "bundleIdentifier": "com.divineseriesmobile.quranbiblescience",
+      "buildNumber": "3",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Listen as you recite to find the Qur'\u0101nic verse.",
+        "NSSpeechRecognitionUsageDescription": "Match your spoken Arabic to a verse.",
+        "NSLocationWhenInUseUsageDescription": "Calculate accurate prayer times for your location.",
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.divineseriesmobile.quranbiblescience",
+      "versionCode": 3,
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.ACCESS_COARSE_LOCATION"
+      ],
+      "edgeToEdgeEnabled": true,
+      "blockedPermissions": [
+        "android.permission.ACTIVITY_RECOGNITION"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      "expo-localization",
+      "expo-speech-recognition"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "1d92d471-406d-4f2f-bd6c-ca593e834923"
+      }
+    },
+    "owner": "divineseries",
+    "runtimeVersion": "1.0.0",
+    "updates": {
+      "url": "https://u.expo.dev/1d92d471-406d-4f2f-bd6c-ca593e834923"
+    }
+  }
+}
