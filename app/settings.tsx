@@ -3,7 +3,9 @@
  */
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Alert, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as Updates from 'expo-updates';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Card } from '../src/components/Card';
 import { LanguageSwitcher } from '../src/components/LanguageSwitcher';
@@ -110,6 +112,65 @@ export default function Settings() {
                     : lang === 'ar'
                     ? 'رمز الاستجابة · بطاقة صورة · رسالة جاهزة'
                     : 'QR کارڈ · کارڈ کی تصویر · پہلے سے لکھا پیغام'}
+                </Text>
+              </View>
+              <Ionicons name={rtl ? 'chevron-back' : 'chevron-forward'} size={20} color={colors.silverDim} />
+            </View>
+          </Card>
+        </Pressable>
+
+        <Pressable
+          onPress={() => {
+            Alert.alert(
+              lang === 'en' ? 'Reset app?' : lang === 'ar' ? 'إعادة ضبط التطبيق؟' : 'ایپ ری سیٹ کریں؟',
+              lang === 'en'
+                ? 'This will clear all cached data (bookmarks, settings, language). Your unlock stays. The app will restart.'
+                : lang === 'ar'
+                ? 'سيؤدي هذا إلى مسح جميع البيانات المخزنة (الإشارات المرجعية، الإعدادات، اللغة). الفتح يبقى. سيتم إعادة تشغيل التطبيق.'
+                : 'یہ تمام محفوظ ڈیٹا (بک مارکس، سیٹنگز، زبان) صاف کر دے گا۔ آپ کا انلاک محفوظ رہے گا۔ ایپ دوبارہ شروع ہوگی۔',
+              [
+                { text: lang === 'en' ? 'Cancel' : lang === 'ar' ? 'إلغاء' : 'منسوخ کریں', style: 'cancel' },
+                {
+                  text: lang === 'en' ? 'Reset' : lang === 'ar' ? 'إعادة ضبط' : 'ری سیٹ',
+                  style: 'destructive',
+                  onPress: async () => {
+                    try {
+                      const keys = await AsyncStorage.getAllKeys();
+                      // Preserve unlock/entitlement keys so paid users don't lose access
+                      const preserved = keys.filter((k) => k.includes('unlock') || k.includes('entitle') || k.includes('purchase'));
+                      const preservedValues = preserved.length ? await AsyncStorage.multiGet(preserved) : [];
+                      await AsyncStorage.clear();
+                      if (preservedValues.length) {
+                        await AsyncStorage.multiSet(preservedValues.map(([k, v]) => [k, v ?? '']));
+                      }
+                      try {
+                        await Updates.reloadAsync();
+                      } catch {
+                        // Dev/web fallback
+                      }
+                    } catch (e) {
+                      Alert.alert('Reset failed', String(e));
+                    }
+                  },
+                },
+              ],
+            );
+          }}
+          style={({ pressed }) => [{ opacity: pressed ? 0.7 : 1 }]}
+        >
+          <Card accent={colors.rose}>
+            <View style={[styles.rowItem, rtl && { flexDirection: 'row-reverse' }]}>
+              <Ionicons name="refresh-circle-outline" size={20} color={colors.rose} />
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.rowText, { textAlign: rtl ? 'right' : 'left' }]}>
+                  {lang === 'en' ? 'Reset app' : lang === 'ar' ? 'إعادة ضبط التطبيق' : 'ایپ ری سیٹ کریں'}
+                </Text>
+                <Text style={[styles.rowSub, { textAlign: rtl ? 'right' : 'left' }]}>
+                  {lang === 'en'
+                    ? 'Clear cached data if something goes wrong'
+                    : lang === 'ar'
+                    ? 'امسح البيانات المخزنة إذا حدث خطأ'
+                    : 'اگر کچھ غلط ہو جائے تو محفوظ ڈیٹا صاف کریں'}
                 </Text>
               </View>
               <Ionicons name={rtl ? 'chevron-back' : 'chevron-forward'} size={20} color={colors.silverDim} />
