@@ -27,8 +27,8 @@ import * as Clipboard from 'expo-clipboard';
 import { colors, radius, spacing, type as typo } from '../src/theme';
 import { useApp } from '../src/store/useApp';
 
-// TODO(july): replace with the live App Store ID once the app is published.
-const APP_STORE_URL = 'https://apps.apple.com/gb/developer/divine-series-mobile/id1809373560';
+// LIVE on App Store — Apple App ID 6801619940
+const APP_STORE_URL = 'https://apps.apple.com/app/id6801619940';
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.divineseriesmobile.quranbiblescience';
 
 const SHARE_MESSAGE =
@@ -55,7 +55,7 @@ export default function ShareScreen() {
   const cardRef = useRef<View>(null);
   const rtl = lang === 'ar' || lang === 'ur';
 
-  const primaryUrl = Platform.OS === 'android' ? PLAY_STORE_URL : APP_STORE_URL;
+  const bothLinks = `📱 iOS: ${APP_STORE_URL}\n🤖 Android: ${PLAY_STORE_URL}`;
   const L = (en: string, ar: string, ur: string) => (lang === 'ar' ? ar : lang === 'ur' ? ur : en);
 
   const onShareText = async () => {
@@ -81,7 +81,7 @@ export default function ShareScreen() {
 
   const onCopyLink = async () => {
     try {
-      await Clipboard.setStringAsync(primaryUrl);
+      await Clipboard.setStringAsync(bothLinks);
       Alert.alert(L('Copied', 'تم النسخ', 'کاپی ہو گیا'), L('Link copied to clipboard.', 'تم نسخ الرابط.', 'لنک کلپ بورڈ پر کاپی ہو گیا۔'));
     } catch (e: any) {
       Alert.alert('Could not copy', e?.message || 'Please try again.');
@@ -133,19 +133,44 @@ export default function ShareScreen() {
             Inspired by the comparative-Deen scholarship of Shaykh Wājid Ḥussain Deobandī (Raḥmatullāhi ʿalayhi) — and 4 generations of his lineage
           </Text>
 
-          <View style={styles.qrWrap}>
-            <View style={styles.qrInner}>
-              <QRCode
-                value={primaryUrl}
-                size={180}
-                color="#0e1f1a"
-                backgroundColor={colors.gold}
-                quietZone={8}
-              />
+          <View style={styles.qrRow}>
+            <View style={styles.qrCol}>
+              <View style={styles.qrInner}>
+                <QRCode
+                  value={APP_STORE_URL}
+                  size={130}
+                  color="#0e1f1a"
+                  backgroundColor={colors.gold}
+                  quietZone={6}
+                />
+              </View>
+              <View style={styles.qrLabelRow}>
+                <Ionicons name="logo-apple" size={12} color={colors.gold} />
+                <Text style={styles.qrLabel}>iOS</Text>
+              </View>
+              <Text style={styles.qrCaption}>
+                {L('Scan to download', 'امسح للتنزيل', 'ڈاؤن لوڈ کریں')}
+              </Text>
             </View>
-            <Text style={styles.qrCaption}>
-              {L('Scan to download', 'امسح للتنزيل', 'ڈاؤن لوڈ کرنے کے لیے سکین کریں')}
-            </Text>
+
+            <View style={styles.qrCol}>
+              <View style={styles.qrInner}>
+                <QRCode
+                  value={PLAY_STORE_URL}
+                  size={130}
+                  color="#0e1f1a"
+                  backgroundColor={colors.gold}
+                  quietZone={6}
+                />
+              </View>
+              <View style={styles.qrLabelRow}>
+                <Ionicons name="logo-google-playstore" size={12} color={colors.gold} />
+                <Text style={styles.qrLabel}>Android</Text>
+              </View>
+              <Text style={styles.qrCaption}>
+                {L('Scan to download', 'امسح للتنزيل', 'ڈاؤن لوڈ کریں')}
+              </Text>
+            </View>
           </View>
 
           <View style={styles.priceChip}>
@@ -208,8 +233,30 @@ const styles = StyleSheet.create({
   cardSub: { ...typo.small, color: colors.text, textAlign: 'center', marginTop: 6, fontStyle: 'italic', lineHeight: 18 },
 
   qrWrap: { alignItems: 'center', marginTop: spacing.lg, gap: spacing.sm },
+  qrRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    gap: spacing.md,
+    marginTop: spacing.lg,
+    width: '100%',
+    paddingHorizontal: spacing.xs,
+  },
+  qrCol: { flex: 1, alignItems: 'center' },
+  qrLabelRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    marginTop: 8,
+  },
+  qrLabel: {
+    color: colors.silverHi,
+    fontSize: 11,
+    fontWeight: '800',
+    letterSpacing: 1.2,
+  },
   qrInner: { padding: spacing.sm, borderRadius: radius.md, backgroundColor: colors.gold },
-  qrCaption: { ...typo.label, color: colors.gold, fontSize: 11, letterSpacing: 2 },
+  qrCaption: { ...typo.label, color: colors.gold, fontSize: 10, letterSpacing: 1.2, marginTop: 4 },
 
   priceChip: {
     alignSelf: 'center', flexDirection: 'row', alignItems: 'center', gap: 6,

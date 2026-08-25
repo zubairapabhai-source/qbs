@@ -12,7 +12,7 @@
         "simulator": true
       },
       "env": {
-        "EXPO_PUBLIC_QBS_API_URL": "https://quran-bible-science.onrender.com"
+        "EXPO_PUBLIC_QBS_API_URL": "https://divine-series.onrender.com/q"
       }
     },
     "preview": {
@@ -24,13 +24,13 @@
         "buildType": "apk"
       },
       "env": {
-        "EXPO_PUBLIC_QBS_API_URL": "https://quran-bible-science.onrender.com"
+        "EXPO_PUBLIC_QBS_API_URL": "https://divine-series.onrender.com/q"
       }
     },
     "production": {
       "channel": "production",
       "env": {
-        "EXPO_PUBLIC_QBS_API_URL": "https://quran-bible-science.onrender.com",
+        "EXPO_PUBLIC_QBS_API_URL": "https://divine-series.onrender.com/q",
         "SENTRY_ALLOW_FAILURE": "true",
         "SENTRY_DISABLE_AUTO_UPLOAD": "true"
       }
@@ -39,6 +39,7 @@
   "submit": {
     "production": {
       "ios": {
+        "ascAppId": "6801619940",
         "ascApiKeyPath": "/app/secrets/AuthKey_J5UV2ND69J.p8",
         "ascApiKeyId": "J5UV2ND69J",
         "ascApiKeyIssuerId": "70b80a83-b611-4549-88da-7b4052012404",
