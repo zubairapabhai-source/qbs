@@ -184,6 +184,23 @@ export default function HomeScreen() {
           {L('⟡ EXPLORE THE SIGNS ⟡', '⟡ استكشف الآيات ⟡', '⟡ نشانیوں کو تلاش کریں ⟡')}
         </Text>
 
+        {/* BIG · Our Aqeedah & Approach — tap-anytime disclaimer (gold, top spot) */}
+        <BigTile
+          onPress={() => router.push('/onboarding' as any)}
+          icon="shield-checkmark"
+          iconTint={colors.gold}
+          ar="عقيدتنا ومنهجنا"
+          title={L('Our Aqeedah & Approach', 'عقيدتنا ومنهجنا', 'ہمارا عقیدہ اور طریقہ')}
+          desc={L(
+            'Before you begin: our covenant with the Qurʾān and Sunnah. Qurʾān first · science as one possible interpretation · in accordance with the aqeedah of Ahl al-Sunnah wa\'l-Jamāʿah. Tap anytime to re-read.',
+            'قبل أن تبدأ: عهدنا مع القرآن والسنة. القرآن أولاً · العلم كتفسير محتمل · وفق عقيدة أهل السنة والجماعة. اضغط في أي وقت لإعادة القراءة.',
+            'شروع کرنے سے پہلے: قرآن و سنت کے ساتھ ہمارا عہد۔ قرآن اوّل · سائنس ایک ممکنہ تشریح · اہل السنہ والجماعہ کے عقیدہ کے مطابق۔ کسی بھی وقت دوبارہ پڑھنے کے لیے دبائیں۔'
+          )}
+          badge="AHL AL-SUNNAH"
+          cta={L('Read our aqeedah', 'اقرأ عقيدتنا', 'ہمارا عقیدہ پڑھیں')}
+          gradient={['rgba(212,175,55,0.32)', 'rgba(212,175,55,0.08)', 'rgba(14,31,26,0.0)']}
+        />
+
         {/* BIG #1 · Ask the Sheikh AI */}
         <BigTile
           onPress={() => router.push('/(tabs)/sheikh' as any)}
