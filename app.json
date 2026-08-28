@@ -2,7 +2,7 @@
   "expo": {
     "name": "Quran, Bible and Science",
     "slug": "quran-bible-science",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "orientation": "portrait",
     "scheme": "qbs",
     "userInterfaceStyle": "dark",
@@ -15,7 +15,7 @@
     },
     "ios": {
       "bundleIdentifier": "com.divineseriesmobile.quranbiblescience",
-      "buildNumber": "10",
+      "buildNumber": "11",
       "infoPlist": {
         "NSMicrophoneUsageDescription": "Listen as you recite to find the Qur'\u0101nic verse.",
         "NSSpeechRecognitionUsageDescription": "Match your spoken Arabic to a verse.",
@@ -26,7 +26,7 @@
     },
     "android": {
       "package": "com.divineseriesmobile.quranbiblescience",
-      "versionCode": 8,
+      "versionCode": 9,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#042216"
