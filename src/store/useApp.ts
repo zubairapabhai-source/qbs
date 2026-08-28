@@ -6,6 +6,8 @@ import { getLocales } from 'expo-localization';
 export type Lang = 'en' | 'ar' | 'ur';
 const LANG_KEY = '@qbs:lang';
 const DEVICE_KEY = '@qbs:deviceId';
+const UNLOCK_KEY = '@qbs:unlocked';
+const PACK_KEY = '@qbs:packBalance';
 
 function makeDeviceId() {
   return 'qbs_' + Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
@@ -52,9 +54,11 @@ export const useApp = create<AppState>((set, get) => ({
     }
   },
   async hydrate() {
-    const [l, did] = await Promise.all([
+    const [l, did, unlockedRaw, packRaw] = await Promise.all([
       AsyncStorage.getItem(LANG_KEY),
       AsyncStorage.getItem(DEVICE_KEY),
+      AsyncStorage.getItem(UNLOCK_KEY),
+      AsyncStorage.getItem(PACK_KEY),
     ]);
     let deviceId = did;
     if (!deviceId) {
@@ -66,11 +70,22 @@ export const useApp = create<AppState>((set, get) => ({
     set({
       lang,
       deviceId,
+      // Persisted entitlement survives app restart so a paid user isn't
+      // temporarily locked out while /api/entitlement round-trips.
+      unlocked: unlockedRaw === '1',
+      packBalance: packRaw ? Math.max(0, parseInt(packRaw, 10) || 0) : 0,
       hydrated: true,
     });
   },
   setEntitlement(p) {
     set(p as any);
+    // Persist any changed keys to survive relaunch.
+    if (typeof p.unlocked !== 'undefined') {
+      AsyncStorage.setItem(UNLOCK_KEY, p.unlocked ? '1' : '0').catch(() => {});
+    }
+    if (typeof p.packBalance !== 'undefined') {
+      AsyncStorage.setItem(PACK_KEY, String(p.packBalance)).catch(() => {});
+    }
   },
 }));
 

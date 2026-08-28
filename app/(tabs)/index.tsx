@@ -19,6 +19,7 @@ import { AmbientToggle } from '../../src/components/AmbientToggle';
 import { useApp } from '../../src/store/useApp';
 import { t } from '../../src/i18n/strings';
 import { colors, radius, spacing, type as ty } from '../../src/theme';
+import { getHijriDate } from '../../src/hijri';
 
 // Signature verse — Sūrat Fuṣṣilat 41:53
 const HERO_VERSE = {
@@ -114,6 +115,7 @@ export default function HomeScreen() {
     lang === 'ar' ? 'ar-EG' : lang === 'ur' ? 'ur-PK' : 'en-GB',
     { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }
   );
+  const hijri = getHijriDate();
 
   const onShare = async () => {
     const body = `${HERO_VERSE.arabic}\n\n— Qur'ān ${HERO_VERSE.key}  ·  ${HERO_VERSE.surah_en}\n\n"${HERO_VERSE.translation_en}"\n\nFrom: Qur'ān, Bible & Science 📖`;
@@ -138,6 +140,11 @@ export default function HomeScreen() {
           <Text style={styles.lockupTitle}>{t('appName', lang)}</Text>
           <Text style={styles.lockupDsm}>by Divine Series Mobile (DSM)</Text>
           <Text style={styles.lockupSub}>{today}</Text>
+          {hijri ? (
+            <Text style={[styles.lockupSub, { color: colors.gold, fontSize: 12, marginTop: 2 }]}>
+              {lang === 'ar' ? hijri.formattedAr : `${hijri.formatted} AH`}
+            </Text>
+          ) : null}
           <View style={styles.lockupHairline} />
         </View>
 
@@ -221,7 +228,7 @@ export default function HomeScreen() {
         {/* Small pair · Prophet Isa + Bookmarks */}
         <View style={styles.smallPair}>
           <SmallTile
-            onPress={() => router.push('/bible-comparisons' as any)}
+            onPress={() => router.push('/bible-comparisons?tile=islam-on-jesus-and-mary' as any)}
             icon="rose-outline"
             iconTint={colors.violetHi}
             ar="عيسى ﷺ في الإسلام"
@@ -409,6 +416,23 @@ export default function HomeScreen() {
           badge="🎙 VOICE → VERSE"
           cta={L('Tap the mic & recite', 'انقر المايكروفون واقرأ', 'مائیک دبائیں اور پڑھیں')}
           gradient={['rgba(232,90,90,0.26)', 'rgba(232,90,90,0.05)', 'rgba(14,31,26,0.0)']}
+        />
+
+        {/* BIG · Read the Qur'ān — free trilingual mushaf reader, placed just above Walking the Signs */}
+        <BigTile
+          onPress={() => router.push('/quran' as any)}
+          icon="book"
+          iconTint={colors.gold}
+          ar="اقْرَأِ القُرْآن"
+          title={L('Read the Qur\'ān', 'اقرأ القرآن', 'قرآن پڑھیں')}
+          desc={L(
+            'The entire Qur\'ān page by page in the beautiful Uthmani script with full harakāt — the way it appears in the printed mushaf. English and Urdu translations under every verse. Bookmark ayāt, resume your last page like a Kindle. Tap any verse to open its tafseer (£0.99 lifetime unlock — Fussilat 41:53 is free forever).',
+            'القرآن كاملاً صفحةً صفحةً بالرسم العثماني مع كامل الحركات — كما هو مطبوع في المصحف. الترجمة الإنجليزية والأردية تحت كل آية. أضف علامات مرجعية، وتابع من آخر صفحة قرأتها. انقر على أي آية لفتح التفسير (٠٫٩٩ جنيهًا مدى الحياة — سورة فصلت ٤١:٥٣ مجانية دائماً).',
+            'مکمل قرآن صفحہ بہ صفحہ خوبصورت عثمانی رسم الخط اور مکمل حرکات کے ساتھ — بالکل چھپے ہوئے مصحف کی طرح۔ ہر آیت کے نیچے انگریزی و اردو ترجمہ۔ بک مارک کریں، آخری پڑھا صفحہ خود بخود کھلے گا۔ کسی بھی آیت پر ٹیپ کرکے تفسیر کھولیں (£0.99 تاحیات — سورۃ فصلت 41:53 ہمیشہ مفت)۔'
+          )}
+          badge="FREE · TRILINGUAL"
+          cta={L('Open the Mushaf', 'افتح المصحف', 'مصحف کھولیں')}
+          gradient={['rgba(212,175,55,0.24)', 'rgba(212,175,55,0.06)', 'rgba(14,31,26,0.0)']}
         />
 
         {/* BIG #5 · Walking the Signs (closing CTA) */}

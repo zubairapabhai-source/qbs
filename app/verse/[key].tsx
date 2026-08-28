@@ -7,7 +7,7 @@ import { t } from '../../src/i18n/strings';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Card } from '../../src/components/Card';
 import { ScreenHeader } from '../../src/components/ScreenHeader';
@@ -17,6 +17,11 @@ import { useApp } from '../../src/store/useApp';
 import { colors, spacing, type as ty } from '../../src/theme';
 
 const BASE = process.env.EXPO_PUBLIC_QBS_API_URL || '';
+
+// Signature verse (Sūrat Fuṣṣilat 41:53) is the golden hero on the home
+// screen. Its tafseer stays FREE forever as a first-taste for new users;
+// every other verse's tafseer is gated behind the £0.99 lifetime unlock.
+const SIGNATURE_VERSE_KEY = '41:53';
 
 interface VerseFull {
   found: boolean;
@@ -46,23 +51,140 @@ export default function VerseFullPage() {
   const router = useRouter();
   const lang = useApp((s) => s.lang);
   const rtl = lang === 'ar' || lang === 'ur';
+  const unlocked = useApp((s) => s.unlocked === true);
   const [data, setData] = useState<VerseFull | null>(null);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
   useBookmarks();
 
+  // Paywall gate: signature verse (41:53) stays free forever; every other
+  // verse's tafseer requires the £0.99 lifetime unlock. We resolve this
+  // BEFORE hitting the network so locked users never see a broken /
+  // spinning screen — they get a clear upgrade prompt instead.
+  const isSignatureVerse = String(key) === SIGNATURE_VERSE_KEY;
+  const requiresUnlock = !isSignatureVerse && !unlocked;
+
   useEffect(() => {
+    let cancelled = false;
+
+    if (requiresUnlock) {
+      // Skip the network entirely — we'll render the paywall prompt below.
+      setLoading(false);
+      return;
+    }
+
+    /** Fetch with a hard timeout AND automatic retry (Render cold-starts on
+     *  the free-ish Starter tier can take 20-40s before the first response). */
+    async function fetchWithTimeout(url: string, timeoutMs: number): Promise<Response> {
+      const ac = new AbortController();
+      const t = setTimeout(() => ac.abort(), timeoutMs);
+      try {
+        return await fetch(url, {
+          signal: ac.signal,
+          headers: { 'Accept': 'application/json', 'Cache-Control': 'no-cache' },
+        });
+      } finally {
+        clearTimeout(t);
+      }
+    }
+
+    async function attempt(): Promise<VerseFull> {
+      if (!BASE) throw new Error('BASE=empty (build missing EXPO_PUBLIC_QBS_API_URL)');
+      // Colons in URL paths are RFC-3986 legal. Skip encodeURIComponent —
+      // %3A was silently breaking Sentry's fetch-instrumentation on iOS.
+      const url = `${BASE}/api/verse/${String(key)}/full`;
+      // 3 attempts: 8s → 20s → 40s. Handles Render cold-start reliably.
+      const timeouts = [8000, 20000, 40000];
+      let lastErr: any = null;
+      for (let i = 0; i < timeouts.length; i++) {
+        try {
+          const res = await fetchWithTimeout(url, timeouts[i]);
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const body = (await res.json()) as VerseFull;
+          if (!body || body.found !== true) throw new Error('found=false');
+          return body;
+        } catch (e: any) {
+          lastErr = e;
+          // Try again unless we've exhausted retries.
+          if (i < timeouts.length - 1) {
+            await new Promise((r) => setTimeout(r, 400 * (i + 1)));
+          }
+        }
+      }
+      throw lastErr || new Error('Unknown fetch error');
+    }
+
     (async () => {
       setLoading(true);
+      setLoadError(null);
       try {
-        if (!BASE) { setData(null); return; }
-        const res = await fetch(`${BASE}/api/verse/${encodeURIComponent(String(key))}/full`);
-        const body = (await res.json()) as VerseFull;
-        setData(body);
-      } catch {
-        setData(null);
-      } finally { setLoading(false); }
+        const body = await attempt();
+        if (!cancelled) setData(body);
+      } catch (e: any) {
+        if (!cancelled) {
+          setLoadError(e?.message || String(e));
+          setData(null);
+        }
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
     })();
-  }, [key]);
+
+    return () => { cancelled = true; };
+  }, [key, requiresUnlock]);
+
+  // ── Locked paywall screen (any non-signature verse when user hasn't paid) ──
+  if (requiresUnlock) {
+    return (
+      <View style={{ flex: 1, backgroundColor: colors.bg, paddingTop: insets.top }}>
+        <ScreenHeader title={lang === 'en' ? 'Unlock tafseer' : lang === 'ar' ? 'افتح التفسير' : 'تفسیر انلاک'} showBack />
+        <View style={{ padding: 24, gap: 18, marginTop: 8 }}>
+          <View style={{ alignItems: 'center', gap: 12, paddingVertical: 24 }}>
+            <View style={{ width: 72, height: 72, borderRadius: 36, backgroundColor: colors.gold + '22', alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: colors.gold + '77' }}>
+              <Ionicons name="lock-closed" size={32} color={colors.gold} />
+            </View>
+            <Text style={{ color: colors.text, fontSize: 20, fontWeight: '800', textAlign: 'center' }}>
+              {lang === 'en' ? 'Tafseer requires unlock' :
+               lang === 'ar' ? 'التفسير يتطلب الفتح' :
+               'تفسیر کے لیے انلاک درکار'}
+            </Text>
+            <Text style={{ color: colors.silver, fontSize: 14, textAlign: 'center', lineHeight: 22, paddingHorizontal: 12 }}>
+              {lang === 'en'
+                ? 'One-time £0.99 unlock gives lifetime access to all 6 tafseer sources across every one of the 6,236 verses — plus "Ask a Sheikh" AI answers.'
+                : lang === 'ar'
+                ? 'افتح مرة واحدة بـ ٠٫٩٩ جنيه لتحصل على وصول مدى الحياة لجميع التفاسير الستة عبر آيات القرآن كافّة، مع «اسأل الشيخ».'
+                : 'ایک بار £0.99 میں انلاک کریں اور تمام ۶ تفاسیر و "شیخ سے پوچھیں" کی تاحیات رسائی حاصل کریں۔'}
+            </Text>
+            <Text style={{ color: colors.gold + 'BB', fontSize: 12, textAlign: 'center', paddingTop: 4 }}>
+              {lang === 'en' ? '✨ Fussilat 41:53 tafseer remains free forever' :
+               lang === 'ar' ? '✨ تفسير سورة فصلت ٤١:٥٣ مجاني دائماً' :
+               '✨ سورۃ فصلت 41:53 کی تفسیر ہمیشہ مفت'}
+            </Text>
+          </View>
+          <Pressable
+            onPress={() => router.push('/unlock' as any)}
+            style={{ backgroundColor: colors.gold, paddingVertical: 14, borderRadius: 999, alignItems: 'center' }}
+          >
+            <Text style={{ color: colors.bg, fontWeight: '800', fontSize: 15 }}>
+              {lang === 'en' ? 'Unlock for £0.99' :
+               lang === 'ar' ? 'افتح بـ ٠٫٩٩ جنيه' :
+               '£0.99 میں انلاک کریں'}
+            </Text>
+          </Pressable>
+          <Pressable
+            onPress={() => router.push(`/verse/${SIGNATURE_VERSE_KEY}` as any)}
+            style={{ paddingVertical: 10, alignItems: 'center' }}
+          >
+            <Text style={{ color: colors.silver, fontSize: 13 }}>
+              {lang === 'en' ? 'Preview free tafseer instead →' :
+               lang === 'ar' ? 'شاهد التفسير المجاني بدلاً من ذلك →' :
+               'مفت تفسیر دیکھیں →'}
+            </Text>
+          </Pressable>
+        </View>
+      </View>
+    );
+  }
 
   if (loading) return (
     <View style={{ flex: 1, backgroundColor: colors.bg, justifyContent: 'center' }}>
@@ -70,8 +192,28 @@ export default function VerseFullPage() {
     </View>
   );
   if (!data || !data.found) return (
-    <View style={{ flex: 1, backgroundColor: colors.bg }}>
-      <ScreenHeader title={t('a3_key_verseNotFound') || 'Verse not found'} showBack />
+    <View style={{ flex: 1, backgroundColor: colors.bg, paddingTop: insets.top }}>
+      <ScreenHeader title={t('a3_key_verseNotFound') || 'Tafseer unavailable'} showBack />
+      <View style={{ padding: 24, gap: 16 }}>
+        <Text style={{ color: colors.silver, fontSize: 15, lineHeight: 22 }}>
+          {lang === 'en' ? 'We could not load the tafseer for this verse right now. The server may be waking up — please try again in a few seconds.' :
+           lang === 'ar' ? 'تعذّر تحميل التفسير الآن. قد يكون الخادم في وضع الاستيقاظ — يرجى المحاولة بعد بضع ثوانٍ.' :
+           'ابھی تفسیر لوڈ نہیں ہو سکی۔ سرور بیدار ہو رہا ہو گا — چند لمحوں بعد دوبارہ کوشش کریں۔'}
+        </Text>
+        {loadError && (
+          <Text style={{ color: colors.silver + '99', fontSize: 12, fontFamily: 'Menlo' }}>
+            {`Details: ${loadError}`}
+          </Text>
+        )}
+        <Pressable
+          onPress={() => { setData(null); setLoading(true); setLoadError(null); /* re-run effect */ router.replace(`/verse/${String(key)}` as any); }}
+          style={{ backgroundColor: colors.gold, paddingHorizontal: 20, paddingVertical: 12, borderRadius: 999, alignSelf: 'flex-start' }}
+        >
+          <Text style={{ color: colors.bg, fontWeight: '800' }}>
+            {lang === 'en' ? 'Try again' : lang === 'ar' ? 'حاول مجدداً' : 'دوبارہ کوشش'}
+          </Text>
+        </Pressable>
+      </View>
     </View>
   );
 

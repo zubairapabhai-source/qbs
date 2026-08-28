@@ -4,13 +4,14 @@
  * Surfaces /api/bible-comparisons[/{slug}] data with the QBS silver theme.
  */
 import { Ionicons } from '@expo/vector-icons';
-import { useLocalSearchParams } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { useFocusEffect, useLocalSearchParams } from 'expo-router';
+import { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Card } from '../src/components/Card';
 import { ScreenHeader } from '../src/components/ScreenHeader';
 import { useApp } from '../src/store/useApp';
+import { getEntitlement } from '../src/api';
 import { LockBanner, LockedTile, FREE_PREVIEW_LIMIT } from '../src/iap/gate';
 import { colors, spacing, type as ty } from '../src/theme';
 
@@ -40,6 +41,8 @@ export default function BibleComparisonsScreen() {
   const insets = useSafeAreaInsets();
   const lang = useApp((s) => s.lang);
   const unlocked = useApp((s) => s.unlocked);
+  const deviceId = useApp((s) => s.deviceId);
+  const setEntitlement = useApp((s) => s.setEntitlement);
   const rtl = lang === 'ar' || lang === 'ur';
   const params = useLocalSearchParams<{ tile?: string }>();
   const [items, setItems] = useState<Item[]>([]);
@@ -51,28 +54,72 @@ export default function BibleComparisonsScreen() {
   const [loadingDetail, setLoadingDetail] = useState(false);
 
   useEffect(() => {
-    (async () => {
-      try {
-        const [r1, r2] = await Promise.all([
-          fetch(`${API}/api/bible-comparisons/?lang=${lang}`).then((r) => r.json()),
-          fetch(`${API}/api/bible-comparisons/special-tiles?lang=${lang}`).then((r) => r.json()),
-        ]);
-        setItems(r1?.items || []);
-        setDisclaimer(r1?.disclaimer || '');
-        setTiles(r2?.tiles || []);
-        // Deep-link: if ?tile=slug was passed (from home page hero card),
-        // auto-open that special tile.
-        if (params.tile) {
-          try {
-            const tr = await fetch(`${API}/api/bible-comparisons/special-tiles/${params.tile}?lang=${lang}`);
-            const tj = await tr.json();
-            if (tj && tj.slug) setActiveTile(tj);
-          } catch {}
+    let cancelled = false;
+
+    // Fetch with hard timeout so a Render cold-start doesn't leave the
+    // screen stuck on "empty" forever.
+    async function jsonWithRetry(url: string): Promise<any | null> {
+      const timeouts = [8000, 20000, 40000];
+      let lastErr: any = null;
+      for (let i = 0; i < timeouts.length; i++) {
+        const ac = new AbortController();
+        const t = setTimeout(() => ac.abort(), timeouts[i]);
+        try {
+          const r = await fetch(url, {
+            signal: ac.signal,
+            headers: { 'Accept': 'application/json', 'Cache-Control': 'no-cache' },
+          });
+          clearTimeout(t);
+          if (!r.ok) throw new Error(`HTTP ${r.status}`);
+          return await r.json();
+        } catch (e) {
+          clearTimeout(t);
+          lastErr = e;
+          if (i < timeouts.length - 1) await new Promise((res) => setTimeout(res, 400 * (i + 1)));
         }
-      } catch {}
-      setLoading(false);
+      }
+      console.warn('bible-comparisons fetch failed:', url, lastErr?.message || lastErr);
+      return null;
+    }
+
+    (async () => {
+      const [r1, r2] = await Promise.all([
+        jsonWithRetry(`${API}/api/bible-comparisons/?lang=${lang}`),
+        jsonWithRetry(`${API}/api/bible-comparisons/special-tiles?lang=${lang}`),
+      ]);
+      if (cancelled) return;
+      setItems(r1?.items || []);
+      setDisclaimer(r1?.disclaimer || '');
+      setTiles(r2?.tiles || []);
+      if (params.tile) {
+        const tj = await jsonWithRetry(`${API}/api/bible-comparisons/special-tiles/${params.tile}?lang=${lang}`);
+        if (!cancelled && tj?.slug) setActiveTile(tj);
+      }
+      if (!cancelled) setLoading(false);
     })();
+
+    return () => { cancelled = true; };
   }, [lang, params.tile]);
+
+  // Re-sync server entitlement whenever the Qur'ān-vs-Bible tab is focused,
+  // so a fresh Restore Purchases or a just-finalised Apple receipt unlocks
+  // the special tiles immediately without an app relaunch.
+  useFocusEffect(
+    useCallback(() => {
+      if (!deviceId) return;
+      let cancelled = false;
+      (async () => {
+        try {
+          const resp: any = await getEntitlement(deviceId);
+          const ent = resp && typeof resp === 'object' && 'data' in resp ? resp.data : resp;
+          if (!cancelled && ent && ent.unlocked === true) {
+            setEntitlement({ unlocked: true });
+          }
+        } catch { /* ignore */ }
+      })();
+      return () => { cancelled = true; };
+    }, [deviceId, setEntitlement])
+  );
 
   const openDetail = async (slug: string) => {
     setActive({ slug, topic: '', verdict: '', bible_claim: '', quran_account: '', modern_evidence: '' } as Detail);

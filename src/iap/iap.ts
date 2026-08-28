@@ -43,7 +43,7 @@ export interface PurchaseReport {
   raw?: any;
 }
 
-async function reportPurchaseToBackend(deviceId: string, p: PurchaseReport) {
+export async function reportPurchaseToBackend(deviceId: string, p: PurchaseReport) {
   if (!API_BASE) return { ok: false, reason: 'no-base-url' };
   try {
     const res = await fetch(`${API_BASE}/api/iap/report-purchase`, {
@@ -142,6 +142,39 @@ export function useStorePurchases(): StoreApi {
         ],
         type: 'in-app',
       });
+
+      // SILENT RESTORE: check any already-finalised purchases the platform
+      // knows about (Apple / Google surface these without an Apple-ID
+      // prompt). If a lifetime unlock is present, promote the local flag
+      // and re-report to the backend so server entitlement stays in sync.
+      // Runs once on connect — cheap and idempotent.
+      (async () => {
+        try {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const getAvail = (iap as any).getAvailablePurchases;
+          if (typeof getAvail !== 'function') return;
+          const avail = await getAvail();
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const lifetime = (Array.isArray(avail) ? avail : []).find((p: any) =>
+            p?.productId === IAP_PRODUCTS.lifetimeUnlock ||
+            p?.sku === IAP_PRODUCTS.lifetimeUnlock ||
+            p?.productIds?.includes?.(IAP_PRODUCTS.lifetimeUnlock)
+          );
+          if (lifetime) {
+            setEntitlement({ unlocked: true });
+            if (deviceId) {
+              await reportPurchaseToBackend(deviceId, {
+                productId: IAP_PRODUCTS.lifetimeUnlock,
+                isConsumable: false,
+                transactionId: lifetime?.transactionId || lifetime?.originalTransactionId || lifetime?.orderId || null,
+                purchaseToken: lifetime?.purchaseToken || null,
+                receiptData: lifetime?.transactionReceipt || null,
+                raw: lifetime,
+              });
+            }
+          }
+        } catch { /* silent — user can still tap Restore manually */ }
+      })();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [iap?.connected]);

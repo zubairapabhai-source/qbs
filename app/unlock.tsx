@@ -9,8 +9,10 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Card } from '../src/components/Card';
 import { SilverButton } from '../src/components/SilverButton';
 import { useApp } from '../src/store/useApp';
-import { useStorePurchases } from '../src/iap/iap';
+import { useStorePurchases, reportPurchaseToBackend } from '../src/iap/iap';
 import { IAP_PRODUCTS, AI_PACK_CREDITS, AI_PACK_FALLBACK_PRICES, type IapProductSku } from '../src/iap/products';
+import { getEntitlement } from '../src/api';
+import { openSupportEmail } from '../src/support';
 import { t } from '../src/i18n/strings';
 import { colors, spacing, type as ty } from '../src/theme';
 
@@ -75,12 +77,98 @@ export default function Unlock() {
     }
     try {
       const restored = await store.restorePurchases();
-      Alert.alert(
-        lang === 'en' ? 'Restored' : lang === 'ar' ? 'تمت الاستعادة' : 'بحال ہو گیا',
-        `${restored?.length ?? 0} ${lang === 'en' ? 'purchase(s)' : lang === 'ar' ? 'عمليات' : 'خریداریاں'}`,
+      // On iOS, react-native-iap returns restored transactions here but does
+      // NOT re-fire onPurchaseSuccess for them. We must manually inspect the
+      // array and unlock accordingly. On Android it also works.
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const lifetimePurchases = (Array.isArray(restored) ? restored : []).filter((p: any) =>
+        p?.productId === IAP_PRODUCTS.lifetimeUnlock ||
+        p?.sku === IAP_PRODUCTS.lifetimeUnlock ||
+        p?.productIds?.includes?.(IAP_PRODUCTS.lifetimeUnlock)
       );
-    } catch (e) {
+      const hasLifetime = lifetimePurchases.length > 0;
+      if (hasLifetime) {
+        // Report each restored purchase to backend so server-side
+        // entitlement (AI Sheikh, cloud tafseer quotas, etc.) is unlocked
+        // too — this is how the /api/iap/entitlements/{deviceId} check
+        // flips to unlocked=true on the server for this device.
+        const deviceId = useApp.getState().deviceId || 'preview';
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        await Promise.all(lifetimePurchases.map((p: any) =>
+          reportPurchaseToBackend(deviceId, {
+            productId: IAP_PRODUCTS.lifetimeUnlock,
+            transactionId: p?.transactionId || p?.originalTransactionId || p?.orderId || null,
+            purchaseToken: p?.purchaseToken || null,
+            receiptData: p?.transactionReceipt || p?.originalTransactionDateIOS || null,
+            raw: p,
+          })
+        ));
+        setEntitlement({ unlocked: true });
+        Alert.alert(
+          lang === 'en' ? 'Restored ✓' : lang === 'ar' ? 'تمت الاستعادة ✓' : 'بحال ہو گیا ✓',
+          lang === 'en' ? 'Your lifetime unlock has been restored. Enjoy full tafseer + Ask the Sheikh.' :
+          lang === 'ar' ? 'تمت استعادة اشتراكك مدى الحياة. استمتع بكامل التفسير و«اسأل الشيخ».' :
+          'تاحیات انلاک بحال ہو گیا۔ مکمل تفسیر اور "شیخ سے پوچھیں" سے فائدہ اٹھائیں۔'
+        );
+        setTimeout(() => router.back(), 800);
+      } else {
+        // Apple / Google returned zero restored purchases. This can happen
+        // when (a) the £0.99 charge is still in Apple's "pending" state
+        // (receipt not yet finalised), (b) the user is signed in with a
+        // different Apple ID than the one that purchased, or (c) the user
+        // never actually completed a purchase. Before we tell them "no
+        // purchases found", do a SERVER-SIDE fallback check: our backend
+        // may already have received the receipt via a prior in-flight
+        // report-purchase call, in which case we can unlock this device
+        // anyway.
+        let serverUnlocked = false;
+        try {
+          const deviceId = useApp.getState().deviceId || 'preview';
+          const resp: any = await getEntitlement(deviceId);
+          const ent = resp && typeof resp === 'object' && 'data' in resp ? resp.data : resp;
+          if (ent && ent.unlocked === true) serverUnlocked = true;
+        } catch { /* server offline — fall through to the "no purchases" message */ }
+
+        if (serverUnlocked) {
+          setEntitlement({ unlocked: true });
+          Alert.alert(
+            lang === 'en' ? 'Unlocked ✓' : lang === 'ar' ? 'تم الفتح ✓' : 'انلاک ہو گیا ✓',
+            lang === 'en' ? 'Your lifetime unlock was found on our server and re-applied to this device.' :
+            lang === 'ar' ? 'تم العثور على شرائك مدى الحياة على خادمنا وتم إعادة تفعيله على هذا الجهاز.' :
+            'ہمارے سرور پر آپ کا تاحیات انلاک ملا اور اس ڈیوائس پر بحال کر دیا گیا۔'
+          );
+          setTimeout(() => router.back(), 800);
+          return;
+        }
+
+        Alert.alert(
+          lang === 'en' ? "We couldn't find your purchase" :
+            lang === 'ar' ? 'لم نعثر على شرائك' :
+            'ہمیں آپ کی خریداری نہیں ملی',
+          lang === 'en'
+            ? `Apple returned no purchases tied to this Apple ID.\n\nTwo quick checks:\n• Are you signed in with the SAME Apple ID you paid with? (Settings → your name → Media & Purchases)\n• Open Settings → your name → Purchase History and confirm the £0.99 charge is there and cleared\n\nIf both look right, tap "Email us" below and we'll unlock your device manually within a few hours.`
+            : lang === 'ar'
+              ? `لم تُعِد Apple أي شراء مرتبط بحساب Apple هذا.\n\nفحصان سريعان:\n• هل سجّلت الدخول بنفس حساب Apple الذي دفعت به؟ (الإعدادات ← اسمك ← الوسائط والمشتريات)\n• افتح الإعدادات ← اسمك ← سجل الشراء وأكد وجود دفعة ٠٫٩٩.\n\nإن كان كلاهما صحيحًا، اضغط «راسِلنا» وسنفتح جهازك يدويًا خلال ساعات.`
+              : `Apple نے اس Apple ID سے وابستہ کوئی خریداری واپس نہیں کی۔\n\nدو فوری چیک:\n• کیا آپ اسی Apple ID سے سائن ان ہیں جس سے ادائگی کی؟ (Settings → آپ کا نام → Media & Purchases)\n• Settings → آپ کا نام → Purchase History کھول کر تصدیق کریں کہ £0.99 وہاں ہے۔\n\nاگر دونوں ٹھیک ہیں تو "ای میل کریں" دبائیں، ہم چند گھنٹوں میں دستی طور پر ان لاک کر دیں گے۔`,
+          [
+            { text: lang === 'en' ? 'Close' : lang === 'ar' ? 'إغلاق' : 'بند کریں', style: 'cancel' },
+            {
+              text: lang === 'en' ? 'Email us' : lang === 'ar' ? 'راسِلنا' : 'ای میل کریں',
+              onPress: () => openSupportEmail({
+                deviceId: useApp.getState().deviceId || 'preview',
+                topic: 'unlock',
+                message: `Hi — I paid £0.99 for the lifetime unlock but Restore Purchases isn't finding it on my Apple ID. Please could you unlock my device manually? (Apple returned ${restored?.length ?? 0} transactions.)`,
+              }),
+            },
+          ]
+        );
+      }
+    } catch (e: any) {
       console.warn('[IAP] restore failed', e);
+      Alert.alert(
+        lang === 'en' ? 'Restore failed' : lang === 'ar' ? 'فشلت الاستعادة' : 'بحالی ناکام',
+        e?.message || String(e)
+      );
     }
   };
 
@@ -187,10 +275,6 @@ export default function Unlock() {
             );
           })}
         </Card>
-
-        <Pressable onPress={() => { setEntitlement({ unlocked: true }); router.back(); }}>
-          <Text style={styles.previewLink}>{lang === 'en' ? 'Preview unlocked mode (dev)' : 'معاينة تطوير'}</Text>
-        </Pressable>
 
         <Text style={[styles.fine, { textAlign: rtl ? 'right' : 'center' }]}>
           {lang === 'en' ? 'Payment is processed by Apple / Google. A one-time charge of £0.99 (or local equivalent) applies. No subscription.' :

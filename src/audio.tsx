@@ -15,7 +15,7 @@
  *     at least one player holds a duck-ref.
  */
 import React, { createContext, useContext, useEffect, useRef, useState } from 'react';
-import { Platform } from 'react-native';
+import { AppState, Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAudioPlayer, setAudioModeAsync } from 'expo-audio';
 
@@ -109,14 +109,44 @@ export function AmbientAudioProvider({ children }: { children: React.ReactNode }
       setMuted(m);
       setHydrated(true);
       try {
+        // Global iOS/Android audio session config.
+        //   playsInSilentMode: verse recitations audible even when device is on silent
+        //   shouldPlayInBackground: keeps verse recitation playing while the
+        //     screen is locked / app is backgrounded (requires UIBackgroundModes:
+        //     ["audio"] on iOS and FOREGROUND_SERVICE_MEDIA_PLAYBACK on Android,
+        //     both declared in app.json).
         await setAudioModeAsync({
           playsInSilentMode: true,
-          shouldPlayInBackground: false,
+          shouldPlayInBackground: true,
+          interruptionMode: 'doNotMix',
         } as any);
       } catch {}
     })();
     return () => stopFade();
   }, []);
+
+  // Pause the ambient stream whenever the app goes to background so we don't
+  // burn battery / audio focus with a soft rain loop the user isn't hearing.
+  // Verse recitations (VerseAudioButton) are separate players and will keep
+  // playing while locked — which is the whole point of this build's fix.
+  const wasPlayingBeforeBackground = useRef(false);
+  useEffect(() => {
+    const sub = AppState.addEventListener('change', (state) => {
+      if (state === 'background' || state === 'inactive') {
+        wasPlayingBeforeBackground.current = !muted;
+        try { player.pause(); } catch {}
+      } else if (state === 'active' && wasPlayingBeforeBackground.current && !muted) {
+        try {
+          player.volume = TARGET_VOLUME;
+          const maybe = player.play() as unknown as Promise<void> | void;
+          if (maybe && typeof (maybe as Promise<void>).catch === 'function') {
+            (maybe as Promise<void>).catch(() => {});
+          }
+        } catch {}
+      }
+    });
+    return () => sub.remove();
+  }, [muted, player]);
 
   // Effective play state depends on BOTH the user toggle AND ducking.
   // The stream should be audible only when (not muted) AND (not ducked).

@@ -4,8 +4,8 @@
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Clipboard from 'expo-clipboard';
-import { useLocalSearchParams, useRouter } from 'expo-router';
-import { useEffect, useRef, useState } from 'react';
+import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Alert, KeyboardAvoidingView, Platform, Pressable, ScrollView, Share, StyleSheet, Text, TextInput, View } from 'react-native';
 // expo-speech-recognition lazy-loaded — no web fallback.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -21,7 +21,7 @@ try {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Card } from '../../src/components/Card';
 import { ScreenHeader } from '../../src/components/ScreenHeader';
-import { askSheikh, type SheikhAnswer } from '../../src/api';
+import { askSheikh, getEntitlement, type SheikhAnswer } from '../../src/api';
 import { useApp } from '../../src/store/useApp';
 import { t } from '../../src/i18n/strings';
 import { colors, radius, spacing, type as ty } from '../../src/theme';
@@ -38,6 +38,7 @@ export default function SheikhScreen() {
   const lang = useApp((s) => s.lang);
   const deviceId = useApp((s) => s.deviceId);
   const unlocked = useApp((s) => s.unlocked);
+  const setEntitlement = useApp((s) => s.setEntitlement);
   const rtl = lang === 'ar' || lang === 'ur';
   const [msgs, setMsgs] = useState<Msg[]>([]);
   const [input, setInput] = useState('');
@@ -166,6 +167,32 @@ export default function SheikhScreen() {
     AsyncStorage.setItem(CHAT_KEY, JSON.stringify(trimmed)).catch(() => {});
   }, [msgs]);
 
+  // Re-sync entitlement whenever the Sheikh tab is focused. This catches the
+  // case where the user just came back from /unlock (Restore Purchases) or
+  // where Apple / Google finalised a previously "pending" receipt in the
+  // background.  Only ever PROMOTES to unlocked — never demotes.
+  useFocusEffect(
+    useCallback(() => {
+      if (!deviceId) return;
+      let cancelled = false;
+      (async () => {
+        try {
+          const resp: any = await getEntitlement(deviceId);
+          const ent = resp && typeof resp === 'object' && 'data' in resp ? resp.data : resp;
+          if (!cancelled && ent && typeof ent === 'object') {
+            const patch: any = {
+              packBalance: Number(ent.question_pack_balance || 0),
+              weeklyUsed: Number(ent?.weekly_questions?.used || 0),
+            };
+            if (ent.unlocked === true) patch.unlocked = true;
+            setEntitlement(patch);
+          }
+        } catch { /* ignore */ }
+      })();
+      return () => { cancelled = true; };
+    }, [deviceId, setEntitlement])
+  );
+
   const clearChat = () => {
     setMsgs([]);
     AsyncStorage.removeItem(CHAT_KEY).catch(() => {});
@@ -185,7 +212,13 @@ export default function SheikhScreen() {
         setLastQuota({ used: res.data.quota.weekly_used, free: res.data.quota.free_per_week, balance: res.data.quota.pack_balance });
       }
     } else if (res.status === 402) {
-      setMsgs((m) => [...m, { role: 'sheikh', text: '🔒 ' + (res.error?.detail?.message || 'Premium required.') }]);
+      const nudge =
+        lang === 'en'
+          ? '\n\nAlready paid? Tap the sparkles icon (top right) → “Restore previous purchases” to sync your unlock.'
+          : lang === 'ar'
+            ? '\n\nهل دفعت بالفعل؟ انقر على أيقونة النجوم (أعلى اليمين) ← «استعادة مشتريات سابقة» لمزامنة الفتح.'
+            : '\n\nپہلے سے ادائگی کر چکے ہیں؟ اوپر دائیں چمکتی ہوئی آئیکن ← "پچھلی خریداریاں بحال کریں" پر ٹیپ کریں۔';
+      setMsgs((m) => [...m, { role: 'sheikh', text: '🔒 ' + (res.error?.detail?.message || 'Premium required.') + nudge }]);
     } else {
       setMsgs((m) => [...m, { role: 'sheikh', text:
         lang === 'en' ? 'Network error. Please retry.'

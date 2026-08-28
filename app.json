@@ -2,27 +2,41 @@
   "expo": {
     "name": "Quran, Bible and Science",
     "slug": "quran-bible-science",
-    "version": "0.1.0",
+    "version": "0.1.6",
     "orientation": "portrait",
     "scheme": "qbs",
     "userInterfaceStyle": "dark",
     "newArchEnabled": true,
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#042216"
+    },
     "ios": {
       "bundleIdentifier": "com.divineseriesmobile.quranbiblescience",
-      "buildNumber": "3",
+      "buildNumber": "10",
       "infoPlist": {
         "NSMicrophoneUsageDescription": "Listen as you recite to find the Qur'\u0101nic verse.",
         "NSSpeechRecognitionUsageDescription": "Match your spoken Arabic to a verse.",
         "NSLocationWhenInUseUsageDescription": "Calculate accurate prayer times for your location.",
-        "ITSAppUsesNonExemptEncryption": false
+        "ITSAppUsesNonExemptEncryption": false,
+        "UIBackgroundModes": ["audio"]
       }
     },
     "android": {
       "package": "com.divineseriesmobile.quranbiblescience",
-      "versionCode": 3,
+      "versionCode": 8,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#042216"
+      },
       "permissions": [
         "android.permission.RECORD_AUDIO",
-        "android.permission.ACCESS_COARSE_LOCATION"
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK",
+        "android.permission.WAKE_LOCK"
       ],
       "edgeToEdgeEnabled": true,
       "blockedPermissions": [
@@ -32,7 +46,20 @@
     "plugins": [
       "expo-router",
       "expo-localization",
-      "expo-speech-recognition"
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "Listen as you recite to find the Qur'\u0101nic verse.",
+          "speechRecognitionPermission": "Match your spoken Arabic to a verse.",
+          "androidSpeechServicePackages": ["com.google.android.googlequicksearchbox"]
+        }
+      ],
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "Listen as you recite to find the Qur'\u0101nic verse."
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true

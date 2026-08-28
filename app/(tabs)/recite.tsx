@@ -1,27 +1,45 @@
 /**
  * Recite tab — text/voice search across all 6,236 verses.
- * Voice mic is a placeholder until expo-speech-recognition is added in a
- * native build. Text input works today against /api/quran/match-text.
+ * Native voice mic uses expo-speech-recognition (free, on-device on iOS 13+
+ * and Android 13+, cloud fallback otherwise). Text input works today
+ * against /api/quran/match-text.
  */
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
 import { useRef, useState } from 'react';
-import { ActivityIndicator, Alert, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, Alert, Linking, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-// expo-speech-recognition has no web fallback — lazy require with stubs so the
-// preview / Expo Go bundle doesn't crash. On native builds these resolve to the
-// real native module.
+// expo-speech-recognition needs a native pod that must be linked at build
+// time. If EAS's cached iOS build skipped `pod install` (has happened
+// twice), require() throws at import time. We fall back to stubs, and
+// SPEECH_RECOGNITION_NATIVE_AVAILABLE goes false so we can show a helpful
+// error instead of silently failing.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-let ExpoSpeechRecognitionModule: any = { requestPermissionsAsync: async () => ({ granted: false }), start: () => {}, stop: () => {} };
+let ExpoSpeechRecognitionModule: any = {
+  getPermissionsAsync: async () => ({ granted: false, canAskAgain: true, status: 'undetermined' }),
+  requestPermissionsAsync: async () => ({ granted: false, canAskAgain: false, status: 'denied' }),
+  start: () => {},
+  stop: () => {},
+};
+let SPEECH_RECOGNITION_NATIVE_AVAILABLE = false;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let useSpeechRecognitionEvent: any = () => {};
-try {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const sr = require('expo-speech-recognition');
-  ExpoSpeechRecognitionModule = sr.ExpoSpeechRecognitionModule;
-  useSpeechRecognitionEvent = sr.useSpeechRecognitionEvent;
-} catch {}
+if (Platform.OS === 'ios' || Platform.OS === 'android') {
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const sr = require('expo-speech-recognition');
+    // Prefer the named export; fall back to default or the raw module object
+    // in case the ESM/CJS shape shifts across SDK versions.
+    const mod = sr?.ExpoSpeechRecognitionModule || sr?.default?.ExpoSpeechRecognitionModule || sr?.default || sr;
+    const hasRequest = mod && typeof mod.requestPermissionsAsync === 'function';
+    if (hasRequest) {
+      ExpoSpeechRecognitionModule = mod;
+      useSpeechRecognitionEvent = sr.useSpeechRecognitionEvent || sr?.default?.useSpeechRecognitionEvent || (() => {});
+      SPEECH_RECOGNITION_NATIVE_AVAILABLE = true;
+    }
+  } catch { /* pod not linked → stubs stay */ }
+}
 import { Card } from '../../src/components/Card';
 import { createWebSpeechRecognizer, isWebSpeechSupported, type WebSpeechSession } from '../../src/utils/webSpeech';
 import { Empty } from '../../src/components/Empty';
@@ -48,18 +66,35 @@ export default function ReciteScreen() {
   const webRecRef = useRef<WebSpeechSession | null>(null);
 
   // ── on-device speech recognition wiring (free) ──
+  // Android returns transcripts in several shapes across OEMs & Google Speech
+  // Service versions — read defensively so we never drop a valid transcript.
   useSpeechRecognitionEvent('result', (e: any) => {
-    const r = e.results?.[0]?.transcript;
-    if (typeof r === 'string') {
+    const r =
+      e?.results?.[0]?.transcript ??
+      e?.results?.[e?.results?.length - 1]?.transcript ??
+      e?.value?.[0] ??
+      e?.value ??
+      e?.transcript ??
+      '';
+    if (typeof r === 'string' && r.length > 0) {
       transcriptRef.current = r;
       setTranscript(r);
     }
   });
   useSpeechRecognitionEvent('end', () => {
     setRecording(false);
-    // Auto-search if we captured something
-    if (transcriptRef.current.trim().length > 1) {
-      setTimeout(() => doMatch(), 100);
+    // Auto-search if we captured something. Use the REF (not state) because
+    // React state hasn't necessarily flushed by the time this event fires,
+    // and doMatch reads its argument directly.
+    const captured = transcriptRef.current.trim();
+    if (captured.length > 1) {
+      setTimeout(() => doMatch(captured), 100);
+    } else {
+      // Mic session ended but Android's Speech Service returned nothing
+      // (silence / OEM-specific quirks / offline recogniser). Surface an
+      // empty-results panel so the user sees clearly what went wrong.
+      setHasSearched(true);
+      setResults([]);
     }
   });
   useSpeechRecognitionEvent('error', (e: any) => {
@@ -70,8 +105,10 @@ export default function ReciteScreen() {
     );
   });
 
-  const doMatch = async () => {
-    const q = transcript.trim();
+  const doMatch = async (override?: string) => {
+    // Prefer the argument (voice callback) → then ref → then state, so we
+    // never fall back to a stale state read from an async event handler.
+    const q = (override ?? transcriptRef.current ?? transcript).trim();
     if (q.length < 2) return;
     setLoading(true);
     setHasSearched(true);
@@ -128,7 +165,7 @@ export default function ReciteScreen() {
       rec.start({
         lang: 'ar-SA',
         onResult: (text) => { transcriptRef.current = text; setTranscript(text); },
-        onEnd: () => { setRecording(false); webRecRef.current = null; if (transcriptRef.current) onSearch(); },
+        onEnd: () => { setRecording(false); webRecRef.current = null; if (transcriptRef.current) doMatch(transcriptRef.current); },
         onError: (msg) => {
           setRecording(false);
           webRecRef.current = null;
@@ -141,14 +178,44 @@ export default function ReciteScreen() {
     }
 
     // === NATIVE — iOS / Android with expo-speech-recognition ===
+    if (!SPEECH_RECOGNITION_NATIVE_AVAILABLE) {
+      Alert.alert(
+        lang === 'en' ? 'Voice unavailable' : lang === 'ar' ? 'الصوت غير متاح' : 'آواز دستیاب نہیں',
+        lang === 'en'
+          ? 'The voice recognition module is not available in this build. Please update the app.'
+          : lang === 'ar'
+          ? 'وحدة التعرف على الكلام غير متوفرة في هذا الإصدار. يرجى تحديث التطبيق.'
+          : 'اس بلڈ میں تقریر کی شناخت دستیاب نہیں۔ ایپ اپ ڈیٹ کریں۔'
+      );
+      return;
+    }
     try {
-      const perm = await ExpoSpeechRecognitionModule.requestPermissionsAsync();
-      if (!perm.granted) {
+      // Best practice: check first, then request only if allowed.
+      let perm = await ExpoSpeechRecognitionModule.getPermissionsAsync();
+      if (!perm?.granted && perm?.canAskAgain !== false) {
+        perm = await ExpoSpeechRecognitionModule.requestPermissionsAsync();
+      }
+      if (!perm?.granted) {
+        const canReask = perm?.canAskAgain !== false;
         Alert.alert(
           lang === 'en' ? 'Microphone required' : lang === 'ar' ? 'المايكروفون مطلوب' : 'مائیک کی اجازت درکار',
-          lang === 'en' ? 'Please enable microphone & speech recognition in Settings.' :
-            lang === 'ar' ? 'يرجى تفعيل المايكروفون والتعرف على الكلام في الإعدادات.' :
-            'سیٹنگز میں مائیک اور تقریر کی شناخت فعال کریں۔'
+          canReask
+            ? (lang === 'en'
+              ? 'Tap the mic again and allow microphone & speech recognition to recite a verse aloud.'
+              : lang === 'ar'
+              ? 'انقر المايكروفون مرة أخرى واسمح بالمايكروفون والتعرف على الكلام لتلاوة الآية.'
+              : 'دوبارہ مائیک پر ٹیپ کریں اور مائیک و تقریر کی شناخت کی اجازت دیں۔')
+            : (lang === 'en'
+              ? 'Please enable Microphone and Speech Recognition for this app in Settings.'
+              : lang === 'ar'
+              ? 'يرجى تفعيل المايكروفون والتعرف على الكلام لهذا التطبيق في الإعدادات.'
+              : 'براہ کرم سیٹنگز میں اس ایپ کے لیے مائیک اور تقریر کی شناخت فعال کریں۔'),
+          canReask
+            ? [{ text: 'OK' }]
+            : [
+                { text: lang === 'en' ? 'Cancel' : lang === 'ar' ? 'إلغاء' : 'منسوخ', style: 'cancel' },
+                { text: lang === 'en' ? 'Open Settings' : lang === 'ar' ? 'فتح الإعدادات' : 'سیٹنگز کھولیں', onPress: () => Linking.openSettings() },
+              ]
         );
         return;
       }
@@ -230,7 +297,41 @@ export default function ReciteScreen() {
 
         {/* Results */}
         {hasSearched && !loading && results.length === 0 ? (
-          <Empty icon="search-outline" title={t('noResults', lang)} />
+          <View style={styles.noResultsBox}>
+            <Ionicons name={transcript ? 'search-outline' : 'mic-off-outline'} size={40} color={colors.silver + '99'} />
+            <Text style={styles.noResultsTitle}>
+              {transcript
+                ? (lang === 'en' ? 'No matching verse found' :
+                   lang === 'ar' ? 'لم يُعثر على آية مطابقة' :
+                   'کوئی مماثل آیت نہیں ملی')
+                : (lang === 'en' ? 'Mic didn\'t catch anything' :
+                   lang === 'ar' ? 'لم يلتقط المايكروفون شيئًا' :
+                   'مائیک نے کچھ نہیں پکڑا')}
+            </Text>
+            {transcript ? (
+              <>
+                <Text style={styles.noResultsHint}>
+                  {lang === 'en' ? 'We heard:' :
+                   lang === 'ar' ? 'ما سمعناه:' :
+                   'ہم نے سنا:'}
+                </Text>
+                <Text style={styles.noResultsHeard}>「 {transcript} 」</Text>
+                <Text style={styles.noResultsTip}>
+                  {lang === 'en' ? 'Try reciting more slowly and closer to the microphone. Recitation should be in classical Arabic.' :
+                   lang === 'ar' ? 'حاول التلاوة ببطء أكثر وقريباً من المايكروفون بالعربية الفصحى.' :
+                   'زیادہ آہستہ اور مائیک کے قریب سے فصیح عربی میں تلاوت کریں۔'}
+                </Text>
+              </>
+            ) : (
+              <Text style={styles.noResultsTip}>
+                {lang === 'en'
+                  ? 'On Android, make sure "Google Speech Services" is set as your recogniser (Settings → Voice input). Speak Arabic close to the mic, not too quietly, and give it a couple of seconds.'
+                  : lang === 'ar'
+                    ? 'على أندرويد، تأكد من ضبط «خدمات الصوت من Google» كمُتعرِّف على الكلام (الإعدادات ← الإدخال الصوتي). اقرأ العربية قريبًا من المايكروفون بصوت واضح.'
+                    : 'اینڈرائیڈ پر یقینی بنائیں کہ "Google Speech Services" کو تقریر پہچان کے طور پر منتخب کیا گیا ہے (سیٹنگز ← وائس ان پٹ)۔ عربی مائیک کے قریب واضح آواز میں پڑھیں۔'}
+              </Text>
+            )}
+          </View>
         ) : null}
 
         {results.length > 0 ? (
@@ -273,6 +374,23 @@ const styles = StyleSheet.create({
   btn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, paddingVertical: 12, borderRadius: radius.pill, backgroundColor: colors.silver },
   btnText: { ...ty.h3, color: colors.bg, fontWeight: '800' },
   resultsHeader: { ...ty.label, color: colors.silverDim, marginBottom: 4, fontSize: 11 },
+  noResultsBox: {
+    marginTop: spacing.lg, alignItems: 'center', gap: 10,
+    padding: spacing.xl, borderRadius: 22,
+    backgroundColor: colors.silver + '0A',
+    borderWidth: 1, borderColor: colors.silver + '22',
+  },
+  noResultsTitle: { ...ty.h3, color: colors.text, textAlign: 'center' },
+  noResultsHint: { ...ty.label, color: colors.silverDim, fontSize: 11, marginTop: 8 },
+  noResultsHeard: {
+    color: colors.gold, fontSize: 20, textAlign: 'center',
+    paddingHorizontal: 12, lineHeight: 32,
+    fontFamily: 'AmiriQuran',
+  },
+  noResultsTip: {
+    color: colors.silver + 'BB', fontSize: 12, textAlign: 'center',
+    marginTop: 8, paddingHorizontal: 20, lineHeight: 18,
+  },
   resHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 },
   resKey: { ...ty.h3, color: colors.silverHi, fontSize: 14 },
   scoreChip: { paddingHorizontal: 10, paddingVertical: 3, borderRadius: radius.pill, backgroundColor: colors.emerald + '22', borderWidth: 1, borderColor: colors.emerald + '55' },

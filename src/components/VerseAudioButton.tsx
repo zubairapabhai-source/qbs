@@ -36,7 +36,7 @@ export function VerseAudioButton(props: Props) {
   return <PlayerCore {...props} url={url} />;
 }
 
-function PlayerCore({ verseKey: _vk, size = 'md', showLabel = false, label, light = false, url }: Props & { url: string }) {
+function PlayerCore({ verseKey, size = 'md', showLabel = false, label, light = false, url }: Props & { url: string }) {
   const player = useAudioPlayer({ uri: url });
   const status = useAudioPlayerStatus(player);
   const { duck } = useAmbientAudio();
@@ -50,17 +50,33 @@ function PlayerCore({ verseKey: _vk, size = 'md', showLabel = false, label, ligh
   // release the duck-ref the moment it pauses, ends, or this component
   // unmounts. Reference-counted in the AmbientAudioProvider so multiple
   // simultaneous players don't fight each other.
+  //
+  // We also register the player as ACTIVE FOR LOCK SCREEN — this is the
+  // critical call on Android that spins up expo-audio's AudioControlsService
+  // as a foreground service so playback survives screen lock / app
+  // backgrounding. Without it, Android kills the audio after ~3 minutes
+  // (or immediately when the screen turns off on some OEMs). See
+  // https://docs.expo.dev/versions/latest/sdk/audio/#lockscreen-controls
   useEffect(() => {
     if (isPlaying && !unduckRef.current) {
       unduckRef.current = duck();
+      try {
+        (player as any).setActiveForLockScreen?.(true, {
+          title: `Qur'ān ${verseKey}`,
+          artist: 'Sheikh Mishary Rashid Alafasy',
+          albumTitle: 'Quran, Bible and Science',
+        });
+      } catch { /* iOS pre-1.1 or unsupported — playback still works via UIBackgroundModes */ }
     } else if (!isPlaying && unduckRef.current) {
       unduckRef.current();
       unduckRef.current = null;
+      try { (player as any).setActiveForLockScreen?.(false); } catch {}
     }
     return () => {
       if (unduckRef.current) { unduckRef.current(); unduckRef.current = null; }
+      try { (player as any).setActiveForLockScreen?.(false); } catch {}
     };
-  }, [isPlaying, duck]);
+  }, [isPlaying, duck, player, verseKey]);
 
   const dim = size === 'sm' ? 32 : size === 'lg' ? 48 : 38;
   const iconSize = size === 'sm' ? 14 : size === 'lg' ? 22 : 18;
