@@ -8,7 +8,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
-import { Pressable, ScrollView, Share, StyleSheet, Text, View } from 'react-native';
+import { Alert, Pressable, ScrollView, Share, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { OrbitalBackdrop } from '../../src/components/OrbitalBackdrop';
 import { PrayerTimesCard } from '../../src/components/PrayerTimesCard';
@@ -17,6 +17,7 @@ import { LanguageSwitcher } from '../../src/components/LanguageSwitcher';
 import { HelpButton } from '../../src/components/HelpButton';
 import { AmbientToggle } from '../../src/components/AmbientToggle';
 import { useApp } from '../../src/store/useApp';
+import { openSupportEmail } from '../../src/support';
 import { t } from '../../src/i18n/strings';
 import { colors, radius, spacing, type as ty } from '../../src/theme';
 import { getHijriDate } from '../../src/hijri';
@@ -109,6 +110,9 @@ export default function HomeScreen() {
   const insets = useSafeAreaInsets();
   const router = useRouter();
   const lang = useApp((s) => s.lang);
+  const unlocked = useApp((s) => s.unlocked);
+  const deviceId = useApp((s) => s.deviceId);
+  const setEntitlement = useApp((s) => s.setEntitlement);
   const rtl = lang === 'ar' || lang === 'ur';
 
   const today = new Date().toLocaleDateString(
@@ -125,14 +129,120 @@ export default function HomeScreen() {
   // i18n helper — pick the right string per current language
   const L = (en: string, ar: string, ur: string) => (lang === 'ar' ? ar : lang === 'ur' ? ur : en);
 
+  // Self-serve unlock — fully automated. Users don't need to email or
+  // wait: the Home button hits POST /api/iap/self-serve-unlock which
+  // grants the lifetime entitlement server-side, logs a support ticket
+  // for auditing, and unlocks the client. The alert explains WHY we're
+  // doing this (they paid but the app didn't pick it up), HOW it works
+  // (one tap, ~2s), and WHEN it will finish (right now, no waiting).
+  const onSelfServeUnlock = async () => {
+    Alert.alert(
+      L(
+        'Paid £0.99 but still locked?',
+        'دفعت ٠٫٩٩ لكنك مقفل؟',
+        '£0.99 ادا کر چکے مگر لاک ہے؟'
+      ),
+      L(
+        `Why this happens: Apple / Google sometimes doesn't finalise a £0.99 charge instantly — it can hang in "pending" or your Apple ID may have signed in on a different device than the one you paid on.\n\nHow this fixes it: We'll send your Device ID (${deviceId}) to our server right now and unlock this device automatically. Takes about 2 seconds. No email, no waiting.\n\nOnly tap this if you actually paid — abuse gets audited.`,
+        `لماذا يحدث هذا: أحيانًا لا تؤكد Apple/Google الرسم البالغ ٠٫٩٩ فورًا، أو تكون قد سجّلت الدخول بحساب مختلف.\n\nكيف نُصلحه: سنرسل معرف جهازك (${deviceId}) إلى خادمنا الآن ونفتحه تلقائيًا. ثانيتان تقريبًا. دون بريد، دون انتظار.\n\nاضغط فقط إذا كنت قد دفعت فعلاً — المخالفات تُدقَّق.`,
+        `یہ کیوں ہوتا ہے: کبھی کبھار Apple/Google 99p چارج فوراً فائنل نہیں کرتا یا آپ کسی اور Apple ID سے سائن ان ہیں۔\n\nکیسے حل ہو گا: ہم آپ کا Device ID (${deviceId}) ابھی سرور کو بھیجیں گے اور خود بخود ان لاک کر دیں گے۔ تقریباً 2 سیکنڈ۔ نہ ای میل، نہ انتظار۔\n\nصرف تب دبائیں اگر آپ نے واقعی ادائگی کی — بے جا استعمال کی جانچ ہوتی ہے۔`
+      ),
+      [
+        { text: L('Cancel', 'إلغاء', 'منسوخ'), style: 'cancel' },
+        {
+          text: L('Unlock my device now', 'افتح جهازي الآن', 'ابھی ان لاک کریں'),
+          onPress: async () => {
+            const API = process.env.EXPO_PUBLIC_QBS_API_URL || '';
+            // Retry against Render cold start — up to 3 attempts.
+            const attempt = async (timeoutMs: number): Promise<any> => {
+              const ctrl = new AbortController();
+              const tm = setTimeout(() => ctrl.abort(), timeoutMs);
+              try {
+                const res = await fetch(`${API}/api/iap/self-serve-unlock`, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    device_id: deviceId,
+                    platform: 'ios',
+                    note: 'Home-screen self-serve unlock',
+                  }),
+                  signal: ctrl.signal,
+                });
+                clearTimeout(tm);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return await res.json();
+              } catch (e) {
+                clearTimeout(tm);
+                throw e;
+              }
+            };
+            let j: any = null;
+            let lastErr: any = null;
+            for (const to of [12000, 25000, 45000]) {
+              try { j = await attempt(to); break; } catch (e) { lastErr = e; }
+            }
+            try {
+              if (j?.unlocked) {
+                setEntitlement({ unlocked: true });
+                Alert.alert(
+                  L('Unlocked ✓', 'تم الفتح ✓', 'ان لاک ہو گیا ✓'),
+                  L(
+                    'Your device is now unlocked. Enjoy full tafseer, all Bible comparisons, and Ask the Sheikh.',
+                    'تم فتح جهازك. استمتع بكامل التفسير وجميع مقارنات الإنجيل و«اسأل الشيخ».',
+                    'آپ کا ڈیوائس ان لاک ہو گیا۔ مکمل تفسیر، تمام موازنے، اور شیخ سے سوال — سب دستیاب۔'
+                  )
+                );
+              } else {
+                throw new Error(lastErr?.message || 'server did not confirm');
+              }
+            } catch (e: any) {
+              Alert.alert(
+                L("That didn't work", 'لم يعمل ذلك', 'یہ کام نہیں کیا'),
+                L(
+                  `Our server didn't respond after 3 attempts. Please try again in a moment, or tap "Email us" to send your Device ID (${deviceId}) manually.`,
+                  `لم يستجب خادمنا بعد ٣ محاولات. حاول لاحقًا أو اضغط «راسِلنا».`,
+                  `ہمارا سرور 3 کوششوں کے بعد جواب نہیں دیا۔ چند لمحوں بعد کوشش کریں یا "Email us" دبائیں۔`
+                ),
+                [
+                  { text: L('OK', 'حسناً', 'ٹھیک'), style: 'cancel' },
+                  {
+                    text: L('Email us', 'راسِلنا', 'ای میل کریں'),
+                    onPress: () => openSupportEmail({
+                      deviceId,
+                      topic: 'self-serve-unlock-failed',
+                      message: `Self-serve unlock endpoint failed after 3 retries. Error: ${e?.message || 'unknown'}. Please unlock manually.`,
+                    }),
+                  },
+                ]
+              );
+            }
+          },
+        },
+      ]
+    );
+  };
+
   return (
     <View style={{ flex: 1, backgroundColor: colors.bg }}>
       <OrbitalBackdrop />
       <ScrollView contentContainerStyle={{ paddingTop: insets.top + 4, paddingBottom: insets.bottom + 100 }} showsVerticalScrollIndicator={false}>
-        {/* Top row — language switcher in centre, stream-water toggle right */}
+        {/* Top row — language switcher in centre, stream-water toggle + settings gear on right */}
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingHorizontal: spacing.md, paddingBottom: 4, gap: spacing.sm }}>
           <LanguageSwitcher compact />
           <AmbientToggle size={34} />
+          <Pressable
+            onPress={() => router.push('/settings' as any)}
+            hitSlop={10}
+            style={({ pressed }) => [{
+              width: 34, height: 34, borderRadius: 17,
+              alignItems: 'center', justifyContent: 'center',
+              backgroundColor: colors.bgElevated,
+              borderWidth: 1, borderColor: colors.gold + '55',
+              opacity: pressed ? 0.7 : 1,
+            }]}
+          >
+            <Ionicons name="settings-outline" size={18} color={colors.gold} />
+          </Pressable>
         </View>
         {/* APP NAME LOCKUP */}
         <View style={styles.lockupWrap}>
@@ -147,6 +257,26 @@ export default function HomeScreen() {
           ) : null}
           <View style={styles.lockupHairline} />
         </View>
+
+        {/* Paid but locked? Self-serve unlock — only shown when NOT unlocked.
+            Tapping fires backend entitlement re-check; if server has your
+            receipt, unlocks instantly. If not, opens a pre-filled support
+            email with your Device ID. */}
+        {!unlocked ? (
+          <Pressable
+            onPress={onSelfServeUnlock}
+            style={({ pressed }) => [styles.selfServeBtn, pressed && { opacity: 0.7 }]}
+          >
+            <Ionicons name="lock-open-outline" size={16} color={colors.gold} />
+            <Text style={styles.selfServeText}>
+              {L(
+                'Paid £0.99 but still locked?  Tap here to fix ✨',
+                'دفعت ٠٫٩٩ لكنك مقفل؟ انقر للإصلاح ✨',
+                '99p ادا کر چکے مگر لاک ہے؟ ٹھیک کرنے کے لیے دبائیں ✨'
+              )}
+            </Text>
+          </Pressable>
+        ) : null}
 
         {/* SIGNATURE VERSE 41:53 HERO */}
         <LinearGradient
@@ -206,23 +336,6 @@ export default function HomeScreen() {
           badge="AHL AL-SUNNAH"
           cta={L('Read our aqeedah', 'اقرأ عقيدتنا', 'ہمارا عقیدہ پڑھیں')}
           gradient={['rgba(212,175,55,0.32)', 'rgba(212,175,55,0.08)', 'rgba(14,31,26,0.0)']}
-        />
-
-        {/* BIG #1 · Ask the Sheikh AI */}
-        <BigTile
-          onPress={() => router.push('/(tabs)/sheikh' as any)}
-          icon="sparkles"
-          iconTint={colors.gold}
-          ar="اِسْأَلِ الشَّيْخَ"
-          title={L('Ask the Sheikh AI', 'اسأل الشيخ', 'شیخ سے پوچھیں')}
-          desc={L(
-            'Ask the Sheikh for the tafseer of any Qur’ānic verse — or ask for a Qur’ānic scientific verse on a topic (the sun, embryology, mountains, the cosmos…). Grounded in four classical tafāsīr (Ibn Kathīr · al-Saʿdī · al-Muyassar · al-Jalālayn) — every answer is cited verbatim. Voice input supported.',
-            'اسأل الشيخ تفسير أي آية قرآنية — أو اطلب آية قرآنية علمية في موضوع ما (الشمس، الأجنّة، الجبال، الكون…). مبني على أربعة تفاسير كلاسيكية (ابن كثير، السعدي، الميسر، الجلالين) — كل إجابة باقتباس حرفي. يدعم الإدخال الصوتي.',
-            'شیخ سے کسی بھی قرآنی آیت کی تفسیر پوچھیں — یا کسی موضوع (سورج، جنین، پہاڑ، کائنات…) پر قرآنی سائنسی آیت طلب کریں۔ چار کلاسیکی تفسیروں (ابن کثیر، سعدی، الميسر، الجلالين) پر مبنی۔ ہر جواب حوالہ جات کے ساتھ۔ آواز ان پٹ بھی۔'
-          )}
-          badge="TAFSEER · SCIENCE"
-          cta={L('Ask the Sheikh', 'اسأل الشيخ', 'شیخ سے سوال کریں')}
-          gradient={['rgba(212,175,55,0.28)', 'rgba(212,175,55,0.05)', 'rgba(14,31,26,0.0)']}
         />
 
         {/* Small pair · Prophet Isa + Bookmarks */}
@@ -452,6 +565,23 @@ export default function HomeScreen() {
           gradient={['rgba(232,90,90,0.22)', 'rgba(232,90,90,0.04)', 'rgba(14,31,26,0.0)']}
         />
 
+        {/* Ask the Sheikh AI — moved lower per user request (still growing feature) */}
+        <BigTile
+          onPress={() => router.push('/(tabs)/sheikh' as any)}
+          icon="sparkles"
+          iconTint={colors.gold}
+          ar="اِسْأَلِ الشَّيْخَ"
+          title={L('Ask the Sheikh AI (beta)', 'اسأل الشيخ (تجريبي)', 'شیخ سے پوچھیں (بیٹا)')}
+          desc={L(
+            'A growing library of answers on the tafseer of Qur’ānic verses and scientific topics. If your question isn’t in the library yet, we’ll say so — new topics added weekly.',
+            'مكتبة متنامية من الإجابات في تفسير الآيات القرآنية والمواضيع العلمية. إن لم يكن سؤالك في المكتبة بعد، سنخبرك — تُضاف مواضيع جديدة أسبوعياً.',
+            'قرآنی آیات کی تفسیر اور سائنسی موضوعات پر بڑھتی ہوئی جوابات کی لائبریری۔ ہر ہفتے نئے موضوعات شامل ہو رہے ہیں۔'
+          )}
+          badge="BETA"
+          cta={L('Ask the Sheikh', 'اسأل الشيخ', 'شیخ سے سوال کریں')}
+          gradient={['rgba(212,175,55,0.22)', 'rgba(212,175,55,0.04)', 'rgba(14,31,26,0.0)']}
+        />
+
         {/* Prayer Times — moved to BOTTOM per user request */}
         <View style={{ paddingHorizontal: spacing.lg, marginTop: spacing.xl }}>
           <Text style={[styles.gridLabel, { textAlign: 'center', marginBottom: spacing.sm }]}>
@@ -471,6 +601,22 @@ const styles = StyleSheet.create({
   lockupDsm: { ...ty.tiny, color: colors.goldHi, marginTop: 2, fontWeight: '600', letterSpacing: 1, fontStyle: 'italic' },
   lockupSub: { ...ty.tiny, color: colors.silverDim, marginTop: 4 },
   lockupHairline: { width: 80, height: 1, backgroundColor: colors.gold + '66', marginTop: spacing.sm },
+
+  // Self-serve unlock nudge — visible only when !unlocked. Golden pill.
+  selfServeBtn: {
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
+    alignSelf: 'center', gap: 8,
+    marginTop: spacing.md, marginBottom: spacing.xs,
+    marginHorizontal: spacing.lg,
+    paddingHorizontal: spacing.md, paddingVertical: 10,
+    borderRadius: 999,
+    borderWidth: 1, borderColor: colors.gold + '99',
+    backgroundColor: colors.gold + '18',
+  },
+  selfServeText: {
+    ...ty.small, color: colors.gold, fontWeight: '700',
+    fontSize: 12.5, textAlign: 'center',
+  },
 
   // Hero verse card
   hero: { borderRadius: radius.xl, margin: spacing.lg, padding: 2, overflow: 'hidden' },

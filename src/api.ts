@@ -138,8 +138,48 @@ export async function askSheikh(question: string, deviceId: string, lang: string
 }
 
 export async function getEntitlement(deviceId: string) {
-  return tryFetch<any>(`/api/entitlement/${deviceId}`, undefined, {
-    unlocked: false, weekly_questions: { used: 0, free_per_week: 3, remaining_free: 3 },
-    question_pack_balance: 0,
-  });
+  // Entitlement check is CRITICAL for paid users — we cannot let a 6-second
+  // timeout on a cold Render dyno wrongly report `unlocked: false` (which
+  // is exactly what happened in production: users force-quit, cold start
+  // takes 15-25s, fetch aborts, fallback says `unlocked: false`, the app
+  // stays locked). Retry 3 times with growing timeouts: 12s → 25s → 45s.
+  if (!BASE) return {
+    data: {
+      unlocked: false,
+      weekly_questions: { used: 0, free_per_week: 3, remaining_free: 3 },
+      question_pack_balance: 0,
+    },
+    live: false,
+  };
+  const timeouts = [12000, 25000, 45000];
+  for (let i = 0; i < timeouts.length; i++) {
+    const ctrl = new AbortController();
+    const tm = setTimeout(() => ctrl.abort(), timeouts[i]);
+    try {
+      const res = await fetch(`${BASE}/api/entitlement/${deviceId}`, {
+        signal: ctrl.signal,
+        headers: { 'Accept': 'application/json', 'Cache-Control': 'no-cache' },
+      });
+      clearTimeout(tm);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const body = await res.json();
+      return { data: body, live: true };
+    } catch (e) {
+      clearTimeout(tm);
+      if (i === timeouts.length - 1) {
+        // All retries exhausted — return fallback so caller doesn't crash.
+        return {
+          data: {
+            unlocked: false,
+            weekly_questions: { used: 0, free_per_week: 3, remaining_free: 3 },
+            question_pack_balance: 0,
+          },
+          live: false,
+        };
+      }
+      // Wait a moment before retrying so the cold dyno has time to boot.
+      await new Promise((res) => setTimeout(res, 500 * (i + 1)));
+    }
+  }
+  return { data: { unlocked: false, weekly_questions: { used: 0, free_per_week: 3, remaining_free: 3 }, question_pack_balance: 0 }, live: false };
 }

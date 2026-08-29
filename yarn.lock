@@ -4130,10 +4130,10 @@ expo-sharing@~14.0.8:
   resolved "https://registry.yarnpkg.com/expo-sharing/-/expo-sharing-14.0.8.tgz#cfd5fcf77ab5f64cf3d192a40a925abb316d3545"
   integrity sha512-A1pPr2iBrxypFDCWVAESk532HK+db7MFXbvO2sCV9ienaFXAk7lIBm6bkqgE6vzRd9O3RGdEGzYx80cYlc089Q==
 
-expo-speech-recognition@^56.0.1:
-  version "56.0.1"
-  resolved "https://registry.yarnpkg.com/expo-speech-recognition/-/expo-speech-recognition-56.0.1.tgz#09dbce63257c70013e1b580a4d0f54c158f0c04a"
-  integrity sha512-TpP1KCiq3vYfSQF0XpUkWLXp4mTw6MLuyMGPzVVKwqzs7oiKlJ/e0q3PNNjfqs058X47ftqT+31lTaWRWRbmPg==
+expo-speech-recognition@^56.0.4:
+  version "56.0.4"
+  resolved "https://registry.yarnpkg.com/expo-speech-recognition/-/expo-speech-recognition-56.0.4.tgz#6e8aad74b32d6e1edb2ded45ca0a1830d6c68217"
+  integrity sha512-6Sh6aeKSG4W81TYfHUL8sgOxO++YrUi5Zhpmu5tiWurm6NP5hFL1SHd6+GbtV7Fyo4Cc35AofR9QxiSROZMJcQ==
 
 expo-splash-screen@~31.0.13:
   version "31.0.13"

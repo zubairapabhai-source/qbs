@@ -179,13 +179,33 @@ export default function ReciteScreen() {
 
     // === NATIVE — iOS / Android with expo-speech-recognition ===
     if (!SPEECH_RECOGNITION_NATIVE_AVAILABLE) {
+      // Diagnostic path — if the native pod isn't linked, offer to open
+      // iOS Settings so the user can double-check mic + Speech Recognition
+      // permissions (sometimes iOS shows the toggle even when the native
+      // module isn't linked — turning both on can wake it up).
       Alert.alert(
-        lang === 'en' ? 'Voice unavailable' : lang === 'ar' ? 'الصوت غير متاح' : 'آواز دستیاب نہیں',
+        lang === 'en' ? 'Mic module not linked in this build' : lang === 'ar' ? 'وحدة الصوت غير مربوطة' : 'مائیک ماڈیول لنک نہیں',
         lang === 'en'
-          ? 'The voice recognition module is not available in this build. Please update the app.'
+          ? `Voice recognition native module failed to link in this build.\n\nQuick check:\n1. iOS Settings → QBS → make sure Microphone AND Speech Recognition are BOTH ON\n2. Delete the app + reinstall from the App Store (forces a fresh native module load)\n\nIf both steps fail, tap Report so we can investigate.`
           : lang === 'ar'
-          ? 'وحدة التعرف على الكلام غير متوفرة في هذا الإصدار. يرجى تحديث التطبيق.'
-          : 'اس بلڈ میں تقریر کی شناخت دستیاب نہیں۔ ایپ اپ ڈیٹ کریں۔'
+            ? `فشل ربط وحدة التعرف على الكلام في هذا الإصدار.\n\nتحقق سريع:\n١. الإعدادات → QBS → فعّل «المايكروفون» و«التعرف على الكلام»\n٢. احذف التطبيق وأعد تثبيته من App Store\n\nإن استمر الفشل، اضغط إبلاغ.`
+            : `اس بلڈ میں مائیک ماڈیول لنک نہیں ہوا۔\n\nفوری چیک:\n1. Settings → QBS → Microphone اور Speech Recognition دونوں ON\n2. ایپ ڈیلیٹ کر کے دوبارہ انسٹال کریں\n\nمسئلہ باقی رہے تو Report دبائیں۔`,
+        [
+          { text: lang === 'en' ? 'Open Settings' : lang === 'ar' ? 'فتح الإعدادات' : 'سیٹنگز', onPress: () => { try { Linking.openSettings(); } catch {} } },
+          { text: lang === 'en' ? 'Report' : lang === 'ar' ? 'إبلاغ' : 'رپورٹ',
+            onPress: () => {
+              try {
+                const { openSupportEmail } = require('../../src/support');
+                openSupportEmail({
+                  deviceId: useApp.getState().deviceId || 'preview',
+                  topic: 'mic-native-link-failed-v017',
+                  message: `Mic native module still unavailable in v0.1.7 build 11. Platform: ${Platform.OS} ${Platform.Version}. Please investigate the expo-speech-recognition pod link.`,
+                });
+              } catch {}
+            }
+          },
+          { text: 'OK', style: 'cancel' },
+        ]
       );
       return;
     }

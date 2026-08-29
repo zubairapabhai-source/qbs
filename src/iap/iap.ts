@@ -15,6 +15,13 @@ import { useApp } from '../store/useApp';
 
 const API_BASE = process.env.EXPO_PUBLIC_QBS_API_URL || '';
 
+// Module-level dedupe set for purchase callbacks. `useStorePurchases`
+// is mounted at BOTH the app root (_layout.tsx) and the /unlock screen
+// so a single completed purchase fires two `onPurchaseSuccess` callbacks
+// — without this guard, the backend gets two `report-purchase` + two
+// `finishTransaction` calls and consumables risk double-credit.
+const _handledTxnIds = new Set<string>();
+
 const CONSUMABLE_SKUS: Set<string> = new Set([
   IAP_PRODUCTS.aiPack1,
   IAP_PRODUCTS.aiPack10,
@@ -88,6 +95,16 @@ export function useStorePurchases(): StoreApi {
     onPurchaseSuccess: async (purchase: any) => {
       const productId: IapProductSku = purchase.productId;
       const isConsumable = CONSUMABLE_SKUS.has(productId);
+
+      // Dedupe: refuse to process the same transaction twice (see the
+      // _handledTxnIds comment above the Set definition).
+      const dedupeKey = purchase.transactionId
+        || purchase.purchaseToken
+        || `${productId}:${purchase.originalTransactionId || ''}:${purchase.transactionDate || ''}`;
+      if (dedupeKey && _handledTxnIds.has(dedupeKey)) {
+        return;
+      }
+      if (dedupeKey) _handledTxnIds.add(dedupeKey);
       await reportPurchaseToBackend(deviceId || 'preview', {
         productId,
         isConsumable,
@@ -100,13 +117,13 @@ export function useStorePurchases(): StoreApi {
 
       if (isConsumable) {
         // Pessimistic UI: optimistic-update with the SKU's known credit count,
-        // then fetch authoritative balance from backend so a replayed receipt
-        // (idempotency) never double-credits the visual counter.
+        // then use the authoritative balance the backend returns from
+        // /credit-pack itself. This avoids a second round-trip AND avoids
+        // the "read-back from wrong collection" bug we had previously.
         const optimistic = AI_PACK_CREDITS[productId] || 0;
         try {
           if (API_BASE && deviceId) {
-            // Tell backend to credit the pack (idempotent on transaction_id)
-            await fetch(`${API_BASE}/api/entitlement/credit-pack`, {
+            const r = await fetch(`${API_BASE}/api/entitlement/credit-pack`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
@@ -115,10 +132,9 @@ export function useStorePurchases(): StoreApi {
                 transaction_id: purchase.transactionId ?? null,
               }),
             });
-            // Then fetch the authoritative current balance
-            const r = await fetch(`${API_BASE}/api/iap/entitlements/${encodeURIComponent(deviceId)}`);
             const j = await r.json();
-            if (typeof j?.packBalance === 'number') setEntitlement({ packBalance: j.packBalance });
+            // Backend returns { ok, credited, new_balance } — trust `new_balance`.
+            if (typeof j?.new_balance === 'number') setEntitlement({ packBalance: j.new_balance });
             else setEntitlement({ packBalance: optimistic });
           } else {
             setEntitlement({ packBalance: optimistic });
@@ -177,7 +193,7 @@ export function useStorePurchases(): StoreApi {
       })();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [iap?.connected]);
+  }, [iap?.connected, deviceId]);
 
   if (!IS_AVAILABLE || !iap) return FALLBACK;
   return { available: true, ...iap };
