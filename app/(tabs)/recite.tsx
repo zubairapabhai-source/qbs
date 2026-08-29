@@ -126,6 +126,24 @@ export default function ReciteScreen() {
     }
   };
 
+  // Unified "Find verse" handler — if user is still holding the mic, stop
+  // it first (the `end` event then triggers doMatch with what was heard).
+  // Otherwise fire an immediate text search. This means the user never has
+  // to tap the mic OFF separately once they're done reciting.
+  const onFindTap = () => {
+    if (recording) {
+      try {
+        ExpoSpeechRecognitionModule.stop();
+        webRecRef.current?.stop();
+      } catch {}
+      // Leave recording=true — the `end` event handler will flip it off
+      // AND auto-run doMatch(transcriptRef.current). This avoids racing
+      // between two searches (one here, one from the `end` handler).
+      return;
+    }
+    doMatch();
+  };
+
   const onMicTap = async () => {
     if (recording) {
       // stop and let the `end` event fire
@@ -233,7 +251,7 @@ export default function ReciteScreen() {
           </LinearGradient>
           <Text style={styles.micHint}>
             {recording
-              ? (lang === 'en' ? 'Listening… tap to stop' : lang === 'ar' ? 'يستمع… انقر للإيقاف' : 'سن رہا ہے… روکنے کے لیے ٹیپ کریں')
+              ? (lang === 'en' ? 'Listening… tap Find verse when done' : lang === 'ar' ? 'يستمع… انقر «ابحث» عند الانتهاء' : 'سن رہا ہے… ختم ہونے پر «تلاش کریں» ٹیپ کریں')
               : (lang === 'en' ? 'Tap to recite (free, on-device)' : lang === 'ar' ? 'انقر للتلاوة (مجاني، على الجهاز)' : 'تلاوت کے لیے ٹیپ کریں (مفت، آپ کے ڈیوائس پر)')}
           </Text>
         </Pressable>
@@ -254,19 +272,21 @@ export default function ReciteScreen() {
               style={[styles.input, { textAlign: 'right', fontSize: 18 }]}
               multiline
               maxLength={300}
-              onSubmitEditing={doMatch}
+              onSubmitEditing={onFindTap}
             />
           </View>
           <Pressable
-            onPress={doMatch}
-            disabled={!transcript.trim() || loading}
-            style={({ pressed }) => [styles.btn, (!transcript.trim() || loading) && { opacity: 0.4 }, pressed && { opacity: 0.85 }]}
+            onPress={onFindTap}
+            disabled={(!transcript.trim() && !recording) || loading}
+            style={({ pressed }) => [styles.btn, ((!transcript.trim() && !recording) || loading) && { opacity: 0.4 }, pressed && { opacity: 0.85 }]}
           >
             {loading ? <ActivityIndicator color={colors.bg} /> : (
               <>
-                <Ionicons name="search" size={18} color={colors.bg} />
+                <Ionicons name={recording ? 'search' : 'search'} size={18} color={colors.bg} />
                 <Text style={styles.btnText}>
-                  {lang === 'en' ? 'Find verse' : lang === 'ar' ? 'ابحث' : 'تلاش کریں'}
+                  {recording
+                    ? (lang === 'en' ? 'Stop & find verse' : lang === 'ar' ? 'أوقف وابحث' : 'روکیں اور تلاش کریں')
+                    : (lang === 'en' ? 'Find verse' : lang === 'ar' ? 'ابحث' : 'تلاش کریں')}
                 </Text>
               </>
             )}
