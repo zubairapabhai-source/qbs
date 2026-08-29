@@ -66,14 +66,14 @@ export const STR: Record<string, Record<Lang, string>> = {
   // sheikh
   sheikhTitle: { en: 'Ask the AI Sheikh', ar: 'اسأل الشيخ', ur: 'AI شیخ سے پوچھیں' },
   sheikhSub: {
-    en: 'Tafseer of any āyah · or ask for a scientific Qur’ānic verse on any topic',
-    ar: 'تفسير أي آية · أو اطلب آية قرآنية علميّة في أي موضوع',
-    ur: 'کسی بھی آیت کی تفسیر · یا کسی موضوع پر قرآنی سائنسی آیت طلب کریں',
+    en: 'Curated tafseer library · pre-answered by our AI on classical sources',
+    ar: 'مكتبة تفسير منتقاة · إجابات جاهزة من الذكاء الاصطناعي على المصادر الكلاسيكية',
+    ur: 'منتخب تفسیری لائبریری · کلاسیکی مآخذ پر AI کے پیشگی جوابات',
   },
   sheikhAskHint: {
-    en: 'Ask for a tafseer (e.g. “tafseer of 41:53”) or a scientific verse (e.g. “Qur’ān on embryology”)…',
-    ar: 'اطلب تفسيرًا (مثل: «تفسير ٤١:٥٣») أو آية علميّة (مثل: «آيات الأجنّة»)…',
-    ur: 'تفسیر طلب کریں (مثلاً «۴۱:۵۳ کی تفسیر») یا سائنسی آیت (مثلاً «جنین پر قرآن»)…',
+    en: 'Tap a suggested question below, or ask about any signature verse (e.g. “tafseer of 41:53”)…',
+    ar: 'انقر سؤالًا مقترحًا أدناه، أو اسأل عن آية مميّزة (مثل: «تفسير ٤١:٥٣»)…',
+    ur: 'نیچے تجویز کردہ سوال ٹیپ کریں، یا کسی نمایاں آیت کے بارے میں پوچھیں (مثلاً «۴۱:۵۳ کی تفسیر»)…',
   },
   send: { en: 'Send', ar: 'إرسال', ur: 'بھیجیں' },
   unlockTitle: {
