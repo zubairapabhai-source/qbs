@@ -399,7 +399,7 @@ export default function HomeScreen() {
 
         {/* BIG #2 · Sunnah & Science — promoted to BIG TILE per user request */}
         <BigTile
-          onPress={() => router.push('/(tabs)/atoz' as any)}
+          onPress={() => router.push('/(tabs)/atoz?section=sunnah' as any)}
           icon="medical"
           iconTint={colors.emeraldHi}
           ar="السُّنَّةُ وَالعِلْم"

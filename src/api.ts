@@ -64,13 +64,15 @@ export interface AtozEntry {
   modern_link_ar?: string; modern_link_ur?: string;
 }
 
-export async function listAtozSeed(): Promise<{ entries: AtozEntry[]; live: boolean }> {
+export async function listAtozSeed(): Promise<{ entries: AtozEntry[]; verses: AtozEntry[]; sunnah: AtozEntry[]; live: boolean }> {
   // Combine Qur'anic A-Z entries with Sunnah-scientific entries so both
   // appear in the A-Z list. Sunnah entries are flagged via the `hadith_en`
-  // field which the renderer uses to switch styling.
+  // field which the renderer uses to switch styling. We also expose the
+  // two sections separately so screens can filter to just verses or just
+  // sunnah (Sunnah & Science tile relies on this).
   const verses = (atozSeed.verses_to_author || []) as AtozEntry[];
   const sunnah = ((atozSeed as any).hadith_scientific || []) as AtozEntry[];
-  return { entries: [...verses, ...sunnah], live: false };
+  return { entries: [...verses, ...sunnah], verses, sunnah, live: false };
 }
 
 export interface DailySign {

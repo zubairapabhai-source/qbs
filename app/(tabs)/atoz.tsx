@@ -2,7 +2,7 @@
  * A–Z tab — browse 17 scientific verse-readings (seed).
  */
 import { Ionicons } from '@expo/vector-icons';
-import { useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import { ActivityIndicator, FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -15,27 +15,52 @@ import { LockBanner, LockedTile, FREE_PREVIEW_LIMIT } from '../../src/iap/gate';
 import { t } from '../../src/i18n/strings';
 import { colors, radius, spacing, type as ty } from '../../src/theme';
 
+type Section = 'all' | 'verses' | 'sunnah';
+
 export default function AtoZScreen() {
   const insets = useSafeAreaInsets();
   const router = useRouter();
+  const params = useLocalSearchParams<{ section?: string }>();
   const lang = useApp((s) => s.lang);
   const rtl = lang === 'ar' || lang === 'ur';
   const [entries, setEntries] = useState<AtozEntry[]>([]);
+  const [versesOnly, setVersesOnly] = useState<AtozEntry[]>([]);
+  const [sunnahOnly, setSunnahOnly] = useState<AtozEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState('');
+  // Section filter — routed to sunnah when arriving from the Sunnah & Science
+  // home tile (which passes ?section=sunnah). Users can flip via the pills.
+  const [section, setSection] = useState<Section>(() => {
+    const s = (params.section || '').toString().toLowerCase();
+    return s === 'sunnah' ? 'sunnah' : s === 'verses' ? 'verses' : 'all';
+  });
+  // If the URL param changes (e.g. tab press with new params), resync.
+  useEffect(() => {
+    const s = (params.section || '').toString().toLowerCase();
+    setSection(s === 'sunnah' ? 'sunnah' : s === 'verses' ? 'verses' : 'all');
+  }, [params.section]);
 
   useEffect(() => {
     (async () => {
       const r = await listAtozSeed();
       setEntries(r.entries);
+      setVersesOnly(r.verses || []);
+      setSunnahOnly(r.sunnah || []);
       setLoading(false);
     })();
   }, []);
 
+  // Base pool depends on which section pill is active.
+  const sectionPool = useMemo(() => {
+    if (section === 'sunnah') return sunnahOnly;
+    if (section === 'verses') return versesOnly;
+    return entries;
+  }, [section, entries, versesOnly, sunnahOnly]);
+
   const filtered = useMemo(() => {
-    if (!query.trim()) return entries;
+    if (!query.trim()) return sectionPool;
     const q = query.toLowerCase();
-    return entries.filter((e) =>
+    return sectionPool.filter((e) =>
       (e.topic || '').toLowerCase().includes(q) ||
       (e.slug || '').toLowerCase().includes(q) ||
       (e.science_hook || '').toLowerCase().includes(q) ||
@@ -45,7 +70,7 @@ export default function AtoZScreen() {
       (e.translation_en || '').toLowerCase().includes(q) ||
       (e.hadith_en || '').toLowerCase().includes(q)
     );
-  }, [entries, query]);
+  }, [sectionPool, query]);
 
   const grouped = useMemo(() => {
     const map = new Map<string, AtozEntry[]>();
@@ -77,10 +102,42 @@ export default function AtoZScreen() {
   return (
     <View style={{ flex: 1, backgroundColor: colors.bg }}>
       <ScreenHeader
-        title={t('atozTitle', lang)}
-        subtitle={t('atozSub', lang)}
+        title={section === 'sunnah'
+          ? (lang === 'en' ? 'Sunnah & Science' : lang === 'ar' ? 'السنة والعلم' : 'سنت اور سائنس')
+          : section === 'verses'
+            ? (lang === 'en' ? 'A–Z Scientific Verses' : lang === 'ar' ? 'آيات علمية أ–ي' : 'A–Z سائنسی آیات')
+            : t('atozTitle', lang)}
+        subtitle={section === 'sunnah'
+          ? (lang === 'en' ? '40 prophetic teachings backed by modern research' : lang === 'ar' ? '٤٠ تعليمًا نبويًا يؤيدها العلم الحديث' : '۴۰ نبوی تعلیمات جدید تحقیق سے تصدیق شدہ')
+          : t('atozSub', lang)}
         rightAction={{ icon: 'settings-outline', onPress: () => router.push('/settings') }}
       />
+
+      {/* Section pills — visible only when there's data in both pools so the
+          user can flip between "A-Z verses" and "Sunnah & Science" quickly. */}
+      {(versesOnly.length > 0 && sunnahOnly.length > 0) ? (
+        <View style={[styles.pillRow, rtl && { flexDirection: 'row-reverse' }]}>
+          {([
+            ['all',    lang === 'en' ? 'All'     : lang === 'ar' ? 'الكل'    : 'سب',       entries.length],
+            ['verses', lang === 'en' ? 'Verses'  : lang === 'ar' ? 'آيات'    : 'آیات',     versesOnly.length],
+            ['sunnah', lang === 'en' ? 'Sunnah'  : lang === 'ar' ? 'السنة'   : 'سنت',      sunnahOnly.length],
+          ] as [Section, string, number][]).map(([key, label, n]) => (
+            <Pressable
+              key={key}
+              onPress={() => setSection(key)}
+              style={({ pressed }) => [
+                styles.pill,
+                section === key && styles.pillActive,
+                pressed && { opacity: 0.85 },
+              ]}
+            >
+              <Text style={[styles.pillText, section === key && styles.pillTextActive]}>
+                {label}  ·  {n}
+              </Text>
+            </Pressable>
+          ))}
+        </View>
+      ) : null}
 
       <View style={[styles.searchWrap, rtl && { flexDirection: 'row-reverse' }]}>
         <Ionicons name="search" size={18} color={colors.textMuted} />
@@ -154,6 +211,11 @@ export default function AtoZScreen() {
 }
 
 const styles = StyleSheet.create({
+  pillRow: { flexDirection: 'row', gap: 8, paddingHorizontal: spacing.lg, marginTop: spacing.sm },
+  pill: { paddingHorizontal: 14, paddingVertical: 8, borderRadius: radius.pill, backgroundColor: colors.card, borderWidth: 1, borderColor: colors.cardBorder },
+  pillActive: { backgroundColor: colors.silver + '22', borderColor: colors.silver + '99' },
+  pillText: { ...ty.small, color: colors.textMuted, fontWeight: '600' },
+  pillTextActive: { color: colors.silverHi },
   searchWrap: { flexDirection: 'row', alignItems: 'center', backgroundColor: colors.card, marginHorizontal: spacing.lg, marginTop: spacing.md, paddingHorizontal: spacing.md, borderRadius: radius.pill, borderWidth: 1, borderColor: colors.cardBorder, gap: 8 },
   searchInput: { flex: 1, ...ty.body, color: colors.text, paddingVertical: 10 },
   letterRow: { flexDirection: 'row', alignItems: 'center', marginBottom: spacing.sm, gap: spacing.sm },
