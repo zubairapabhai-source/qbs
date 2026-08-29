@@ -15,11 +15,13 @@
     },
     "ios": {
       "bundleIdentifier": "com.divineseriesmobile.quranbiblescience",
-      "buildNumber": "13",
+      "buildNumber": "14",
       "infoPlist": {
         "NSMicrophoneUsageDescription": "Listen as you recite to find the Qur'\u0101nic verse.",
         "NSSpeechRecognitionUsageDescription": "Match your spoken Arabic to a verse.",
         "NSLocationWhenInUseUsageDescription": "Calculate accurate prayer times for your location.",
+        "NSPhotoLibraryUsageDescription": "Save verse cards to your photo library.",
+        "NSPhotoLibraryAddUsageDescription": "Save verse cards to your photo library.",
         "ITSAppUsesNonExemptEncryption": false,
         "UIBackgroundModes": [
           "audio"
