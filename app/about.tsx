@@ -151,12 +151,29 @@ export default function AboutScreen() {
           <Text style={[styles.italic, { textAlign: rtl ? 'right' : 'left' }]}>{t('a3_about_jMiAIslMiyyahTa') || 'Jāmiʿa Islāmiyyah Taʿlīmuddīn, Dhabel'}</Text>
 
           <Text style={[styles.subhead, { textAlign: rtl ? 'right' : 'left', marginTop: spacing.md }]}>{t('a3_about_passedRaMatullHiAlayhim') || 'Passed (Raḥmatullāhi ʿalayhim)'}</Text>
-          {['Shaykh Ikrām ʿAlī','Mawlānā Yūsuf Kāwī','Mawlānā Rashīd Ṣāḥib','Mawlānā Ibrāhīm Kāwī'].map((n) => (
-            <Text key={n} style={[styles.li, { textAlign: rtl ? 'right' : 'left' }]}>•  {n}</Text>
+          {[
+            { en: 'Shaykh Ikrām ʿAlī',       ar: 'الشيخ إكرام علي',           ur: 'شیخ اکرام علی' },
+            { en: 'Mawlānā Yūsuf Kāwī',      ar: 'مولانا يوسف كاوي',           ur: 'مولانا یوسف کاوی' },
+            { en: 'Mawlānā Rashīd Ṣāḥib',    ar: 'مولانا رشيد صاحب',           ur: 'مولانا رشید صاحب' },
+            { en: 'Mawlānā Ibrāhīm Kāwī',    ar: 'مولانا إبراهيم كاوي',        ur: 'مولانا ابراہیم کاوی' },
+          ].map((n) => (
+            <Text key={n.en} style={[styles.li, { textAlign: rtl ? 'right' : 'left' }]}>•  {lang === 'ar' ? n.ar : lang === 'ur' ? n.ur : n.en}</Text>
           ))}
           <Text style={[styles.subhead, { textAlign: rtl ? 'right' : 'left', marginTop: spacing.md }]}>{t('a3_about_livingAfiAhumAllH') || 'Living (ḥafiẓahum-Allāh)'}</Text>
-          {['Muftī ʿAbdul Qayyūm','Mawlānā Ismāʿīl Chāswī','Mawlānā Ilyās Ṣāḥib','Muftī ʿUbaidullāh','Muftī Abū Bakr','Qāḍī Ḥifẓul Raḥmān','Muftī Maḥmūd','Muftī ʿAbbās','Qārī Shabbīr','Qārī Yūsuf','Mawlānā ʿUthmān'].map((n) => (
-            <Text key={n} style={[styles.li, { textAlign: rtl ? 'right' : 'left' }]}>•  {n}</Text>
+          {[
+            { en: 'Muftī ʿAbdul Qayyūm',      ar: 'المفتي عبد القيوم',          ur: 'مفتی عبدالقیوم' },
+            { en: 'Mawlānā Ismāʿīl Chāswī',   ar: 'مولانا إسماعيل تشاسوي',      ur: 'مولانا اسماعیل چاسوی' },
+            { en: 'Mawlānā Ilyās Ṣāḥib',      ar: 'مولانا إلياس صاحب',          ur: 'مولانا الیاس صاحب' },
+            { en: 'Muftī ʿUbaidullāh',        ar: 'المفتي عبيد الله',            ur: 'مفتی عبیداللہ' },
+            { en: 'Muftī Abū Bakr',           ar: 'المفتي أبو بكر',              ur: 'مفتی ابو بکر' },
+            { en: 'Qāḍī Ḥifẓul Raḥmān',       ar: 'القاضي حفظ الرحمن',           ur: 'قاضی حفظ الرحمن' },
+            { en: 'Muftī Maḥmūd',             ar: 'المفتي محمود',                 ur: 'مفتی محمود' },
+            { en: 'Muftī ʿAbbās',             ar: 'المفتي عباس',                  ur: 'مفتی عباس' },
+            { en: 'Qārī Shabbīr',             ar: 'القارئ شبير',                  ur: 'قاری شبیر' },
+            { en: 'Qārī Yūsuf',               ar: 'القارئ يوسف',                  ur: 'قاری یوسف' },
+            { en: 'Mawlānā ʿUthmān',          ar: 'مولانا عثمان',                 ur: 'مولانا عثمان' },
+          ].map((n) => (
+            <Text key={n.en} style={[styles.li, { textAlign: rtl ? 'right' : 'left' }]}>•  {lang === 'ar' ? n.ar : lang === 'ur' ? n.ur : n.en}</Text>
           ))}
         </Card>
 

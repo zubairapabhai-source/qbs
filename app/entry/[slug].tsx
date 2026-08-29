@@ -75,7 +75,7 @@ export default function EntryDetail() {
   return (
     <View style={{ flex: 1, backgroundColor: colors.bg }}>
       <ScreenHeader
-        title={e.topic}
+        title={topic || e.topic}
         showBack
         rightAction={{
           icon: isBookmarked('entry', e.slug) ? 'bookmark' : 'bookmark-outline',

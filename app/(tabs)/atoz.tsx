@@ -117,6 +117,14 @@ export default function AtoZScreen() {
               {items.map((e) => {
                 const idx = flatIndexBySlug.get(e.slug) ?? 0;
                 const locked = !unlocked && idx >= FREE_PREVIEW_LIMIT;
+                // Prefer localised topic / hook when available; fall back
+                // to English so the entry never renders blank.
+                const topic = (lang === 'ar' && e.topic_ar) ? e.topic_ar
+                            : (lang === 'ur' && e.topic_ur) ? e.topic_ur
+                            : e.topic;
+                const hook = (lang === 'ar' && e.science_hook_ar) ? e.science_hook_ar
+                           : (lang === 'ur' && e.science_hook_ur) ? e.science_hook_ur
+                           : e.science_hook;
                 return (
                   <LockedTile
                     key={e.slug}
@@ -125,13 +133,13 @@ export default function AtoZScreen() {
                     style={{ marginBottom: spacing.sm }}
                   >
                     <Card accent={colors.silver}>
-                      <Text style={[styles.cardTopic, { textAlign: rtl ? 'right' : 'left' }]}>{e.topic}</Text>
+                      <Text style={[styles.cardTopic, { textAlign: rtl ? 'right' : 'left' }]}>{topic}</Text>
                       <View style={[styles.refRow, rtl && { flexDirection: 'row-reverse' }]}>
                         <Ionicons name="book-outline" size={13} color={colors.gold} />
                         <Text style={styles.ref}>{e.ref}</Text>
                       </View>
-                      {e.science_hook ? (
-                        <Text style={[styles.hook, { textAlign: rtl ? 'right' : 'left' }]} numberOfLines={2}>{e.science_hook}</Text>
+                      {hook ? (
+                        <Text style={[styles.hook, { textAlign: rtl ? 'right' : 'left' }]} numberOfLines={2}>{hook}</Text>
                       ) : null}
                     </Card>
                   </LockedTile>

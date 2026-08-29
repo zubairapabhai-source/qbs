@@ -138,8 +138,12 @@ export default function QuranPickerScreen() {
               </View>
               <View style={{ flex: 1 }}>
                 <Text style={styles.rowTitle}>
-                  {item.name_en}
-                  <Text style={styles.rowTitleMeaning}>  ·  {item.meaning_en}</Text>
+                  {lang === 'ar' ? item.name_ar : item.name_en}
+                  <Text style={styles.rowTitleMeaning}>  ·  {
+                    lang === 'ur' ? (item.meaning_ur || item.meaning_en)
+                    : lang === 'ar' ? (item.name_ar) // in Arabic mode the arabic name IS the "meaning" — avoids redundancy
+                    : item.meaning_en
+                  }</Text>
                 </Text>
                 <Text style={styles.rowSub}>
                   {item.ayah_count} {L('ayahs', 'آية', 'آیات')}  ·  {L(item.revelation_type,

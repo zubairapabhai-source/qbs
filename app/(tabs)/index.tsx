@@ -571,13 +571,13 @@ export default function HomeScreen() {
           icon="sparkles"
           iconTint={colors.gold}
           ar="اِسْأَلِ الشَّيْخَ"
-          title={L('Ask the Sheikh AI (beta)', 'اسأل الشيخ (تجريبي)', 'شیخ سے پوچھیں (بیٹا)')}
+          title={L('Ask the Sheikh AI', 'اسأل الشيخ', 'شیخ سے پوچھیں')}
           desc={L(
-            'A growing library of answers on the tafseer of Qur’ānic verses and scientific topics. If your question isn’t in the library yet, we’ll say so — new topics added weekly.',
-            'مكتبة متنامية من الإجابات في تفسير الآيات القرآنية والمواضيع العلمية. إن لم يكن سؤالك في المكتبة بعد، سنخبرك — تُضاف مواضيع جديدة أسبوعياً.',
-            'قرآنی آیات کی تفسیر اور سائنسی موضوعات پر بڑھتی ہوئی جوابات کی لائبریری۔ ہر ہفتے نئے موضوعات شامل ہو رہے ہیں۔'
+            'A curated library of AI-generated answers on the tafseer of Qur’ānic verses and scientific topics — pre-answered from classical tafseer sources. If your question isn’t in the library yet, we’ll say so — new topics added weekly.',
+            'مكتبة منتقاة من إجابات الذكاء الاصطناعي حول تفسير الآيات القرآنية والمواضيع العلمية — إجابات جاهزة من المصادر التفسيرية الكلاسيكية. إن لم يكن سؤالك في المكتبة بعد، سنخبرك — تُضاف مواضيع جديدة أسبوعياً.',
+            'قرآنی آیات کی تفسیر اور سائنسی موضوعات پر AI کے پیشگی جوابات کی منتخب لائبریری — کلاسیکی تفسیری مآخذ سے۔ اگر آپ کا سوال ابھی لائبریری میں نہیں تو ہم بتا دیں گے — ہر ہفتے نئے موضوعات شامل ہوتے ہیں۔'
           )}
-          badge="BETA"
+          badge="CURATED LIBRARY"
           cta={L('Ask the Sheikh', 'اسأل الشيخ', 'شیخ سے سوال کریں')}
           gradient={['rgba(212,175,55,0.22)', 'rgba(212,175,55,0.04)', 'rgba(14,31,26,0.0)']}
         />
