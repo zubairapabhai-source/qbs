@@ -1,8 +1,8 @@
 /**
  * Recite tab — text/voice search across all 6,236 verses.
- * Native voice mic uses expo-speech-recognition (free, on-device on iOS 13+
- * and Android 13+, cloud fallback otherwise). Text input works today
- * against /api/quran/match-text.
+ * Native voice mic uses expo-speech-recognition (SDK 54 pin: 3.1.3).
+ * Free, on-device on iOS 13+ and Android 13+ with cloud fallback.
+ * Text input works against /api/quran/match-text.
  */
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -10,36 +10,25 @@ import { useRouter } from 'expo-router';
 import { useRef, useState } from 'react';
 import { ActivityIndicator, Alert, Linking, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-// expo-speech-recognition needs a native pod that must be linked at build
-// time. If EAS's cached iOS build skipped `pod install` (has happened
-// twice), require() throws at import time. We fall back to stubs, and
-// SPEECH_RECOGNITION_NATIVE_AVAILABLE goes false so we can show a helpful
-// error instead of silently failing.
+// expo-speech-recognition has no web fallback — lazy require with stubs so the
+// preview / Expo Go bundle doesn't crash. On native builds these resolve to the
+// real native module. Direct require (initial-commit style) works reliably
+// on SDK 54 with expo-speech-recognition@3.1.3.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let ExpoSpeechRecognitionModule: any = {
+  requestPermissionsAsync: async () => ({ granted: false, canAskAgain: true, status: 'undetermined' }),
   getPermissionsAsync: async () => ({ granted: false, canAskAgain: true, status: 'undetermined' }),
-  requestPermissionsAsync: async () => ({ granted: false, canAskAgain: false, status: 'denied' }),
   start: () => {},
   stop: () => {},
 };
-let SPEECH_RECOGNITION_NATIVE_AVAILABLE = false;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let useSpeechRecognitionEvent: any = () => {};
-if (Platform.OS === 'ios' || Platform.OS === 'android') {
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const sr = require('expo-speech-recognition');
-    // Prefer the named export; fall back to default or the raw module object
-    // in case the ESM/CJS shape shifts across SDK versions.
-    const mod = sr?.ExpoSpeechRecognitionModule || sr?.default?.ExpoSpeechRecognitionModule || sr?.default || sr;
-    const hasRequest = mod && typeof mod.requestPermissionsAsync === 'function';
-    if (hasRequest) {
-      ExpoSpeechRecognitionModule = mod;
-      useSpeechRecognitionEvent = sr.useSpeechRecognitionEvent || sr?.default?.useSpeechRecognitionEvent || (() => {});
-      SPEECH_RECOGNITION_NATIVE_AVAILABLE = true;
-    }
-  } catch { /* pod not linked → stubs stay */ }
-}
+try {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const sr = require('expo-speech-recognition');
+  ExpoSpeechRecognitionModule = sr.ExpoSpeechRecognitionModule;
+  useSpeechRecognitionEvent = sr.useSpeechRecognitionEvent;
+} catch {}
 import { Card } from '../../src/components/Card';
 import { createWebSpeechRecognizer, isWebSpeechSupported, type WebSpeechSession } from '../../src/utils/webSpeech';
 import { Empty } from '../../src/components/Empty';
@@ -178,37 +167,6 @@ export default function ReciteScreen() {
     }
 
     // === NATIVE — iOS / Android with expo-speech-recognition ===
-    if (!SPEECH_RECOGNITION_NATIVE_AVAILABLE) {
-      // Diagnostic path — if the native pod isn't linked, offer to open
-      // iOS Settings so the user can double-check mic + Speech Recognition
-      // permissions (sometimes iOS shows the toggle even when the native
-      // module isn't linked — turning both on can wake it up).
-      Alert.alert(
-        lang === 'en' ? 'Mic module not linked in this build' : lang === 'ar' ? 'وحدة الصوت غير مربوطة' : 'مائیک ماڈیول لنک نہیں',
-        lang === 'en'
-          ? `Voice recognition native module failed to link in this build.\n\nQuick check:\n1. iOS Settings → QBS → make sure Microphone AND Speech Recognition are BOTH ON\n2. Delete the app + reinstall from the App Store (forces a fresh native module load)\n\nIf both steps fail, tap Report so we can investigate.`
-          : lang === 'ar'
-            ? `فشل ربط وحدة التعرف على الكلام في هذا الإصدار.\n\nتحقق سريع:\n١. الإعدادات → QBS → فعّل «المايكروفون» و«التعرف على الكلام»\n٢. احذف التطبيق وأعد تثبيته من App Store\n\nإن استمر الفشل، اضغط إبلاغ.`
-            : `اس بلڈ میں مائیک ماڈیول لنک نہیں ہوا۔\n\nفوری چیک:\n1. Settings → QBS → Microphone اور Speech Recognition دونوں ON\n2. ایپ ڈیلیٹ کر کے دوبارہ انسٹال کریں\n\nمسئلہ باقی رہے تو Report دبائیں۔`,
-        [
-          { text: lang === 'en' ? 'Open Settings' : lang === 'ar' ? 'فتح الإعدادات' : 'سیٹنگز', onPress: () => { try { Linking.openSettings(); } catch {} } },
-          { text: lang === 'en' ? 'Report' : lang === 'ar' ? 'إبلاغ' : 'رپورٹ',
-            onPress: () => {
-              try {
-                const { openSupportEmail } = require('../../src/support');
-                openSupportEmail({
-                  deviceId: useApp.getState().deviceId || 'preview',
-                  topic: 'mic-native-link-failed-v017',
-                  message: `Mic native module still unavailable in v0.1.7 build 11. Platform: ${Platform.OS} ${Platform.Version}. Please investigate the expo-speech-recognition pod link.`,
-                });
-              } catch {}
-            }
-          },
-          { text: 'OK', style: 'cancel' },
-        ]
-      );
-      return;
-    }
     try {
       // Best practice: check first, then request only if allowed.
       let perm = await ExpoSpeechRecognitionModule.getPermissionsAsync();

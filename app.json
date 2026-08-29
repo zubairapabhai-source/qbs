@@ -15,7 +15,7 @@
     },
     "ios": {
       "bundleIdentifier": "com.divineseriesmobile.quranbiblescience",
-      "buildNumber": "12",
+      "buildNumber": "13",
       "infoPlist": {
         "NSMicrophoneUsageDescription": "Listen as you recite to find the Qur'\u0101nic verse.",
         "NSSpeechRecognitionUsageDescription": "Match your spoken Arabic to a verse.",
@@ -28,7 +28,7 @@
     },
     "android": {
       "package": "com.divineseriesmobile.quranbiblescience",
-      "versionCode": 10,
+      "versionCode": 11,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#042216"

@@ -19,7 +19,7 @@ import { Alert, Linking, Platform } from 'react-native';
 import Constants from 'expo-constants';
 import { captureUserReport } from './sentry';
 
-const SUPPORT_EMAIL = 'qbs.divineseriesmobile@proton.me';
+const SUPPORT_EMAIL = 'zubairapabhai@gmail.com';
 const APP_NAME = "Qur'ān, Bible and Science";
 
 export const SUPPORT_EMAIL_ADDRESS = SUPPORT_EMAIL;
