@@ -271,10 +271,16 @@ export default function VerseFullPage() {
                 </Text>
                 <Ionicons name={rtl ? 'chevron-back' : 'chevron-forward'} size={18} color={colors.silverDim} />
               </View>
-              <Text style={[styles.sciTopic, { textAlign: rtl ? 'right' : 'left' }]}>{data.scientific.topic}</Text>
+              <Text style={[styles.sciTopic, { textAlign: rtl ? 'right' : 'left' }]}>
+                {(lang === 'ar' && (data.scientific as any).topic_ar) ? (data.scientific as any).topic_ar
+                 : (lang === 'ur' && (data.scientific as any).topic_ur) ? (data.scientific as any).topic_ur
+                 : data.scientific.topic}
+              </Text>
               {data.scientific.science_hook ? (
                 <Text style={[styles.sciBody, { textAlign: rtl ? 'right' : 'left' }]} numberOfLines={3}>
-                  {data.scientific.science_hook}
+                  {(lang === 'ar' && (data.scientific as any).science_hook_ar) ? (data.scientific as any).science_hook_ar
+                   : (lang === 'ur' && (data.scientific as any).science_hook_ur) ? (data.scientific as any).science_hook_ur
+                   : data.scientific.science_hook}
                 </Text>
               ) : null}
               <Text style={styles.tapMore}>
@@ -294,23 +300,49 @@ export default function VerseFullPage() {
               </Text>
             </Card>
           ) : (
-            data.tafseers.map((t) => (
-              <Card key={t.source} accent={colors.gold}>
-                <View style={[styles.row, rtl && { flexDirection: 'row-reverse' }]}>
-                  <Ionicons name="library" size={16} color={colors.gold} />
-                  <Text style={[styles.label, { color: colors.gold, flex: 1 }]}>
-                    {SOURCE_LABEL[t.source] || t.source.toUpperCase()}
-                  </Text>
-                </View>
-                {t.paragraphs.map((p, i) => (
-                  <Text key={i} style={[
-                    styles.tafseerText,
-                    t.lang === 'ar' && { textAlign: 'right', fontSize: 16, lineHeight: 28 },
-                    i > 0 && { marginTop: spacing.sm },
-                  ]}>{p}</Text>
-                ))}
-              </Card>
-            ))
+            // Sort tafseer sources by app language:
+            //   • Urdu users see ibn_kathir_ur first, then Arabic sources, then English
+            //   • Arabic users see all *_ar sources first, then English fallback
+            //   • English users see ibn_kathir_en first, then Arabic sources
+            // This means users no longer get a wall of English when they've
+            // chosen Arabic or Urdu — they see their own language up top.
+            [...data.tafseers]
+              .sort((a, b) => {
+                const rank = (t: typeof a) => {
+                  if (lang === 'ur') {
+                    if (t.lang === 'ur') return 0;
+                    if (t.lang === 'ar') return 1;
+                    return 2;
+                  }
+                  if (lang === 'ar') {
+                    if (t.lang === 'ar') return 0;
+                    if (t.lang === 'ur') return 2;
+                    return 1;
+                  }
+                  // English
+                  if (t.lang === 'en') return 0;
+                  if (t.lang === 'ar') return 1;
+                  return 2;
+                };
+                return rank(a) - rank(b);
+              })
+              .map((t) => (
+                <Card key={t.source} accent={colors.gold}>
+                  <View style={[styles.row, rtl && { flexDirection: 'row-reverse' }]}>
+                    <Ionicons name="library" size={16} color={colors.gold} />
+                    <Text style={[styles.label, { color: colors.gold, flex: 1 }]}>
+                      {SOURCE_LABEL[t.source] || t.source.toUpperCase()}
+                    </Text>
+                  </View>
+                  {t.paragraphs.map((p, i) => (
+                    <Text key={i} style={[
+                      styles.tafseerText,
+                      (t.lang === 'ar' || t.lang === 'ur') && { textAlign: 'right', fontSize: 16, lineHeight: 28 },
+                      i > 0 && { marginTop: spacing.sm },
+                    ]}>{p}</Text>
+                  ))}
+                </Card>
+              ))
           )}
 
           {/* Aqeedah footer */}

@@ -67,8 +67,19 @@ export default function MushafPageScreen() {
 
   const [page, setPage] = useState<Awaited<ReturnType<typeof fetchPage>> | null>(null);
   const [loading, setLoading] = useState(true);
-  const [trans, setTrans] = useState<TransMode>('en');  // Default: show English translation like Glorious Quran
+  // Default translation mode follows the app language: Urdu users see Urdu,
+  // Arabic-native users see none (they read the ʿUthmani text directly), and
+  // everyone else sees English. Users can still cycle via the language icon.
+  const [trans, setTrans] = useState<TransMode>(
+    lang === 'ur' ? 'ur' : lang === 'ar' ? 'none' : 'en'
+  );
   const [longPressed, setLongPressed] = useState<AyahTri | null>(null);
+
+  // If the user changes app language while on the page, resync the default
+  // translation mode so it reflects their new preference immediately.
+  useEffect(() => {
+    setTrans(lang === 'ur' ? 'ur' : lang === 'ar' ? 'none' : 'en');
+  }, [lang]);
 
   // Persist "last page read" the moment we're viewing something valid.
   useEffect(() => {
