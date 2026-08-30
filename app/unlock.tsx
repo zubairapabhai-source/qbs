@@ -4,25 +4,136 @@
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
-import { Alert, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useEffect } from 'react';
+import { Alert, Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Card } from '../src/components/Card';
 import { SilverButton } from '../src/components/SilverButton';
 import { useApp } from '../src/store/useApp';
-import { useStorePurchases, reportPurchaseToBackend } from '../src/iap/iap';
+import { useStorePurchases, reportPurchaseToBackend, subscribePurchaseError, classifyPurchaseError, logAttemptToBackend } from '../src/iap/iap';
 import { IAP_PRODUCTS, AI_PACK_CREDITS, AI_PACK_FALLBACK_PRICES, type IapProductSku } from '../src/iap/products';
 import { getEntitlement } from '../src/api';
 import { openSupportEmail } from '../src/support';
 import { t } from '../src/i18n/strings';
 import { colors, spacing, type as ty } from '../src/theme';
 
+const API_BASE = process.env.EXPO_PUBLIC_QBS_API_URL || '';
+
 export default function Unlock() {
   const insets = useSafeAreaInsets();
   const router = useRouter();
   const lang = useApp((s) => s.lang);
   const setEntitlement = useApp((s) => s.setEntitlement);
+  const deviceId = useApp((s) => s.deviceId);
   const rtl = lang === 'ar' || lang === 'ur';
   const store = useStorePurchases();
+
+  // Show a recovery dialog whenever the store rejects a purchase — never
+  // let the user tap Buy and see nothing happen. Four escape hatches:
+  //   1. Try Again (retry the same product)
+  //   2. Restore Purchase (they may already own it)
+  //   3. I've Paid — Manual Unlock (self-serve, back-end grants immediately)
+  //   4. Contact Support (opens email pre-filled with device ID + error code)
+  useEffect(() => {
+    const unsub = subscribePurchaseError((err, productId) => {
+      const info = classifyPurchaseError(err);
+      const errCode = String(err?.code || err?.responseCode || 'UNKNOWN');
+
+      const buttons: { text: string; style?: 'default' | 'cancel' | 'destructive'; onPress?: () => void }[] = [];
+
+      // Cancelled: keep it soft — Try Again + Dismiss.
+      if (info.tag === 'cancelled') {
+        buttons.push(
+          { text: lang === 'en' ? 'Try Again' : lang === 'ar' ? 'أعد المحاولة' : 'دوبارہ کوشش',
+            onPress: () => { retryPurchase(productId as IapProductSku); } },
+          { text: lang === 'en' ? 'Close' : lang === 'ar' ? 'إغلاق' : 'بند کریں', style: 'cancel' },
+        );
+      } else if (info.tag === 'already-owned') {
+        buttons.push(
+          { text: lang === 'en' ? 'Restore Purchase' : lang === 'ar' ? 'استعادة الشراء' : 'خریداری بحال کریں',
+            onPress: restore },
+          { text: lang === 'en' ? 'Close' : lang === 'ar' ? 'إغلاق' : 'بند کریں', style: 'cancel' },
+        );
+      } else {
+        // Every other error — give ALL escape hatches.
+        buttons.push(
+          { text: lang === 'en' ? 'Try Again' : lang === 'ar' ? 'أعد المحاولة' : 'دوبارہ کوشش',
+            onPress: () => { retryPurchase(productId as IapProductSku); } },
+          { text: lang === 'en' ? 'Restore Purchase' : lang === 'ar' ? 'استعادة الشراء' : 'بحال کریں',
+            onPress: restore },
+          { text: lang === 'en' ? 'I\'ve already paid — Manual Unlock' : lang === 'ar' ? 'دفعت بالفعل — فتح يدوي' : 'ادائیگی مکمل — دستی انلاک',
+            onPress: manualUnlock },
+          { text: lang === 'en' ? 'Contact Support' : lang === 'ar' ? 'اتصل بالدعم' : 'مدد سے رابطہ',
+            onPress: () => openSupportEmail({
+              deviceId: deviceId || 'unknown',
+              topic: `iap-failed-${info.tag}`,
+              message: `In-app purchase failed on ${Platform.OS}.\nProduct: ${productId}\nError code: ${errCode}\nMessage: ${String(err?.message || '')}\n\nPlease grant a manual unlock — I've attempted to buy but Apple/Google would not complete the transaction.`,
+            }) },
+          { text: lang === 'en' ? 'Close' : lang === 'ar' ? 'إغلاق' : 'بند کریں', style: 'cancel' },
+        );
+      }
+
+      Alert.alert(info.title, info.body, buttons);
+    });
+    return unsub;
+  // Handlers (retryPurchase/restore/manualUnlock) close over the same
+  // reactive deps declared here, so re-subscribing on those changes is
+  // enough. Excluding the handler functions themselves is intentional.
+  }, [deviceId, lang]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const retryPurchase = async (sku: IapProductSku) => {
+    if (!store.available) return;
+    try {
+      logAttemptToBackend(deviceId || 'unknown', sku, 'requested');
+      await store.requestPurchase({
+        request: {
+          apple: { sku },
+          google: { skus: [sku] },
+        },
+      });
+    } catch (e: any) {
+      // Sync errors from requestPurchase itself — surface them as if the
+      // async callback fired so the same recovery dialog appears.
+      const info = classifyPurchaseError(e);
+      Alert.alert(info.title, info.body);
+    }
+  };
+
+  const manualUnlock = async () => {
+    if (!API_BASE || !deviceId) {
+      Alert.alert(
+        lang === 'en' ? 'Cannot connect' : lang === 'ar' ? 'تعذر الاتصال' : 'کنکشن نہیں',
+        lang === 'en' ? 'Please check your internet connection and try again.' : lang === 'ar' ? 'تحقق من الاتصال وحاول مرة أخرى.' : 'انٹرنیٹ چیک کر کے دوبارہ کوشش کریں۔',
+      );
+      return;
+    }
+    try {
+      const res = await fetch(`${API_BASE}/api/iap/self-serve-unlock`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          device_id: deviceId,
+          platform: Platform.OS,
+          note: 'Manual unlock from purchase-failed recovery dialog',
+        }),
+      });
+      const j = await res.json();
+      if (j?.unlocked) {
+        setEntitlement({ unlocked: true });
+        Alert.alert(
+          lang === 'en' ? '✓ Unlocked' : lang === 'ar' ? '✓ تم الفتح' : '✓ انلاک ہو گیا',
+          lang === 'en' ? 'Your app is now unlocked. Enjoy!' : lang === 'ar' ? 'تم فتح التطبيق. استمتع!' : 'ایپ انلاک ہو گئی!',
+        );
+      } else {
+        throw new Error('server did not confirm unlock');
+      }
+    } catch {
+      Alert.alert(
+        lang === 'en' ? 'Manual unlock failed' : lang === 'ar' ? 'فشل الفتح اليدوي' : 'دستی انلاک ناکام',
+        lang === 'en' ? 'Please tap Contact Support and I\'ll unlock you personally.' : lang === 'ar' ? 'اضغط اتصل بالدعم وسنفتح حسابك يدويًا.' : 'مدد سے رابطہ کریں، ہم دستی انلاک کر دیں گے۔',
+      );
+    }
+  };
 
   const buyLifetime = async () => {
     if (!store.available) {
@@ -37,14 +148,26 @@ export default function Unlock() {
       return;
     }
     try {
+      logAttemptToBackend(deviceId || 'unknown', IAP_PRODUCTS.lifetimeUnlock, 'requested');
       await store.requestPurchase({
         request: {
           apple: { sku: IAP_PRODUCTS.lifetimeUnlock },
           google: { skus: [IAP_PRODUCTS.lifetimeUnlock] },
         },
       });
-    } catch (e) {
-      console.warn('[IAP] requestPurchase failed', e);
+      // NOTE: success is surfaced via useIAP's onPurchaseSuccess callback,
+      // failure via onPurchaseError (which triggers the recovery Alert
+      // through subscribePurchaseError). This try/catch only fires for
+      // *sync* errors thrown before the async flow started.
+    } catch (e: any) {
+      logAttemptToBackend(deviceId || 'unknown', IAP_PRODUCTS.lifetimeUnlock, 'error',
+        String(e?.code || 'SYNC_ERROR'), String(e?.message || e || ''));
+      const info = classifyPurchaseError(e);
+      Alert.alert(info.title, info.body, [
+        { text: lang === 'en' ? 'Try Again' : 'أعد المحاولة', onPress: buyLifetime },
+        { text: lang === 'en' ? 'Manual Unlock' : 'فتح يدوي', onPress: manualUnlock },
+        { text: lang === 'en' ? 'Close' : 'إغلاق', style: 'cancel' },
+      ]);
     }
   };
 
@@ -54,14 +177,21 @@ export default function Unlock() {
       return;
     }
     try {
+      logAttemptToBackend(deviceId || 'unknown', sku, 'requested');
       await store.requestPurchase({
         request: {
           apple: { sku },
           google: { skus: [sku] },
         },
       });
-    } catch (e) {
-      console.warn('[IAP] pack requestPurchase failed', e);
+    } catch (e: any) {
+      logAttemptToBackend(deviceId || 'unknown', sku, 'error',
+        String(e?.code || 'SYNC_ERROR'), String(e?.message || e || ''));
+      const info = classifyPurchaseError(e);
+      Alert.alert(info.title, info.body, [
+        { text: lang === 'en' ? 'Try Again' : 'أعد المحاولة', onPress: () => buyPack(sku) },
+        { text: lang === 'en' ? 'Close' : 'إغلاق', style: 'cancel' },
+      ]);
     }
   };
 

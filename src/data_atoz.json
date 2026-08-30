@@ -14,7 +14,10 @@
       "science_hook": "Classical commentators (Ibn Kathīr, al-Saʿdī, al-Qurṭubī, al-Ālūsī) explain al-ʿālamīn as every category of created beings — angels, jinn, humans, animals, the heavens and earth — and explicitly include \"worlds we do not know.\" The reported (chain-disputed) tradition of \"18,000 worlds\" attributed to Ibn ʿAbbās is used to convey the breadth of Allah ﷻ's lordship rather than a fixed cosmological number. From this universality, the Sunnī aqeedah position is that ANY created intelligent beings — including any that may exist on other planets — would themselves be among the ʿālamīn and subject to His lordship. Classical tafāsīr neither affirm nor deny their existence; they affirm the breadth.",
       "arabic": "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
       "translation_en": "[All] praise is [due] to Allāh, Lord of all the worlds. (Sūrah al-Fātiḥah 1:2)",
-      "topic_ar": "رب العالمين — كل العوالم، المرئية وغير المرئية"
+      "topic_ar": "رب العالمين — كل العوالم، المرئية وغير المرئية",
+      "topic_ur": "رب العالمین — تمام جہان، دیکھے اور ان دیکھے",
+      "science_hook_ar": "يشرح المفسرون الكلاسيكيون (ابن كثير، السعدي، القرطبي، الألوسي) أن \"العالمين\" هم كل فئات المخلوقات - الملائكة، والجن، والبشر، والحيوانات، والسماوات والأرض - ويشملون صراحة \"عوالم لا نعرفها\". ويُستخدم الحديث المروي (سنده مختلف فيه) عن \"18 ألف عالم\" المنسوب إلى ابن عباس للدلالة على سعة ربوبية الله سبحانه وتعالى، وليس كعدد كوني ثابت. ومن هذا الشمول، فإن موقف العقيدة السنية هو أن أي كائنات ذكية مخلوقة - بما في ذلك أي كائنات قد توجد على كواكب أخرى - ستكون هي نفسها من العالمين وخاضعة لربوبيته. التفاسير الكلاسيكية لا تؤكد وجودها ولا تنفيه؛ بل تؤكد السعة.",
+      "science_hook_ur": "کلاسیکی مفسرین (ابن کثیر، السعدی، القرطبی، الآلوسی) نے \"العالمین\" کی تفسیر ہر قسم کی مخلوقات کے طور پر کی ہے — فرشتے، جنات، انسان، حیوانات، آسمان اور زمین — اور واضح طور پر \"ایسی دنیاؤں کو بھی شامل کیا ہے جنہیں ہم نہیں جانتے\"۔ ابن عباسؓ سے منسوب ایک روایت (جس کی سند پر اختلاف ہے) کے مطابق \"18,000 دنیاؤں\" کا ذکر اللہ تعالیٰ کی ربوبیت کی وسعت کو بیان کرنے کے لیے کیا گیا ہے، نہ کہ ایک مخصوص کائناتی تعداد کے طور پر۔ اس عالمگیر تصور سے، اہل سنت کا عقیدہ یہ ہے کہ کوئی بھی ذی شعور مخلوق — بشمول وہ جو دوسرے سیاروں پر موجود ہو سکتی ہے — وہ خود \"العالمین\" میں شامل ہوگی اور اللہ تعالیٰ کی ربوبیت کے تابع ہوگی۔ کلاسیکی تفاسیر ان کے وجود کو نہ تو ثابت کرتی ہیں اور نہ ہی رد کرتی ہیں؛ وہ صرف وسعت کو بیان کرتی ہیں۔"
     },
     {
       "slug": "human-from-stardust",
@@ -22,7 +25,11 @@
       "topic": "Human creation from earth — possible stardust reading",
       "science_hook": "Carl Sagan's 'we are made of star stuff' — all heavy elements in human body originated in stellar nucleosynthesis",
       "arabic": "وَلَقَدْ خَلَقْنَا الْإِنْسَانَ مِنْ صَلْصَالٍ مِنْ حَمَإٍ مَسْنُونٍ",
-      "translation_en": "And We did certainly create man out of clay from an altered black mud. (Sūrah al-Ḥijr 15:26)"
+      "translation_en": "And We did certainly create man out of clay from an altered black mud. (Sūrah al-Ḥijr 15:26)",
+      "topic_ar": "خلق الإنسان من الأرض — قراءة محتملة عن غبار النجوم",
+      "topic_ur": "خاک سے انسانی تخلیق — ممکنہ ستاروں کی دھول کا مفہوم",
+      "science_hook_ar": "إن \"مادة النجوم\" التي نتحدث عنها لكارل ساغان تعني أن جميع العناصر الثقيلة في جسم الإنسان نشأت في التخليق النووي النجمي.",
+      "science_hook_ur": "ہم ستارے کی مٹی سے بنے ہیں — انسانی جسم کے تمام بھاری عناصر ستاروں کی نیوکلیوسنتھیسس سے ماخوذ ہیں۔"
     },
     {
       "slug": "black-holes-and-stars",
@@ -30,7 +37,9 @@
       "topic": "وَالنَّجْمِ إِذَا هَوَىٰ — possible black hole reading",
       "science_hook": "Stars that collapse / fall into themselves form black holes; also connects to the Mi'rāj narrative + sidra-tul-muntahā as a cosmic boundary",
       "arabic": "وَالنَّجْمِ إِذَا هَوَىٰ",
-      "translation_en": "By the star when it descends/falls. (Sūrah an-Najm 53:1)"
+      "translation_en": "By the star when it descends/falls. (Sūrah an-Najm 53:1)",
+      "topic_ar": "وَالنَّجْمِ إِذَا هَوَىٰ — قراءة محتملة عن الثقب الأسود",
+      "topic_ur": "وَالنَّجْمِ إِذَا هَوَىٰ — ممکنہ بلیک ہول کی تفسیر"
     },
     {
       "slug": "outer-space-travel",
