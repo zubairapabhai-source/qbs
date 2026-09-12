@@ -2,7 +2,7 @@
   "expo": {
     "name": "Quran, Bible and Science",
     "slug": "quran-bible-science",
-    "version": "0.1.9",
+    "version": "0.1.12",
     "orientation": "portrait",
     "scheme": "qbs",
     "userInterfaceStyle": "dark",
@@ -15,9 +15,9 @@
     },
     "ios": {
       "bundleIdentifier": "com.divineseriesmobile.quranbiblescience",
-      "buildNumber": "15",
+      "buildNumber": "22",
       "infoPlist": {
-        "NSMicrophoneUsageDescription": "Listen as you recite to find the Qur'\u0101nic verse.",
+        "NSMicrophoneUsageDescription": "Listen as you recite to find the Qur'ānic verse.",
         "NSSpeechRecognitionUsageDescription": "Match your spoken Arabic to a verse.",
         "NSLocationWhenInUseUsageDescription": "Calculate accurate prayer times for your location.",
         "NSPhotoLibraryUsageDescription": "Save verse cards to your photo library.",
@@ -30,7 +30,7 @@
     },
     "android": {
       "package": "com.divineseriesmobile.quranbiblescience",
-      "versionCode": 11,
+      "versionCode": 14,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#042216"
@@ -53,7 +53,7 @@
       [
         "expo-speech-recognition",
         {
-          "microphonePermission": "Listen as you recite to find the Qur'\u0101nic verse.",
+          "microphonePermission": "Listen as you recite to find the Qur'ānic verse.",
           "speechRecognitionPermission": "Match your spoken Arabic to a verse.",
           "androidSpeechServicePackages": [
             "com.google.android.googlequicksearchbox"
@@ -63,7 +63,7 @@
       [
         "expo-audio",
         {
-          "microphonePermission": "Listen as you recite to find the Qur'\u0101nic verse."
+          "microphonePermission": "Listen as you recite to find the Qur'ānic verse."
         }
       ]
     ],
