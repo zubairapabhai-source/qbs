@@ -4,7 +4,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Alert, Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Card } from '../src/components/Card';
@@ -16,6 +16,8 @@ import { getEntitlement } from '../src/api';
 import { openSupportEmail } from '../src/support';
 import { t } from '../src/i18n/strings';
 import { colors, spacing, type as ty } from '../src/theme';
+import { BundleOfferModal } from '../src/components/BundleOfferModal';
+import { bundleApi } from '../src/bundleApi';
 
 const API_BASE = process.env.EXPO_PUBLIC_QBS_API_URL || '';
 
@@ -25,8 +27,28 @@ export default function Unlock() {
   const lang = useApp((s) => s.lang);
   const setEntitlement = useApp((s) => s.setEntitlement);
   const deviceId = useApp((s) => s.deviceId);
+  const unlocked = useApp((s) => s.unlocked);
   const rtl = lang === 'ar' || lang === 'ur';
   const store = useStorePurchases();
+
+  // Track cross-app bundle offer state. We ONLY offer when unlocked
+  // transitions from false → true DURING this screen's lifetime
+  // (i.e. the user just paid £0.99 here), not for users who arrive
+  // already-unlocked.
+  const [showBundleOffer, setShowBundleOffer] = useState(false);
+  const wasUnlockedRef = useRef<boolean>(unlocked);
+  useEffect(() => {
+    if (!wasUnlockedRef.current && unlocked) {
+      // Just-transitioned. Check the passport bundle state and offer.
+      (async () => {
+        try {
+          const b = await bundleApi.status();
+          if (!b.claimed) setShowBundleOffer(true);
+        } catch { /* silent */ }
+      })();
+    }
+    wasUnlockedRef.current = unlocked;
+  }, [unlocked]);
 
   // Show a recovery dialog whenever the store rejects a purchase — never
   // let the user tap Buy and see nothing happen. Four escape hatches:
@@ -138,7 +160,7 @@ export default function Unlock() {
   const buyLifetime = async () => {
     if (!store.available) {
       Alert.alert(
-        'In-app purchase',
+        lang === 'en' ? 'In-app purchase' : lang === 'ar' ? 'شراء داخل التطبيق' : 'ان-ایپ خریداری',
         lang === 'en'
           ? 'IAP runs only in the App Store / Play Store build. In Expo Go / web preview the purchase flow is disabled — tap "Preview unlocked mode" below for testing.'
           : lang === 'ar'
@@ -339,7 +361,7 @@ export default function Unlock() {
           <Bullet text={lang === 'en' ? 'Unlock all 50+ A–Z scientific verses' : lang === 'ar' ? 'فتح جميع آيات العلم' : 'A–Z کی تمام آیات'} />
           <Bullet text={lang === 'en' ? '50 full Muslim Scientist biographies' : lang === 'ar' ? 'خمسون ترجمة' : '۵۰ سوانح عمریاں'} />
           <Bullet text={lang === 'en' ? 'Daily Sign with deep-dive history' : lang === 'ar' ? 'علامة اليوم بالتفصيل' : 'تفصیلی روزانہ نشانی'} />
-          <Bullet text={lang === 'en' ? '3 free AI Sheikh questions every week' : lang === 'ar' ? 'ثلاثة أسئلة للشيخ أسبوعيًّا' : 'ہفتے میں ۳ مفت شیخ سوال'} />
+          <Bullet text={lang === 'en' ? '1 free AI Sheikh question every week' : lang === 'ar' ? 'سؤال أسبوعي مجاني للشيخ' : 'ہفتے میں ۱ مفت شیخ سوال'} />
           <Bullet text={lang === 'en' ? 'Lifetime access — no subscription' : lang === 'ar' ? 'مدى الحياة — دون اشتراك' : 'تاحیات، بغیر سبسکرپشن'} />
         </Card>
 
@@ -366,9 +388,9 @@ export default function Unlock() {
              'AI شیخ — اضافی سوالات'}
           </Text>
           <Text style={styles.packSub}>
-            {lang === 'en' ? 'Run out of your weekly 3 free questions? Top up here. Consumable, no subscription.' :
-             lang === 'ar' ? 'انتهت أسئلتك الثلاثة المجانية؟ أضف باقة هنا. شراء واحد فقط، دون اشتراك.' :
-             'ہفتے کے ۳ مفت سوالات ختم؟ یہاں ٹاپ اپ کریں۔ ایک بار خریداری، کوئی سبسکرپشن نہیں۔'}
+            {lang === 'en' ? 'Used up your free weekly question? Top up here. Consumable, no subscription.' :
+             lang === 'ar' ? 'انتهى سؤالك الأسبوعي المجاني؟ أضف باقة هنا. شراء واحد فقط، دون اشتراك.' :
+             'ہفتے کا مفت سوال ختم؟ یہاں ٹاپ اپ کریں۔ ایک بار خریداری، کوئی سبسکرپشن نہیں۔'}
           </Text>
 
           {[IAP_PRODUCTS.aiPack1, IAP_PRODUCTS.aiPack10, IAP_PRODUCTS.aiPack30].map((sku) => {
@@ -412,6 +434,15 @@ export default function Unlock() {
             'Apple / Google کے ذریعے ایک بار کی ادائگی۔ کوئی سبسکرپشن نہیں۔'}
         </Text>
       </ScrollView>
+
+      {/* 🎁 Cross-app bundle upsell — one-time offer post-unlock */}
+      <BundleOfferModal
+        visible={showBundleOffer}
+        onClose={() => {
+          setShowBundleOffer(false);
+          router.back();
+        }}
+      />
     </View>
   );
 }

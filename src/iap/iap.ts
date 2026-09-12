@@ -180,7 +180,13 @@ export function useStorePurchases(): StoreApi {
         receiptData: purchase.transactionReceipt ?? null,
         raw: purchase,
       });
-      if (productId === IAP_PRODUCTS.lifetimeUnlock) setEntitlement({ unlocked: true });
+      if (productId === IAP_PRODUCTS.lifetimeUnlock) {
+        setEntitlement({ unlocked: true });
+        // Broadcast unlock milestone to Ummah Passport (fire-and-forget).
+        import('../passportApi').then(({ passportApi }) => {
+          passportApi.milestone('unlock', 'Unlocked Qurʾān · Bible · Science', '⭐').catch(() => {});
+        }).catch(() => {});
+      }
 
       if (isConsumable) {
         // Pessimistic UI: optimistic-update with the SKU's known credit count,

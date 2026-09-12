@@ -16,11 +16,25 @@ import { VerseAudioButton } from '../../src/components/VerseAudioButton';
 import { LanguageSwitcher } from '../../src/components/LanguageSwitcher';
 import { HelpButton } from '../../src/components/HelpButton';
 import { AmbientToggle } from '../../src/components/AmbientToggle';
+import { StreakCard } from '../../src/components/StreakCard';
+import { MilestoneModal } from '../../src/components/MilestoneModal';
+import { CrossSellCard } from '../../src/components/CrossSellCard';
+import { CommunityPulseCard } from '../../src/components/CommunityPulseCard';
+import { PassportEntryCard } from '../../src/components/PassportEntryCard';
+import { BundleUpsellCard } from '../../src/components/BundleUpsellCard';
+import { WeeklyDigestCard } from '../../src/components/WeeklyDigestCard';
+import { UmmahLeaderboardCard } from '../../src/components/UmmahLeaderboardCard';
+import { TopGiftersCard } from '../../src/components/TopGiftersCard';
+import { BadgeBloomModal } from '../../src/components/BadgeBloomModal';
+import { DuaOfTheDayCard } from '../../src/components/DuaOfTheDayCard';
+import { SacredCountdownCard } from '../../src/components/SacredCountdownCard';
 import { useApp } from '../../src/store/useApp';
 import { openSupportEmail } from '../../src/support';
 import { t } from '../../src/i18n/strings';
 import { colors, radius, spacing, type as ty } from '../../src/theme';
 import { getHijriDate } from '../../src/hijri';
+import { useEffect, useState } from 'react';
+import { isCurrentChampion } from '../../src/leaderboards/api';
 
 // Signature verse — Sūrat Fuṣṣilat 41:53
 const HERO_VERSE = {
@@ -120,6 +134,11 @@ export default function HomeScreen() {
     { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }
   );
   const hijri = getHijriDate();
+
+  const [champion, setChampion] = useState(false);
+  useEffect(() => {
+    isCurrentChampion().then(setChampion).catch(() => setChampion(false));
+  }, []);
 
   const onShare = async () => {
     const body = `${HERO_VERSE.arabic}\n\n— Qur'ān ${HERO_VERSE.key}  ·  ${HERO_VERSE.surah_en}\n\n"${HERO_VERSE.translation_en}"\n\nFrom: Qur'ān, Bible & Science 📖`;
@@ -279,6 +298,13 @@ export default function HomeScreen() {
         ) : null}
 
         {/* SIGNATURE VERSE 41:53 HERO */}
+        {champion && (
+          <Pressable onPress={() => router.push('/leaderboards' as any)} style={styles.championPill}>
+            <Text style={styles.championPillText}>
+              {'👑 '}{L('You wear the crown this week', 'أنت البطل هذا الأسبوع', 'آپ اس ہفتے کے چیمپیئن ہیں')}
+            </Text>
+          </Pressable>
+        )}
         <LinearGradient
           colors={['#1d4a3d', colors.gold + '55', '#0e1f1a']}
           start={{ x: 0, y: 0 }}
@@ -321,6 +347,11 @@ export default function HomeScreen() {
           {L('⟡ EXPLORE THE SIGNS ⟡', '⟡ استكشف الآيات ⟡', '⟡ نشانیوں کو تلاش کریں ⟡')}
         </Text>
 
+        {/* PERSONAL STREAK — subtle pill above the tiles.  Only shows once
+            the user has recorded at least one meaningful action; new
+            users see a warm invite instead. */}
+        <StreakCard />
+
         {/* BIG · Our Aqeedah & Approach — tap-anytime disclaimer (gold, top spot) */}
         <BigTile
           onPress={() => router.push('/onboarding' as any)}
@@ -356,6 +387,50 @@ export default function HomeScreen() {
             ar="المحفوظات"
             title={L('Bookmarks', 'المحفوظات', 'بُک مارکس')}
             desc={L('Saved verses, topics & scientists', 'محفوظاتك من كل قسم', 'محفوظات ہر سیکشن سے')}
+          />
+          <SmallTile
+            onPress={() => router.push('/dua-stickers' as any)}
+            icon="happy"
+            iconTint={colors.gold}
+            ar="ملصقات الدعاء"
+            title={L('Duʿā Stickers', 'ملصقات الدعاء', 'دعا اسٹکرز')}
+            desc={L('Arabic calligraphy · WhatsApp-ready', 'خط عربي · جاهز للواتساب', 'عربی خط · واٹس ایپ کے لیے')}
+            badge="✨"
+          />
+          <SmallTile
+            onPress={() => router.push('/dua-card' as any)}
+            icon="gift"
+            iconTint={colors.gold}
+            ar="بطاقات الدعاء"
+            title={L('Duʿā Cards', 'بطاقات الدعاء', 'دعا کارڈز')}
+            desc={L('Send Islamic greeting cards', 'أرسل بطاقات إسلامية', 'اسلامی گریٹنگ کارڈز')}
+            badge="🎁"
+          />
+          <SmallTile
+            onPress={() => router.push('/leaderboards' as any)}
+            icon="trophy"
+            iconTint={colors.gold}
+            ar="فَاسْتَبِقُوا الْخَيْرَاتِ"
+            title={L('Fastabiqu il-Khayrāt', 'فاستبقوا الخيرات', 'نیکیوں کی دوڑ')}
+            desc={L('Compete anonymously in good deeds', 'تنافس مجهولًا في الخيرات', 'گمنام طور پر نیکیوں کا مقابلہ')}
+            badge="🏆"
+          />
+        </View>
+
+        {/* STRUGGLE-THEMED VERSE — daily anchor tuned to what the user carries */}
+        <View style={{ marginHorizontal: spacing.lg, marginTop: spacing.md, flexDirection: 'row' }}>
+          <SmallTile
+            onPress={() => router.push('/struggle-verse' as any)}
+            icon="leaf-outline"
+            iconTint={colors.gold}
+            ar=""
+            title={L('Verse for you', 'آية لك', 'آپ کے لیے آیت')}
+            desc={L(
+              'A daily Qurʾānic anchor for what your heart is carrying',
+              'رابط قرآني يومي لِما يحمله قلبك',
+              'ہر روز آپ کے دل کے بوجھ کے لیے ایک قرآنی آیت',
+            )}
+            badge="🌿"
           />
         </View>
 
@@ -589,7 +664,27 @@ export default function HomeScreen() {
           </Text>
           <PrayerTimesCard />
         </View>
+
+        {/* House-ad cross-sell — promotes our own Dreams + Treasures apps
+            to QBS users. Zero third-party ad network → no risk of dating/
+            alcohol/riba ads slipping past a content filter (see Muslim Pro
+            2020). All installs stay inside the DSM ecosystem. */}
+        <BundleUpsellCard />
+        <SacredCountdownCard />
+        <PassportEntryCard />
+        <DuaOfTheDayCard />
+        <WeeklyDigestCard />
+        <UmmahLeaderboardCard />
+        <TopGiftersCard />
+        <CommunityPulseCard />
+        <CrossSellCard />
       </ScrollView>
+
+      {/* Streak-milestone celebration modal — fires when the user hits
+          7/30/100/365 consecutive days. Idempotent: each milestone shows
+          once per lifetime (tracked in the same Zustand store). */}
+      <MilestoneModal />
+      <BadgeBloomModal />
     </View>
   );
 }
@@ -620,6 +715,14 @@ const styles = StyleSheet.create({
 
   // Hero verse card
   hero: { borderRadius: radius.xl, margin: spacing.lg, padding: 2, overflow: 'hidden' },
+  championPill: {
+    alignSelf: 'center',
+    marginTop: spacing.md, marginHorizontal: spacing.lg,
+    paddingHorizontal: spacing.md, paddingVertical: 6,
+    borderRadius: radius.pill, borderWidth: 1, borderColor: colors.gold,
+    backgroundColor: colors.gold + '22',
+  },
+  championPillText: { fontSize: 12, fontWeight: '700', color: colors.gold, letterSpacing: 0.3 },
   heroInner: { backgroundColor: colors.bg + 'F2', borderRadius: radius.xl - 2, padding: spacing.lg, gap: spacing.sm, borderWidth: 1, borderColor: colors.gold + '44' },
   heroChip: { alignSelf: 'flex-start', flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 10, paddingVertical: 5, borderRadius: radius.pill, borderWidth: 1, borderColor: colors.gold + '88', backgroundColor: colors.gold + '18' },
   heroChipTxt: { ...ty.label, color: colors.gold, fontSize: 10 },

@@ -16,6 +16,7 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Card } from '../src/components/Card';
 import { ScreenHeader } from '../src/components/ScreenHeader';
+import { TeaserGate } from '../src/components/TeaserGate';
 import { useApp } from '../src/store/useApp';
 import { LockBanner, LockedTile, FREE_PREVIEW_LIMIT } from '../src/iap/gate';
 import { colors, radius, spacing, type as ty } from '../src/theme';
@@ -81,37 +82,45 @@ export default function BibleContradictionsScreen() {
         <ScrollView contentContainerStyle={{ padding: spacing.lg, paddingBottom: insets.bottom + spacing.xl, gap: spacing.md }}>
           <Text style={[styles.detailTitle, { textAlign: rtl ? 'right' : 'left' }]}>{pick(active, 'topic')}</Text>
 
-          <Card accent={colors.rose}>
-            <View style={[styles.secHeader, rtl && { flexDirection: 'row-reverse' }]}>
-              <Ionicons name="book-outline" size={14} color={colors.rose} />
-              <Text style={[styles.secLabel, { color: colors.rose }]}>
-                {lang === 'ar' ? 'النصّ (أ)' : lang === 'ur' ? 'بیان (الف)' : 'CLAIM A'}
-              </Text>
-            </View>
-            <Text style={[styles.body, { textAlign: rtl ? 'right' : 'left' }]}>{pick(active, 'claim_a')}</Text>
-          </Card>
+          {(() => {
+            const claimA = pick(active, 'claim_a');
+            const previewText = claimA.split(/\s+/).slice(0, 55).join(' ') + (claimA.split(/\s+/).length > 55 ? '…' : '');
+            return (
+              <TeaserGate locked={!unlocked} previewText={previewText} testID="teaser-contradiction-detail">
+                <Card accent={colors.rose}>
+                  <View style={[styles.secHeader, rtl && { flexDirection: 'row-reverse' }]}>
+                    <Ionicons name="book-outline" size={14} color={colors.rose} />
+                    <Text style={[styles.secLabel, { color: colors.rose }]}>
+                      {lang === 'ar' ? 'النصّ (أ)' : lang === 'ur' ? 'بیان (الف)' : 'CLAIM A'}
+                    </Text>
+                  </View>
+                  <Text style={[styles.body, { textAlign: rtl ? 'right' : 'left' }]}>{pick(active, 'claim_a')}</Text>
+                </Card>
 
-          <Card accent={colors.amberHi}>
-            <View style={[styles.secHeader, rtl && { flexDirection: 'row-reverse' }]}>
-              <Ionicons name="book-outline" size={14} color={colors.amberHi} />
-              <Text style={[styles.secLabel, { color: colors.amberHi }]}>
-                {lang === 'ar' ? 'النصّ (ب)' : lang === 'ur' ? 'بیان (ب)' : 'CLAIM B'}
-              </Text>
-            </View>
-            <Text style={[styles.body, { textAlign: rtl ? 'right' : 'left' }]}>{pick(active, 'claim_b')}</Text>
-          </Card>
+                <Card accent={colors.amberHi}>
+                  <View style={[styles.secHeader, rtl && { flexDirection: 'row-reverse' }]}>
+                    <Ionicons name="book-outline" size={14} color={colors.amberHi} />
+                    <Text style={[styles.secLabel, { color: colors.amberHi }]}>
+                      {lang === 'ar' ? 'النصّ (ب)' : lang === 'ur' ? 'بیان (ب)' : 'CLAIM B'}
+                    </Text>
+                  </View>
+                  <Text style={[styles.body, { textAlign: rtl ? 'right' : 'left' }]}>{pick(active, 'claim_b')}</Text>
+                </Card>
 
-          {pick(active, 'note') ? (
-            <Card accent={colors.gold}>
-              <View style={[styles.secHeader, rtl && { flexDirection: 'row-reverse' }]}>
-                <Ionicons name="alert-circle-outline" size={14} color={colors.gold} />
-                <Text style={[styles.secLabel, { color: colors.gold }]}>
-                  {lang === 'ar' ? 'ملاحظة' : lang === 'ur' ? 'نوٹ' : 'NOTE'}
-                </Text>
-              </View>
-              <Text style={[styles.body, { textAlign: rtl ? 'right' : 'left' }]}>{pick(active, 'note')}</Text>
-            </Card>
-          ) : null}
+                {pick(active, 'note') ? (
+                  <Card accent={colors.gold}>
+                    <View style={[styles.secHeader, rtl && { flexDirection: 'row-reverse' }]}>
+                      <Ionicons name="alert-circle-outline" size={14} color={colors.gold} />
+                      <Text style={[styles.secLabel, { color: colors.gold }]}>
+                        {lang === 'ar' ? 'ملاحظة' : lang === 'ur' ? 'نوٹ' : 'NOTE'}
+                      </Text>
+                    </View>
+                    <Text style={[styles.body, { textAlign: rtl ? 'right' : 'left' }]}>{pick(active, 'note')}</Text>
+                  </Card>
+                ) : null}
+              </TeaserGate>
+            );
+          })()}
 
           <Text style={styles.disclaimer}>
             {lang === 'ar'
@@ -187,7 +196,7 @@ export default function BibleContradictionsScreen() {
           {data.items.map((it, idx) => {
             const locked = !unlocked && idx >= FREE_PREVIEW_LIMIT;
             return (
-              <LockedTile key={it.slug} locked={locked} onPress={() => setActive(it)}>
+              <LockedTile key={it.slug} locked={locked} previewable onPress={() => setActive(it)}>
                 <Card>
                   <View style={[styles.itemHead, rtl && { flexDirection: 'row-reverse' }]}>
                     <View style={styles.itemNum}>

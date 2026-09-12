@@ -13,6 +13,14 @@ import { initSentry, attachSentryUser, SentryWrap } from '../src/sentry';
 import { ErrorBoundary } from '../src/components/ErrorBoundary';
 import { AmbientAudioProvider } from '../src/audio';
 import { useStorePurchases } from '../src/iap/iap';
+import { useBundleAutoUnlock } from '../src/useBundleAutoUnlock';
+import { useOtaAutoApply } from '../src/otaAutoApply';
+import { useDeepLinkPassport } from '../src/useDeepLinkPassport';
+import {
+  ensureNotificationChannel,
+  scheduleDailyReminders,
+} from '../src/personalisation/reminders';
+import { useSheikhHistory } from '../src/personalisation/sheikhHistory';
 
 // Initialise Sentry as early as possible (no-op if DSN missing).
 initSentry();
@@ -21,6 +29,10 @@ function RootLayout() {
   const hydrate = useApp((s) => s.hydrate);
   const deviceId = useApp((s) => s.deviceId);
   const setEntitlement = useApp((s) => s.setEntitlement);
+  const streak = useApp((s) => s.streak);
+  const lang = useApp((s) => s.lang);
+  const remindersEnabled = useApp((s) => s.remindersEnabled);
+  const setRemindersEnabled = useApp((s) => s.setRemindersEnabled);
 
   // Mount the IAP hook at the ROOT so its silent-restore effect
   // (getAvailablePurchases → auto-unlock) fires on every app boot without
@@ -28,6 +40,9 @@ function RootLayout() {
   // local `unlocked` flag reset (e.g. after force-quit or fresh install)
   // even when the £0.99 receipt hasn't reached our backend yet.
   useStorePurchases();
+  useBundleAutoUnlock();
+  useOtaAutoApply();
+  useDeepLinkPassport();
 
   // Load the Qur'an-page typography (Amiri Quran Coloured — tajweed-marked Naskh).
   // ~150KB one-time bundle. Non-blocking: the reader falls back to system font
@@ -38,6 +53,43 @@ function RootLayout() {
   });
 
   useEffect(() => { hydrate(); }, [hydrate]);
+
+  // Hydrate the AI Sheikh question-history store on boot so /sheikh-history
+  // and the "History" button in the Sheikh header are ready before the user
+  // taps them. Zero backend — reads AsyncStorage only.
+  const hydrateSheikhHistory = useSheikhHistory((s) => s.hydrate);
+  useEffect(() => { hydrateSheikhHistory(); }, [hydrateSheikhHistory]);
+
+  // ── Personalisation (streak + daily reminders) ──────────────────────
+  //
+  // First-run rule: don't nag on app-open. Only ask for notification
+  // permission AFTER the user has read at least ONE Qur'an page today
+  // (streak.lastActionAt exists), and hasn't already opted in/out.
+  // This is the contextual pre-permission moment required by our
+  // handle_permissions_contract — the user has just done the thing,
+  // so a "want a daily nudge?" prompt feels earned, not intrusive.
+  useEffect(() => {
+    ensureNotificationChannel().catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    if (!streak?.lastActionAt) return;                 // no action yet — stay quiet
+    if (remindersEnabled === false) return;             // user opted out
+    // If enabled OR undecided (null), (re)schedule. Since we schedule
+    // silently the first time, users still get a reminder — but they
+    // can turn it off from Settings at any time. Copy always reflects
+    // the CURRENT streak, so tomorrow's notification will be accurate.
+    (async () => {
+      const ok = await scheduleDailyReminders(streak, /*lastPage*/ 1, lang);
+      if (remindersEnabled === null) {
+        // Only flip to enabled once we've successfully scheduled at
+        // least once (i.e., user granted permission). If they rejected
+        // the OS-level prompt we leave it as null so the pre-permission
+        // Settings tile still says "Turn on reminders".
+        if (ok) setRemindersEnabled(true);
+      }
+    })();
+  }, [streak?.lastActionAt, remindersEnabled, lang, setRemindersEnabled, streak]);
 
   // Attach deviceId to Sentry so help-button reports carry user context.
   useEffect(() => {
@@ -99,6 +151,7 @@ function RootLayout() {
             <Stack.Screen name="onboarding" options={{ headerShown: false, animation: 'fade', gestureEnabled: false }} />
             <Stack.Screen name="unlock" options={{ headerShown: false, animation: 'slide_from_bottom' }} />
             <Stack.Screen name="share" options={{ headerShown: false, animation: 'slide_from_bottom', presentation: 'modal' }} />
+            <Stack.Screen name="leaderboards" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="quran/index" options={{ headerShown: false, animation: 'slide_from_right' }} />
             <Stack.Screen name="quran/page/[n]" options={{ headerShown: false, animation: 'fade' }} />
             <Stack.Screen name="quran/bookmarks" options={{ headerShown: false, animation: 'slide_from_right' }} />

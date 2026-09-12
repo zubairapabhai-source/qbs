@@ -186,6 +186,7 @@ export default function AtoZScreen() {
                   <LockedTile
                     key={e.slug}
                     locked={locked}
+                    previewable
                     onPress={() => router.push(`/entry/${e.slug}` as any)}
                     style={{ marginBottom: spacing.sm }}
                   >

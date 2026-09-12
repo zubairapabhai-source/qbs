@@ -39,7 +39,9 @@
       "arabic": "وَالنَّجْمِ إِذَا هَوَىٰ",
       "translation_en": "By the star when it descends/falls. (Sūrah an-Najm 53:1)",
       "topic_ar": "وَالنَّجْمِ إِذَا هَوَىٰ — قراءة محتملة عن الثقب الأسود",
-      "topic_ur": "وَالنَّجْمِ إِذَا هَوَىٰ — ممکنہ بلیک ہول کی تفسیر"
+      "topic_ur": "وَالنَّجْمِ إِذَا هَوَىٰ — ممکنہ بلیک ہول کی تفسیر",
+      "science_hook_ar": "النجوم التي تنهار / تسقط على نفسها تُشكّل الثقوب السوداء؛ وترتبط أيضًا بقصة المعراج وسدرة المنتهى كحد كوني",
+      "science_hook_ur": "ستارے جو اپنے اندر سمٹ کر منہدم ہو جاتے ہیں، وہ بلیک ہولز کی شکل اختیار کر لیتے ہیں۔ اس کا تعلق معراج کے واقعے اور سدرۃ المنتہیٰ سے بھی ہے، جو ایک کائناتی حد ہے۔"
     },
     {
       "slug": "outer-space-travel",
@@ -47,7 +49,11 @@
       "topic": "يَا مَعْشَرَ الْجِنِّ وَالْإِنْسِ إِنِ اسْتَطَعْتُمْ أَنْ تَنْفُذُوا — interplanetary travel reading",
       "science_hook": "Apollo 11 (1969) crossed the heavens with 'authority/power' (sultān = fuel/energy)",
       "arabic": "يَا مَعْشَرَ الْجِنِّ وَالْإِنسِ إِنِ اسْتَطَعْتُمْ أَن تَنفُذُوا مِنْ أَقْطَارِ السَّمَاوَاتِ وَالْأَرْضِ فَانفُذُوا ۚ لَا تَنفُذُونَ إِلَّا بِسُلْطَانٍ",
-      "translation_en": "O company of jinn and mankind, if you are able to penetrate the regions of the heavens and the earth, then penetrate! You will not penetrate except by authority (sulṭān). (Sūrah ar-Raḥmān 55:33)"
+      "translation_en": "O company of jinn and mankind, if you are able to penetrate the regions of the heavens and the earth, then penetrate! You will not penetrate except by authority (sulṭān). (Sūrah ar-Raḥmān 55:33)",
+      "topic_ar": "يَا مَعْشَرَ الْجِنِّ وَالْإِنْسِ إِنِ اسْتَطَعْتُمْ أَنْ تَنْفُذُوا — قراءة في السفر بين الكواكب",
+      "science_hook_ar": "أبولو 11 (1969) عبرت السماوات بـ 'سلطان' (السلطان = وقود/طاقة)",
+      "topic_ur": "يَا مَعْشَرَ الْجِنِّ وَالْإِنْسِ إِنِ اسْتَطَعْتُمْ أَنْ تَنْفُذُوا — بین السیاروی سفر کے تناظر میں مطالعہ",
+      "science_hook_ur": "اپولو 11 (1969) نے 'سلطان' (اختیار/طاقت) کے ساتھ آسمانوں کو عبور کیا (سلطان = ایندھن/توانائی)"
     },
     {
       "slug": "big-bang",
@@ -69,7 +75,11 @@
       "topic": "Mountains as pegs / stabilisers",
       "science_hook": "Isostatic equilibrium; mountains have deep roots that anchor tectonic plates",
       "arabic": "وَالْجِبَالَ أَوْتَادًا • وَأَلْقَىٰ فِي الْأَرْضِ رَوَاسِيَ أَن تَمِيدَ بِكُمْ",
-      "translation_en": "And the mountains as pegs… And He has cast into the earth firmly set mountains, lest it shift with you. (Sūrah an-Nabaʾ 78:7 + Sūrah an-Naḥl 16:15)"
+      "translation_en": "And the mountains as pegs… And He has cast into the earth firmly set mountains, lest it shift with you. (Sūrah an-Nabaʾ 78:7 + Sūrah an-Naḥl 16:15)",
+      "topic_ar": "الجبال كأوتاد / مثبتات",
+      "science_hook_ar": "التوازن الأيزوستاتي؛ للجبال جذور عميقة تثبت الصفائح التكتونية",
+      "topic_ur": "پہاڑ: میخیں اور توازن برقرار رکھنے والے",
+      "science_hook_ur": "آئسوسٹیٹک توازن؛ پہاڑوں کی گہری جڑیں ہوتی ہیں جو ٹیکٹونک پلیٹوں کو لنگر انداز کرتی ہیں۔"
     },
     {
       "slug": "human-creation-stages",
@@ -77,7 +87,11 @@
       "topic": "Stages of human embryonic development",
       "science_hook": "Nuṭfa → ʿalaqa → muḍgha → bones clothed with flesh — matches modern embryology stages (Keith L. Moore)",
       "arabic": "وَلَقَدْ خَلَقْنَا الْإِنسَانَ مِن سُلَالَةٍ مِّن طِينٍ • ثُمَّ جَعَلْنَاهُ نُطْفَةً فِي قَرَارٍ مَّكِينٍ",
-      "translation_en": "We certainly created man from an extract of clay. Then We placed him as a sperm-drop in a firm lodging. (Sūrah al-Muʾminūn 23:12-13)"
+      "translation_en": "We certainly created man from an extract of clay. Then We placed him as a sperm-drop in a firm lodging. (Sūrah al-Muʾminūn 23:12-13)",
+      "topic_ar": "مراحل تطور الجنين البشري",
+      "science_hook_ar": "نطفة → علقة → مضغة → عظام مكسوة باللحم — تطابق مراحل علم الأجنة الحديث (كيث إل. مور)",
+      "topic_ur": "انسانی جنینی نشوونما کے مراحل",
+      "science_hook_ur": "نطفہ → علقہ → مضغہ → ہڈیوں کو گوشت پہنایا جانا — یہ مراحل جدید جنینیات کے مراحل سے مطابقت رکھتے ہیں (کیتھ ایل مور)"
     },
     {
       "slug": "gaseous-cosmic-mass",
@@ -85,7 +99,11 @@
       "topic": "ثُمَّ اسْتَوَىٰ إِلَى السَّمَاءِ وَهِيَ دُخَانٌ — heaven was smoke/gas",
       "science_hook": "Primordial gaseous nebula stage of cosmic evolution",
       "arabic": "ثُمَّ اسْتَوَىٰ إِلَى السَّمَاءِ وَهِيَ دُخَانٌ فَقَالَ لَهَا وَلِلْأَرْضِ ائْتِيَا طَوْعًا أَوْ كَرْهًا",
-      "translation_en": "Then He directed Himself to the heaven while it was smoke (dukhān), and said to it and to the earth, \"Come willingly or by compulsion.\" (Sūrah Fuṣṣilat 41:11)"
+      "translation_en": "Then He directed Himself to the heaven while it was smoke (dukhān), and said to it and to the earth, \"Come willingly or by compulsion.\" (Sūrah Fuṣṣilat 41:11)",
+      "topic_ar": "ثُمَّ اسْتَوَىٰ إِلَى السَّمَاءِ وَهِيَ دُخَانٌ — كانت السماء دخانًا",
+      "science_hook_ar": "مرحلة السديم الغازي الأولي للتطور الكوني",
+      "topic_ur": "ثُمَّ اسْتَوَىٰ إِلَى السَّمَاءِ وَهِيَ دُخَانٌ (پھر وہ آسمان کی طرف متوجہ ہوا اور وہ دھواں تھا)",
+      "science_hook_ur": "کائناتی ارتقاء کا ابتدائی گیسی سحابیہ مرحلہ"
     },
     {
       "slug": "alaqa-clinging-clot",
@@ -93,7 +111,11 @@
       "topic": "خَلَقَ الْإِنْسَانَ مِنْ عَلَقٍ",
       "science_hook": "ʿAlaqa as 'clinging/leech-like' — the implanted embryo's shape and behaviour",
       "arabic": "خَلَقَ الْإِنسَانَ مِنْ عَلَقٍ",
-      "translation_en": "Created man from a clinging clot (ʿalaq). (Sūrah al-ʿAlaq 96:2)"
+      "translation_en": "Created man from a clinging clot (ʿalaq). (Sūrah al-ʿAlaq 96:2)",
+      "topic_ar": "خَلَقَ الْإِنْسَانَ مِنْ عَلَقٍ",
+      "science_hook_ar": "العلقة بمعنى 'المتعلق/الشبيه بالعلقة' — شكل وسلوك الجنين المنغرس",
+      "topic_ur": "خَلَقَ الْإِنْسَانَ مِنْ عَلَقٍ",
+      "science_hook_ur": "علق کا معنی 'چپکنے والا' یا 'جونک جیسا' – رحم میں پیوست جنین کی شکل اور اس کا عمل"
     },
     {
       "slug": "deep-sea-waves",
@@ -101,7 +123,11 @@
       "topic": "ظُلُمَاتٌ بَعْضُهَا فَوْقَ بَعْضٍ — darkness, waves upon waves",
       "science_hook": "Internal ocean waves between density layers + sunlight extinction depth (~200m)",
       "arabic": "أَوْ كَظُلُمَاتٍ فِي بَحْرٍ لُّجِّيٍّ يَغْشَاهُ مَوْجٌ مِّن فَوْقِهِ مَوْجٌ مِّن فَوْقِهِ سَحَابٌ ۚ ظُلُمَاتٌ بَعْضُهَا فَوْقَ بَعْضٍ",
-      "translation_en": "Or [they are] like darknesses in an unfathomable sea — waves above waves above clouds — darknesses one above another. (Sūrah an-Nūr 24:40)"
+      "translation_en": "Or [they are] like darknesses in an unfathomable sea — waves above waves above clouds — darknesses one above another. (Sūrah an-Nūr 24:40)",
+      "topic_ar": "ظُلُمَاتٌ بَعْضُهَا فَوْقَ بَعْضٍ",
+      "science_hook_ar": "أمواج المحيط الداخلية بين طبقات الكثافة + عمق تلاشي ضوء الشمس (حوالي 200 متر)",
+      "topic_ur": "ظُلُمَاتٌ بَعْضُهَا فَوْقَ بَعْضٍ — تاریکی، تہ بہ تہ لہریں",
+      "science_hook_ur": "کثافت کی تہوں کے مابین سمندر کی اندرونی لہریں + سورج کی روشنی کے معدوم ہونے کی گہرائی (تقریباً 200 میٹر)"
     },
     {
       "slug": "two-seas-haloclines",
@@ -109,7 +135,11 @@
       "topic": "مَرَجَ الْبَحْرَيْنِ — barrier between two waters",
       "science_hook": "Haloclines documented by Cousteau; freshwater + saltwater meet without mixing",
       "arabic": "مَرَجَ الْبَحْرَيْنِ يَلْتَقِيَانِ • بَيْنَهُمَا بَرْزَخٌ لَّا يَبْغِيَانِ",
-      "translation_en": "He released the two seas, meeting [side by side]. Between them is a barrier; neither transgresses. (Sūrah ar-Raḥmān 55:19-20)"
+      "translation_en": "He released the two seas, meeting [side by side]. Between them is a barrier; neither transgresses. (Sūrah ar-Raḥmān 55:19-20)",
+      "topic_ar": "مَرَجَ الْبَحْرَيْنِ — حاجز بين بحرين",
+      "science_hook_ar": "هالوكلينات وثقها كوستو؛ تلتقي المياه العذبة والمالحة دون أن تختلط",
+      "topic_ur": "مَرَجَ الْبَحْرَيْنِ — دو سمندروں کے درمیان رکاوٹ",
+      "science_hook_ur": "ہیلولائنز جنہیں کوسٹو نے دستاویزی کیا؛ تازہ پانی اور کھارا پانی بغیر اختلاط کے ملتے ہیں"
     },
     {
       "slug": "pharaoh-body-preserved",
@@ -117,7 +147,11 @@
       "topic": "Preservation of Pharaoh's body as a sign",
       "science_hook": "Mummy of Ramesses II (likely Pharaoh of Exodus) discovered 1881, studied by Maurice Bucaille. NOT mentioned in the Bible",
       "arabic": "فَالْيَوْمَ نُنَجِّيكَ بِبَدَنِكَ لِتَكُونَ لِمَنْ خَلْفَكَ آيَةً",
-      "translation_en": "So today We will save you in body that you may be to those who succeed you a sign. (Sūrah Yūnus 10:92)"
+      "translation_en": "So today We will save you in body that you may be to those who succeed you a sign. (Sūrah Yūnus 10:92)",
+      "topic_ar": "حفظ جسد فرعون كآية",
+      "science_hook_ar": "مومياء رمسيس الثاني (الفرعون المحتمل للخروج) اكتشفت عام 1881، درسها موريس بوكاي. لم تُذكر في الكتاب المقدس",
+      "topic_ur": "فرعون کے جسم کا بطورِ نشانی محفوظ رہنا",
+      "science_hook_ur": "رعمیس دوم کی ممی (غالباً فرعونِ خروج) 1881 میں دریافت ہوئی، جس کا مطالعہ موریس بوکائی نے کیا۔ بائبل میں اس کا ذکر نہیں ہے۔"
     },
     {
       "slug": "trumpet-sound-waves",
@@ -125,7 +159,11 @@
       "topic": "فَإِذَا نُفِخَ فِي الصُّورِ نَفْخَةٌ وَاحِدَةٌ",
       "science_hook": "Catastrophic sound/wave events; resonant destruction physics",
       "arabic": "فَإِذَا نُفِخَ فِي الصُّورِ نَفْخَةٌ وَاحِدَةٌ",
-      "translation_en": "Then when the Horn is blown a single blast. (Sūrah al-Ḥāqqah 69:13)"
+      "translation_en": "Then when the Horn is blown a single blast. (Sūrah al-Ḥāqqah 69:13)",
+      "topic_ar": "فَإِذَا نُفِخَ فِي الصُّورِ نَفْخَةٌ وَاحِدَةٌ",
+      "science_hook_ar": "أحداث صوتية/موجية كارثية؛ فيزياء التدمير بالرنين",
+      "topic_ur": "فَإِذَا نُفِخَ فِي الصُّورِ نَفْخَةٌ وَاحِدَةٌ",
+      "science_hook_ur": "تباہ کن آواز/موجی واقعات؛ گونجدار تباہی کی طبیعیات"
     },
     {
       "slug": "expanding-universe",
@@ -133,7 +171,11 @@
       "topic": "وَإِنَّا لَمُوسِعُونَ — expander of the heaven",
       "science_hook": "Hubble 1929, redshift, cosmic expansion",
       "arabic": "وَالسَّمَاءَ بَنَيْنَاهَا بِأَيْدٍ وَإِنَّا لَمُوسِعُونَ",
-      "translation_en": "And the heaven We constructed with strength, and indeed, We are [its] expander. (Sūrah adh-Dhāriyāt 51:47)"
+      "translation_en": "And the heaven We constructed with strength, and indeed, We are [its] expander. (Sūrah adh-Dhāriyāt 51:47)",
+      "topic_ar": "وَإِنَّا لَمُوسِعُونَ — مُوسِعُ السماء",
+      "science_hook_ar": "هابل 1929، الانزياح الأحمر، التوسع الكوني",
+      "topic_ur": "وَإِنَّا لَمُوسِعُونَ — آسمان کو وسعت دینے والا",
+      "science_hook_ur": "ہبل ۱۹۲۹، ریڈ شفٹ، کائناتی وسعت"
     },
     {
       "slug": "water-cycle",
@@ -141,7 +183,11 @@
       "topic": "Wind-driven clouds, rain, terrestrial water cycle",
       "science_hook": "Evaporation → condensation → precipitation cycle; only described by Bernard Palissy in 1580",
       "arabic": "وَأَنزَلْنَا مِنَ السَّمَاءِ مَاءً بِقَدَرٍ فَأَسْكَنَّاهُ فِي الْأَرْضِ",
-      "translation_en": "And We have sent down water from the sky in measure and lodged it in the earth. (Sūrah al-Muʾminūn 23:18)"
+      "translation_en": "And We have sent down water from the sky in measure and lodged it in the earth. (Sūrah al-Muʾminūn 23:18)",
+      "topic_ar": "السحب التي تسوقها الرياح، المطر، الدورة المائية الأرضية",
+      "science_hook_ar": "دورة التبخر والتكثف والهطول؛ وصفها برنارد باليسي فقط عام 1580",
+      "topic_ur": "ہوا سے چلنے والے بادل، بارش اور زمینی آبی چکر",
+      "science_hook_ur": "تبخیر ← تکثیف ← بارش کا چکر؛ جسے برنارڈ پالیسی نے 1580 میں بیان کیا تھا۔"
     },
     {
       "slug": "celestial-orbits",
@@ -149,7 +195,11 @@
       "topic": "كُلٌّ فِي فَلَكٍ يَسْبَحُونَ — sun, moon, each in an orbit",
       "science_hook": "Sun's orbit around galactic centre (~225M-year period); contradicts geocentric medieval views",
       "arabic": "كُلٌّ فِي فَلَكٍ يَسْبَحُونَ",
-      "translation_en": "Each [body] swimming in an orbit. (Sūrah al-Anbiyāʾ 21:33 / Sūrah Yā Sīn 36:40)"
+      "translation_en": "Each [body] swimming in an orbit. (Sūrah al-Anbiyāʾ 21:33 / Sūrah Yā Sīn 36:40)",
+      "topic_ar": "كُلٌّ فِي فَلَكٍ يَسْبَحُونَ — الشمس والقمر، كلٌّ منهما يسبح في فلكٍ",
+      "science_hook_ar": "مدار الشمس حول مركز المجرة (بفترة دورية تبلغ حوالي 225 مليون سنة)؛ يتناقض مع الآراء القروسطية القائلة بمركزية الأرض.",
+      "topic_ur": "كُلٌّ فِي فَلَكٍ يَسْبَحُونَ — سورج، چاند، ہر ایک اپنے مدار میں گردش کر رہا ہے",
+      "science_hook_ur": "سورج کا کہکشانی مرکز کے گرد مدار (جس کا دورانیہ تقریباً 225 ملین سال ہے)؛ یہ قرون وسطیٰ کے ارض مرکزی نظریات سے متصادم ہے۔"
     },
     {
       "slug": "bee-and-chromosomes",
@@ -171,7 +221,11 @@
       "topic": "وَالسَّمَاءِ وَالطَّارِقِ — the night-comer, the piercing star",
       "science_hook": "Pulsars discovered 1967 (Jocelyn Bell) — neutron stars that 'knock' (ṭāriq) with regular electromagnetic pulses",
       "arabic": "وَالسَّمَاءِ وَالطَّارِقِ • وَمَا أَدْرَاكَ مَا الطَّارِقُ • النَّجْمُ الثَّاقِبُ",
-      "translation_en": "By the sky and the night-comer. And what will make you know what the night-comer is? The piercing star. (Sūrah aṭ-Ṭāriq 86:1-3)"
+      "translation_en": "By the sky and the night-comer. And what will make you know what the night-comer is? The piercing star. (Sūrah aṭ-Ṭāriq 86:1-3)",
+      "topic_ar": "وَالسَّمَاءِ وَالطَّارِقِ — الآتي ليلاً، النجم الثاقب",
+      "science_hook_ar": "النجوم النابضة (Pulsars) اكتشفت عام 1967 (جوسلين بيل) — وهي نجوم نيوترونية 'تطرق' (طارق) بنبضات كهرومغناطيسية منتظمة",
+      "topic_ur": "وَالسَّمَاءِ وَالطَّارِقِ — رات کو آنے والا، چھیدنے والا ستارہ",
+      "science_hook_ur": "پلسارز، جو ۱۹۶۷ میں (جوسلین بیل کے ذریعے) دریافت کیے گئے، ایسے نیوٹران ستارے ہیں جو باقاعدہ برقی مقناطیسی نبضوں کے ساتھ 'دستک دیتے ہیں' (طارق)."
     },
     {
       "slug": "iron-from-heaven",
@@ -179,7 +233,11 @@
       "topic": "Iron — \"sent down\" from the heaven",
       "science_hook": "وَأَنزَلْنَا الْحَدِيدَ — \"And We sent down iron, wherein is great might and benefits for mankind.\" The verb anzalnā (sent down) is the exact same root used elsewhere for rain. Classical tafseer (Ibn Kathīr, al-Saʿdī) reads it as a divine gift; modern cosmology corroborates that every iron atom on earth was forged in the cores of dying massive stars and supernovae and rained down on the proto-earth as cosmic dust — the only element heavier than ~62 amu that cannot be produced inside our sun. The sūrah is the 57th, and the atomic number of iron is 26 (mirrored by the sūrah's position and other numerical features studied by Bucaille, Naik et al.).",
       "arabic": "وَأَنزَلْنَا الْحَدِيدَ فِيهِ بَأْسٌ شَدِيدٌ وَمَنَافِعُ لِلنَّاسِ",
-      "translation_en": "And We sent down iron, wherein is great military might and benefits for the people. (Sūrah al-Ḥadīd 57:25)"
+      "translation_en": "And We sent down iron, wherein is great military might and benefits for the people. (Sūrah al-Ḥadīd 57:25)",
+      "topic_ar": "الحديد — \"أُنْزِلَ\" من السماء",
+      "science_hook_ar": "وَأَنزَلْنَا الْحَدِيدَ فِيهِ بَأْسٌ شَدِيدٌ وَمَنَافِعُ لِلنَّاسِ. الفعل \"أنزلنا\" (أي: أنزل) هو نفس الجذر المستخدم في مواضع أخرى للمطر. تفسير السلف (ابن كثير، السعدي) يعتبره هبة إلهية؛ ويؤكد علم الكونيات الحديث أن كل ذرة حديد على الأرض قد تشكلت في أنوية النجوم الضخمة المحتضرة والمستعرات العظمى (supernovae) وسقطت على الأرض البدائية كغبار كوني — وهو العنصر الوحيد الأثقل من حوالي 62 وحدة كتلة ذرية (amu) الذي لا يمكن إنتاجه داخل شمسنا. السورة هي السابعة والخمسون، والعدد الذري للحديد هو 26 (وهو ما يعكسه موقع السورة وميزات عددية أخرى درسها بوكاي، ونايك وآخرون).",
+      "topic_ur": "لوہا — آسمان سے \"نازل کیا گیا\"",
+      "science_hook_ur": "وَأَنزَلْنَا الْحَدِيدَ — \"اور ہم نے لوہا اتارا، جس میں سخت قوت اور لوگوں کے لیے بہت سے فائدے ہیں۔\" فعل \"انزلنا\" (اتارا) وہی اصل ہے جو بارش کے لیے دیگر مقامات پر استعمال ہوا ہے۔ کلاسیکی تفسیر (ابن کثیر، السعدی) اسے ایک الٰہی عطیہ قرار دیتی ہے۔ جدید علم کائنات اس بات کی تصدیق کرتا ہے کہ زمین پر لوہے کا ہر جوہر (ایٹم) مرتے ہوئے بڑے ستاروں اور سپرنووا کے مرکز میں تخلیق ہوا تھا اور کائناتی دھول کی صورت میں ابتدائی زمین پر برسا تھا — یہ واحد عنصر ہے جو تقریباً 62 amu سے زیادہ بھاری ہے اور ہمارے سورج کے اندر پیدا نہیں ہو سکتا۔ یہ سورۃ 57ویں ہے، اور لوہے کا جوہری عدد 26 ہے (جس کی عکاسی سورۃ کی پوزیشن اور بکائی، نائیک اور دیگر محققین کی جانب سے مطالعہ کی گئی دیگر عددی خصوصیات سے ہوتی ہے)۔"
     },
     {
       "slug": "fingerprint-uniqueness",
@@ -187,7 +245,11 @@
       "topic": "Fingerprints — \"shape his fingertips\" (75:3-4)",
       "science_hook": "أَيَحْسَبُ الْإِنسَانُ أَلَّن نَجْمَعَ عِظَامَهُ • بَلَىٰ قَادِرِينَ عَلَىٰ أَن نُّسَوِّيَ بَنَانَهُ — \"Does man think We cannot assemble his bones? Yes! We are capable of perfectly reconstituting even his fingertips.\" Classical commentators (Ibn Kathīr, al-Qurṭubī) understood the verse as power-of-resurrection rhetoric. Forensic science (Galton 1892, FBI IAFIS) later confirmed that no two human fingerprints — including identical twins — are ever identical, making the Qur'an's choice of banān (the precise dermal ridges of the fingertip) a remarkably specific resurrection sign.",
       "arabic": "أَيَحْسَبُ الْإِنسَانُ أَلَّن نَّجْمَعَ عِظَامَهُ • بَلَىٰ قَادِرِينَ عَلَىٰ أَن نُّسَوِّيَ بَنَانَهُ",
-      "translation_en": "Does man think that We will not assemble his bones? Yes — [We are] able [even] to proportion his fingertips. (Sūrah al-Qiyāmah 75:3-4)"
+      "translation_en": "Does man think that We will not assemble his bones? Yes — [We are] able [even] to proportion his fingertips. (Sūrah al-Qiyāmah 75:3-4)",
+      "topic_ur": "انگلیوں کے نشانات — \"اس کی انگلیوں کے پوروں کو درست کر دیں\" (75:3-4)",
+      "science_hook_ur": "أَيَحْسَبُ الْإِنسَانُ أَلَّن نَجْمَعَ عِظَامَهُ • بَلَىٰ قَادِرِينَ عَلَىٰ أَن نُّسَوِّيَ بَنَانَهُ — \"کیا انسان یہ گمان کرتا ہے کہ ہم اس کی ہڈیوں کو جمع نہیں کر سکیں گے؟ کیوں نہیں! ہم اس کی انگلیوں کے پوروں کو بھی درست کرنے پر قادر ہیں۔\" کلاسیکی مفسرین (ابن کثیر، القرطبی) نے اس آیت کو قیامت کے دن دوبارہ جی اٹھنے کی قدرت کے بیان کے طور پر سمجھا۔ فرانزک سائنس (گالٹن 1892، ایف بی آئی آئی اے ایف آئی ایس) نے بعد میں اس بات کی تصدیق کی کہ کسی بھی دو انسانوں کے انگلیوں کے نشانات — حتیٰ کہ ہم شکل جڑواں بچوں کے بھی — کبھی بھی یکساں نہیں ہوتے، جس سے قرآن کا لفظ \"بنان\" کا انتخاب (یعنی انگلی کے پوروں کی باریک جلد کی لکیریں) قیامت کے دن دوبارہ زندہ کرنے کی قدرت کی ایک غیر معمولی طور پر مخصوص نشانی بن جاتا ہے۔",
+      "topic_ar": "البصمات — \"نسوي بنانه\" (75:3-4)",
+      "science_hook_ar": "أَيَحْسَبُ الْإِنسَانُ أَلَّن نَجْمَعَ عِظَامَهُ • بَلَىٰ قَادِرِينَ عَلَىٰ أَن نُّسَوِّيَ بَنَانَهُ — أَيَظُنُّ الإنسان أننا لن نجمع عظامه؟ بلى! نحن قادرون على تسوية بنانه بشكل كامل. فهم المفسرون الكلاسيكيون (ابن كثير، القرطبي) الآية على أنها بلاغة لقدرة الله على البعث. أكد علم الطب الشرعي لاحقًا (جالتون 1892، نظام IAFIS لمكتب التحقيقات الفيدرالي) أنه لا توجد بصمتان بشريتان متطابقتان على الإطلاق — بما في ذلك التوائم المتماثلة — مما يجعل اختيار القرآن لكلمة بنان (الخطوط الجلدية الدقيقة لأطراف الأصابع) علامة بعث محددة بشكل لافت للنظر."
     },
     {
       "slug": "lactase-persistence-milk",
@@ -195,7 +257,11 @@
       "topic": "Milk from \"between filth and blood\" — al-Naḥl 16:66",
       "science_hook": "نُسْقِيكُم مِّمَّا فِي بُطُونِهِ مِن بَيْنِ فَرْثٍ وَدَمٍ لَّبَنًا خَالِصًا سَائِغًا لِّلشَّارِبِينَ — \"We give you to drink, from inside their bellies, from between (digestive) refuse and blood, milk — pure, palatable to the drinkers.\" Classical tafseer (Ibn Kathīr, al-Ṭabarī) marvelled at how Allāh purifies the milk. Modern physiology confirms the description: nutrients are absorbed from the digestive tract into the bloodstream (\"between farth and blood\"), filtered by the mammary alveolar cells, and reassembled as casein, whey, lactose and fat — emerging untainted. The 1-mm capillary-alveolar barrier is biology's most striking liquid filter.",
       "arabic": "وَإِنَّ لَكُمْ فِي الْأَنْعَامِ لَعِبْرَةً ۖ نُّسْقِيكُم مِّمَّا فِي بُطُونِهِ مِن بَيْنِ فَرْثٍ وَدَمٍ لَّبَنًا خَالِصًا سَائِغًا لِّلشَّارِبِينَ",
-      "translation_en": "And indeed, for you in grazing livestock is a lesson. We give you drink from what is in their bellies — between excretion and blood — pure milk, palatable to drinkers. (Sūrah an-Naḥl 16:66)"
+      "translation_en": "And indeed, for you in grazing livestock is a lesson. We give you drink from what is in their bellies — between excretion and blood — pure milk, palatable to drinkers. (Sūrah an-Naḥl 16:66)",
+      "topic_ar": "اللبن من \"بين فرث ودم\" — النحل 16:66",
+      "science_hook_ar": "نُسْقِيكُم مِّمَّا فِي بُطُونِهِ مِن بَيْنِ فَرْثٍ وَدَمٍ لَّبَنًا خَالِصًا سَائِغًا لِّلشَّارِبِينَ — \"نسقيكم مما في بطونه من بين فرث ودم لبنًا خالصًا سائغًا للشاربين.\" أدهش التفسير الكلاسيكي (ابن كثير، الطبري) كيف يطهر الله اللبن. يؤكد علم وظائف الأعضاء الحديث هذا الوصف: تمتص المغذيات من الجهاز الهضمي إلى مجرى الدم (بين الفرث والدم)، ثم تُصفى بواسطة الخلايا السنخية الثديية، وتُعاد تجميعها كالكازين ومصل اللبن واللاكتوز والدهون — لتخرج نقية غير ملوثة. الحاجز الشعيري السنخي الذي يبلغ سمكه 1 ملم هو أروع مرشح سائل في علم الأحياء.",
+      "topic_ur": "دودھ: 'فرث اور خون کے درمیان سے' — النحل 16:66",
+      "science_hook_ur": "نُسْقِيكُم مِّمَّا فِي بُطُونِهِ مِن بَيْنِ فَرْثٍ وَدَمٍ لَّبَنًا خَالِصًا سَائِغًا لِّلشَّارِبِينَ — \"ہم تمہیں پلاتے ہیں، ان کے پیٹ کے اندر سے، فرث (گوبَر اور فضلہ) اور خون کے درمیان سے، خالص دودھ جو پینے والوں کے لیے خوشگوار ہے۔\" کلاسیکی تفاسیر (ابن کثیر، الطبری) اس بات پر حیران تھیں کہ اللہ تعالیٰ کس طرح دودھ کو پاکیزہ بناتا ہے۔ جدید فزیالوجی (علمِ افعال الاعضاء) اس وضاحت کی تصدیق کرتی ہے: غذائی اجزاء نظام ہاضمہ سے خون کے دھارے میں جذب ہوتے ہیں (\"فرث اور خون کے درمیان سے\")، چھاتی کے الویولر خلیوں (mammary alveolar cells) کے ذریعے فلٹر ہوتے ہیں، اور کیسین (casein)، وے (whey)، لیکٹوز (lactose) اور چربی (fat) کی شکل میں دوبارہ ترتیب پاتے ہیں — بالکل پاکیزہ حالت میں باہر آتے ہیں۔ 1 ملی میٹر کی کیپیلری-الویولر رکاوٹ (capillary-alveolar barrier) حیاتیات کا سب سے حیرت انگیز مائع فلٹر ہے۔"
     },
     {
       "slug": "sunken-cities-ad",
@@ -203,7 +269,11 @@
       "topic": "Sunken city of Iram of the pillars",
       "science_hook": "أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِعَادٍ • إِرَمَ ذَاتِ الْعِمَادِ • الَّتِي لَمْ يُخْلَقْ مِثْلُهَا فِي الْبِلَادِ — Ibn Kathīr identifies Iram as the lost capital of the ʿĀd people. For 1300 years western critics dismissed Iram as myth. In 1992 NASA SIR-C radar imaging located buried caravan trails in the Rub' al-Khali; a Nicholas Clapp / Juris Zarins expedition then unearthed the fortress of Ubar / Iram in southern Oman — vindication of the Qur'an's geography (LA Times 5 Feb 1992).",
       "arabic": "أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِعَادٍ • إِرَمَ ذَاتِ الْعِمَادِ • الَّتِي لَمْ يُخْلَقْ مِثْلُهَا فِي الْبِلَادِ",
-      "translation_en": "Have you not considered how your Lord dealt with ʿĀd — [with] Iram, possessor of the lofty pillars, the likes of whom had never been created in the land? (Sūrah al-Fajr 89:6-8)"
+      "translation_en": "Have you not considered how your Lord dealt with ʿĀd — [with] Iram, possessor of the lofty pillars, the likes of whom had never been created in the land? (Sūrah al-Fajr 89:6-8)",
+      "topic_ur": "ارم ذات العماد کا غرق شدہ شہر",
+      "science_hook_ur": "أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِعَادٍ • إِرَمَ ذَاتِ الْعِمَادِ • الَّتِي لَمْ يُخْلَقْ مِثْلُهَا فِي الْبِلَادِ — ابن کثیر نے ارم کو قوم عاد کا گمشدہ دارالحکومت قرار دیا ہے۔ 1300 سال تک مغربی ناقدین ارم کو محض ایک افسانہ قرار دیتے رہے۔ 1992 میں ناسا کی SIR-C ریڈار امیجنگ نے ربط الخالی میں مدفون قافلوں کے راستوں کا پتہ لگایا؛ جس کے بعد نکولس کلیپ اور جورس زارنس کی ایک مہم نے جنوبی عمان میں اوبار / ارم کے قلعے کو دریافت کیا۔ یہ قرآن کی جغرافیائی معلومات کی تصدیق تھی (LA Times 5 Feb 1992)۔",
+      "topic_ar": "مدينة إرم ذات العماد الغارقة",
+      "science_hook_ar": "أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِعَادٍ • إِرَمَ ذَاتِ الْعِمَادِ • الَّتِي لَمْ يُخْلَقْ مِثْلُهَا فِي الْبِلَادِ — يُعرّف ابن كثير إرم بأنها العاصمة المفقودة لقوم عاد. على مدى 1300 عام، اعتبر النقاد الغربيون إرم أسطورة. في عام 1992، كشف تصوير رادار ناسا SIR-C عن دروب قوافل مدفونة في الربع الخالي؛ ثم قامت بعثة بقيادة نيكولاس كلاب ويوريس زارينس بالكشف عن قلعة أوبار / إرم في جنوب عُمان — تأكيد لجغرافية القرآن (لوس أنجلوس تايمز 5 فبراير 1992)."
     },
     {
       "slug": "sound-of-trumpet-physics",
@@ -211,7 +281,11 @@
       "topic": "Trumpet blast — pressure-wave physics on the Day",
       "science_hook": "وَنُفِخَ فِي الصُّورِ فَإِذَا هُم مِّنَ الْأَجْدَاثِ إِلَىٰ رَبِّهِمْ يَنسِلُونَ — Classical tafseer (Ibn Kathīr) describes the blast as one all creation simultaneously hears. Physics: an idealised pressure wave propagating through space-time would couple with the quantum vacuum and could plausibly transmit through the resurrected bodies (audio-physical interpretation by ʿAbd al-Bāsiṭ Aḥmad, al-Iʿjāz al-ʿIlmī). The reading is a careful inference — not a doctrine.",
       "arabic": "وَنُفِخَ فِي الصُّورِ فَإِذَا هُم مِّنَ الْأَجْدَاثِ إِلَىٰ رَبِّهِمْ يَنسِلُونَ",
-      "translation_en": "And the Horn will be blown; and at once from the graves to their Lord they will hasten. (Sūrah Yā Sīn 36:51)"
+      "translation_en": "And the Horn will be blown; and at once from the graves to their Lord they will hasten. (Sūrah Yā Sīn 36:51)",
+      "topic_ar": "نفخة الصور - فيزياء الموجات الضغطية يوم القيامة",
+      "science_hook_ar": "وَنُفِخَ فِي الصُّورِ فَإِذَا هُم مِّنَ الْأَجْدَاثِ إِلَىٰ رَبِّهِمْ يَنسِلُونَ — يصف تفسير كلاسيكي (ابن كثير) النفخة بأنها يسمعها جميع الخلق في آن واحد. الفيزياء: موجة ضغط مثالية تنتشر عبر الزمكان يمكن أن تتفاعل مع الفراغ الكمومي وتنتقل بشكل معقول عبر الأجساد المبعوثة (تفسير سمعي فيزيائي لعبد الباسط أحمد، الإعجاز العلمي). هذا الفهم هو استنتاج دقيق — وليس عقيدة.",
+      "topic_ur": "صور کا پھونکا جانا — یومِ قیامت پر دباؤ کی لہروں کا علمِ طبیعیات",
+      "science_hook_ur": "وَنُفِخَ فِي الصُّورِ فَإِذَا هُم مِّنَ الْأَجْدَاثِ إِلَىٰ رَبِّهِمْ يَنسِلُونَ — کلاسیکی تفسیر (ابن کثیر) اس صور کے پھونکے جانے کو ایسا بیان کرتی ہے جسے تمام مخلوق بیک وقت سنتی ہے۔ علمِ طبیعیات: ایک مثالی دباؤ کی لہر جو زمان و مکان میں پھیلتی ہے، کوانٹم خلا سے جڑ سکتی ہے اور قرینِ قیاس ہے کہ دوبارہ زندہ کیے گئے اجسام سے منتقل ہو سکتی ہے (عبد الباسط احمد کی سمعی-طبیعیاتی تشریح، الاعجاز العلمی)۔ یہ مطالعہ ایک محتاط استدلال ہے — کوئی عقیدہ نہیں۔"
     },
     {
       "slug": "circulation-of-fruits",
@@ -219,7 +293,11 @@
       "topic": "Variety of fruits from one water",
       "science_hook": "يُنبِتُ لَكُم بِهِ الزَّرْعَ وَالزَّيْتُونَ وَالنَّخِيلَ وَالْأَعْنَابَ وَمِن كُلِّ الثَّمَرَاتِ — Ibn Kathīr: a single rain produces every variety of fruit. Botany: identical H₂O molecules become hundreds of distinct flavour and pigment profiles via plant species-specific gene expression — modern genomics validates the verse's emphasis on a single source giving multitudinous outputs.",
       "arabic": "يُنبِتُ لَكُم بِهِ الزَّرْعَ وَالزَّيْتُونَ وَالنَّخِيلَ وَالْأَعْنَابَ وَمِن كُلِّ الثَّمَرَاتِ",
-      "translation_en": "He causes to grow for you thereby the crops, olives, palm trees, grapevines, and from all the fruits. (Sūrah an-Naḥl 16:11)"
+      "translation_en": "He causes to grow for you thereby the crops, olives, palm trees, grapevines, and from all the fruits. (Sūrah an-Naḥl 16:11)",
+      "topic_ur": "ایک ہی پانی سے مختلف اقسام کے پھل",
+      "science_hook_ur": "يُنبِتُ لَكُم بِهِ الزَّرْعَ وَالزَّيْتُونَ وَالنَّخِيلَ وَالْأَعْنَابَ وَمِن كُلِّ الثَّمَرَاتِ — ابن کثیر فرماتے ہیں: ایک ہی بارش سے ہر قسم کے پھل پیدا ہوتے ہیں۔ علم نباتات کے مطابق: H₂O کے یکساں سالمات پودوں کی مخصوص انواع کے جینز کے اظہار (gene expression) کے ذریعے سینکڑوں مختلف ذائقوں اور رنگوں کی خصوصیات میں بدل جاتے ہیں۔ جدید جینومکس اس آیت کی اس تاکید کی تصدیق کرتا ہے کہ ایک ہی ماخذ سے بے شمار نتائج برآمد ہوتے ہیں۔",
+      "topic_ar": "تنوع الثمار من ماء واحد",
+      "science_hook_ar": "يُنبِتُ لَكُم بِهِ الزَّرْعَ وَالزَّيْتُونَ وَالنَّخِيلَ وَالْأَعْنَابَ وَمِن كُلِّ الثَّمَرَاتِ — ابن كثير: المطر الواحد ينتج كل أنواع الثمار. علم النبات: تتحول جزيئات الماء المتطابقة إلى مئات من النكهات والأصباغ المتميزة عبر التعبير الجيني الخاص بكل نوع نباتي — يؤكد علم الجينوم الحديث على تأكيد الآية على مصدر واحد ينتج مخرجات متنوعة."
     },
     {
       "slug": "ozone-layer-protective-roof",
@@ -227,7 +305,11 @@
       "topic": "\"Roof, well-protected\" — atmospheric layers",
       "science_hook": "وَجَعَلْنَا السَّمَاءَ سَقْفًا مَّحْفُوظًا — Ibn Kathīr: a protective canopy above creation. Modern atmospheric science: the ozone layer absorbs >97% of solar UV-B; the magnetosphere deflects cosmic rays; the troposphere burns up most micro-meteorites. Each layer is a distinct \"shield\" within the single saqf maḥfūẓ.",
       "arabic": "وَجَعَلْنَا السَّمَاءَ سَقْفًا مَّحْفُوظًا ۖ وَهُمْ عَنْ آيَاتِهَا مُعْرِضُونَ",
-      "translation_en": "And We made the sky a protected ceiling, but they, from its signs, are turning away. (Sūrah al-Anbiyāʾ 21:32)"
+      "translation_en": "And We made the sky a protected ceiling, but they, from its signs, are turning away. (Sūrah al-Anbiyāʾ 21:32)",
+      "topic_ar": "سَقْفًا مَّحْفُوظًا — طبقات الغلاف الجوي",
+      "science_hook_ar": "وَجَعَلْنَا السَّمَاءَ سَقْفًا مَّحْفُوظًا — ابن كثير: غطاء واقٍ فوق المخلوقات. علم الغلاف الجوي الحديث: طبقة الأوزون تمتص أكثر من 97% من الأشعة فوق البنفسجية باء (UV-B) الشمسية؛ والغلاف المغناطيسي يصد الأشعة الكونية؛ وطبقة التروبوسفير تحرق معظم النيازك الدقيقة. كل طبقة هي بمثابة \"درع\" مستقل ضمن السقف المحفوظ الواحد.",
+      "topic_ur": "سَقْفًا مَّحْفُوظًا — فضائی تہیں",
+      "science_hook_ur": "وَجَعَلْنَا السَّمَاءَ سَقْفًا مَّحْفُوظًا — ابن کثیر فرماتے ہیں: یہ مخلوق کے اوپر ایک حفاظتی چھت ہے۔ جدید فضائی سائنس کے مطابق: اوزون کی تہہ سورج کی 97% سے زیادہ بالائے بنفشی (UV-B) شعاعوں کو جذب کر لیتی ہے؛ مقناطیسی کرّہ (magnetosphere) کائناتی شعاعوں (cosmic rays) کو موڑ دیتا ہے؛ اور ٹروپوسفیئر (troposphere) زیادہ تر چھوٹے شہاب ثاقب (micro-meteorites) کو جلا دیتا ہے۔ ہر تہہ اس واحد \"سَقْفًا مَّحْفُوظًا\" کے اندر ایک منفرد \"ڈھال\" ہے۔"
     },
     {
       "slug": "neuro-forehead-lying",
@@ -235,7 +317,11 @@
       "topic": "Lying \"forelock\" — prefrontal cortex",
       "science_hook": "لَنَسْفَعًا بِالنَّاصِيَةِ • نَاصِيَةٍ كَاذِبَةٍ خَاطِئَةٍ — \"We shall surely drag him by the forelock — a lying, sinful forelock.\" Classical tafseer (Ibn Kathīr) reads it as humiliation. Neuroscience (Damasio, Anderson 1999) localises moral decision-making, deception planning, and impulse control to the ventromedial prefrontal cortex — anatomically directly beneath the forelock (nāṣiya). Damage there impairs lying capability and ethical restraint.",
       "arabic": "كَلَّا لَئِن لَّمْ يَنتَهِ لَنَسْفَعًا بِالنَّاصِيَةِ • نَاصِيَةٍ كَاذِبَةٍ خَاطِئَةٍ",
-      "translation_en": "No! If he does not desist, We will surely drag him by the forelock — a lying, sinning forelock. (Sūrah al-ʿAlaq 96:15-16)"
+      "translation_en": "No! If he does not desist, We will surely drag him by the forelock — a lying, sinning forelock. (Sūrah al-ʿAlaq 96:15-16)",
+      "topic_ar": "الناصية الكاذبة - القشرة الأمامية الجبهية",
+      "science_hook_ar": "لَنَسْفَعًا بِالنَّاصِيَةِ • نَاصِيَةٍ كَاذِبَةٍ خَاطِئَةٍ — لنسفعن بالناصية، ناصية كاذبة خاطئة. التفسير الكلاسيكي (ابن كثير) يرى فيها إذلالاً. علم الأعصاب (داماسيو، أندرسون 1999) يحدد موقع اتخاذ القرار الأخلاقي، والتخطيط للخداع، والتحكم في الاندفاعات في القشرة الأمامية الجبهية البطنية الإنسية — وهي تشريحياً تقع مباشرة تحت الناصية. تلفها يضعف القدرة على الكذب والضبط الأخلاقي.",
+      "topic_ur": "جھوٹی \"ناصیہ\" — پری فرنٹل کارٹیکس",
+      "science_hook_ur": "لَنَسْفَعًا بِالنَّاصِيَةِ • نَاصِيَةٍ كَاذِبَةٍ خَاطِئَةٍ — \"ہم اسے پیشانی کے بل گھسیٹیں گے — ایک جھوٹی، گنہگار پیشانی۔\" کلاسیکی تفسیر (ابن کثیر) اسے ذلت سے تعبیر کرتی ہے۔ نیورو سائنس (داماسیو، اینڈرسن 1999) اخلاقی فیصلہ سازی، فریب کی منصوبہ بندی، اور نفس پر قابو پانے کو وینٹرومیڈیئل پری فرنٹل کارٹیکس میں مخصوص کرتی ہے — جو تشریحی طور پر پیشانی (ناصیہ) کے بالکل نیچے واقع ہے۔ وہاں نقصان جھوٹ بولنے کی صلاحیت اور اخلاقی ضبط کو کمزور کرتا ہے۔"
     },
     {
       "slug": "milk-from-between",
@@ -243,7 +329,11 @@
       "topic": "Wool, milk, transportation from cattle",
       "science_hook": "وَإِنَّ لَكُمْ فِي الْأَنْعَامِ لَعِبْرَةً نُّسْقِيكُم مِّمَّا فِي بُطُونِهَا — Ibn Kathīr links livestock to multi-utility benefit. Modern animal-products yield identical categorisation: fibre (wool, hair), nutrition (milk), and transport / kinetic energy (oxen, camels) — exactly the three the Qur'an enumerates.",
       "arabic": "وَإِنَّ لَكُمْ فِي الْأَنْعَامِ لَعِبْرَةً ۖ نُّسْقِيكُم مِّمَّا فِي بُطُونِهَا",
-      "translation_en": "And indeed, for you in livestock is a lesson. We give you drink from that which is in their bellies. (Sūrah al-Muʾminūn 23:21)"
+      "translation_en": "And indeed, for you in livestock is a lesson. We give you drink from that which is in their bellies. (Sūrah al-Muʾminūn 23:21)",
+      "topic_ar": "الصوف واللبن والنقل من الأنعام",
+      "science_hook_ar": "وَإِنَّ لَكُمْ فِي الْأَنْعَامِ لَعِبْرَةً نُّسْقِيكُم مِّمَّا فِي بُطُونِهَا — يربط ابن كثير الأنعام بالمنافع المتعددة. وتُنتج المنتجات الحيوانية الحديثة تصنيفًا مطابقًا: الألياف (الصوف والشعر)، والتغذية (اللبن)، والنقل / الطاقة الحركية (الثيران والإبل) — وهي بالضبط الثلاثة التي عددها القرآن.",
+      "topic_ur": "مویشیوں سے اون، دودھ اور نقل و حمل",
+      "science_hook_ur": "وَإِنَّ لَكُمْ فِي الْأَنْعَامِ لَعِبْرَةً نُّسْقِيكُم مِّمَّا فِي بُطُونِهَا — ابن کثیر مویشیوں کو کثیر المقاصد فوائد سے جوڑتے ہیں۔ جدید حیوانی مصنوعات بھی اسی طرح کی درجہ بندی پیش کرتی ہیں: ریشہ (اون، بال)، غذائیت (دودھ)، اور نقل و حمل / حرکی توانائی (بیل، اونٹ) — بالکل وہی تین جن کا قرآن نے ذکر کیا ہے۔"
     },
     {
       "slug": "internal-barriers-eye",
@@ -251,7 +341,11 @@
       "topic": "Two seas with a barrier — haloclines & retinas",
       "science_hook": "مَرَجَ الْبَحْرَيْنِ يَلْتَقِيَانِ • بَيْنَهُمَا بَرْزَخٌ لَّا يَبْغِيَانِ — Classical commentary (Ibn ʿAbbās via Ṭabarī): fresh and salt waters meet without merging. Oceanographers (Jacques Cousteau 1962, observed at Gibraltar and the Amazon mouth) verified the halocline / pycnocline barrier — invisible to the unaided eye but physically demonstrable through density and salinity sensors.",
       "arabic": "مَرَجَ الْبَحْرَيْنِ يَلْتَقِيَانِ • بَيْنَهُمَا بَرْزَخٌ لَّا يَبْغِيَانِ",
-      "translation_en": "He released the two seas, meeting [side by side]. Between them is a barrier; neither of them transgresses. (Sūrah ar-Raḥmān 55:19-20)"
+      "translation_en": "He released the two seas, meeting [side by side]. Between them is a barrier; neither of them transgresses. (Sūrah ar-Raḥmān 55:19-20)",
+      "topic_ar": "بحران بينهما حاجز — الفواصل الملحية وشبكيات العين",
+      "science_hook_ar": "مَرَجَ الْبَحْرَيْنِ يَلْتَقِيَانِ • بَيْنَهُمَا بَرْزَخٌ لَّا يَبْغِيَانِ — التفسير الكلاسيكي (ابن عباس عن الطبري): تلتقي المياه العذبة والمالحة دون أن تختلط. وقد تحقق علماء المحيطات (جاك كوستو 1962، لوحظ في جبل طارق ومصب نهر الأمازون) من حاجز الفاصل الملحي / الفاصل الكثافي — وهو غير مرئي بالعين المجردة ولكنه قابل للإثبات فيزيائيًا بواسطة مجسات الكثافة والملوحة.",
+      "topic_ur": "دو سمندر ایک رکاوٹ کے ساتھ — ہیلوکلائنز اور ریٹنا",
+      "science_hook_ur": "مَرَجَ الْبَحْرَيْنِ يَلْتَقِيَانِ • بَيْنَهُمَا بَرْزَخٌ لَّا يَبْغِيَانِ — کلاسیکی تفسیر (ابن عباس رضی اللہ عنہما سے طبری کے ذریعے): میٹھے اور کھارے پانی ملتے ہیں مگر آپس میں خلط ملط نہیں ہوتے۔ ماہرین بحریات (جیک کوسٹو نے 1962 میں جبل الطارق اور دریائے ایمیزون کے دہانے پر مشاہدہ کیا) نے ہیلوکلائن / پائکنوکلائن رکاوٹ کی تصدیق کی — جو عام آنکھ سے نظر نہیں آتی لیکن کثافت اور نمکیات کے سینسرز کے ذریعے طبعی طور پر ثابت کی جا سکتی ہے۔"
     },
     {
       "slug": "stars-fuel-time",
@@ -259,7 +353,11 @@
       "topic": "Sky becoming \"molten brass\" — solar death",
       "science_hook": "يَوْمَ تَكُونُ السَّمَاءُ كَالْمُهْلِ • وَتَكُونُ الْجِبَالُ كَالْعِهْنِ — Ibn Kathīr: a description of the Day of Judgement. Modern astrophysics: in ~5 billion years the sun will exhaust core hydrogen, expand into a red giant, and the upper atmosphere will rise to ~3000 K — incandescent and molten in appearance, exactly the simile used.",
       "arabic": "يَوْمَ تَكُونُ السَّمَاءُ كَالْمُهْلِ • وَتَكُونُ الْجِبَالُ كَالْعِهْنِ",
-      "translation_en": "On the Day the sky will be like murky oil, and the mountains will be like wool. (Sūrah al-Maʿārij 70:8-9)"
+      "translation_en": "On the Day the sky will be like murky oil, and the mountains will be like wool. (Sūrah al-Maʿārij 70:8-9)",
+      "topic_ar": "السماء تصبح كالمهل - فناء شمسي",
+      "science_hook_ar": "يَوْمَ تَكُونُ السَّمَاءُ كَالْمُهْلِ • وَتَكُونُ الْجِبَالُ كَالْعِهْنِ — ابن كثير: وصف ليوم القيامة. الفيزياء الفلكية الحديثة: في حوالي 5 مليارات سنة، ستستنفد الشمس الهيدروجين في قلبها، وتتوسع لتصبح عملاقًا أحمر، وسيرتفع غلافها الجوي العلوي إلى حوالي 3000 كلفن - متوهجة ومنصهرة في مظهرها، وهو التشبيه المستخدم تمامًا.",
+      "topic_ur": "آسمان کا \"پگھلے ہوئے تانبے\" جیسا ہو جانا — سورج کی موت",
+      "science_hook_ur": "يَوْمَ تَكُونُ السَّمَاءُ كَالْمُهْلِ • وَتَكُونُ الْجِبَالُ كَالْعِهْنِ — ابن کثیر: یہ قیامت کے دن کی ایک منظر کشی ہے۔ جدید فلکی طبیعیات کے مطابق، تقریباً 5 ارب سال میں سورج اپنے مرکزی ہائیڈروجن کو ختم کر دے گا، ایک سرخ دیو (red giant) میں پھیل جائے گا، اور اس کا بالائی کرہ ہوائی تقریباً 3000 کیلون تک پہنچ جائے گا — جو دہکتا ہوا اور پگھلا ہوا نظر آئے گا، بالکل اسی تشبیہ کے مطابق جو استعمال کی گئی ہے۔"
     },
     {
       "slug": "rapid-cell-renewal-skin",
@@ -267,7 +365,11 @@
       "topic": "Pain pathway through the skin only",
       "science_hook": "كُلَّمَا نَضِجَتْ جُلُودُهُم بَدَّلْنَاهُمْ جُلُودًا غَيْرَهَا لِيَذُوقُوا الْعَذَابَ — Ibn Kathīr notes the renewed skins are punished anew. Neurology: pain nociceptors (Aδ and C-fibres) terminate in the epidermis; deeper tissues without skin innervation cannot feel surface burns. The Qur'an's anatomical specificity (skin-only pain reception) parallels modern dermal physiology (Devor, Lewin 2010).",
       "arabic": "كُلَّمَا نَضِجَتْ جُلُودُهُم بَدَّلْنَاهُمْ جُلُودًا غَيْرَهَا لِيَذُوقُوا الْعَذَابَ",
-      "translation_en": "Every time their skins are roasted through We will replace them with other skins so they may taste the punishment. (Sūrah an-Nisāʾ 4:56)"
+      "translation_en": "Every time their skins are roasted through We will replace them with other skins so they may taste the punishment. (Sūrah an-Nisāʾ 4:56)",
+      "topic_ar": "مسار الألم عبر الجلد فقط",
+      "science_hook_ar": "كُلَّمَا نَضِجَتْ جُلُودُهُم بَدَّلْنَاهُمْ جُلُودًا غَيْرَهَا لِيَذُوقُوا الْعَذَابَ — يذكر ابن كثير أن الجلود المتجددة تُعاقَب من جديد. علم الأعصاب: تنتهي مستقبلات الألم (ألياف Aδ و C) في البشرة؛ فالأنسجة الأعمق التي لا تحتوي على تعصيب جلدي لا تستطيع الإحساس بالحروق السطحية. تتوازى الدقة التشريحية في القرآن (استقبال الألم عبر الجلد فقط) مع الفسيولوجيا الجلدية الحديثة (ديفور، لوين 2010).",
+      "topic_ur": "صرف جلد کے ذریعے درد کی گزرگاہ",
+      "science_hook_ur": "كُلَّمَا نَضِجَتْ جُلُودُهُم بَدَّلْنَاهُمْ جُلُودًا غَيْرَهَا لِيَذُوقُوا الْعَذَابَ — ابن کثیر رحمہ اللہ (اس آیت کی تفسیر میں) بیان فرماتے ہیں کہ جب ان کی کھالیں پک کر جل جائیں گی تو انہیں نئی جلدوں سے بدل دیا جائے گا تاکہ وہ نئے سرے سے عذاب کا مزہ چکھیں۔ علمِ عصبیات (Neurology) کے مطابق، درد محسوس کرنے والے اعصابی ریشے (pain nociceptors) جنہیں Aδ اور C-ریشے کہا جاتا ہے، جلد کی سب سے اوپری تہہ (epidermis) میں اختتام پذیر ہوتے ہیں۔ جلد کی اعصابی رسائی کے بغیر اندرونی بافتیں (deeper tissues) سطح پر ہونے والی جلن کو محسوس نہیں کر سکتیں۔ قرآن کا یہ تشریحی بیان (جس میں صرف جلد کے ذریعے درد کے احساس کا ذکر ہے) جدید جلد کی فعلیات (dermal physiology) سے مکمل مطابقت رکھتا ہے (Devor, Lewin 2010)۔"
     },
     {
       "slug": "expanding-universe",
@@ -275,7 +377,11 @@
       "topic": "The expanding heavens (51:47)",
       "science_hook": "وَالسَّمَاءَ بَنَيْنَاهَا بِأَيْدٍ وَإِنَّا لَمُوسِعُونَ — \"And the heaven We constructed with strength, and indeed We are (its) expander.\" Classical tafseer (Ibn Kathīr, al-Qurṭubī) read mūsiʿūn as Allāh's vastness of power. After Edwin Hubble's 1929 redshift discovery and the 1998 Perlmutter/Schmidt/Riess Nobel-winning observation of accelerating expansion, the participle mūsiʿūn (active, ongoing 'expander') reads remarkably literally. NASA's Lambda-CDM model now places the cosmic-expansion rate at ~73 km/s/Mpc.",
       "arabic": "وَالسَّمَاءَ بَنَيْنَاهَا بِأَيْدٍ وَإِنَّا لَمُوسِعُونَ",
-      "translation_en": "And the heaven We constructed with strength, and indeed, We are [its] expander. (Sūrah adh-Dhāriyāt 51:47)"
+      "translation_en": "And the heaven We constructed with strength, and indeed, We are [its] expander. (Sūrah adh-Dhāriyāt 51:47)",
+      "topic_ar": "توسع السماوات (51:47)",
+      "science_hook_ar": "وَالسَّمَاءَ بَنَيْنَاهَا بِأَيْدٍ وَإِنَّا لَمُوسِعُونَ — \"والسماء بنيناها بقوة، وإنا لموسعون.\" فسرت التفاسير الكلاسيكية (ابن كثير، القرطبي) كلمة 'موسعون' على أنها سعة قدرة الله. بعد اكتشاف إدوين هابل للانزياح نحو الأحمر عام 1929، وملاحظة بيرلماتر/شميدت/ريس الحائزة على جائزة نوبل عام 1998 للتوسع المتسارع، أصبحت صيغة اسم الفاعل 'موسعون' (التي تدل على الفاعلية والاستمرارية في التوسع) تُقرأ حرفياً بشكل لافت للنظر. يحدد نموذج لامدا-سي دي إم (Lambda-CDM) لوكالة ناسا الآن معدل التوسع الكوني بحوالي 73 كم/ث/ميجابارسيك.",
+      "topic_ur": "توسیع پاتے ہوئے آسمان (51:47)",
+      "science_hook_ur": "وَالسَّمَاءَ بَنَيْنَاهَا بِأَيْدٍ وَإِنَّا لَمُوسِعُونَ — \"اور آسمان کو ہم نے قوت کے ساتھ بنایا اور بے شک ہم ہی اسے وسعت دینے والے ہیں۔\" قدیم تفاسیر (ابن کثیر، القرطبی) میں 'موسعون' کا مفہوم اللہ کی قدرت کی وسعت بیان کیا گیا ہے۔ ایڈون ہبل کی 1929 کی ریڈ شفٹ دریافت اور 1998 میں پرلمٹر/شمٹ/رائس کے نوبل انعام یافتہ مشاہدے کے بعد جس میں کائنات کی تیز رفتار توسیع کا انکشاف ہوا، اسم فاعل 'موسعون' (جو فعال اور جاری 'وسعت دینے والے' کے معنی میں ہے) حیرت انگیز طور پر لفظی معنی میں آتا ہے۔ ناسا کا لیمبڈا-سی ڈی ایم ماڈل اب کائنات کی توسیع کی شرح کو تقریباً 73 کلومیٹر فی سیکنڈ فی میگا پارسک بتاتا ہے۔"
     },
     {
       "slug": "everything-from-water",
@@ -283,7 +389,11 @@
       "topic": "Every living thing from water (21:30)",
       "science_hook": "وَجَعَلْنَا مِنَ الْمَاءِ كُلَّ شَيْءٍ حَيٍّ — \"And We made from water every living thing.\" Ibn Kathīr links this to Allāh's creative power. Biology since the 1950s (Oparin-Haldane, Miller-Urey 1953) confirms that water is the *only* known biochemical solvent supporting life; every protein folds, every enzyme catalyses, every membrane forms because of water's polar nature. Mars rover ChemCam and Europa's subsurface ocean missions search for life because they search for water.",
       "arabic": "وَجَعَلْنَا مِنَ الْمَاءِ كُلَّ شَيْءٍ حَيٍّ ۖ أَفَلَا يُؤْمِنُونَ",
-      "translation_en": "And We made from water every living thing. Then will they not believe? (Sūrah al-Anbiyāʾ 21:30)"
+      "translation_en": "And We made from water every living thing. Then will they not believe? (Sūrah al-Anbiyāʾ 21:30)",
+      "topic_ar": "كل شيء حي من الماء (21:30)",
+      "science_hook_ar": "وَجَعَلْنَا مِنَ الْمَاءِ كُلَّ شَيْءٍ حَيٍّ — أي: وخلقنا من الماء كل شيء حي. يربط ابن كثير هذا بقدرة الله الخالقة. يؤكد علم الأحياء منذ خمسينيات القرن الماضي (أوبارين-هالدين، ميلر-يوري 1953) أن الماء هو المذيب الكيميائي الحيوي الوحيد المعروف الذي يدعم الحياة؛ فكل بروتين ينطوي، وكل إنزيم يحفز، وكل غشاء يتشكل بفضل الطبيعة القطبية للماء. تبحث مركبة المريخ الجوالة ChemCam وبعثات محيطات أوروبا الجوفية عن الحياة لأنها تبحث عن الماء.",
+      "topic_ur": "ہر زندہ چیز پانی سے (21:30)",
+      "science_hook_ur": "وَجَعَلْنَا مِنَ الْمَاءِ كُلَّ شَيْءٍ حَيٍّ — \"اور ہم نے ہر زندہ چیز پانی سے بنائی۔\" ابن کثیر اس آیت کو اللہ کی تخلیقی قدرت سے منسوب کرتے ہیں۔ 1950 کی دہائی سے علمِ حیاتیات (اوپرین-ہالڈین، ملر-یوری 1953) اس بات کی تصدیق کرتا ہے کہ پانی ہی واحد معلوم حیاتیاتی محلول (biochemical solvent) ہے جو زندگی کو سہارا دیتا ہے؛ ہر پروٹین اپنی شکل اختیار کرتا ہے، ہر انزائم (خامرہ) عمل انگیز ہوتا ہے، اور ہر جھلی پانی کی قطبی (polar) خصوصیت کی وجہ سے بنتی ہے۔ مریخ روور کیم کیم (ChemCam) اور یوروپا (Europa) کے زیرِ سطح سمندر کے مشن زندگی کی تلاش کرتے ہیں کیونکہ وہ پانی کی تلاش کرتے ہیں۔"
     },
     {
       "slug": "everything-in-pairs",
@@ -291,7 +401,11 @@
       "topic": "Creation in pairs (36:36, 51:49)",
       "science_hook": "سُبْحَانَ الَّذِي خَلَقَ الْأَزْوَاجَ كُلَّهَا مِمَّا تُنْبِتُ الْأَرْضُ وَمِنْ أَنْفُسِهِمْ وَمِمَّا لَا يَعْلَمُونَ — \"Glory be to Him who created all the pairs — from what the earth produces, from themselves, AND from that which they do not (yet) know.\" Classical tafseer noted plant pollen vs ovule, male vs female. Modern physics added subatomic pairs: electron-positron, quark-antiquark, particle-antiparticle (Dirac 1928, confirmed Anderson 1932 Nobel) — fulfilling the verse's third unknown category.",
       "arabic": "سُبْحَانَ الَّذِي خَلَقَ الْأَزْوَاجَ كُلَّهَا مِمَّا تُنبِتُ الْأَرْضُ وَمِنْ أَنفُسِهِمْ وَمِمَّا لَا يَعْلَمُونَ",
-      "translation_en": "Exalted is He who created all pairs — from what the earth grows and from themselves and from that which they do not know. (Sūrah Yā Sīn 36:36)"
+      "translation_en": "Exalted is He who created all pairs — from what the earth grows and from themselves and from that which they do not know. (Sūrah Yā Sīn 36:36)",
+      "topic_ar": "خلق الأزواج (36:36، 51:49)",
+      "science_hook_ar": "سُبْحَانَ الَّذِي خَلَقَ الْأَزْوَاجَ كُلَّهَا مِمَّا تُنْبِتُ الْأَرْضُ وَمِنْ أَنْفُسِهِمْ وَمِمَّا لَا يَعْلَمُونَ — أشار التفسير الكلاسيكي إلى حبوب اللقاح والبويضات في النباتات، والذكر والأنثى. وأضافت الفيزياء الحديثة الأزواج دون الذرية: الإلكترون والبوزيترون، الكوارك ومضاد الكوارك، الجسيم ومضاد الجسيم (ديراك 1928، أكده أندرسون 1932 جائزة نوبل) — محققةً بذلك الفئة الثالثة المجهولة في الآية.",
+      "topic_ur": "ازواج کی تخلیق (36:36, 51:49)",
+      "science_hook_ur": "سُبْحَانَ الَّذِي خَلَقَ الْأَزْوَاجَ كُلَّهَا مِمَّا تُنْبِتُ الْأَرْضُ وَمِنْ أَنْفُسِهِمْ وَمِمَّا لَا يَعْلَمُونَ — \"پاک ہے وہ ذات جس نے تمام ازواج کو پیدا کیا، اس میں سے جو زمین اگاتی ہے، اور خود ان کی ذاتوں میں سے، اور اس میں سے جسے وہ نہیں جانتے۔\" قدیم تفاسیر میں پودوں کے نر اور مادہ (زیرگی اور بیضہ) اور نر و مادہ (مرد و عورت) کی طرف اشارہ کیا گیا ہے۔ جدید طبیعیات نے زیر جوہری جوڑوں کا اضافہ کیا ہے: الیکٹران-پوزیٹران، کوارک-اینٹی کوارک، ذرہ-ضد ذرہ (Dirac 1928, confirmed Anderson 1932 Nobel) — جو آیت کی تیسری نامعلوم قسم کو پورا کرتا ہے۔"
     },
     {
       "slug": "mountains-as-pegs",
@@ -299,7 +413,11 @@
       "topic": "Mountains as 'pegs' (78:6-7)",
       "science_hook": "أَلَمْ نَجْعَلِ الْأَرْضَ مِهَادًا • وَالْجِبَالَ أَوْتَادًا — \"Have We not made the earth a cradle, and the mountains as pegs?\" Classical tafseer (al-Saʿdī) understood the metaphor as stabilising. Modern geology (Frank Press, ex-NAS president, *Earth* textbook 1985) discovered the principle of isostasy: every mountain has a 'root' of crust extending into the mantle ~6–10× the visible height — exactly the shape of a tent peg. Plate-tectonics also shows mountains slow continental drift.",
       "arabic": "أَلَمْ نَجْعَلِ الْأَرْضَ مِهَادًا • وَالْجِبَالَ أَوْتَادًا",
-      "translation_en": "Have We not made the earth a resting place? And the mountains as stakes (pegs)? (Sūrah an-Nabaʾ 78:6-7)"
+      "translation_en": "Have We not made the earth a resting place? And the mountains as stakes (pegs)? (Sūrah an-Nabaʾ 78:6-7)",
+      "topic_ar": "الجبال كـ 'أوتاد' (78:6-7)",
+      "science_hook_ar": "أَلَمْ نَجْعَلِ الْأَرْضَ مِهَادًا • وَالْجِبَالَ أَوْتَادًا. فهم التفسير الكلاسيكي (السعدي) الاستعارة على أنها تثبيت. اكتشفت الجيولوجيا الحديثة (فرانك بريس، الرئيس السابق للأكاديمية الوطنية للعلوم، كتاب *الأرض* 1985) مبدأ التوازن الأيزوستاتي: أن لكل جبل 'جذرًا' من القشرة يمتد إلى الوشاح حوالي 6-10 أضعاف ارتفاعه الظاهر — بالضبط على شكل وتد خيمة. تُظهر تكتونية الصفائح أيضًا أن الجبال تبطئ الانجراف القاري.",
+      "topic_ur": "پہاڑوں کو 'میخوں' کے طور پر (سورۃ النبأ: 6-7)",
+      "science_hook_ur": "أَلَمْ نَجْعَلِ الْأَرْضَ مِهَادًا • وَالْجِبَالَ أَوْتَادًا — \"کیا ہم نے زمین کو بچھونا نہیں بنایا اور پہاڑوں کو میخیں نہیں بنایا؟\" کلاسیکی تفسیر (السعدی) نے اس استعارے کو (زمین کو) مستحکم کرنے کے طور پر سمجھا۔ جدید ارضیات (فرینک پریس، سابق صدر نیشنل اکیڈمی آف سائنسز، اپنی کتاب *ارتھ* 1985 میں) نے آئسوسٹیسی (isostasy) کے اصول کو دریافت کیا: کہ ہر پہاڑ کی قشر (crust) میں ایک 'جڑ' ہوتی ہے جو مینٹل (mantle) میں پھیلی ہوتی ہے، جو اس کی ظاہری اونچائی سے تقریباً 6 سے 10 گنا زیادہ ہوتی ہے — بالکل ایک خیمے کی میخ کی شکل کی طرح۔ پلیٹ ٹیکٹونکس (Plate-tectonics) یہ بھی ظاہر کرتی ہے کہ پہاڑ براعظمی بہاؤ (continental drift) کو سست کرتے ہیں۔"
     },
     {
       "slug": "darkness-deep-ocean",
@@ -307,7 +425,11 @@
       "topic": "Darkness in deep oceans (24:40)",
       "science_hook": "أَوْ كَظُلُمَاتٍ فِي بَحْرٍ لُّجِّيٍّ يَغْشَاهُ مَوْجٌ مِّن فَوْقِهِ مَوْجٌ مِّن فَوْقِهِ سَحَابٌ ۚ ظُلُمَاتٌ بَعْضُهَا فَوْقَ بَعْضٍ — \"Or like the darknesses in a deep sea: there cover him waves, above them waves, above them clouds — darknesses, one above another.\" Ibn Kathīr cited this as a powerful metaphor of disbelief. Modern oceanography (Jacques Cousteau 1972, NOAA depth-light penetration charts) confirms exactly two distinct wave systems (surface and internal pycnocline waves) and three darkness layers (photic, dysphotic, aphotic) — a 7th-century desert Arab could not naturally have known these stratified marine phenomena.",
       "arabic": "أَوْ كَظُلُمَاتٍ فِي بَحْرٍ لُّجِّيٍّ يَغْشَاهُ مَوْجٌ مِّن فَوْقِهِ مَوْجٌ مِّن فَوْقِهِ سَحَابٌ ۚ ظُلُمَاتٌ بَعْضُهَا فَوْقَ بَعْضٍ",
-      "translation_en": "Or [they are] like darknesses within an unfathomable sea which is covered by waves, upon which are waves, over which are clouds — darknesses, some of them above others. (Sūrah an-Nūr 24:40)"
+      "translation_en": "Or [they are] like darknesses within an unfathomable sea which is covered by waves, upon which are waves, over which are clouds — darknesses, some of them above others. (Sūrah an-Nūr 24:40)",
+      "topic_ar": "الظلمات في أعماق المحيطات (24:40)",
+      "science_hook_ar": "أَوْ كَظُلُمَاتٍ فِي بَحْرٍ لُّجِّيٍّ يَغْشَاهُ مَوْجٌ مِّن فَوْقِهِ مَوْجٌ مِّن فَوْقِهِ سَحَابٌ ۚ ظُلُمَاتٌ بَعْضُهَا فَوْقَ بَعْضٍ — ذكر ابن كثير هذا كمثل قوي للكفر. يؤكد علم المحيطات الحديث (جاك كوستو 1972، وخرائط NOAA لاختراق الضوء حسب العمق) وجود نظامين موجيين متميزين (أمواج سطحية وأمواج داخلية عند طبقة الكثافة الحرارية) وثلاث طبقات من الظلام (طبقة ضوئية، وطبقة شبه ضوئية، وطبقة مظلمة تمامًا) — لم يكن لعربي صحراوي من القرن السابع الميلادي أن يعرف بطبيعة الحال هذه الظواهر البحرية الطبقية.",
+      "topic_ur": "گہرے سمندروں کی تاریکی (24:40)",
+      "science_hook_ur": "أَوْ كَظُلُمَاتٍ فِي بَحْرٍ لُّجِّيٍّ يَغْشَاهُ مَوْجٌ مِّن فَوْقِهِ مَوْجٌ مِّن فَوْقِهِ سَحَابٌ ۚ ظُلُمَاتٌ بَعْضُهَا فَوْقَ بَعْضٍ — \"یا گہرے سمندر کی تاریکیوں کی طرح، جسے لہروں نے ڈھانپ رکھا ہو، ان لہروں کے اوپر مزید لہریں ہوں، اور ان کے اوپر بادل ہوں۔ یہ تاریکیاں ہیں، ایک کے اوپر ایک۔\" ابن کثیر نے اس آیت کو کفر کی ایک طاقتور تمثیل کے طور پر بیان کیا ہے۔ جدید سمندری علوم (جیکس کوسٹو 1972، NOAA کے گہرائی میں روشنی کے نفوذ کے چارٹس) بالکل دو الگ لہروں کے نظام (سطحی اور اندرونی پکنوکلائن لہریں) اور تاریکی کی تین تہوں (فوٹک، ڈسفوٹک، ایفوٹک) کی تصدیق کرتا ہے — ساتویں صدی کا ایک صحرائی عرب قدرتی طور پر ان تہہ در تہہ سمندری مظاہر سے واقف نہیں ہو سکتا تھا۔"
     },
     {
       "slug": "honey-bees-revelation",
@@ -315,7 +437,11 @@
       "topic": "Bees instructed by revelation (16:68-69)",
       "science_hook": "وَأَوْحَى رَبُّكَ إِلَى النَّحْلِ أَنِ اتَّخِذِي مِنَ الْجِبَالِ بُيُوتًا — \"And your Lord inspired the bees: 'Take homes in the mountains and trees and in what (people) build.'\" Note the verb is feminine (singular ittakhidhī) — the Qur'an specifies the working bee is female. Apis mellifera biology: only female worker bees forage and produce honey; drones do neither. This was first documented by Swammerdam in 1668 — a millennium after the Qur'anic statement.",
       "arabic": "وَأَوْحَىٰ رَبُّكَ إِلَى النَّحْلِ أَنِ اتَّخِذِي مِنَ الْجِبَالِ بُيُوتًا وَمِنَ الشَّجَرِ وَمِمَّا يَعْرِشُونَ",
-      "translation_en": "And your Lord inspired to the bee: \"Take for yourself among the mountains, houses, and among the trees and [in] that which they construct.\" (Sūrah an-Naḥl 16:68)"
+      "translation_en": "And your Lord inspired to the bee: \"Take for yourself among the mountains, houses, and among the trees and [in] that which they construct.\" (Sūrah an-Naḥl 16:68)",
+      "topic_ar": "النحل الموحى إليه بالوحي (16:68-69)",
+      "science_hook_ar": "وَأَوْحَى رَبُّكَ إِلَى النَّحْلِ أَنِ اتَّخِذِي مِنَ الْجِبَالِ بُيُوتًا وَمِنَ الشَّجَرِ وَمِمَّا يَعْرِشُونَ — \"وأوحى ربك إلى النحل: 'اتخذي بيوتاً في الجبال وفي الشجر وفيما يبنيه الناس.'\" لاحظ أن الفعل مؤنث (بصيغة المفرد \"اتخذي\") — فالقرآن يحدد أن النحلة العاملة أنثى. في علم أحياء نحل العسل (Apis mellifera): فقط إناث النحل العاملات هي التي تجمع الرحيق وتنتج العسل؛ أما ذكور النحل (اليعاسيب) فلا تقوم بأي من الأمرين. وقد وثق ذلك لأول مرة العالم سفامردام (Swammerdam) في عام 1668 — أي بعد ألف عام من البيان القرآني.",
+      "topic_ur": "شہد کی مکھیوں کو وحی کے ذریعے ہدایت (سورۃ النحل: 68-69)",
+      "science_hook_ur": "وَأَوْحَى رَبُّكَ إِلَى النَّحْلِ أَنِ اتَّخِذِي مِنَ الْجِبَالِ بُيُوتًا — اور آپ کے رب نے شہد کی مکھیوں پر وحی کی کہ پہاڑوں میں، درختوں میں اور ان چھتوں میں جو لوگ بناتے ہیں، اپنے گھر بناؤ۔ غور کریں کہ فعل مؤنث (واحد اتَّخِذِي) ہے — قرآن یہ صراحت کرتا ہے کہ کام کرنے والی مکھی مؤنث ہوتی ہے۔ شہد کی مکھیوں (Apis mellifera) کی حیاتیات کے مطابق، صرف مؤنث کارکن مکھیاں ہی خوراک تلاش کرتی ہیں اور شہد بناتی ہیں؛ نر مکھیاں (drones) ان میں سے کوئی کام نہیں کرتیں۔ اس حقیقت کو سب سے پہلے سویمرڈیم (Swammerdam) نے 1668 میں دستاویزی شکل دی — قرآن کے اس بیان کے ایک ہزار سال بعد۔"
     },
     {
       "slug": "embryo-three-darknesses",
@@ -323,7 +449,11 @@
       "topic": "Three veils of darkness around the embryo (39:6)",
       "science_hook": "يَخْلُقُكُمْ فِي بُطُونِ أُمَّهَاتِكُمْ خَلْقًا مِّن بَعْدِ خَلْقٍ فِي ظُلُمَاتٍ ثَلَاثٍ — \"He creates you in the wombs of your mothers — creation after creation, within three darknesses.\" Classical tafseer (Ibn Kathīr) listed: the abdominal wall, the uterine wall, and the amniochorionic membrane. Modern obstetrics (Moore & Persaud *The Developing Human* 8th ed. 2008) confirms the exact three anatomical layers — and the staging of 'creation after creation' matches Carnegie embryonic stages: blastocyst → gastrulation → organogenesis.",
       "arabic": "يَخْلُقُكُمْ فِي بُطُونِ أُمَّهَاتِكُمْ خَلْقًا مِّن بَعْدِ خَلْقٍ فِي ظُلُمَاتٍ ثَلَاثٍ",
-      "translation_en": "He creates you in the wombs of your mothers, creation after creation, within three darknesses. (Sūrah az-Zumar 39:6)"
+      "translation_en": "He creates you in the wombs of your mothers, creation after creation, within three darknesses. (Sūrah az-Zumar 39:6)",
+      "topic_ar": "ثلاث ظلمات حول الجنين (39:6)",
+      "science_hook_ar": "يَخْلُقُكُمْ فِي بُطُونِ أُمَّهَاتِكُمْ خَلْقًا مِّن بَعْدِ خَلْقٍ فِي ظُلُمَاتٍ ثَلَاثٍ — \"يخلقكم في بطون أمهاتكم خلقًا من بعد خلق في ظلمات ثلاث.\" ذكر التفسير الكلاسيكي (ابن كثير): جدار البطن، وجدار الرحم، والغشاء الأمنيوسي المشيمي. يؤكد علم التوليد الحديث (مور وبيرسود، كتاب *تطور الإنسان*، الطبعة الثامنة 2008) الطبقات التشريحية الثلاث الدقيقة — وتطابق مراحل \"خلقًا من بعد خلق\" مراحل كارنيجي الجنينية: الأريمة ← التخلق المعوي ← تكون الأعضاء.",
+      "topic_ur": "جنین کے گرد تاریکی کے تین پردے (39:6)",
+      "science_hook_ur": "يَخْلُقُكُمْ فِي بُطُونِ أُمَّهَاتِكُمْ خَلْقًا مِّن بَعْدِ خَلْقٍ فِي ظُلُمَاتٍ ثَلَاثٍ — \"وہ تمہیں تمہاری ماؤں کے پیٹوں میں ایک کے بعد ایک تخلیق سے پیدا کرتا ہے، تین تاریکیوں کے اندر۔\" کلاسیکی تفسیر (ابن کثیر) نے درج ذیل کا ذکر کیا ہے: پیٹ کی دیوار، رحم کی دیوار، اور امینیو کوریونک جھلی (amniochorionic membrane)۔ جدید علمِ ولادت (Moore & Persaud *The Developing Human* 8th ed. 2008) ان تینوں جسمانی تہوں کی بالکل درست تصدیق کرتا ہے — اور 'ایک کے بعد ایک تخلیق' کا مرحلہ کارنیگی جنینی مراحل (Carnegie embryonic stages) سے مطابقت رکھتا ہے: بلاسٹوسسٹ (blastocyst) → گیسٹرو لیشن (gastrulation) → آرگینو جینسس (organogenesis)۔"
     },
     {
       "slug": "sun-moon-orbits",
@@ -331,7 +461,11 @@
       "topic": "Sun moves in its own orbit (36:38)",
       "science_hook": "وَالشَّمْسُ تَجْرِي لِمُسْتَقَرٍّ لَّهَا — \"The sun runs to a determined fixed course.\" Ibn Kathīr noted the sun's daily motion. Modern astronomy confirms much more: the sun orbits the Milky Way's centre at ~828,000 km/h, completing one galactic year every ~230 Myr (Reid et al. 2009, ApJ). Verse 21:33 adds that 'each (celestial body) swims in an orbit' — fulfilled by every star's proper motion.",
       "arabic": "وَالشَّمْسُ تَجْرِي لِمُسْتَقَرٍّ لَّهَا ۚ ذَٰلِكَ تَقْدِيرُ الْعَزِيزِ الْعَلِيمِ",
-      "translation_en": "And the sun runs [on course] toward its stopping point. That is the determination of the Exalted in Might, the Knowing. (Sūrah Yā Sīn 36:38)"
+      "translation_en": "And the sun runs [on course] toward its stopping point. That is the determination of the Exalted in Might, the Knowing. (Sūrah Yā Sīn 36:38)",
+      "topic_ar": "الشمس تتحرك في مدارها الخاص (36:38)",
+      "science_hook_ar": "وَالشَّمْسُ تَجْرِي لِمُسْتَقَرٍّ لَّهَا — \"تجري الشمس إلى مستقر لها محدد.\" لاحظ ابن كثير حركة الشمس اليومية. يؤكد علم الفلك الحديث أكثر من ذلك بكثير: تدور الشمس حول مركز مجرة درب التبانة بسرعة حوالي 828,000 كم/ساعة، مكملة سنة مجرية واحدة كل حوالي 230 مليون سنة (ريد وآخرون 2009، مجلة الفيزياء الفلكية). وتضيف الآية 21:33 أن \"وَكُلٌّ فِي فَلَكٍ يَسْبَحُونَ\" — وهو ما يتحقق بالحركة الذاتية لكل نجم.",
+      "topic_ur": "سورج اپنے مدار میں حرکت کرتا ہے (36:38)",
+      "science_hook_ur": "وَالشَّمْسُ تَجْرِي لِمُسْتَقَرٍّ لَّهَا — \"اور سورج اپنے ٹھکانے کی طرف رواں دواں ہے۔\" ابن کثیر نے سورج کی روزانہ کی حرکت کا ذکر کیا۔ جدید فلکیات اس سے کہیں زیادہ کی تصدیق کرتی ہے: سورج تقریباً 828,000 کلومیٹر فی گھنٹہ کی رفتار سے کہکشاں (Milky Way) کے مرکز کے گرد گردش کرتا ہے، اور ہر تقریباً 230 ملین سال میں ایک کہکشانی سال مکمل کرتا ہے (ریڈ وغیرہ 2009، اے پی جے)۔ آیت 21:33 مزید فرماتی ہے کہ 'ہر ایک (آسمانی جسم) اپنے مدار میں تیر رہا ہے' — جس کی تصدیق ہر ستارے کی اپنی حرکت (proper motion) سے ہوتی ہے۔"
     },
     {
       "slug": "fetal-hearing-first",
@@ -339,7 +473,11 @@
       "topic": "Hearing develops before sight (32:9)",
       "science_hook": "ثُمَّ سَوَّاهُ وَنَفَخَ فِيهِ مِن رُّوحِهِ ۖ وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ — \"...He gave you hearing, then sight, then hearts/intellects.\" The Qur'anic ordering puts hearing FIRST, then sight, then cognition. Modern fetal neurology (Hepper, *Foetal Behaviour* 2015) confirms that the cochlea is fully functional by ~25 weeks (sound is the first stimulus an unborn child responds to), the retina only matures ~28-32 weeks, and higher cortical association areas continue developing well after birth. Order matches exactly.",
       "arabic": "ثُمَّ سَوَّاهُ وَنَفَخَ فِيهِ مِن رُّوحِهِ ۖ وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ ۚ قَلِيلًا مَّا تَشْكُرُونَ",
-      "translation_en": "Then He proportioned him and breathed into him from His [created] soul and made for you hearing and vision and hearts; little are you grateful. (Sūrah as-Sajdah 32:9)"
+      "translation_en": "Then He proportioned him and breathed into him from His [created] soul and made for you hearing and vision and hearts; little are you grateful. (Sūrah as-Sajdah 32:9)",
+      "topic_ar": "السمع يتطور قبل البصر (32:9)",
+      "science_hook_ar": "ثُمَّ سَوَّاهُ وَنَفَخَ فِيهِ مِن رُّوحِهِ ۖ وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ — \"...وجعل لكم السمع، ثم الأبصار، ثم الأفئدة/العقول.\" الترتيب القرآني يضع السمع أولاً، ثم البصر، ثم الإدراك. يؤكد علم الأعصاب الجنيني الحديث (هيبر، *سلوك الجنين* 2015) أن القوقعة تكون وظيفية بالكامل بحلول الأسبوع الخامس والعشرين تقريباً (الصوت هو أول محفز يستجيب له الطفل الذي لم يولد بعد)، بينما شبكية العين لا تنضج إلا في الأسابيع 28-32 تقريباً، والمناطق القشرية الترابطية العليا تستمر في التطور جيداً بعد الولادة. الترتيب يتطابق تماماً.",
+      "topic_ur": "سماعت بینائی سے قبل نشوونما پاتی ہے (32:9)",
+      "science_hook_ur": "ثُمَّ سَوَّاهُ وَنَفَخَ فِيهِ مِن رُّوحِهِ ۖ وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ — \"...پھر اس نے تمہیں سماعت، پھر بینائی، پھر دل/عقلیں عطا کیں۔\" قرآنی ترتیب میں سماعت کو اولیت دی گئی ہے، پھر بینائی کو، اور پھر ادراک (cognition) کو۔ جدید جنینی عصبیات (ہیپر، *فیٹل بیہیویر* 2015) اس بات کی تصدیق کرتی ہے کہ قوقعہ (cochlea) تقریباً 25 ہفتوں تک مکمل طور پر فعال ہو جاتا ہے (آواز پہلا محرک ہے جس پر ایک غیر پیدائشی بچہ ردعمل ظاہر کرتا ہے)، جبکہ ریٹینا تقریباً 28-32 ہفتوں میں ہی پختہ ہوتا ہے، اور اعلیٰ قشری (cortical) ایسوسی ایشن کے علاقے پیدائش کے بعد بھی اچھی طرح نشوونما پاتے رہتے ہیں۔ یہ ترتیب بالکل مطابقت رکھتی ہے۔"
     },
     {
       "slug": "two-seas-fresh-salt",
@@ -347,7 +485,11 @@
       "topic": "Two seas — fresh and salt — meeting (25:53)",
       "science_hook": "وَهُوَ الَّذِي مَرَجَ الْبَحْرَيْنِ هَٰذَا عَذْبٌ فُرَاتٌ وَهَٰذَا مِلْحٌ أُجَاجٌ وَجَعَلَ بَيْنَهُمَا بَرْزَخًا وَحِجْرًا مَّحْجُورًا — \"He released the two seas: this fresh, sweet; and this salty, bitter, with a barrier between them.\" Modern hydrology: river-mouth estuaries (Amazon, Nile, Mississippi) show exactly this — fresh water plumes hundreds of km into salt seas with a clear pycnocline barrier preventing immediate mixing (Stommel 1972, *Estuarine Hydrography*). Sailors and oceanographers can sample with a thermistor and see the sharp transition.",
       "arabic": "وَهُوَ الَّذِي مَرَجَ الْبَحْرَيْنِ هَٰذَا عَذْبٌ فُرَاتٌ وَهَٰذَا مِلْحٌ أُجَاجٌ وَجَعَلَ بَيْنَهُمَا بَرْزَخًا وَحِجْرًا مَّحْجُورًا",
-      "translation_en": "And it is He who has released [simultaneously] the two seas, one fresh and sweet and one salty and bitter, and He placed between them a barrier and prohibiting partition. (Sūrah al-Furqān 25:53)"
+      "translation_en": "And it is He who has released [simultaneously] the two seas, one fresh and sweet and one salty and bitter, and He placed between them a barrier and prohibiting partition. (Sūrah al-Furqān 25:53)",
+      "topic_ar": "البحران: العذب والمالح يلتقيان (25:53)",
+      "science_hook_ar": "وَهُوَ الَّذِي مَرَجَ الْبَحْرَيْنِ هَٰذَا عَذْبٌ فُرَاتٌ وَهَٰذَا مِلْحٌ أُجَاجٌ وَجَعَلَ بَيْنَهُمَا بَرْزَخًا وَحِجْرًا مَّحْجُورًا. تُظهر الهيدرولوجيا الحديثة في مصبات الأنهار (مثل الأمازون والنيل والمسيسيبي) هذا المشهد بدقة: حيث تمتد ألسنة المياه العذبة لمئات الكيلومترات داخل البحار المالحة، مع وجود حاجز كثافي (pycnocline) واضح يمنع الاختلاط الفوري. (ستومل 1972، *هيدروغرافيا المصبات*). يمكن للبحارة وعلماء المحيطات أخذ عينات باستخدام مقياس حراري (thermistor) ورؤية هذا الانتقال الحاد.",
+      "topic_ur": "دو سمندروں کا ملنا — میٹھا اور کھارا (25:53)",
+      "science_hook_ur": "وَهُوَ الَّذِي مَرَجَ الْبَحْرَيْنِ هَٰذَا عَذْبٌ فُرَاتٌ وَهَٰذَا مِلْحٌ أُجَاجٌ وَجَعَلَ بَيْنَهُمَا بَرْزَخًا وَحِجْرًا مَّحْجُورًا — \"اور وہی ہے جس نے دو سمندروں کو ملا دیا، یہ میٹھا ہے، پیاس بجھانے والا، اور یہ کھارا ہے، کڑوا، اور ان دونوں کے درمیان ایک آڑ اور ایک مضبوط پردہ حائل کر دیا۔\" جدید ہائیڈرولوجی کے مطابق: دریاؤں کے دہانے پر بننے والے ایسٹوئریز (جیسے ایمیزون، نیل، مسیسپی) بالکل یہی منظر پیش کرتے ہیں — تازہ پانی کے دھارے سینکڑوں کلومیٹر تک کھارے سمندروں میں پھیل جاتے ہیں، جس میں ایک واضح پائکنوکلائن (کثافت کی تہہ) رکاوٹ فوری اختلاط کو روکتی ہے (Stommel 1972, *Estuarine Hydrography*)۔ ملاح اور سمندری علوم کے ماہرین تھرمسٹر کے ذریعے نمونے لے کر اس واضح تبدیلی کو دیکھ سکتے ہیں۔"
     },
     {
       "slug": "earth-shape-dahaha",
@@ -355,7 +497,11 @@
       "topic": "Earth shaped like an ostrich egg — dahāhā (79:30)",
       "science_hook": "وَالْأَرْضَ بَعْدَ ذَٰلِكَ دَحَاهَا — \"And the earth, after that, He laid it out (daḥāhā).\" The Arabic root د-ح-و in classical lexicons (Lisān al-ʿArab, al-Khalīl's Kitāb al-ʿAyn) explicitly denotes an *ostrich-egg-shaped spreading* — daḥyah = ostrich's egg-laying nest. Modern satellite geodesy (GRACE 2002+) confirms the Earth is an *oblate spheroid* slightly bulged at the equator and flattened at the poles — i.e. ostrich-egg-shaped — not a perfect sphere. The Bible by contrast describes 'four corners' of the earth (Isaiah 11:12).",
       "arabic": "وَالْأَرْضَ بَعْدَ ذَٰلِكَ دَحَاهَا",
-      "translation_en": "And after that He spread the earth (laid it out / made it ostrich-egg shaped). (Sūrah an-Nāziʿāt 79:30)"
+      "translation_en": "And after that He spread the earth (laid it out / made it ostrich-egg shaped). (Sūrah an-Nāziʿāt 79:30)",
+      "topic_ar": "الأرض على شكل بيضة النعامة — دَحَاهَا (79:30)",
+      "science_hook_ar": "وَالْأَرْضَ بَعْدَ ذَٰلِكَ دَحَاهَا — \"وبعد ذلك، بسطها (دحاها).\" الجذر اللغوي العربي د-ح-و في المعاجم الكلاسيكية (لسان العرب، كتاب العين للخليل) يدل صراحةً على بسطٍ على شكل بيضة النعامة — دَحْيَة = عش وضع بيض النعامة. علم الجيوديسيا الفضائية الحديث (GRACE 2002+) يؤكد أن الأرض عبارة عن مجسم كروي مفلطح، منتفخة قليلاً عند خط الاستواء ومسطحة عند القطبين — أي على شكل بيضة النعامة — وليست كرة مثالية. على النقيض من ذلك، يصف الكتاب المقدس 'أركان الأرض الأربعة' (إشعياء 11:12).",
+      "topic_ur": "زمین شتر مرغ کے انڈے کی شکل میں — دَحَاهَا (79:30)",
+      "science_hook_ur": "وَالْأَرْضَ بَعْدَ ذَٰلِكَ دَحَاهَا — \"اور اس کے بعد اس نے زمین کو بچھا دیا (دَحَاهَا)۔\" عربی جڑ د-ح-و کلاسیکی لغات (لسان العرب، الخلیل کی کتاب العین) میں واضح طور پر \"شتر مرغ کے انڈے کی شکل میں پھیلانے\" کو ظاہر کرتی ہے — دَحْیَة = شتر مرغ کا انڈا دینے کا گھونسلہ۔ جدید سیٹلائٹ جیوڈیسی (GRACE 2002+) اس بات کی تصدیق کرتی ہے کہ زمین ایک *چپٹا کرہ* (oblate spheroid) ہے جو خط استوا پر قدرے ابھری ہوئی اور قطبین پر چپٹی ہے — یعنی شتر مرغ کے انڈے کی شکل کی — نہ کہ ایک مکمل کرہ۔ اس کے برعکس بائبل زمین کے 'چار کونوں' کو بیان کرتی ہے (اشعیا 11:12)۔"
     },
     {
       "slug": "pre-natal-stages",
@@ -363,7 +509,11 @@
       "topic": "Embryonic stages (23:12-14)",
       "science_hook": "وَلَقَدْ خَلَقْنَا الْإِنسَانَ مِن سُلَالَةٍ مِّن طِينٍ • ثُمَّ جَعَلْنَاهُ نُطْفَةً فِي قَرَارٍ مَّكِينٍ • ثُمَّ خَلَقْنَا النُّطْفَةَ عَلَقَةً فَخَلَقْنَا الْعَلَقَةَ مُضْغَةً فَخَلَقْنَا الْمُضْغَةَ عِظَامًا فَكَسَوْنَا الْعِظَامَ لَحْمًا — \"...nutfah (gamete drop) → ʿalaqah (clinging/leech-like) → muḍghah (chewed lump) → ʿiẓām (bones) → covered with laḥm (flesh).\" Keith L. Moore (Univ. Toronto, *The Developing Human* 7th ed. with G.A. Goeringer 2008) explicitly endorsed this sequence as matching modern Carnegie embryonic stages 13–18: the embryo literally has a leech-shaped form, then chewed-lump appearance, then ossification precedes muscle wrap-around — exactly as stated.",
       "arabic": "وَلَقَدْ خَلَقْنَا الْإِنسَانَ مِن سُلَالَةٍ مِّن طِينٍ • ثُمَّ جَعَلْنَاهُ نُطْفَةً فِي قَرَارٍ مَّكِينٍ • ثُمَّ خَلَقْنَا النُّطْفَةَ عَلَقَةً فَخَلَقْنَا الْعَلَقَةَ مُضْغَةً فَخَلَقْنَا الْمُضْغَةَ عِظَامًا فَكَسَوْنَا الْعِظَامَ لَحْمًا",
-      "translation_en": "And certainly did We create man from an extract of clay. Then We placed him as a sperm-drop in a firm lodging. Then We made the sperm-drop into a clinging clot, and We made the clot into a lump, and We made [from] the lump bones, and We covered the bones with flesh. (Sūrah al-Muʾminūn 23:12-14)"
+      "translation_en": "And certainly did We create man from an extract of clay. Then We placed him as a sperm-drop in a firm lodging. Then We made the sperm-drop into a clinging clot, and We made the clot into a lump, and We made [from] the lump bones, and We covered the bones with flesh. (Sūrah al-Muʾminūn 23:12-14)",
+      "topic_ar": "المراحل الجنينية (23:12-14)",
+      "science_hook_ar": "وَلَقَدْ خَلَقْنَا الْإِنسَانَ مِن سُلَالَةٍ مِّن طِينٍ • ثُمَّ جَعَلْنَاهُ نُطْفَةً فِي قَرَارٍ مَّكِينٍ • ثُمَّ خَلَقْنَا النُّطْفَةَ عَلَقَةً فَخَلَقْنَا الْعَلَقَةَ مُضْغَةً فَخَلَقْنَا الْمُضْغَةَ عِظَامًا فَكَسَوْنَا الْعِظَامَ لَحْمًا — \"...نطفة (قطرة من السائل المنوي) ← علقة (شيء عالق/شبيه بالعلقة) ← مضغة (قطعة لحم ممضوغة) ← عظام ← لحم.\" أيد كيث إل. مور (جامعة تورنتو، كتاب *الإنسان النامي*، الطبعة السابعة مع جي. إيه. غورينغر 2008) صراحةً هذا التسلسل على أنه يطابق مراحل كارنيجي الجنينية الحديثة 13-18: فالجنين يتخذ حرفياً شكلاً شبيهاً بالعلقة، ثم مظهراً كقطعة لحم ممضوغة، ثم يسبق التعظم التفاف العضلات — تماماً كما ورد.",
+      "topic_ur": "جنین کے مراحل (23:12-14)",
+      "science_hook_ur": "وَلَقَدْ خَلَقْنَا الْإِنسَانَ مِن سُلَالَةٍ مِّن طِينٍ • ثُمَّ جَعَلْنَاهُ نُطْفَةً فِي قَرَارٍ مَّكِينٍ • ثُمَّ خَلَقْنَا النُّطْفَةَ عَلَقَةً فَخَلَقْنَا الْعَلَقَةَ مُضْغَةً فَخَلَقْنَا الْمُضْغَةَ عِظَامًا فَكَسَوْنَا الْعِظَامَ لَحْمًا — \"نطفہ (قطرۂ منی) → علقہ (جونک کی مانند) → مضغہ (چبایا ہوا لوتھڑا) → عظام (ہڈیاں) → لحم (گوشت) سے ڈھانپ دیا گیا۔\" کیتھ ایل مور (جامعہ ٹورنٹو، *دی ڈویلپنگ ہیومن* ساتواں ایڈیشن، جی اے گورنگر کے ساتھ، 2008) نے واضح طور پر اس ترتیب کی تائید کی ہے کہ یہ جدید کارنیگی جنینی مراحل 13–18 سے بالکل مطابقت رکھتی ہے: جنین حقیقتاً جونک جیسی شکل اختیار کرتا ہے، پھر چبائے ہوئے لوتھڑے جیسی شکل، پھر ہڈیوں کی تشکیل گوشت کے لپیٹے جانے سے پہلے ہوتی ہے — بالکل اسی طرح جیسا کہ بیان کیا گیا ہے۔"
     },
     {
       "slug": "fasting-scientific-benefits",
@@ -398,7 +548,11 @@
       "ref": "54:1",
       "topic": "Shaqq al-Qamar — the moon has split",
       "arabic": "اقْتَرَبَتِ السَّاعَةُ وَانْشَقَّ الْقَمَرُ",
-      "science_hook": "Classical tafseer (Ibn Kathīr, al-Ṭabarī, al-Qurṭubī, al-Baghawī, Jalālayn) uniformly explains this ayah as reporting a miracle witnessed by the Quraysh at Makkah before the Hijrah — the moon visibly split into two halves and rejoined. Three ṣaḥīḥ narrations (Bukhārī 3636, Muslim 2802, Bukhārī 3637) confirm the event through independent chains (Ibn Masʿūd, Anas ibn Mālik, Ibn ʿAbbās). The Prophet ﷺ then commanded: 'Bear witness.' Modern lunar science, following Apollo photography (1969-1972), has documented an extensive system of surface rilles (long linear splits) — including Rima Ariadaeus, Rupes Recta and Vallis Alpes — features which some contemporary scholars have argued are consistent with a past splitting event. Independently, cosmology's Giant-Impact Hypothesis (the 'Big Splat') proposes the Moon itself was formed by a violent cosmic splitting ~4.5 billion years ago."
+      "science_hook": "Classical tafseer (Ibn Kathīr, al-Ṭabarī, al-Qurṭubī, al-Baghawī, Jalālayn) uniformly explains this ayah as reporting a miracle witnessed by the Quraysh at Makkah before the Hijrah — the moon visibly split into two halves and rejoined. Three ṣaḥīḥ narrations (Bukhārī 3636, Muslim 2802, Bukhārī 3637) confirm the event through independent chains (Ibn Masʿūd, Anas ibn Mālik, Ibn ʿAbbās). The Prophet ﷺ then commanded: 'Bear witness.' Modern lunar science, following Apollo photography (1969-1972), has documented an extensive system of surface rilles (long linear splits) — including Rima Ariadaeus, Rupes Recta and Vallis Alpes — features which some contemporary scholars have argued are consistent with a past splitting event. Independently, cosmology's Giant-Impact Hypothesis (the 'Big Splat') proposes the Moon itself was formed by a violent cosmic splitting ~4.5 billion years ago.",
+      "topic_ar": "Shaqq al-Qamar — انشقاق القمر",
+      "science_hook_ar": "التفاسير الكلاسيكية (ابن كثير، الطبري، القرطبي، البغوي، الجلالين) تشرح هذه الآية بالإجماع على أنها تروي معجزة شهدتها قريش في مكة قبل الهجرة — حيث انشق القمر بوضوح إلى نصفين ثم التحم. وتؤكد ثلاث روايات صحيحة (البخاري 3636، مسلم 2802، البخاري 3637) هذا الحدث عبر أسانيد مستقلة (ابن مسعود، أنس بن مالك، ابن عباس). ثم أمر النبي ﷺ: 'اشهدوا'. وقد وثّق علم الفلك القمري الحديث، بعد تصوير أبولو (1969-1972)، نظامًا واسعًا من الأخاديد السطحية (شقوق خطية طويلة) — بما في ذلك ريما أرياديوس، وروبس ريكتا، وفاليس ألبس — وهي سمات يرى بعض العلماء المعاصرين أنها تتوافق مع حدث انشقاق سابق. وبشكل مستقل، تقترح فرضية الاصطدام العملاق في علم الكونيات ('الانفجار الكبير') أن القمر نفسه تشكل نتيجة انشقاق كوني عنيف قبل حوالي 4.5 مليار سنة.",
+      "topic_ur": "شق القمر — چاند کا شق ہونا",
+      "science_hook_ur": "کلاسیکی تفاسیر (ابن کثیر، الطبری، القرطبی، البغوی، جلالین) متفقہ طور پر اس آیت کو ایک ایسے معجزے کے طور پر بیان کرتی ہیں جسے قریش نے مکہ میں ہجرت سے قبل دیکھا تھا — کہ چاند واضح طور پر دو حصوں میں تقسیم ہوا اور پھر دوبارہ جڑ گیا۔ تین صحیح احادیث (بخاری 3636، مسلم 2802، بخاری 3637) آزاد اسناد (ابن مسعود، انس بن مالک، ابن عباس) کے ذریعے اس واقعے کی تصدیق کرتی ہیں۔ نبی اکرم ﷺ نے پھر حکم دیا: 'گواہ رہو۔' جدید قمری سائنس نے اپولو کی تصاویر (1969-1972) کے بعد سطح پر گہری دراڑوں (لمبی خطی شگافوں) کے ایک وسیع نظام کو دستاویزی شکل دی ہے — بشمول ریما آریادیئس، روپس ریکٹا اور ویلس الپس — ایسی خصوصیات جن کے بارے میں بعض معاصر علماء نے دلیل دی ہے کہ وہ ماضی میں چاند کے شق ہونے کے واقعے سے مطابقت رکھتی ہیں۔ آزادانہ طور پر، علم کائنات کا Giant-Impact Hypothesis ('بگ سپلیٹ') یہ تجویز کرتا ہے کہ چاند خود تقریباً 4.5 ارب سال پہلے ایک پرتشدد کائناتی تقسیم سے وجود میں آیا تھا۔"
     }
   ],
   "hadith_scientific": [
@@ -409,7 +563,13 @@
       "hadith_ar": "«انْشَقَّ الْقَمَرُ عَلَى عَهْدِ رَسُولِ اللَّهِ ﷺ فِلْقَتَيْنِ، فَقَالَ النَّبِيُّ ﷺ: اشْهَدُوا»",
       "source": "Ṣaḥīḥ al-Bukhārī 3636; Muslim 2802; Bukhārī 3637 (three independent chains: Ibn Masʿūd, Anas ibn Mālik, Ibn ʿAbbās)",
       "grade": "Muttafaq ʿalayh — highest grade of authenticity",
-      "science_connection": "The Qur'ān records this miracle in Sūrat al-Qamar (54:1-2): «اقْتَرَبَتِ السَّاعَةُ وَانْشَقَّ الْقَمَرُ * وَإِن يَرَوْا آيَةً يُعْرِضُوا وَيَقُولُوا سِحْرٌ مُّسْتَمِرٌّ» — 'The Hour has drawn near, and the moon has split. And if they see a sign, they turn away and say: passing magic.' Modern lunar science, since the Apollo missions of 1969-1972, has documented an extensive system of surface rilles and rift structures on the Moon — notably Rima Ariadaeus (a straight rille ~300 km long), Rupes Recta (the 'Straight Wall', a 110 km fault), and Vallis Alpes. Contemporary Muslim scholars including David Musa Pidcock and Zaghloul El-Naggar have cited these features as consistent with a past splitting event. In separate cosmology, the leading Giant-Impact Hypothesis (the 'Big Splat') proposes the Moon itself formed ~4.5 billion years ago from ejecta of a Mars-sized body's collision with proto-Earth — meaning the Moon's very origin, per modern science, is a story of dramatic cosmic splitting."
+      "science_connection": "The Qur'ān records this miracle in Sūrat al-Qamar (54:1-2): «اقْتَرَبَتِ السَّاعَةُ وَانْشَقَّ الْقَمَرُ * وَإِن يَرَوْا آيَةً يُعْرِضُوا وَيَقُولُوا سِحْرٌ مُّسْتَمِرٌّ» — 'The Hour has drawn near, and the moon has split. And if they see a sign, they turn away and say: passing magic.' Modern lunar science, since the Apollo missions of 1969-1972, has documented an extensive system of surface rilles and rift structures on the Moon — notably Rima Ariadaeus (a straight rille ~300 km long), Rupes Recta (the 'Straight Wall', a 110 km fault), and Vallis Alpes. Contemporary Muslim scholars including David Musa Pidcock and Zaghloul El-Naggar have cited these features as consistent with a past splitting event. In separate cosmology, the leading Giant-Impact Hypothesis (the 'Big Splat') proposes the Moon itself formed ~4.5 billion years ago from ejecta of a Mars-sized body's collision with proto-Earth — meaning the Moon's very origin, per modern science, is a story of dramatic cosmic splitting.",
+      "topic_ar": "شق القمر — معجزة انشقاق القمر",
+      "hadith_en_ar": "«انشق القمر إلى شقين في زمن رسول الله ﷺ. ثم قال النبي ﷺ: 'اشهدوا.'»",
+      "science_connection_ar": "يسجل القرآن هذه المعجزة في سورة القمر (54:1-2): «اقْتَرَبَتِ السَّاعَةُ وَانْشَقَّ الْقَمَرُ * وَإِن يَرَوْا آيَةً يُعْرِضُوا وَيَقُولُوا سِحْرٌ مُّسْتَمِرٌّ» — 'اقتربت الساعة وانشق القمر. وإن يروا آية يعرضوا ويقولوا سحر مستمر.' وثّق علم الفلك القمري الحديث، منذ بعثات أبولو بين عامي 1969-1972، نظامًا واسعًا من الأخاديد السطحية وتراكيب الصدوع على القمر — أبرزها ريما أرياديوس (أخدود مستقيم بطول حوالي 300 كم)، وروبس ريكتا ('الجدار المستقيم'، صدع بطول 110 كم)، ووادي الألب. استشهد علماء مسلمون معاصرون، بمن فيهم ديفيد موسى بيدكوكس وزغلول النجار، بهذه السمات على أنها تتوافق مع حدث انشقاق سابق. في علم الكونيات المنفصل، تفترض فرضية الاصطدام العملاق الرائدة ('الاصطدام الكبير') أن القمر نفسه تشكل قبل حوالي 4.5 مليار سنة من مقذوفات اصطدام جسم بحجم المريخ بالأرض الأولية — مما يعني أن أصل القمر نفسه، وفقًا للعلم الحديث، هو قصة انشقاق كوني دراماتيكي.",
+      "topic_ur": "شق القمر — چاند کے شق ہونے کا معجزہ",
+      "hadith_en_ur": "رسول اللہ ﷺ کے زمانے میں چاند دو ٹکڑوں میں شق ہو گیا۔ نبی ﷺ نے فرمایا: 'گواہ رہو۔'",
+      "science_connection_ur": "قرآن اس معجزے کا ذکر سورۃ القمر (54:1-2) میں کرتا ہے: «اقْتَرَبَتِ السَّاعَةُ وَانْشَقَّ الْقَمَرُ * وَإِن يَرَوْا آيَةً يُعْرِضُوا وَيَقُولُوا سِحْرٌ مُّسْتَمِرٌّ» — 'قیامت قریب آ پہنچی اور چاند شق ہو گیا۔ اور اگر وہ کوئی نشانی دیکھتے ہیں تو منہ پھیر لیتے ہیں اور کہتے ہیں: یہ تو مسلسل جادو ہے۔' جدید قمری سائنس نے، 1969-1972 کے اپالو مشنز کے بعد سے، چاند پر سطح کی دراڑوں اور شگافی ساختوں کا ایک وسیع نظام دستاویزی شکل میں پیش کیا ہے۔ — خاص طور پر ریما آریادیئس (ایک سیدھی دراڑ جو تقریباً 300 کلومیٹر لمبی ہے)، روپس ریکٹا ('سیدھی دیوار'، ایک 110 کلومیٹر لمبی فالٹ)، اور ویلس الپس۔ معاصر مسلم علماء بشمول ڈیوڈ موسیٰ پیڈکاک اور زغلول النجار نے ان خصوصیات کو ماضی میں چاند کے شق ہونے کے واقعے کے مطابق قرار دیا ہے۔ علم کائنات کے ایک الگ شعبے میں، سرکردہ 'جائنٹ امپیکٹ ہائپوتھیسس' ('بگ سپلیٹ') یہ تجویز کرتا ہے کہ چاند خود تقریباً 4.5 ارب سال پہلے ایک مریخ کے حجم کے جسم کے پروٹو-ارتھ سے ٹکرانے کے نتیجے میں نکلنے والے مادے سے بنا تھا۔ — یعنی جدید سائنس کے مطابق، چاند کی خود اپنی پیدائش ایک ڈرامائی کائناتی شق ہونے کی کہانی ہے۔"
     },
     {
       "slug": "habbat-al-sawda-black-seed",
@@ -419,7 +579,15 @@
       "source": "Ṣaḥīḥ al-Bukhārī 5688; Muslim 2215",
       "grade": "Ṣaḥīḥ — agreed upon",
       "classical_anchor": "Ibn al-Qayyim (al-Ṭibb al-Nabawī) explains the ḥadīth as comprehensive: \"every disease whose treatment lies within nigella's properties.\" Ibn Ḥajar (Fatḥ al-Bārī) clarifies the apparent generality is restricted to ailments amenable to it.",
-      "modern_link": "Thymoquinone (the active constituent of Nigella sativa) is one of the most studied phytochemicals — peer-reviewed work shows anti-inflammatory, anti-microbial, hepato-protective, glucose-lowering, and bronchodilator effects (e.g., Salem 2005, Ahmad et al. Asian Pac J Trop Biomed 2013)."
+      "modern_link": "Thymoquinone (the active constituent of Nigella sativa) is one of the most studied phytochemicals — peer-reviewed work shows anti-inflammatory, anti-microbial, hepato-protective, glucose-lowering, and bronchodilator effects (e.g., Salem 2005, Ahmad et al. Asian Pac J Trop Biomed 2013).",
+      "topic_ar": "الحبة السوداء (حبة السوداء) — \"شفاء لكل داء إلا الموت\"",
+      "classical_anchor_ar": "ابن القيم (الطب النبوي) يشرح الحديث بشموله: \"كل داء كان علاجه من خواص الحبة السوداء.\" ابن حجر (فتح الباري) يوضح أن عموم الحديث مقيد بما يلائمه من الأمراض.",
+      "modern_link_ar": "الثيموكينون (المكون النشط في الحبة السوداء) هو أحد أكثر المركبات الكيميائية النباتية دراسةً — تظهر الدراسات المحكمة تأثيرات مضادة للالتهابات، ومضادة للميكروبات، وواقية للكبد، ومخفضة للجلوكوز، وموسعة للشعب الهوائية (مثل: سالم 2005، أحمد وآخرون. Asian Pac J Trop Biomed 2013).",
+      "hadith_en_ar": "“عليكم بهذه الحبة السوداء، فإن فيها شفاء لكل داء إلا السام.”",
+      "topic_ur": "کلونجی (حبۃ السوداء) — \"ہر بیماری کے لیے شفا ہے سوائے موت کے\"",
+      "classical_anchor_ur": "ابن القیم (الطب النبوی میں) اس حدیث کی تشریح کرتے ہوئے اسے جامع قرار دیتے ہیں کہ \"ہر وہ بیماری جس کا علاج کلونجی کی خصوصیات میں موجود ہے۔\" ابن حجر (فتح الباری میں) وضاحت فرماتے ہیں کہ اس کی ظاہری عمومیت ان امراض تک محدود ہے جو اس کے لیے قابل علاج ہوں۔",
+      "modern_link_ur": "تھائموکوئینون (جو کلونجی کا فعال جزو ہے) سب سے زیادہ تحقیق شدہ فائٹو کیمیکلز میں سے ایک ہے۔ ہم مرتبہ جائزہ شدہ تحقیقات سوزش کش، جراثیم کش، جگر کو تحفظ فراہم کرنے والے، گلوکوز کی سطح کم کرنے والے، اور پھیپھڑوں کی نالیوں کو کشادہ کرنے والے اثرات دکھاتی ہیں (مثلاً، سالم 2005، احمد et al. Asian Pac J Trop Biomed 2013)۔",
+      "hadith_en_ur": "’’اس حبۃ السوداء (کلونجی) کو لازم پکڑو، کیونکہ اس میں موت کے سوا ہر بیماری کے لیے شفا ہے۔‘‘"
     },
     {
       "slug": "honey-as-cure",
@@ -429,7 +597,15 @@
       "source": "Ṣaḥīḥ al-Bukhārī 5684; Muslim 2217",
       "grade": "Ṣaḥīḥ — agreed upon",
       "classical_anchor": "Pairs directly with al-Naḥl 16:69 \"فِيهِ شِفَاءٌ لِلنَّاسِ\". Ibn Kathīr lists it among the explicit textual healings.",
-      "modern_link": "Cochrane reviews (Oduwole 2018) confirm honey shortens cough duration in children. Manuka honey is documented as an effective wound dressing (NHS Wound Care 2020)."
+      "modern_link": "Cochrane reviews (Oduwole 2018) confirm honey shortens cough duration in children. Manuka honey is documented as an effective wound dressing (NHS Wound Care 2020).",
+      "topic_ar": "العسل كعلاج — النحل 16:69 + وصفة نبوية",
+      "classical_anchor_ar": "يتوافق مباشرة مع النحل 16:69 \"فِيهِ شِفَاءٌ لِلنَّاسِ\". يذكره ابن كثير ضمن الشفاءات النصية الصريحة.",
+      "modern_link_ar": "تؤكد مراجعات كوكرين (أودوولي 2018) أن العسل يقلل مدة السعال لدى الأطفال. ويُوثّق عسل المانوكا كضمادة فعالة للجروح (رعاية الجروح NHS 2020).",
+      "hadith_en_ar": "جاء رجل يشكو بطن أخيه، فقال النبي ﷺ ثلاث مرات: \"اسقه عسلاً\". فلما رجع الرجل وقال: ما زاده إلا استطلاقاً، فقال النبي ﷺ: \"صدق الله وكذب بطن أخيك، اذهب فاسقه عسلاً\". فشربه فبرأ.",
+      "topic_ur": "شہد بطور علاج — النحل 16:69 + نبوی ہدایت",
+      "classical_anchor_ur": "یہ النحل 16:69 کی آیت \"فِيهِ شِفَاءٌ لِلنَّاسِ\" سے براہ راست تعلق رکھتا ہے۔ ابن کثیر اسے صریح قرآنی شفاؤں میں شمار کرتے ہیں۔",
+      "modern_link_ur": "کوکرین ریویوز (اوڈوولے 2018) اس بات کی تصدیق کرتے ہیں کہ شہد بچوں میں کھانسی کی مدت کو کم کرتا ہے۔ منوکا شہد کو زخموں کی مؤثر ڈریسنگ کے طور پر دستاویزی شکل دی گئی ہے (این ایچ ایس وونڈ کیئر 2020)۔",
+      "hadith_en_ur": "ایک شخص نے اپنے بیمار بھائی کے پیٹ کی شکایت کی۔ نبی اکرم ﷺ نے تین بار فرمایا: \"اسے شہد پلاؤ۔\" جب وہ شخص واپس آیا اور کہا کہ اس سے مرض بڑھ گیا ہے، تو نبی اکرم ﷺ نے فرمایا: \"اللہ نے سچ فرمایا ہے اور تمہارے بھائی کے پیٹ نے جھوٹ کہا ہے۔ جاؤ اور اسے شہد پلاؤ۔\" اس نے اسے پیا اور صحت یاب ہو گیا۔"
     },
     {
       "slug": "miswak-oral-hygiene",
@@ -439,7 +615,15 @@
       "source": "Ṣaḥīḥ al-Bukhārī 887; Muslim 252",
       "grade": "Ṣaḥīḥ — agreed upon",
       "classical_anchor": "Established Sunnah (mu'akkadah). Ibn al-Qayyim notes its benefits for the gums, breath, memory, and digestion.",
-      "modern_link": "WHO 1986 / 2000 consensus papers recommended Salvadora persica as an effective natural toothbrush. Active compounds (silica, sodium bicarbonate, fluoride, salvadorine) demonstrably reduce plaque and S. mutans (Almas 2014, Halib 2019)."
+      "modern_link": "WHO 1986 / 2000 consensus papers recommended Salvadora persica as an effective natural toothbrush. Active compounds (silica, sodium bicarbonate, fluoride, salvadorine) demonstrably reduce plaque and S. mutans (Almas 2014, Halib 2019).",
+      "topic_ar": "المسواك (سالفادورا بيرسيكا) — فرشاة الأسنان القديمة",
+      "classical_anchor_ar": "سنة مؤكدة. يذكر ابن القيم فوائده للثة والنفس والذاكرة والهضم.",
+      "modern_link_ar": "أوصت أوراق الإجماع الصادرة عن منظمة الصحة العالمية عامي 1986 و 2000 بسالفادورا بيرسيكا كفرشاة أسنان طبيعية فعالة. وقد ثبت أن المركبات النشطة (السيليكا، بيكربونات الصوديوم، الفلورايد، السلفادورين) تقلل بشكل واضح من طبقة البلاك وبكتيريا S. mutans (الماس 2014، حليب 2019).",
+      "hadith_en_ar": "\"لولا أن أشق على أمتي لأمرتهم بالسواك عند كل صلاة.\"",
+      "topic_ur": "مسواک (سالواڈورا پرسیکا) — قدیم دانتوں کا برش",
+      "classical_anchor_ur": "یہ سنت مؤکدہ ہے۔ ابن القیم اس کے فوائد کا ذکر کرتے ہیں جو مسوڑھوں، سانس، حافظے اور ہاضمے کے لیے ہیں۔",
+      "modern_link_ur": "عالمی ادارہ صحت (WHO) کے 1986 اور 2000 کے متفقہ مقالوں نے سالواڈورا پرسیکا (مسواک) کو ایک مؤثر قدرتی دانتوں کے برش کے طور پر تجویز کیا۔ اس کے فعال مرکبات (سلیکا، سوڈیم بائی کاربونیٹ، فلورائیڈ، سالواڈورین) واضح طور پر پلاک اور ایس. میوٹنس (S. mutans) کو کم کرتے ہیں (الماس 2014، حلیب 2019)۔",
+      "hadith_en_ur": "حدیث نبوی ﷺ ہے: \"اگر مجھے اپنی امت پر مشقت کا اندیشہ نہ ہوتا تو میں انہیں ہر نماز سے پہلے مسواک کرنے کا حکم دیتا۔\""
     },
     {
       "slug": "right-side-sleep",
@@ -449,7 +633,15 @@
       "source": "Ṣaḥīḥ al-Bukhārī 247, 6314; Muslim 2710",
       "grade": "Ṣaḥīḥ — agreed upon",
       "classical_anchor": "Ibn al-Qayyim notes right-side sleep keeps the heart elevated and aids digestion. Ibn Ḥajar narrates ṣaḥābah practice.",
-      "modern_link": "Sleeping on the left vs. right side affects intra-thoracic pressure on the heart and stomach reflux: cardiology reviews (Leung 1997, Khoury 1999) and gastroenterology (Person 2015) document advantages of right lateral position for cardiac patients and aerodigestive comfort."
+      "modern_link": "Sleeping on the left vs. right side affects intra-thoracic pressure on the heart and stomach reflux: cardiology reviews (Leung 1997, Khoury 1999) and gastroenterology (Person 2015) document advantages of right lateral position for cardiac patients and aerodigestive comfort.",
+      "topic_ar": "النوم على الجانب الأيمن",
+      "classical_anchor_ar": "يُشير ابن القيم إلى أن النوم على الجانب الأيمن يُبقي القلب مرتفعًا ويُساعد على الهضم. ويروي ابن حجر ممارسة الصحابة.",
+      "modern_link_ar": "يؤثر النوم على الجانب الأيسر مقابل الأيمن على الضغط داخل الصدر على القلب وارتجاع المعدة: توثق مراجعات طب القلب (ليونج 1997، خوري 1999) وطب الجهاز الهضمي (بيرسون 2015) مزايا وضعية النوم الجانبية اليمنى لمرضى القلب والراحة الهضمية التنفسية.",
+      "hadith_en_ar": "كان النبي ﷺ ينام على جانبه الأيمن، واضعًا يده اليمنى تحت خده، قائلاً: «اللهم باسمك أموت وأحيا».",
+      "topic_ur": "دائیں کروٹ سونا",
+      "classical_anchor_ur": "ابن القیم فرماتے ہیں کہ دائیں کروٹ سونا دل کو بلند رکھتا ہے اور ہاضمے میں مدد دیتا ہے۔ ابن حجر صحابہ کرام کے اس عمل کو روایت کرتے ہیں۔",
+      "modern_link_ur": "بائیں یا دائیں کروٹ سونا دل پر سینے کے اندرونی دباؤ اور معدے کے ریفلکس پر اثر انداز ہوتا ہے۔ امراض قلب (لیونگ 1997، خوری 1999) اور معدے و آنتوں کے امراض (پرسن 2015) کے جائزے دل کے مریضوں اور نظام تنفس و ہاضمہ کے آرام کے لیے دائیں کروٹ کی پوزیشن کے فوائد کو دستاویزی شکل دیتے ہیں۔",
+      "hadith_en_ur": "نبی اکرم ﷺ اپنی دائیں کروٹ پر سوتے تھے اور اپنا دایاں ہاتھ اپنے رخسار کے نیچے رکھ کر فرماتے تھے: \"اے اللہ! تیرے ہی نام سے میں مرتا ہوں اور جیتا ہوں۔\""
     },
     {
       "slug": "avoid-stomach-sleep",
@@ -459,7 +651,15 @@
       "source": "Sunan Abī Dāwūd 5040; al-Tirmidhī 2768 (graded ḥasan ṣaḥīḥ).",
       "grade": "Ḥasan ṣaḥīḥ",
       "classical_anchor": "Ibn al-Qayyim mentions it impedes breathing and pressures the heart and abdominal organs.",
-      "modern_link": "AAP back-to-sleep campaign (1992-present) — prone infant sleep is associated with elevated SIDS risk (Hauck 2003). In adults, prone sleep is correlated with cervical strain, sleep apnea exacerbation, and acid reflux."
+      "modern_link": "AAP back-to-sleep campaign (1992-present) — prone infant sleep is associated with elevated SIDS risk (Hauck 2003). In adults, prone sleep is correlated with cervical strain, sleep apnea exacerbation, and acid reflux.",
+      "topic_ar": "النهي عن النوم على البطن",
+      "classical_anchor_ar": "يذكر ابن القيم أنه يعيق التنفس ويضغط على القلب والأعضاء البطنية.",
+      "modern_link_ar": "حملة الأكاديمية الأمريكية لطب الأطفال (AAP) \"النوم على الظهر\" (1992-حتى الآن) — يرتبط نوم الرضع على البطن بزيادة خطر متلازمة موت الرضع المفاجئ (SIDS) (هاوك 2003). لدى البالغين، يرتبط النوم على البطن بإجهاد الرقبة، وتفاقم انقطاع التنفس أثناء النوم، والارتجاع الحمضي.",
+      "hadith_en_ar": "رأى النبي ﷺ رجلاً مضطجعاً على بطنه فقال: \"هذه ضجعة لا يحبها الله.\"",
+      "topic_ur": "پیٹ کے بل سونے کی ناپسندیدگی",
+      "classical_anchor_ur": "ابن القیم ذکر کرتے ہیں کہ یہ سانس لینے میں رکاوٹ بنتا ہے اور دل اور پیٹ کے اعضاء پر دباؤ ڈالتا ہے۔",
+      "modern_link_ur": "امریکن اکیڈمی آف پیڈیاٹرکس (AAP) کی 'پیٹھ کے بل سونے' کی مہم (1992ء تا حال) — شیر خوار بچوں کا پیٹ کے بل سونا اچانک شیر خوار موت (SIDS) کے بڑھتے ہوئے خطرے سے منسلک ہے (ہاک 2003)۔ بالغوں میں، پیٹ کے بل سونا گردن میں کھنچاؤ، نیند میں سانس رکنے (sleep apnea) کی شدت میں اضافہ، اور تیزابیت (acid reflux) سے منسلک ہے۔",
+      "hadith_en_ur": "نبی ﷺ نے ایک شخص کو پیٹ کے بل لیٹے ہوئے دیکھا اور فرمایا: \"یہ ایسا انداز ہے جسے اللہ پسند نہیں فرماتے۔\""
     },
     {
       "slug": "three-finger-eating",
@@ -469,7 +669,15 @@
       "source": "Ṣaḥīḥ Muslim 2032",
       "grade": "Ṣaḥīḥ",
       "classical_anchor": "Ibn al-Qayyim explains: a small amount on the fingertips slows eating, avoids gluttony, and allows the satiety reflex to engage.",
-      "modern_link": "Slow eating is repeatedly linked to lower BMI and improved glycemic control (Maruyama et al. BMJ 2008; Hurst & Fukuda 2018). \"Hara hachi bu\" (the Okinawan satiety practice) parallels this Sunnah."
+      "modern_link": "Slow eating is repeatedly linked to lower BMI and improved glycemic control (Maruyama et al. BMJ 2008; Hurst & Fukuda 2018). \"Hara hachi bu\" (the Okinawan satiety practice) parallels this Sunnah.",
+      "topic_ar": "الأكل بثلاثة أصابع",
+      "classical_anchor_ar": "يشرح ابن القيم: أن كمية صغيرة على أطراف الأصابع تبطئ الأكل، وتجنب الشره، وتسمح لانعكاس الشبع بالعمل.",
+      "modern_link_ar": "يرتبط الأكل البطيء مرارًا بانخفاض مؤشر كتلة الجسم (BMI) وتحسين التحكم في نسبة السكر في الدم (Maruyama et al. BMJ 2008; Hurst & Fukuda 2018). وتوازي ممارسة \"هارا هاتشي بو\" (ممارسة الشبع الأوكيناوية) هذه السنة.",
+      "hadith_en_ar": "كان النبي ﷺ يأكل بثلاثة أصابع ويلعقها قبل أن يمسحها.",
+      "topic_ur": "تین انگلیوں سے کھانا",
+      "classical_anchor_ur": "ابن القیم فرماتے ہیں: انگلیوں کے پوروں پر تھوڑی مقدار کھانے کی رفتار کو سست کرتی ہے، شکم سیری سے بچاتی ہے، اور شکم سیری کے انعکاسی عمل کو فعال ہونے کا موقع دیتی ہے۔",
+      "modern_link_ur": "آہستہ کھانے کا بارہا تعلق کم BMI اور بہتر گلائسیمک کنٹرول سے پایا گیا ہے (ماریویاما وغیرہ، BMJ 2008؛ ہرسٹ اور فوکودا 2018)۔ \"ہارا ہاچی بُو\" (اوکیناوا کی شکم سیری کی مشق) اس سنت سے مماثلت رکھتی ہے۔",
+      "hadith_en_ur": "نبی اکرم ﷺ تین انگلیوں سے کھانا تناول فرماتے تھے اور انہیں پونچھنے سے پہلے چاٹ کر صاف فرماتے تھے۔"
     },
     {
       "slug": "wudu-before-sleep",
@@ -479,7 +687,15 @@
       "source": "Ṣaḥīḥ al-Bukhārī 247; Muslim 2710",
       "grade": "Ṣaḥīḥ — agreed upon",
       "classical_anchor": "Cited for the spiritual benefit (sleeping in a state of ṭahārah) and physical refreshment.",
-      "modern_link": "Cold/cool water on the face activates the parasympathetic mammalian dive reflex, lowering heart rate and aiding sleep onset (Datta & Tipton, Eur J Appl Physiol 2006). Nasal/oral rinsing reduces overnight microbial load."
+      "modern_link": "Cold/cool water on the face activates the parasympathetic mammalian dive reflex, lowering heart rate and aiding sleep onset (Datta & Tipton, Eur J Appl Physiol 2006). Nasal/oral rinsing reduces overnight microbial load.",
+      "topic_ar": "الوضوء قبل النوم — النظافة والفسيولوجيا النفسية",
+      "classical_anchor_ar": "يُذكر لفوائده الروحية (النوم على طهارة) والانتعاش الجسدي.",
+      "modern_link_ar": "الماء البارد/الفاتر على الوجه ينشط منعكس الغوص الثديي اللاودي، مما يخفض معدل ضربات القلب ويساعد على بدء النوم (داتا وتيبتون، المجلة الأوروبية للفسيولوجيا التطبيقية 2006). المضمضة والاستنشاق يقللان من الحمل الميكروبي الليلي.",
+      "hadith_en_ar": "إذا أتيت مضجعك فتوضأ وضوءك للصلاة، ثم اضطجع على شقك الأيمن...",
+      "topic_ur": "سونے سے پہلے وضو — صفائی اور نفسیاتی فعلیات",
+      "classical_anchor_ur": "اس کا ذکر روحانی فائدے (طہارت کی حالت میں سونا) اور جسمانی تازگی کے لیے کیا جاتا ہے۔",
+      "modern_link_ur": "چہرے پر ٹھنڈا/سرد پانی پیراسمپیتھٹک ممالیہ ڈائیو ریفلیکس کو متحرک کرتا ہے، جس سے دل کی دھڑکن کم ہوتی ہے اور نیند آنے میں مدد ملتی ہے (دتہ اور ٹپٹن، یورپین جرنل آف اپلائیڈ فزیالوجی 2006)۔ ناک اور منہ کی دھلائی رات بھر کے جراثیمی بوجھ کو کم کرتی ہے۔",
+      "hadith_en_ur": "جب تم اپنے بستر پر جاؤ تو وضو کرو جیسا کہ تم نماز کے لیے کرتے ہو، پھر اپنی دائیں کروٹ پر لیٹ جاؤ..."
     },
     {
       "slug": "cover-vessels-at-night",
@@ -489,7 +705,15 @@
       "source": "Ṣaḥīḥ Muslim 2014",
       "grade": "Ṣaḥīḥ",
       "classical_anchor": "al-Nawawī cites it under the chapter on adab al-ṭaʿām and explains both apparent (preventing contamination) and hidden meanings.",
-      "modern_link": "Modern food microbiology: uncovered surfaces accumulate airborne fungal spores, bacteria, and insect/rodent contamination overnight. WHO five keys to safer food (2006) lists covering food first."
+      "modern_link": "Modern food microbiology: uncovered surfaces accumulate airborne fungal spores, bacteria, and insect/rodent contamination overnight. WHO five keys to safer food (2006) lists covering food first.",
+      "topic_ar": "تغطية أوعية الطعام والشراب ليلاً",
+      "classical_anchor_ar": "يذكره النووي في باب آداب الطعام، ويشرح المعاني الظاهرة (منع التلوث) والخفية.",
+      "modern_link_ar": "علم الأحياء الدقيقة الحديث للأغذية: تتراكم على الأسطح المكشوفة أبواغ الفطريات المحمولة جواً والبكتيريا وتلوث الحشرات والقوارض ليلاً. وتضع المبادئ الخمسة لسلامة الغذاء لمنظمة الصحة العالمية (2006) تغطية الطعام أولاً.",
+      "hadith_en_ar": "غطوا آنيتكم وأوكوا أسقيتكم، فإن في السنة ليلة ينزل فيها وباء لا يمر بإناء مكشوف إلا دخل فيه.",
+      "topic_ur": "رات کو کھانے پینے کے برتنوں کو ڈھانپنا",
+      "classical_anchor_ur": "امام نووی اسے آداب الطعام کے باب کے تحت ذکر کرتے ہیں اور اس کے ظاہری (آلودگی سے بچاؤ) اور باطنی معانی کی وضاحت کرتے ہیں۔",
+      "modern_link_ur": "جدید غذائی خرد حیاتیات کے مطابق: کھلی سطحوں پر رات بھر میں ہوائی فنگل اسپورز، بیکٹیریا اور کیڑے مکوڑوں/چوہوں کی آلودگی جمع ہو جاتی ہے۔ عالمی ادارہ صحت (WHO) کی محفوظ غذا کے لیے پانچ کلیدیں (2006) میں خوراک کو ڈھانپنے کو سب سے پہلے درج کیا گیا ہے۔",
+      "hadith_en_ur": "اپنے برتنوں کو ڈھانپو اور اپنی مشکوں کے منہ باندھو، کیونکہ سال میں ایک ایسی رات ہوتی ہے جس میں وبا نازل ہوتی ہے اور وہ کسی کھلے برتن کے پاس سے نہیں گزرتی مگر اس میں داخل ہو جاتی ہے۔"
     },
     {
       "slug": "fasting-intermittent",
@@ -499,7 +723,15 @@
       "source": "First wording: al-Ṭabarānī in al-Awsaṭ (chain debated, the meaning is established by other ṣaḥīḥ sources). Shield ḥadīth: Bukhārī 1894; Muslim 1151.",
       "grade": "\"Shield\" — ṣaḥīḥ. \"Fast/be healthy\" — chain weakness debated; meaning supported.",
       "classical_anchor": "Ibn al-Qayyim devotes a chapter in al-Ṭibb al-Nabawī to fasting as a comprehensive remedy.",
-      "modern_link": "Yoshinori Ohsumi's 2016 Nobel Prize for autophagy research clarified the cellular cleansing fasting induces. Time-restricted eating (Mattson et al. NEJM 2019) corroborates metabolic benefits."
+      "modern_link": "Yoshinori Ohsumi's 2016 Nobel Prize for autophagy research clarified the cellular cleansing fasting induces. Time-restricted eating (Mattson et al. NEJM 2019) corroborates metabolic benefits.",
+      "topic_ar": "الصيام — رمضان وصيام السنن",
+      "classical_anchor_ar": "يخصص ابن القيم فصلاً في الطب النبوي للصيام كعلاج شامل.",
+      "modern_link_ar": "أوضحت جائزة نوبل ليوشينوري أوسومي عام 2016 لأبحاث الالتهام الذاتي التنظيف الخلوي الذي يحفزه الصيام. ويدعم الأكل المقيد بالوقت (ماتسون وآخرون، NEJM 2019) الفوائد الأيضية.",
+      "hadith_en_ar": "\"الصيام جُنَّة. يحمي أحدكم من النار كما يحمي أحدكم نفسه في القتال.\" روايات أخرى: \"صوموا تصحوا.\"",
+      "topic_ur": "روزہ — رمضان اور سنت روزے",
+      "classical_anchor_ur": "ابن القیم نے اپنی کتاب الطب النبوی میں روزے کو ایک جامع علاج کے طور پر ایک باب مختص کیا ہے۔",
+      "modern_link_ur": "یوشینوری اوہسومی کے 2016 کے نوبل انعام نے آٹوفیجی (autophagy) کی تحقیق پر، روزے سے ہونے والی خلیاتی صفائی کو واضح کیا۔ وقت کی پابندی کے ساتھ کھانا (میٹسن اور دیگر، NEJM 2019) میٹابولک فوائد کی تائید کرتا ہے۔",
+      "hadith_en_ur": "\"روزہ ڈھال ہے۔ یہ تم میں سے کسی کو آگ سے بچاتا ہے جیسے تم میں سے کوئی جنگ میں اپنی حفاظت کرتا ہے۔\" دیگر احادیث میں ہے: \"روزہ رکھو — صحت مند رہو گے۔\""
     },
     {
       "slug": "ajwa-dates-poison-magic",
@@ -509,7 +741,15 @@
       "source": "Ṣaḥīḥ al-Bukhārī 5779; Muslim 2047",
       "grade": "Ṣaḥīḥ — agreed upon",
       "classical_anchor": "Ibn al-Qayyim and al-Nawawī affirm both the literal protection (with Allāh's tawfīq) and the physical benefit (potassium, fibre, sustained glucose).",
-      "modern_link": "Ajwa is unusually rich in antioxidants and polyphenols (Hamad et al. 2015, Sundus 2019). Hypoglycemia protection from low-GI fibre matrix is well attested."
+      "modern_link": "Ajwa is unusually rich in antioxidants and polyphenols (Hamad et al. 2015, Sundus 2019). Hypoglycemia protection from low-GI fibre matrix is well attested.",
+      "topic_ar": "تمر العجوة كوقاية",
+      "classical_anchor_ar": "يؤكد ابن القيم والنووي الحماية الحرفية (بتوفيق الله) والمنفعة الجسدية (البوتاسيوم، الألياف، استقرار الجلوكوز).",
+      "modern_link_ar": "يتميز تمر العجوة بغناه الاستثنائي بمضادات الأكسدة والبوليفينول (حمد وآخرون 2015، سندس 2019). الحماية من نقص السكر في الدم من مصفوفة الألياف ذات المؤشر الجلايسيمي المنخفض مثبتة جيدًا.",
+      "hadith_en_ar": "«من تَصَبَّحَ بِسَبْعِ تَمَرَاتٍ عَجْوَةً لَمْ يَضُرُّهُ فِي ذَلِكَ الْيَوْمِ سُمٌّ وَلَا سِحْرٌ»",
+      "topic_ur": "عجوہ کھجور بطورِ حفاظت",
+      "classical_anchor_ur": "ابن قیم اور نووی دونوں نے اس کی لفظی حفاظت (اللہ کی توفیق سے) اور جسمانی فوائد (پوٹاشیم، فائبر، مستقل گلوکوز) کی تصدیق کی ہے۔",
+      "modern_link_ur": "عجوہ غیر معمولی طور پر اینٹی آکسیڈینٹس اور پولیفینول سے بھرپور ہوتی ہے (حمد وغیرہ 2015، سندس 2019)۔ کم جی آئی فائبر میٹرکس سے ہائپوگلیسیمیا کی حفاظت اچھی طرح سے ثابت ہے۔",
+      "hadith_en_ur": "\"جس نے صبح کے وقت سات عجوہ کھجوریں کھائیں، اس دن اسے کوئی زہر یا جادو نقصان نہیں پہنچائے گا۔\""
     },
     {
       "slug": "hijama-cupping",
@@ -519,7 +759,15 @@
       "source": "Ṣaḥīḥ al-Bukhārī 5696; Muslim 1577",
       "grade": "Ṣaḥīḥ — agreed upon",
       "classical_anchor": "Ibn al-Qayyim lists cupping for stagnant blood. Ibn al-Athīr explains the Sunnah days (17th, 19th, 21st of lunar month).",
-      "modern_link": "Wet-cupping is reviewed in JAMS (Cao 2010), and the Cochrane database lists trials for chronic neck pain, hypertension, and tension headache."
+      "modern_link": "Wet-cupping is reviewed in JAMS (Cao 2010), and the Cochrane database lists trials for chronic neck pain, hypertension, and tension headache.",
+      "topic_ar": "الحجامة",
+      "classical_anchor_ar": "يعدد ابن القيم الحجامة للدم الراكد. يوضح ابن الأثير أيام السنة (اليوم السابع عشر والتاسع عشر والحادي والعشرون من الشهر القمري).",
+      "modern_link_ar": "تتم مراجعة الحجامة الرطبة في مجلة JAMS (Cao 2010)، وتدرج قاعدة بيانات كوكرين تجارب لألم الرقبة المزمن وارتفاع ضغط الدم وصداع التوتر.",
+      "hadith_en_ar": "«إن أفضل ما تداويتم به الحجامة».",
+      "topic_ur": "حجامه (سینگیاں لگوانا)",
+      "classical_anchor_ur": "ابن قیم نے رکی ہوئی خون کے لیے حجامہ کا ذکر کیا ہے۔ ابن اثیر نے سنّت کے دنوں (قمری مہینے کی 17، 19، 21 تاریخ) کی وضاحت کی ہے۔",
+      "modern_link_ur": "ویٹ کیپنگ کا جائزہ جامس (کاو 2010) میں لیا گیا ہے، اور کوچران ڈیٹا بیس میں دائمی گردن کے درد، ہائی بلڈ پریشر، اور تناؤ کے سر درد کے لیے آزمائشوں کی فہرست دی گئی ہے۔",
+      "hadith_en_ur": "\"یقیناً تمہارے لیے سب سے بہترین علاج حجامہ ہے۔\""
     },
     {
       "slug": "wash-hands-after-waking",
@@ -529,7 +777,15 @@
       "source": "Ṣaḥīḥ al-Bukhārī 162; Muslim 278",
       "grade": "Ṣaḥīḥ — agreed upon",
       "classical_anchor": "Ibn Ḥajar mentions the Prophet ﷺ's wisdom: night-time hand contact with the body and bedding makes contamination likely.",
-      "modern_link": "Skin microbiome research confirms heavy nocturnal bacterial colonisation; hospital infection-control protocols enforce hand-washing on every transition."
+      "modern_link": "Skin microbiome research confirms heavy nocturnal bacterial colonisation; hospital infection-control protocols enforce hand-washing on every transition.",
+      "topic_ar": "غسل اليدين عند الاستيقاظ",
+      "classical_anchor_ar": "يذكر ابن حجر حكمة النبي ﷺ: ملامسة اليدين للجسم والفراش أثناء الليل تجعل التلوث محتملاً.",
+      "modern_link_ar": "تؤكد أبحاث الميكروبيوم الجلدي على الاستعمار البكتيري الليلي المكثف؛ وتفرض بروتوكولات مكافحة العدوى في المستشفيات غسل اليدين عند كل انتقال.",
+      "hadith_en_ar": "«إذا استيقظ أحدكم من نومه فلا يغمس يده في الإناء حتى يغسلها ثلاث مرات، فإنه لا يدري أين باتت يده.»",
+      "topic_ur": "بیدار ہونے پر ہاتھ دھونا",
+      "classical_anchor_ur": "ابن حجر نے نبی ﷺ کی حکمت کا ذکر کیا ہے: رات کے وقت جسم اور بستر کے ساتھ ہاتھوں کا رابطہ آلودگی کا باعث بن سکتا ہے۔",
+      "modern_link_ur": "جلد کے مائیکرو بائیوم پر تحقیق رات کے وقت بیکٹیریل کالونائزیشن کی تصدیق کرتی ہے؛ ہسپتال کے انفیکشن کنٹرول پروٹوکول ہر منتقلی پر ہاتھ دھونے پر مجبور کرتے ہیں۔",
+      "hadith_en_ur": "جب تم میں سے کوئی نیند سے بیدار ہو تو وہ برتن میں اپنا ہاتھ ڈالنے سے پہلے اسے تین بار دھو لے، کیونکہ وہ نہیں جانتا کہ اس کا ہاتھ رات کہاں گزاری۔"
     },
     {
       "slug": "qayloola-siesta",
@@ -539,7 +795,15 @@
       "source": "al-Ṭabarānī, Saḥīḥ al-Jāmiʿ 4431 (graded ṣaḥīḥ by al-Albānī). Practice itself is mutawātir in the Sunnah.",
       "grade": "Ḥasan; practice mutawātir.",
       "classical_anchor": "Ibn al-Qayyim and Ibn Ḥajar both list qayloola among salutary Sunnah practices.",
-      "modern_link": "NASA's 1995 study of 26-minute naps showed 34 % improvement in pilot performance and 54 % in alertness. Roger Ekirch's research on segmented sleep argues mid-day rest is biologically native."
+      "modern_link": "NASA's 1995 study of 26-minute naps showed 34 % improvement in pilot performance and 54 % in alertness. Roger Ekirch's research on segmented sleep argues mid-day rest is biologically native.",
+      "topic_ar": "القيلولة",
+      "classical_anchor_ar": "يُدرج ابن القيم وابن حجر كلاً من القيلولة ضمن الممارسات السُنّة المُفيدة.",
+      "modern_link_ar": "أظهرت دراسة لوكالة ناسا عام 1995 حول قيلولات مدتها 26 دقيقة تحسنًا بنسبة 34% في أداء الطيارين و 54% في اليقظة. تجادل أبحاث روجر إيكيرش حول النوم المتقطع بأن الراحة في منتصف النهار هي أمر فطري بيولوجيًا.",
+      "hadith_en_ar": "«قِيلُوا فَإِنَّ الشَّيَاطِينَ لَا تَقِيلُ»",
+      "topic_ur": "قیلولہ (دوپہر کا قیلولہ)",
+      "classical_anchor_ur": "ابن قیم اور ابن حجر دونوں نے قیلولہ کو سنت کے مستحسن اعمال میں شمار کیا ہے۔",
+      "modern_link_ur": "ناسا کے 1995 کے ایک مطالعے میں 26 منٹ کے قیلولے سے پائلٹ کی کارکردگی میں 34% اور چوکنا رہنے کی صلاحیت میں 54% بہتری دیکھی گئی۔ راجر ایکرچ کی تحقیق جو کہ منقسم نیند کے بارے میں ہے، اس بات پر زور دیتی ہے کہ دوپہر کا آرام فطری طور پر حیاتیاتی ہے۔",
+      "hadith_en_ur": "\"قیلولہ کیا کرو، کیونکہ شیطان قیلولہ نہیں کرتا۔\""
     },
     {
       "slug": "moderate-eating",
@@ -549,7 +813,15 @@
       "source": "Sunan al-Tirmidhī 2380; Ibn Mājah 3349 (graded ṣaḥīḥ by al-Albānī).",
       "grade": "Ṣaḥīḥ",
       "classical_anchor": "Cited by al-Ghazālī (Iḥyā') as the foundation of the science of zuhd and physical health alike.",
-      "modern_link": "Calorie restriction extends lifespan in primates (Mattison Nature 2017) and improves human metabolic markers (CALERIE trial 2017). The 'breathing-room' principle anticipates modern recommendations to leave the stomach 80 % full."
+      "modern_link": "Calorie restriction extends lifespan in primates (Mattison Nature 2017) and improves human metabolic markers (CALERIE trial 2017). The 'breathing-room' principle anticipates modern recommendations to leave the stomach 80 % full.",
+      "topic_ar": "الاعتدال في الأكل - الحديث المشهور \"أثلاث\"",
+      "classical_anchor_ar": "استشهد به الغزالي (الإحياء) كأساس لعلوم الزهد والصحة البدنية على حد سواء.",
+      "modern_link_ar": "يؤدي تقييد السعرات الحرارية إلى إطالة العمر في الرئيسيات (ماتيسون نيتشر 2017) وتحسين المؤشرات الأيضية البشرية (تجربة كاليري 2017). مبدأ \"مساحة التنفس\" يتوقع التوصيات الحديثة لترك المعدة ممتلئة بنسبة 80٪.",
+      "hadith_en_ar": "\"ما ملأ آدمي وعاءً شرًا من بطنه، حسب ابن آدم لقيمات يقمن صلبه، فإن كان لا محالة فثلث لطعامه وثلث لشرابه وثلث لنفسه.\"",
+      "topic_ur": "کھانے میں اعتدال - مشہور \"تہائی تہائی\" حدیث",
+      "classical_anchor_ur": "امام غزالیؒ (احیاء العلوم) نے اسے زہد اور صحت جسمانی دونوں کے علم کی بنیاد قرار دیا ہے۔",
+      "modern_link_ur": "کیلوریز کی محدودیت پرائمیٹس میں عمر بڑھاتی ہے (Mattison Nature 2017) اور انسانی میٹابولک مارکرز کو بہتر بناتی ہے (CALERIE trial 2017)۔ \"سانس لینے کی جگہ\" کا اصول پیٹ کو 80% بھرا رکھنے کی جدید سفارشات کی پیش گوئی کرتا ہے۔",
+      "hadith_en_ur": "حضور نبی کریم ﷺ نے فرمایا: \"انسان نے برتنوں میں سے بدترین برتن پیٹ کو بھرا ہے۔ ابن آدم کے لیے چند لقمے ہی کافی ہیں جو اس کی پیٹھ سیدھی رکھ سکیں۔ اگر وہ (زیادہ) کھانا ہی چاہتا ہے تو ایک تہائی کھانے کے لیے، ایک تہائی پینے کے لیے، اور ایک تہائی سانس لینے کے لیے چھوڑ دے۔\""
     },
     {
       "slug": "no-urinating-in-stagnant-water",
@@ -559,7 +831,15 @@
       "source": "Ṣaḥīḥ al-Bukhārī 239; Muslim 282",
       "grade": "Ṣaḥīḥ — agreed upon",
       "classical_anchor": "Ibn Ḥajar lists this with the prohibition of disposing of impurities in shared water — a foundation of Islamic public hygiene law.",
-      "modern_link": "WHO water-sanitation standards (JMP 2017) attribute 60 %+ of disease burden in developing nations to contaminated still water. The Prophetic prohibition is a 1,400-year-old precedent for the cholera-era understanding established by Snow in 1854."
+      "modern_link": "WHO water-sanitation standards (JMP 2017) attribute 60 %+ of disease burden in developing nations to contaminated still water. The Prophetic prohibition is a 1,400-year-old precedent for the cholera-era understanding established by Snow in 1854.",
+      "topic_ar": "النهي عن البول في الماء الراكد",
+      "classical_anchor_ar": "يُدرج ابن حجر هذا ضمن النهي عن إلقاء النجاسات في الماء المشترك، وهو أساس من أسس قوانين النظافة العامة الإسلامية.",
+      "modern_link_ar": "تُرجع معايير منظمة الصحة العالمية للمياه والصرف الصحي (JMP 2017) أكثر من 60% من عبء الأمراض في الدول النامية إلى المياه الراكدة الملوثة. ويُعد النهي النبوي سابقة عمرها 1400 عام لفهم عصر الكوليرا الذي أسسه سنو في عام 1854.",
+      "hadith_en_ar": "«لا يبولن أحدكم في الماء الدائم الذي لا يجري، ثم يغتسل فيه».",
+      "topic_ur": "جامد پانی میں پیشاب کرنے کی ممانعت",
+      "classical_anchor_ur": "ابن حجر نے اس کو مشترکہ پانی میں نجاست ڈالنے کی ممانعت کے ساتھ درج کیا ہے — جو اسلامی عوامی حفظان صحت کے قانون کی بنیاد ہے۔",
+      "modern_link_ur": "ڈبلیو ایچ او کے پانی اور صفائی کے معیارات (جے ایم پی 2017) کے مطابق ترقی پذیر ممالک میں 60% سے زیادہ بیماری کا بوجھ آلودہ جامد پانی کی وجہ سے ہے۔ نبوی ﷺ کی یہ ممانعت 1400 سال پرانا ایک ایسا ضابطہ ہے جو 1854 میں سنو کی جانب سے قائم کردہ کولرا کے دور کی سمجھ سے مطابقت رکھتا ہے۔",
+      "hadith_en_ur": "تم میں سے کوئی بھی کھڑے (جامد) پانی میں پیشاب نہ کرے، پھر اس میں غسل کرے۔"
     },
     {
       "slug": "tahajjud-biphasic-sleep",
@@ -569,7 +849,15 @@
       "source": "Ṣaḥīḥ al-Bukhārī 1146; Muslim 739",
       "grade": "Ṣaḥīḥ — agreed upon",
       "classical_anchor": "Ibn al-Qayyim (al-Ṭibb al-Nabawī) cites the Prophetic biphasic rhythm as the most balanced for body and heart: a deep first sleep clears metabolic waste, the Tahajjud window engages spiritual presence, and the dawn nap restores the parasympathetic nervous system.",
-      "modern_link": "Historian Roger Ekirch's *At Day's Close* (2005) documented \"first sleep\" and \"second sleep\" as the universal pre-industrial human pattern with a midnight wake-window for prayer, work or contemplation. Chrono-biology (Wehr NIH 1992) replicated this biphasic pattern in controlled darkness studies. Modern \"polyphasic\" sleep advocates point to it as the most natural human rhythm."
+      "modern_link": "Historian Roger Ekirch's *At Day's Close* (2005) documented \"first sleep\" and \"second sleep\" as the universal pre-industrial human pattern with a midnight wake-window for prayer, work or contemplation. Chrono-biology (Wehr NIH 1992) replicated this biphasic pattern in controlled darkness studies. Modern \"polyphasic\" sleep advocates point to it as the most natural human rhythm.",
+      "topic_ar": "النوم السُنّي على مرحلتين: نوم، ثم قيام لصلاة التهجد، ثم نوم مرة أخرى",
+      "classical_anchor_ar": "يستشهد ابن القيم (في الطب النبوي) بإيقاع النوم السُنّي على مرحلتين باعتباره الأكثر توازناً للجسد والقلب: النوم الأول العميق يزيل الفضلات الأيضية، ونافذة التهجد تعزز الحضور الروحي، وقيلولة الفجر تستعيد وظائف الجهاز العصبي اللاودي.",
+      "modern_link_ar": "وثّق المؤرخ روجر إيكيرش في كتابه \"في ختام النهار\" (2005) نمط \"النوم الأول\" و\"النوم الثاني\" باعتباره النمط البشري العالمي قبل الصناعي، مع وجود فترة استيقاظ منتصف الليل للصلاة أو العمل أو التأمل. وقد أعادت علم الأحياء الزمني (وير، المعهد الوطني للصحة 1992) تكرار هذا النمط ثنائي الطور في دراسات الظلام المضبوطة. ويشير دعاة النوم \"متعدد الأطوار\" الحديث إلى أنه الإيقاع البشري الأكثر طبيعية.",
+      "hadith_en_ar": "عن عائشة رضي الله عنها قالت: \"كان النبي ﷺ ينام أول الليل، ثم يقوم في آخر الليل فيصلي، ثم ينام قبل الفجر.\" وفي روايات أخرى: \"كان ينام أول الليل بعد العشاء، ثم يقوم في الثلث الأخير من الليل للصلاة، ثم يرقد قليلاً قبل الفجر.\"",
+      "topic_ur": "دو مرحلوں والی سنت نیند؛ یعنی، سو کر تہجد کے لیے اٹھنا، پھر دوبارہ سونا",
+      "classical_anchor_ur": "ابن القیم (الطب النبوی) نبی ﷺ کے دو مرحلوں والی نیند کو جسم اور دل کے لیے سب سے زیادہ متوازن قرار دیتے ہیں: پہلی گہری نیند جسمانی فضلات کو صاف کرتی ہے، تہجد کا وقت روحانی حضوری کو متحرک کرتا ہے، اور صبح کی مختصر نیند پیرا سمپتھیٹک اعصابی نظام کو بحال کرتی ہے۔",
+      "modern_link_ur": "مورخ راجر ایکرچ کی کتاب \"ایٹ ڈیز کلوز\" (2005) میں صنعتی دور سے قبل انسانی نمونے کے طور پر \"پہلی نیند\" اور \"دوسری نیند\" کا ذکر کیا گیا ہے، جس میں آدھی رات کو دعا، کام یا مراقبہ کے لیے جاگنے کا وقفہ ہوتا تھا۔ کرونو بائیولوجی (ویہر این آئی ایچ 1992) نے کنٹرول شدہ تاریکی کے مطالعے میں اس دو مرحلوں والے نمونے کو دہرایا ہے۔ جدید \"پولی فیسک\" نیند کے حامی اسے انسانی فطری تال کے طور پر پیش کرتے ہیں۔",
+      "hadith_en_ur": "حضرت عائشہ رضی اللہ عنہا سے روایت ہے: \"نبی ﷺ رات کے پہلے حصے میں سوتے، پھر (تہجد کے لیے) اٹھتے، پھر فجر سے پہلے تک دوبارہ سوتے۔\" دیگر روایات میں ہے: \"آپ ﷺ عشاء کے بعد جلدی سو جاتے، رات کے آخری تہائی حصے میں نماز کے لیے اٹھتے، پھر فجر سے پہلے مختصر آرام فرماتے۔\""
     },
     {
       "slug": "smile-charity-mood",
@@ -579,7 +867,15 @@
       "source": "Sunan al-Tirmidhī 1956 (graded ḥasan ṣaḥīḥ)",
       "grade": "Ḥasan ṣaḥīḥ",
       "classical_anchor": "al-Nawawī ranks smiling among the easiest forms of ṣadaqa, building affection in society.",
-      "modern_link": "Positive-psychology research (Fredrickson 2001, Strack 1988 facial-feedback) confirms that smiling — even when forced — measurably lowers cortisol, raises serotonin/dopamine, and improves immune-system markers. Contagious mirror-neuron studies (Iacoboni 2008) show the recipient's mood is similarly elevated."
+      "modern_link": "Positive-psychology research (Fredrickson 2001, Strack 1988 facial-feedback) confirms that smiling — even when forced — measurably lowers cortisol, raises serotonin/dopamine, and improves immune-system markers. Contagious mirror-neuron studies (Iacoboni 2008) show the recipient's mood is similarly elevated.",
+      "topic_ar": "ابتسامتك لأخيك صدقة",
+      "classical_anchor_ar": "يُصنف الإمام النووي الابتسام ضمن أيسر أنواع الصدقات، مما يوطد الألفة في المجتمع.",
+      "modern_link_ar": "تؤكد أبحاث علم النفس الإيجابي (فريدريكسون 2001، ستراك 1988 - التغذية الراجعة للوجه) أن الابتسام - حتى لو كان قسريًا - يخفض بشكل قابل للقياس هرمون الكورتيزول، ويرفع مستويات السيروتونين والدوبامين، ويحسن مؤشرات الجهاز المناعي. تظهر دراسات الخلايا العصبية المرآتية المعدية (إياكوبوني 2008) أن مزاج المتلقي يتحسن بالمثل.",
+      "hadith_en_ar": "تبسمك في وجه أخيك صدقة لك.",
+      "topic_ur": "آپ کا اپنے بھائی کی طرف دیکھ کر مسکرانا صدقہ ہے",
+      "classical_anchor_ur": "امام نووی رحمہ اللہ نے مسکرانے کو صدقہ کی آسان ترین صورتوں میں شمار کیا ہے، جو معاشرے میں محبت کو فروغ دیتا ہے۔",
+      "modern_link_ur": "مثبت نفسیات کی تحقیق (Fredrickson 2001, Strack 1988 facial-feedback) اس بات کی تصدیق کرتی ہے کہ مسکرانے سے، خواہ وہ جبری ہی کیوں نہ ہو، کورٹیسول کی سطح میں پیمائش کے قابل کمی آتی ہے، سیروٹونن/ڈوپامائن میں اضافہ ہوتا ہے، اور مدافعتی نظام کے مارکر بہتر ہوتے ہیں۔ متعدی آئینہ نیورون کے مطالعے (Iacoboni 2008) سے ظاہر ہوتا ہے کہ وصول کنندہ کا موڈ بھی اسی طرح بہتر ہوتا ہے۔",
+      "hadith_en_ur": "آپ کا اپنے بھائی کی طرف دیکھ کر مسکرانا آپ کے لیے صدقہ ہے۔"
     },
     {
       "slug": "olive-oil-sunnah",
@@ -589,7 +885,15 @@
       "source": "Sunan al-Tirmidhī 1851; Ibn Mājah 3319 (graded ṣaḥīḥ by al-Albānī).",
       "grade": "Ṣaḥīḥ",
       "classical_anchor": "Directly anchors with Sūrat al-Nūr 24:35 (شَجَرَةٍ مُّبَارَكَةٍ زَيْتُونَةٍ). Ibn al-Qayyim recommends it both internally and externally for skin and hair.",
-      "modern_link": "Predimed RCT (NEJM 2013) cut major cardiovascular events by 30 % with a Mediterranean diet rich in extra-virgin olive oil. Oleocanthal demonstrates ibuprofen-like anti-inflammatory activity (Beauchamp 2005, Nature)."
+      "modern_link": "Predimed RCT (NEJM 2013) cut major cardiovascular events by 30 % with a Mediterranean diet rich in extra-virgin olive oil. Oleocanthal demonstrates ibuprofen-like anti-inflammatory activity (Beauchamp 2005, Nature).",
+      "topic_ar": "زيت الزيتون - \"كُلُوهُ وَادَّهِنُوا بِهِ\"",
+      "classical_anchor_ar": "يرتبط مباشرة بسورة النور 24:35 (شَجَرَةٍ مُّبَارَكَةٍ زَيْتُونَةٍ). يوصي به ابن القيم داخليًا وخارجيًا للبشرة والشعر.",
+      "modern_link_ar": "قلل تجربة بريميد العشوائية (NEJM 2013) من الأحداث القلبية الوعائية الرئيسية بنسبة 30٪ مع نظام غذائي متوسطي غني بزيت الزيتون البكر الممتاز. يظهر الأوليوكانثال نشاطًا مضادًا للالتهابات شبيهًا بالإيبوبروفين (Beauchamp 2005, Nature).",
+      "hadith_en_ar": "\"كُلُوهُ وَادَّهِنُوا بِهِ، فَإِنَّهُ يَخْرُجُ مِنْ شَجَرَةٍ مُبَارَكَةٍ.\"",
+      "topic_ur": "زیتون کا تیل — \"اسے کھاؤ اور اس سے مالش کرو\"",
+      "classical_anchor_ur": "سیدھا سورۃ النور 24:35 (شَجَرَةٍ مُّبَارَكَةٍ زَيْتُونَةٍ) سے منسلک ہے۔ ابن قیم اسے جلد اور بالوں کے لیے اندرونی اور بیرونی طور پر استعمال کرنے کی تجویز دیتے ہیں۔",
+      "modern_link_ur": "پریمیڈ آر سی ٹی (این ای جے ایم 2013) نے اضافی کنواری زیتون کے تیل سے بھرپور بحیرہ روم کی خوراک سے بڑے قلبی واقعات میں 30% کمی کی۔ اولیو کینتھل، آئبوپروفین جیسی سوزش مخالف سرگرمی کا مظاہرہ کرتا ہے (بوچیمپ 2005، نیچر)۔",
+      "hadith_en_ur": "\"زیتون کا تیل کھاؤ اور اس سے مالش کرو، کیونکہ یہ ایک بابرکت درخت سے نکلتا ہے۔\""
     },
     {
       "slug": "supplication-rain-petrichor",
@@ -599,7 +903,15 @@
       "source": "Ṣaḥīḥ Muslim 898; Bukhārī 1032",
       "grade": "Ṣaḥīḥ",
       "classical_anchor": "Ibn al-Qayyim notes the Sunnah of receiving the first rain on bare skin and giving thanks.",
-      "modern_link": "The earthy smell after rain — *petrichor* (Bear & Thomas 1964) — comes from geosmin released by soil bacteria activated by water droplets. Recent studies (Cleveland Clinic 2019) show inhaling petrichor lowers stress hormones and improves mood, dovetailing with the Prophet's expressed joy."
+      "modern_link": "The earthy smell after rain — *petrichor* (Bear & Thomas 1964) — comes from geosmin released by soil bacteria activated by water droplets. Recent studies (Cleveland Clinic 2019) show inhaling petrichor lowers stress hormones and improves mood, dovetailing with the Prophet's expressed joy.",
+      "topic_ar": "بهجة المطر بعد الجفاف — أذكار المطر النبوية",
+      "classical_anchor_ar": "يشير ابن القيم إلى سنّة استقبال المطر الأول على البشرة وذكر الله.",
+      "modern_link_ar": "الرائحة الترابية بعد المطر — *البيتروكور* (Bear & Thomas 1964) — تنبعث من مادة الجيوسمين التي تطلقها بكتيريا التربة عند تنشيطها بقطرات الماء. تظهر الدراسات الحديثة (Cleveland Clinic 2019) أن استنشاق البيتروكور يخفض هرمونات التوتر ويحسن المزاج، مما يتوافق مع فرح النبي ﷺ المعلن.",
+      "hadith_en_ar": "كان النبي ﷺ إذا نزل المطر، كشف عن ثوبه حتى يصيبه المطر، ويقول: «إنه حديث عهد بربه». وفي رواية أخرى: «اللهم صيباً نافعاً».",
+      "topic_ur": "بارش کی خوشی، خشک سالی کے بعد — بارش کے مسنون اذکار",
+      "classical_anchor_ur": "ابن القیم بارش کے پہلے قطرے کو جلد پر محسوس کرنے اور شکر بجا لانے کے سنت کے طریقے کا ذکر کرتے ہیں۔",
+      "modern_link_ur": "بارش کے بعد مٹی کی خوشبو — پیٹریکور (بیئر اور تھامس 1964) — مٹی کے بیکٹیریا سے خارج ہونے والے جیوسمین سے آتی ہے جو پانی کے قطروں سے متحرک ہو جاتے ہیں۔ حالیہ مطالعات (کلیولینڈ کلینک 2019) سے ظاہر ہوتا ہے کہ پیٹریکور کو سانس لینے سے تناؤ کے ہارمونز کم ہوتے ہیں اور موڈ بہتر ہوتا ہے، جو نبی ﷺ کے اظہارِ مسرت سے مطابقت رکھتا ہے۔",
+      "hadith_en_ur": "جب بارش ہوتی تو نبی ﷺ اپنا کچھ حصہ اس کے لیے کھول دیتے اور فرماتے: \"یہ ابھی اپنے رب کی طرف سے آئی ہے۔\" ایک اور روایت میں ہے: \"اے اللہ، اسے فائدہ مند بنا دے۔\""
     },
     {
       "slug": "ruqya-quran-spiritual-healing",
@@ -609,7 +921,15 @@
       "source": "Ṣaḥīḥ Muslim 2200",
       "grade": "Ṣaḥīḥ",
       "classical_anchor": "Sūrat al-Fātiḥa, al-Falaq, al-Nās, Āyat al-Kursī — all confirmed as Prophetic ruqya (Bukhārī 5017; Muslim 814).",
-      "modern_link": "Mind-body medicine studies (Newberg, Penn 2010) show that rhythmic recitation lowers blood pressure and shifts EEG to the meditative alpha range; group recitation has measurable neuro-immune effects. This is *not* a substitute for medicine — the Prophet ﷺ ordered both treatment and du'ā."
+      "modern_link": "Mind-body medicine studies (Newberg, Penn 2010) show that rhythmic recitation lowers blood pressure and shifts EEG to the meditative alpha range; group recitation has measurable neuro-immune effects. This is *not* a substitute for medicine — the Prophet ﷺ ordered both treatment and du'ā.",
+      "topic_ar": "الرقية — تلاوة القرآن على المريض",
+      "classical_anchor_ar": "سورة الفاتحة، الفلق، الناس، آية الكرسي — كلها ثبت أنها رقية نبوية (البخاري 5017؛ مسلم 814).",
+      "modern_link_ar": "دراسات الطب النفسي الجسدي (نيوبرغ، بن 2010) تظهر أن التلاوة الإيقاعية تخفض ضغط الدم وتحول تخطيط الدماغ (EEG) إلى نطاق ألفا التأملي؛ وللتلاوة الجماعية تأثيرات عصبية مناعية قابلة للقياس. هذا *ليس* بديلاً عن الدواء — فقد أمر النبي ﷺ بالعلاج والدعاء كليهما.",
+      "hadith_en_ar": "لا بأس بالرقية ما لم يكن فيها شرك.",
+      "topic_ur": "رقیہ — بیمار پر قرآن کی تلاوت",
+      "classical_anchor_ur": "سورۃ الفاتحہ، الفلق، الناس، آیت الکرسی — یہ سب نبی ﷺ کی رقیہ کے طور پر ثابت ہیں (بخاری 5017؛ مسلم 814)۔",
+      "modern_link_ur": "دماغی و جسمانی طب کے مطالعے (نیوبرگ، پین 2010) ظاہر کرتے ہیں کہ باقاعدہ تلاوت بلڈ پریشر کو کم کرتی ہے اور ای ای جی (EEG) کو مراقبہ کی الفا رینج میں منتقل کرتی ہے؛ اجتماعی تلاوت کے قابل پیمائش اعصابی و مدافعتی اثرات ہوتے ہیں۔ یہ دوا کا متبادل *نہیں* ہے — نبی ﷺ نے علاج اور دعا دونوں کا حکم دیا ہے۔",
+      "hadith_en_ur": "رقیہ میں کوئی حرج نہیں، جب تک اس میں شرک نہ ہو۔"
     },
     {
       "slug": "no-blowing-on-food",
@@ -619,7 +939,15 @@
       "source": "Sunan Abī Dāwūd 3728 (graded ṣaḥīḥ by al-Albānī); Tirmidhī 1888.",
       "grade": "Ṣaḥīḥ",
       "classical_anchor": "Ibn al-Qayyim cites this in al-Ṭibb al-Nabawī under adab al-shurb. The Sunnah is to wait briefly or transfer to a cooler vessel.",
-      "modern_link": "Exhaled breath contains aerosolised oral bacteria (~10⁶ CFU/mL of saliva, Loesche 1986) and respiratory viruses including influenza and SARS-CoV-2 (Asadi et al. PLOS One 2019). The Prophet's prohibition is exactly the practice modern food-safety codes (HACCP, USDA) recommend."
+      "modern_link": "Exhaled breath contains aerosolised oral bacteria (~10⁶ CFU/mL of saliva, Loesche 1986) and respiratory viruses including influenza and SARS-CoV-2 (Asadi et al. PLOS One 2019). The Prophet's prohibition is exactly the practice modern food-safety codes (HACCP, USDA) recommend.",
+      "topic_ar": "النهي عن النفخ في الطعام/الشراب الساخن",
+      "classical_anchor_ar": "يذكر ابن القيم هذا في الطب النبوي تحت باب آداب الشرب. والسنة هي الانتظار قليلاً أو النقل إلى وعاء أبرد.",
+      "modern_link_ar": "يحتوي الزفير على بكتيريا فموية متطايرة (حوالي 10⁶ وحدة تشكيل مستعمرة/مل من اللعاب، لوشي 1986) وفيروسات تنفسية بما في ذلك الإنفلونزا وSARS-CoV-2 (أسدي وآخرون، PLOS One 2019). نهي النبي ﷺ هو بالضبط الممارسة التي توصي بها قوانين سلامة الغذاء الحديثة (HACCP، USDA).",
+      "hadith_en_ar": "نهى النبي ﷺ عن النفخ في الإناء.",
+      "topic_ur": "گرم کھانے/مشروبات پر پھونک مارنے سے اجتناب",
+      "classical_anchor_ur": "ابن القیم نے الطب النبوی میں آداب الشرب کے تحت اس کا ذکر کیا ہے۔ سنت یہ ہے کہ تھوڑی دیر انتظار کیا جائے یا اسے کسی ٹھنڈے برتن میں منتقل کر دیا جائے۔",
+      "modern_link_ur": "خارج ہونے والی سانس میں ایروسولائزڈ (ہوا میں معلق) منہ کے بیکٹیریا (تقریباً 10⁶ CFU/mL لعاب دہن میں، لوشے 1986) اور سانس کے وائرس بشمول انفلوئنزا اور سارس-کوو-2 (اسدی وغیرہ، پی ایل او ایس ون 2019) ہوتے ہیں۔ نبی ﷺ کی ممانعت بالکل وہی طریقہ ہے جس کی سفارش جدید غذائی تحفظ کے ضابطے (HACCP, USDA) کرتے ہیں۔",
+      "hadith_en_ur": "نبی ﷺ نے برتن میں پھونک مارنے سے منع فرمایا۔"
     },
     {
       "slug": "fly-in-the-drink",
@@ -629,7 +957,15 @@
       "source": "Ṣaḥīḥ al-Bukhārī 3320, 5782",
       "grade": "Ṣaḥīḥ",
       "classical_anchor": "Classical scholars discussed this hadith's literal vs. metaphorical reading.",
-      "modern_link": "Multiple peer-reviewed studies (al-Awadi & Ahmad 2014 Saudi J Biol Sci; Atta 2019 Asian J Biol Sci) isolated antimicrobial compounds from fly wings — actinobacteria producing antifungals counter-balancing the gut-borne pathogens on the opposite wing. The Quaid-i-Azam University Islamabad team replicated the finding 2018. Not yet a clinical recommendation, but the mechanism is increasingly understood."
+      "modern_link": "Multiple peer-reviewed studies (al-Awadi & Ahmad 2014 Saudi J Biol Sci; Atta 2019 Asian J Biol Sci) isolated antimicrobial compounds from fly wings — actinobacteria producing antifungals counter-balancing the gut-borne pathogens on the opposite wing. The Quaid-i-Azam University Islamabad team replicated the finding 2018. Not yet a clinical recommendation, but the mechanism is increasingly understood.",
+      "topic_ar": "إذا وقع الذباب في شرابك",
+      "classical_anchor_ar": "ناقش العلماء المتقدمون القراءة الظاهرية مقابل التأويلية لهذا الحديث.",
+      "modern_link_ar": "عزلت دراسات علمية محكمة متعددة (العوضي وأحمد 2014 المجلة السعودية للعلوم البيولوجية؛ عطا 2019 المجلة الآسيوية للعلوم البيولوجية) مركبات مضادة للميكروبات من أجنحة الذباب — بكتيريا شعاعية (أكتينوبكتيريا) تنتج مضادات للفطريات توازن مسببات الأمراض المعوية في الجناح الآخر. وقد كرر فريق جامعة قائد أعظم في إسلام أباد هذه النتائج عام 2018. لا تُعد هذه النتائج توصية سريرية بعد، لكن الآلية مفهومة بشكل متزايد.",
+      "hadith_en_ar": "«إذا وقع الذباب في إناء أحدكم فليغمسه كله ثم لينزعه، فإن في أحد جناحيه داء وفي الآخر شفاء.»",
+      "topic_ur": "اگر مکھی آپ کے مشروب میں گر جائے",
+      "classical_anchor_ur": "قدیم علماء نے اس حدیث کی ظاہری اور باطنی تعبیر پر گفتگو کی۔",
+      "modern_link_ur": "متعدد ہم مرتبہ جائزہ شدہ مطالعات (al-Awadi & Ahmad 2014 Saudi J Biol Sci; Atta 2019 Asian J Biol Sci) نے مکھی کے پروں سے جراثیم کش مرکبات کو الگ کیا — ایکٹینوبیکٹیریا جو فنگس کش مادے پیدا کرتے ہیں جو مخالف پر پر موجود آنتوں سے پیدا ہونے والے پیتھوجنز کا مقابلہ کرتے ہیں۔ قائد اعظم یونیورسٹی اسلام آباد کی ٹیم نے 2018 میں اس دریافت کی تصدیق کی۔ یہ ابھی تک طبی سفارش نہیں ہے، لیکن اس کا طریقہ کار تیزی سے سمجھا جا رہا ہے۔",
+      "hadith_en_ur": "نبی ﷺ نے فرمایا: \"اگر تم میں سے کسی کے برتن میں مکھی گر جائے تو اسے پوری طرح ڈبو دو، پھر اسے نکال لو — کیونکہ اس کے ایک پر میں بیماری ہے اور دوسرے میں شفا ہے۔\""
     },
     {
       "slug": "no-eating-standing",
@@ -639,7 +975,15 @@
       "source": "Ṣaḥīḥ Muslim 2024",
       "grade": "Ṣaḥīḥ",
       "classical_anchor": "Ibn al-Qayyim explains that standing intake reaches the stomach abruptly, splashes against the lining, and disturbs the cardia (lower oesophageal sphincter).",
-      "modern_link": "Gastroenterology studies (Person et al. JCG 2015) confirm that standing meals correlate with higher reflux events. Vagal-tone studies (Goyal & Hirano NEJM 2001) show seated digestion engages parasympathetic 'rest-and-digest' mode more effectively."
+      "modern_link": "Gastroenterology studies (Person et al. JCG 2015) confirm that standing meals correlate with higher reflux events. Vagal-tone studies (Goyal & Hirano NEJM 2001) show seated digestion engages parasympathetic 'rest-and-digest' mode more effectively.",
+      "topic_ar": "تجنب الأكل والشرب واقفاً",
+      "classical_anchor_ar": "يُبين ابن القيم أن التناول واقفاً يصل إلى المعدة دفعة واحدة، ويرتطم بالبطانة، ويُزعج الفؤاد (العضلة العاصرة المريئية السفلية).",
+      "modern_link_ar": "دراسات الجهاز الهضمي (Person et al. JCG 2015) تؤكد أن تناول الطعام واقفاً يرتبط بزيادة حالات الارتجاع. وتُظهر دراسات النبرة المبهمية (Goyal & Hirano NEJM 2001) أن الهضم في وضع الجلوس يُفعّل وضع 'الراحة والهضم' اللاودي بشكل أكثر فعالية.",
+      "hadith_en_ar": "نهى النبي ﷺ رجلاً أن يشرب قائماً.",
+      "topic_ur": "کھڑے ہو کر کھانے پینے سے اجتناب",
+      "classical_anchor_ur": "ابن القیم وضاحت فرماتے ہیں کہ کھڑے ہو کر غذا کا استعمال معدے میں اچانک پہنچتا ہے، اندرونی جھلی سے ٹکراتا ہے، اور کارڈیا (مری کی نچلی اسفنکٹر) میں خلل ڈالتا ہے۔",
+      "modern_link_ur": "معدے اور آنتوں کے امراض پر کی گئی تحقیقات (پرسن وغیرہ، جے سی جی 2015) اس بات کی تصدیق کرتی ہیں کہ کھڑے ہو کر کھانا ریفلکس (تیزابیت کے اوپر آنے) کے زیادہ واقعات سے منسلک ہے۔ ویگل ٹون پر کی گئی تحقیق (گویال اور ہیرانو، این ای جے ایم 2001) ظاہر کرتی ہے کہ بیٹھ کر ہاضمہ پیراسیمپیتھیٹک 'آرام اور ہاضمہ' موڈ کو زیادہ مؤثر طریقے سے فعال کرتا ہے۔",
+      "hadith_en_ur": "نبی اکرم ﷺ نے ایک شخص کو کھڑے ہو کر پینے سے منع فرمایا۔"
     },
     {
       "slug": "three-sips-water",
@@ -649,7 +993,15 @@
       "source": "Ṣaḥīḥ al-Bukhārī 5631; Muslim 2028",
       "grade": "Ṣaḥīḥ — agreed upon",
       "classical_anchor": "Ibn al-Qayyim: \"more quenching, more wholesome, more agreeable.\"",
-      "modern_link": "Hydration physiology: rapid mass intake of cold water can briefly trigger reflex bradycardia (vagal cold-stimulus, Khurana & Wu 2006). Slower three-stage drinking allows osmoreceptor satiety to engage — preventing over-drinking-induced hyponatraemia documented in marathon runners (Almond et al. NEJM 2005)."
+      "modern_link": "Hydration physiology: rapid mass intake of cold water can briefly trigger reflex bradycardia (vagal cold-stimulus, Khurana & Wu 2006). Slower three-stage drinking allows osmoreceptor satiety to engage — preventing over-drinking-induced hyponatraemia documented in marathon runners (Almond et al. NEJM 2005).",
+      "topic_ar": "الشرب على ثلاثة أنفاس",
+      "classical_anchor_ar": "ابن القيم: \"أروى وأمرأ وأهنأ.\"",
+      "modern_link_ar": "فسيولوجيا الترطيب: تناول كمية كبيرة وسريعة من الماء البارد يمكن أن يؤدي لفترة وجيزة إلى بطء القلب الانعكاسي (تحفيز البرد للعصب الحائر، خورانا ووو 2006). الشرب البطيء على ثلاث مراحل يسمح لمستقبلات الأسموزية بالشعور بالشبع، مما يمنع نقص صوديوم الدم الناتج عن الإفراط في الشرب، والموثق لدى عدائي الماراثون (ألموند وآخرون، NEJM 2005).",
+      "hadith_en_ar": "النبي ﷺ: \"كان يتنفس ثلاثًا في الشرب، لا في الإناء.\"",
+      "topic_ur": "تین سانسوں/گھونٹوں میں پانی پینا",
+      "classical_anchor_ur": "ابن القیم: \"یہ زیادہ پیاس بجھانے والا، زیادہ صحت بخش اور زیادہ خوشگوار ہے۔\"",
+      "modern_link_ur": "ہائیڈریشن کی فزیالوجی: ٹھنڈے پانی کا تیزی سے بڑی مقدار میں استعمال عارضی طور پر ریفلیکس بریڈی کارڈیا (ویگل کولڈ اسٹیملس، خُورانہ اور وو 2006) کو متحرک کر سکتا ہے۔ آہستہ آہستہ تین مراحل میں پینا اوسموریسیپٹر کی سیرابی کو فعال ہونے دیتا ہے — جو میراتھن دوڑنے والوں میں زیادہ پانی پینے سے ہونے والی ہائپونیٹریمیا (خون میں سوڈیم کی کمی) کو روکتا ہے (آلمنڈ وغیرہ، NEJM 2005)۔",
+      "hadith_en_ur": "نبی اکرم ﷺ پینے کے دوران تین مرتبہ سانس لیتے تھے — برتن میں (سانس) نہیں لیتے۔"
     },
     {
       "slug": "fingernails-and-hygiene",
@@ -659,7 +1011,15 @@
       "source": "Ṣaḥīḥ al-Bukhārī 5891; Muslim 257",
       "grade": "Ṣaḥīḥ — agreed upon",
       "classical_anchor": "Maximum interval set at 40 days (Muslim 258). Ibn Ḥajar lists hygiene + dignity as the dual rationale.",
-      "modern_link": "Subungual (under-nail) bacterial loads of E. coli and Staph. aureus rise sharply after day 5-7 (Lin et al. AJIC 2003) and are a primary fomite of food-poisoning outbreaks. CDC kitchen-safety guidelines mandate trimmed nails for food handlers."
+      "modern_link": "Subungual (under-nail) bacterial loads of E. coli and Staph. aureus rise sharply after day 5-7 (Lin et al. AJIC 2003) and are a primary fomite of food-poisoning outbreaks. CDC kitchen-safety guidelines mandate trimmed nails for food handlers.",
+      "topic_ar": "الأظافر والإبطين والفطرة",
+      "classical_anchor_ar": "الحد الأقصى للمدة محدد بأربعين يوماً (مسلم 258). ويذكر ابن حجر النظافة والكرامة كعلة مزدوجة.",
+      "modern_link_ar": "ترتفع الأحمال البكتيرية تحت الأظافر من بكتيريا الإشريكية القولونية والمكورات العنقودية الذهبية بشكل حاد بعد 5-7 أيام (لين وآخرون. AJIC 2003)، وتعد ناقلاً رئيسياً لتفشي التسمم الغذائي. وتلزم إرشادات السلامة في المطابخ الصادرة عن مركز مكافحة الأمراض والوقاية منها (CDC) بتقليم الأظافر للعاملين في مجال الأغذية.",
+      "hadith_en_ar": "خمس من الفطرة: الختان، والاستحداد، وقص الشارب، وتقليم الأظافر، ونتف الإبط.",
+      "topic_ur": "ناخن، بغلوں اور فطرت",
+      "classical_anchor_ur": "زیادہ سے زیادہ وقفہ 40 دن مقرر کیا گیا ہے (مسلم 258)۔ ابن حجر اس کی دوہری حکمت صفائی اور وقار بیان کرتے ہیں۔",
+      "modern_link_ur": "ناخنوں کے نیچے ای کولی اور سٹیف اوریئس جیسے بیکٹیریا کی مقدار 5-7 دن کے بعد تیزی سے بڑھ جاتی ہے (لن وغیرہ، اے جے آئی سی 2003) اور یہ فوڈ پوائزننگ کی وبائی امراض کا ایک بنیادی ذریعہ ہیں۔ سی ڈی سی کے باورچی خانے کی حفاظت کے رہنما اصول خوراک سنبھالنے والوں کے لیے تراشے ہوئے ناخن لازمی قرار دیتے ہیں۔",
+      "hadith_en_ur": "پانچ چیزیں فطرت کا حصہ ہیں: ختنہ، زیر ناف بالوں کی صفائی، مونچھیں تراشنا، ناخن کاٹنا، اور بغل کے بال اکھیڑنا۔"
     },
     {
       "slug": "walk-after-meal",
@@ -669,7 +1029,15 @@
       "source": "Practice mutawātir; specific narrations in al-Tirmidhī al-Shamāʾil al-Muḥammadiyya.",
       "grade": "Ḥasan; practice agreed upon",
       "classical_anchor": "Ibn al-Qayyim's al-Ṭibb al-Nabawī chapter on al-istidhā' (settling food).",
-      "modern_link": "Postprandial walking (15 min within 30 min of eating) lowers glucose AUC by ~22% (DiPietro et al. *Diabetes Care* 2013). Lying down within 2 h of a meal increases GERD episodes 3.4× (Piesman *Am J Gastro* 2007)."
+      "modern_link": "Postprandial walking (15 min within 30 min of eating) lowers glucose AUC by ~22% (DiPietro et al. *Diabetes Care* 2013). Lying down within 2 h of a meal increases GERD episodes 3.4× (Piesman *Am J Gastro* 2007).",
+      "topic_ar": "المشي بعد الوجبات — وتجنب الاستلقاء فوراً",
+      "classical_anchor_ar": "باب الاستذاء من كتاب الطب النبوي لابن القيم.",
+      "modern_link_ar": "المشي بعد الأكل (15 دقيقة خلال 30 دقيقة من الأكل) يخفض مساحة تحت منحنى الجلوكوز (AUC) بنسبة 22% تقريباً (DiPietro وآخرون، *Diabetes Care* 2013). الاستلقاء خلال ساعتين من الوجبة يزيد من نوبات ارتجاع المريء (GERD) بمقدار 3.4 مرة (Piesman، *Am J Gastro* 2007).",
+      "hadith_en_ar": "كان النبي ﷺ يمشي إلى المسجد بعد الوجبات، وكان يكره النوم على بطن ممتلئ فور الأكل (روته عائشة رضي الله عنها).",
+      "topic_ur": "کھانے کے بعد چلیں اور فوراً لیٹنے سے پرہیز کریں",
+      "classical_anchor_ur": "ابن القیم کی کتاب الطب النبوی میں الاستذاء (غذا کو ہضم ہونے دینا) کے باب سے۔",
+      "modern_link_ur": "کھانے کے بعد چہل قدمی (کھانے کے 30 منٹ کے اندر 15 منٹ تک) گلوکوز AUC کو تقریباً 22% کم کرتی ہے (ڈی پیٹرو وغیرہ، *ڈائبٹیز کیئر* 2013)۔ کھانے کے 2 گھنٹے کے اندر لیٹنا GERD کے واقعات کو 3.4 گنا بڑھا دیتا ہے (پائیسمین، *امریکن جرنل آف گیسٹرو* 2007)۔",
+      "hadith_en_ur": "نبی اکرم ﷺ کھانے کے بعد مسجد کی طرف تشریف لے جاتے تھے، اور کھانے کے فوراً بعد بھرے پیٹ سونا ناپسند فرماتے تھے (حضرت عائشہ رضی اللہ عنہا سے مروی ہے)۔"
     },
     {
       "slug": "no-sleep-after-fajr",
@@ -679,7 +1047,15 @@
       "source": "Sunan Abī Dāwūd 2606; Tirmidhī 1212 (ḥasan ṣaḥīḥ).",
       "grade": "Ṣaḥīḥ",
       "classical_anchor": "Ibn al-Qayyim and al-Suyūṭī wrote separate treatises on the barakah of pre-dawn wakefulness.",
-      "modern_link": "Circadian-rhythm research (Roenneberg, Wirz-Justice 2007): morning light exposure within 30 min of waking sets the master circadian clock, lowering depression risk (Lewy *J Affect Disord* 2009) and improving cognitive performance for the rest of the day. Going back to sleep after waking disrupts melatonin offset and impairs the day's alertness curve."
+      "modern_link": "Circadian-rhythm research (Roenneberg, Wirz-Justice 2007): morning light exposure within 30 min of waking sets the master circadian clock, lowering depression risk (Lewy *J Affect Disord* 2009) and improving cognitive performance for the rest of the day. Going back to sleep after waking disrupts melatonin offset and impairs the day's alertness curve.",
+      "topic_ar": "النهي عن النوم بعد الفجر",
+      "classical_anchor_ar": "ألف ابن القيم والسيوطي رسائل منفصلة في بركة الاستيقاظ قبل الفجر.",
+      "modern_link_ar": "أبحاث الإيقاع اليومي (روننبرغ، ويرز-جاستس 2007): التعرض لضوء الصباح في غضون 30 دقيقة من الاستيقاظ يضبط الساعة البيولوجية الرئيسية، مما يقلل من خطر الاكتئاب (ليوي، مجلة الاضطرابات العاطفية 2009) ويحسن الأداء المعرفي لبقية اليوم. العودة إلى النوم بعد الاستيقاظ تخل بتوازن الميلاتونين وتضعف منحنى اليقظة خلال اليوم.",
+      "hadith_en_ar": "«اللهم بارك لأمتي في بكورها.» كان النبي ﷺ يرسل السرايا في أول النهار ويكره النوم بعد الفجر.",
+      "topic_ur": "فجر کے بعد سونے سے گریز",
+      "classical_anchor_ur": "ابن القیم اور السیوطی نے سحری کے وقت بیداری کی برکت پر مستقل تصانیف لکھیں۔",
+      "modern_link_ur": "حیاتیاتی گھڑی (سرکیڈین ردھم) پر تحقیق (روننبرگ، وِرز-جسٹس 2007) کے مطابق: جاگنے کے 30 منٹ کے اندر صبح کی روشنی کا حصول بنیادی حیاتیاتی گھڑی کو درست کرتا ہے، جس سے ڈپریشن کا خطرہ کم ہوتا ہے (لیوی، *جرنل آف افیکٹیو ڈس آرڈر* 2009) اور دن بھر کے لیے ادراکی کارکردگی بہتر ہوتی ہے۔ جاگنے کے بعد دوبارہ سونا میلاٹونن کے اخراج میں خلل ڈالتا ہے اور دن بھر کی چوکسی کی سطح کو متاثر کرتا ہے۔",
+      "hadith_en_ur": "''اے اللہ! میری امت کے لیے ان کی صبحوں میں برکت عطا فرما۔'' نبی اکرم ﷺ صبح سویرے قافلوں کو روانہ فرماتے تھے اور فجر کے بعد سونے کو ناپسند فرماتے تھے۔"
     },
     {
       "slug": "lights-off-sleep",
@@ -689,7 +1065,15 @@
       "source": "Ṣaḥīḥ al-Bukhārī 6296; Muslim 2012",
       "grade": "Ṣaḥīḥ — agreed upon",
       "classical_anchor": "Ibn Ḥajar mentions both fire-safety and sleep-quality as rationales.",
-      "modern_link": "Light at night suppresses melatonin secretion by up to 50% (Gooley et al. *J Clin Endo Metab* 2011) and is linked to disrupted REM sleep, weight gain, and breast-cancer risk (Stevens 2009 *Epidemiology*). Even low-level ambient light affects sleep architecture (Cho et al. *Chronobiology Intl* 2016)."
+      "modern_link": "Light at night suppresses melatonin secretion by up to 50% (Gooley et al. *J Clin Endo Metab* 2011) and is linked to disrupted REM sleep, weight gain, and breast-cancer risk (Stevens 2009 *Epidemiology*). Even low-level ambient light affects sleep architecture (Cho et al. *Chronobiology Intl* 2016).",
+      "topic_ar": "النوم وإطفاء الأنوار والنيران",
+      "classical_anchor_ar": "يذكر ابن حجر أن الحكمة من ذلك هي السلامة من الحريق وجودة النوم.",
+      "modern_link_ar": "يثبط الضوء ليلاً إفراز الميلاتونين بنسبة تصل إلى 50% (جولي وآخرون. *J Clin Endo Metab* 2011) ويرتبط باضطراب نوم حركة العين السريعة (REM)، وزيادة الوزن، وخطر الإصابة بسرطان الثدي (ستيفنز 2009 *Epidemiology*). حتى الضوء المحيط منخفض المستوى يؤثر على بنية النوم (تشو وآخرون. *Chronobiology Intl* 2016).",
+      "hadith_en_ar": "أطفئوا المصابيح بالليل إذا رقدتم، وأغلقوا الأبواب، وأوكوا الأسقية، وخمروا الطعام والشراب.",
+      "topic_ur": "چراغ اور آگ بجھا کر سونا",
+      "classical_anchor_ur": "ابن حجر رحمہ اللہ آگ سے حفاظت اور نیند کے معیار، دونوں کو اس کی حکمتوں میں سے بیان کرتے ہیں۔",
+      "modern_link_ur": "رات کی روشنی میلاٹونن کے اخراج کو 50 فیصد تک کم کر دیتی ہے (Gooley et al. *J Clin Endo Metab* 2011) اور اس کا تعلق REM نیند میں خلل، وزن میں اضافے اور چھاتی کے کینسر کے خطرے سے ہے۔ (Stevens 2009 *Epidemiology*)۔ حتیٰ کہ کم شدت والی ارد گرد کی روشنی بھی نیند کی ساخت (sleep architecture) کو متاثر کرتی ہے (Cho et al. *Chronobiology Intl* 2016)۔",
+      "hadith_en_ur": "حدیث: \"جب تم سونے لگو تو رات کو چراغ بجھا دو، دروازے بند کر دو، مشکیزوں کو باندھ دو، اور کھانے پینے کی چیزوں کو ڈھانپ دو۔\""
     },
     {
       "slug": "charity-disease-relief",
@@ -699,7 +1083,15 @@
       "source": "First: al-Bayhaqī in al-Sunan al-Kubrā (chain debated, meaning supported by other ṣaḥīḥ texts). Second: Tirmidhī 614 (ḥasan ṣaḥīḥ).",
       "grade": "Meaning established",
       "classical_anchor": "Ibn al-Qayyim, Ibn Taymiyya, and Ibn Ḥajar all cite the ḥadīth approvingly.",
-      "modern_link": "Acts of giving raise oxytocin and lower cortisol (Zak *PNAS* 2007). Volunteer studies (Harvard Lown 2013) show 27% reduction in all-cause mortality among regular givers — even controlling for socioeconomic status."
+      "modern_link": "Acts of giving raise oxytocin and lower cortisol (Zak *PNAS* 2007). Volunteer studies (Harvard Lown 2013) show 27% reduction in all-cause mortality among regular givers — even controlling for socioeconomic status.",
+      "topic_ar": "الصدقة تدفع المرض والبلاء",
+      "classical_anchor_ar": "يستشهد ابن القيم وابن تيمية وابن حجر بالحديث موافقين عليه.",
+      "modern_link_ar": "تزيد أعمال العطاء من هرمون الأوكسيتوسين وتخفض الكورتيزول (زاك، مجلة PNAS، 2007). وتُظهر دراسات المتطوعين (هارفارد لاون، 2013) انخفاضًا بنسبة 27% في الوفيات لأي سبب بين المداومين على العطاء، حتى بعد ضبط المتغيرات الاجتماعية والاقتصادية.",
+      "hadith_en_ar": "داووا مرضاكم بالصدقة. الصدقة تطفئ الخطيئة كما يطفئ الماء النار.",
+      "topic_ur": "صدقہ بیماری اور بلاؤں کو ٹالتا ہے",
+      "classical_anchor_ur": "ابن القیم، ابن تیمیہ اور ابن حجر نے اس حدیث کو تائید کے ساتھ ذکر کیا ہے۔",
+      "modern_link_ur": "عطیات دینے کے اعمال آکسیٹوسن کی سطح کو بڑھاتے ہیں اور کورٹیسول کی سطح کو کم کرتے ہیں (زاک، پی این اے ایس 2007)۔ رضاکارانہ مطالعات (ہارورڈ لاؤن 2013) سے ظاہر ہوتا ہے کہ باقاعدگی سے عطیات دینے والوں میں مجموعی شرح اموات میں 27% کمی واقع ہوتی ہے — سماجی و اقتصادی حیثیت کو مدنظر رکھتے ہوئے بھی۔",
+      "hadith_en_ur": "''اپنے بیماروں کا علاج صدقہ سے کرو۔'' ''صدقہ گناہوں کو اس طرح بجھا دیتا ہے جیسے پانی آگ کو بجھا دیتا ہے۔''"
     },
     {
       "slug": "cover-mouth-sneeze-yawn",
@@ -709,7 +1101,15 @@
       "source": "Yawning: Ṣaḥīḥ Muslim 2995. Sneezing: Abū Dāwūd 5029 (ḥasan ṣaḥīḥ).",
       "grade": "Ṣaḥīḥ",
       "classical_anchor": "Ibn al-Qayyim: covering the mouth contains spittle, prevents disease spread, and preserves dignity.",
-      "modern_link": "An uncovered sneeze projects droplets up to 8 m at 100 mph (Bourouiba *JAMA* 2020). The WHO 'cover-your-cough' campaign during COVID-19 echoes a 1,400-year-old Sunnah directly."
+      "modern_link": "An uncovered sneeze projects droplets up to 8 m at 100 mph (Bourouiba *JAMA* 2020). The WHO 'cover-your-cough' campaign during COVID-19 echoes a 1,400-year-old Sunnah directly.",
+      "topic_ar": "تغطية الفم عند العطاس / التثاؤب",
+      "classical_anchor_ar": "ابن القيم: تغطية الفم تحبس الريق، وتمنع انتشار الأمراض، وتحفظ المروءة.",
+      "modern_link_ar": "العطاس بدون تغطية يقذف الرذاذ لمسافة تصل إلى 8 أمتار بسرعة 100 ميل في الساعة (بورويبا، *جاما* 2020). حملة منظمة الصحة العالمية 'غطِ سعالك' أثناء جائحة كوفيد-19 تردد صدى سنة عمرها 1400 عام بشكل مباشر.",
+      "hadith_en_ar": "«إذا تثاءب أحدكم فليضع يده على فِيه، فإن الشيطان يدخل». العطاس: «...وضع يده أو ثوبه على فِيه».",
+      "topic_ur": "چھینکنے / جماہی لینے کے دوران منہ ڈھانپنا",
+      "classical_anchor_ur": "ابن القیم فرماتے ہیں: منہ ڈھانپنے سے تھوک رکتا ہے، بیماری کے پھیلاؤ کی روک تھام ہوتی ہے اور وقار برقرار رہتا ہے۔",
+      "modern_link_ur": "ایک بغیر ڈھانپی ہوئی چھینک 8 میٹر تک 100 میل فی گھنٹہ کی رفتار سے قطرے پھینکتی ہے (بورویبا، *جاما* 2020)۔ کووِڈ-19 کے دوران عالمی ادارہ صحت (WHO) کی 'اپنی کھانسی کو ڈھانپیں' مہم براہ راست 1,400 سال پرانی سنت کی بازگشت ہے۔",
+      "hadith_en_ur": "جب تم میں سے کسی کو جماہی آئے تو وہ اپنے ہاتھ سے اپنا منہ ڈھانپ لے، کیونکہ شیطان (اندر) داخل ہوتا ہے۔ چھینکنے کے بارے میں: \"...آپ ﷺ نے اپنا ہاتھ یا کپڑا اپنے منہ پر رکھا۔\""
     },
     {
       "slug": "no-eating-from-middle",
@@ -719,7 +1119,15 @@
       "source": "Sunan Abī Dāwūd 3772; Tirmidhī 1805 (ṣaḥīḥ).",
       "grade": "Ṣaḥīḥ",
       "classical_anchor": "Ibn al-Athīr explains: also a measure of communal eating etiquette — leaves the central best portions for guests.",
-      "modern_link": "Food-handling research: the centre of a shared dish is most likely to be untouched (least bacterial transfer from multiple hands). The Sunnah preserves the hygienically purest portion for last."
+      "modern_link": "Food-handling research: the centre of a shared dish is most likely to be untouched (least bacterial transfer from multiple hands). The Sunnah preserves the hygienically purest portion for last.",
+      "topic_ar": "عدم الأكل من وسط الطبق",
+      "classical_anchor_ar": "يشرح ابن الأثير: هذا أيضًا من آداب الأكل الجماعي، حيث يترك الأجزاء الوسطى الأفضل للضيوف.",
+      "modern_link_ar": "أبحاث التعامل مع الطعام: غالبًا ما يبقى وسط الطبق المشترك غير ملموس (أقل انتقال للبكتيريا من الأيدي المتعددة). والسنة تحفظ الجزء الأنقى صحيًا للأخير.",
+      "hadith_en_ar": "كلوا من جوانب القصعة ولا تأكلوا من وسطها، فإن البركة تنزل في وسطها.",
+      "topic_ur": "برتن کے درمیان سے نہ کھائیں",
+      "classical_anchor_ur": "ابن الاثیر فرماتے ہیں: یہ اجتماعی کھانے کے آداب میں سے بھی ہے، تاکہ درمیان کے بہترین حصے مہمانوں کے لیے بچ جائیں۔",
+      "modern_link_ur": "غذائی انتظام پر تحقیق: مشترکہ برتن کا درمیانی حصہ زیادہ تر اچھوتا رہتا ہے (متعدد ہاتھوں سے جراثیم کی منتقلی سب سے کم ہوتی ہے)۔ سنت حفظان صحت کے لحاظ سے سب سے پاکیزہ حصے کو آخر کے لیے محفوظ رکھتی ہے۔",
+      "hadith_en_ur": "برتن کے کناروں سے کھاؤ، اس کے درمیان سے نہیں، کیونکہ برکت اس کے درمیان میں نازل ہوتی ہے۔"
     },
     {
       "slug": "two-rakat-after-wudu",
@@ -729,7 +1137,15 @@
       "source": "Ṣaḥīḥ al-Bukhārī 1149; Muslim 2458",
       "grade": "Ṣaḥīḥ — agreed upon",
       "classical_anchor": "Ibn Ḥajar discusses the merit of consistent small acts (al-mudāwama).",
-      "modern_link": "Habit-formation neuroscience (Wood & Neal *Psychological Review* 2016): pairing a frequent neutral trigger (wuḍū) with an intentional act (two rakʿat) is the fastest path to automaticity. Bilāl's habit is a textbook implementation-intention."
+      "modern_link": "Habit-formation neuroscience (Wood & Neal *Psychological Review* 2016): pairing a frequent neutral trigger (wuḍū) with an intentional act (two rakʿat) is the fastest path to automaticity. Bilāl's habit is a textbook implementation-intention.",
+      "topic_ar": "ركعتان بعد الوضوء — عمل بلال",
+      "classical_anchor_ar": "يناقش ابن حجر فضل المداومة على الأعمال الصغيرة (المداومة).",
+      "modern_link_ar": "علم الأعصاب لتكوين العادات (وود و نيل، *المراجعة النفسية* 2016): إقران محفز محايد متكرر (الوضوء) بفعل مقصود (ركعتين) هو أسرع طريق للتحول إلى تلقائية. عادة بلال هي تطبيق نموذجي لنية التنفيذ.",
+      "hadith_en_ar": "سأل النبي ﷺ بلالًا عن أي عمل فعله لينال صوت خطاه في الجنة. فأجاب بلال: \"ما توضأت وضوءًا قط إلا صليت بعده ركعتين.\"",
+      "topic_ur": "وضو کے بعد دو رکعت — بلال کا معمول",
+      "classical_anchor_ur": "ابن حجر چھوٹے مگر مستقل اعمال (المداومت) کی فضیلت پر گفتگو کرتے ہیں۔",
+      "modern_link_ur": "عادات کی تشکیل کا عصری علمِ اعصاب (وُڈ اور نیل، سائیکولوجیکل ریویو 2016) بیان کرتا ہے کہ ایک کثرت سے ہونے والے غیر جذباتی محرک (وضو) کو ایک ارادی عمل (دو رکعت) کے ساتھ جوڑنا خودکار عمل میں بدلنے کا تیز ترین راستہ ہے۔ بلال کا معمول ایک مثالی عملی ارادے (implementation-intention) کی مثال ہے۔",
+      "hadith_en_ur": "نبی اکرم ﷺ نے بلال سے پوچھا کہ انہوں نے کون سا ایسا عمل کیا ہے جس کی بدولت انہیں جنت میں اپنے قدموں کی آہٹ سنائی دیتی ہے۔ بلال نے جواب دیا: \"میں جب بھی وضو کرتا ہوں تو اس کے ساتھ دو رکعت نماز ضرور ادا کرتا ہوں۔\""
     },
     {
       "slug": "dates-scientific-benefits",
@@ -775,7 +1191,15 @@
       "source": "Sunan al-Nasāʾī 5; Aḥmad 7/74; Ibn Khuzaymah 137",
       "grade": "Ṣaḥīḥ (al-Albānī)",
       "classical_anchor": "Imām al-Nawawī devotes a chapter to the miswāk in al-Majmūʿ, noting the Prophet ﷺ used it before every prayer, before sleep, on waking, and when entering the house (Bukhārī, Muslim).",
-      "modern_link": "The miswāk is harvested from Salvadora persica, the arak tree. Modern analyses (e.g. WHO 2000 consensus report; J. Periodontology 2004) confirm it contains naturally occurring antimicrobials — silica, sodium bicarbonate, vitamin C, sulphur compounds and tannins — that inhibit Streptococcus mutans (the principal cariogenic bacterium) and reduce plaque indices on par with, and in some studies above, the modern toothbrush."
+      "modern_link": "The miswāk is harvested from Salvadora persica, the arak tree. Modern analyses (e.g. WHO 2000 consensus report; J. Periodontology 2004) confirm it contains naturally occurring antimicrobials — silica, sodium bicarbonate, vitamin C, sulphur compounds and tannins — that inhibit Streptococcus mutans (the principal cariogenic bacterium) and reduce plaque indices on par with, and in some studies above, the modern toothbrush.",
+      "topic_ar": "السواك — \"مطهرة للفم، مرضاة للرب\"",
+      "classical_anchor_ar": "يخصص الإمام النووي فصلاً للسواك في المجموع، مشيراً إلى أن النبي ﷺ كان يستعمله قبل كل صلاة، وقبل النوم، وعند الاستيقاظ، وعند دخول المنزل (البخاري، مسلم).",
+      "modern_link_ar": "يُستخرج السواك من شجرة السلفادورا بيرسيكا (Salvadora persica)، وهي شجرة الأراك. وتؤكد التحليلات الحديثة (مثل تقرير الإجماع لمنظمة الصحة العالمية عام 2000؛ ومجلة طب دواعم السن عام 2004) أنه يحتوي على مواد مضادة للميكروبات طبيعية — السيليكا، بيكربونات الصوديوم، فيتامين ج، مركبات الكبريت، والتانينات — التي تمنع نمو بكتيريا المكورات العقدية الطافرة (Streptococcus mutans) (البكتيريا الرئيسية المسببة للتسوس) وتقلل من مؤشرات البلاك (اللويحة السنية) بشكل يضاهي، وفي بعض الدراسات يتفوق على، فرشاة الأسنان الحديثة.",
+      "hadith_en_ar": "«السواك مطهرة للفم، مرضاة للرب.»",
+      "topic_ur": "مسواک — \"منہ کی پاکیزگی اور رب کی رضا کا ذریعہ\"",
+      "classical_anchor_ur": "امام نووی نے اپنی کتاب المجموع میں مسواک کے لیے ایک باب مختص کیا ہے، اس بات کا ذکر کرتے ہوئے کہ نبی ﷺ اسے ہر نماز سے قبل، سونے سے پہلے، بیدار ہونے پر اور گھر میں داخل ہوتے وقت استعمال فرماتے تھے (بخاری، مسلم)۔",
+      "modern_link_ur": "مسواک Salvadora persica (اراک کے درخت) سے حاصل کی جاتی ہے۔ جدید تجزیات (مثلاً WHO 2000 کی متفقہ رپورٹ؛ J. Periodontology 2004) اس بات کی تصدیق کرتے ہیں کہ اس میں قدرتی طور پر جراثیم کش اجزاء — سلیکا، سوڈیم بائی کاربونیٹ، وٹامن سی، سلفر مرکبات اور ٹیننز — پائے جاتے ہیں جو Streptococcus mutans (دانتوں کی خرابی کا بنیادی بیکٹیریا) کو روکتے ہیں اور جدید ٹوتھ برش کے برابر، اور بعض مطالعات میں اس سے بھی بہتر، پلاک انڈیکس کو کم کرتے ہیں۔",
+      "hadith_en_ur": "\"مسواک منہ کی پاکیزگی کا ذریعہ ہے اور رب کی رضا کا باعث ہے۔\""
     },
     {
       "slug": "right-side-sleep-prophetic-posture",
@@ -785,7 +1209,15 @@
       "source": "Ṣaḥīḥ al-Bukhārī 247; Muslim 2710",
       "grade": "Ṣaḥīḥ — agreed upon",
       "classical_anchor": "Ibn Ḥajar (Fatḥ al-Bārī) notes the right-side posture preserves the heart from being compressed by the heavier organs that gather on the right side of the body.",
-      "modern_link": "Modern cardiology and gastroenterology confirm what Ibn Ḥajar saw with the eye of a scholar: lying on the right side reduces nocturnal gastro-oesophageal reflux (J. Clin. Gastroenterol. 2022), lowers heart-rate variability stress on the cardiac output, and aids gastric emptying since the pyloric outlet faces downward in this posture. Sleep-medicine reviews recommend the right lateral position for reflux-prone, pregnant, and cardiac patients."
+      "modern_link": "Modern cardiology and gastroenterology confirm what Ibn Ḥajar saw with the eye of a scholar: lying on the right side reduces nocturnal gastro-oesophageal reflux (J. Clin. Gastroenterol. 2022), lowers heart-rate variability stress on the cardiac output, and aids gastric emptying since the pyloric outlet faces downward in this posture. Sleep-medicine reviews recommend the right lateral position for reflux-prone, pregnant, and cardiac patients.",
+      "topic_ar": "النوم على الشق الأيمن — الهيئة النبوية",
+      "classical_anchor_ar": "يذكر ابن حجر (فتح الباري) أن وضعية النوم على الشق الأيمن تحفظ القلب من الانضغاط بواسطة الأعضاء الأثقل التي تتجمع على الجانب الأيمن من الجسم.",
+      "modern_link_ar": "يؤكد علم أمراض القلب والجهاز الهضمي الحديث ما رآه ابن حجر بعين العالم: أن الاستلقاء على الجانب الأيمن يقلل من الارتجاع المعدي المريئي الليلي (J. Clin. Gastroenterol. 2022)، ويخفض إجهاد تقلب معدل ضربات القلب على النتاج القلبي، ويساعد على إفراغ المعدة حيث تتجه فتحة البواب إلى الأسفل في هذه الوضعية. وتوصي مراجعات طب النوم بالوضعية الجانبية اليمنى للمرضى المعرضين للارتجاع، والحوامل، ومرضى القلب.",
+      "hadith_en_ar": "«إذا أتيت مضجعك، فتوضأ وضوءك للصلاة، ثم اضطجع على شقك الأيمن...»",
+      "topic_ur": "دائیں کروٹ سونا — سنت نبوی ﷺ کا انداز",
+      "classical_anchor_ur": "ابن حجر (فتح الباری) میں فرماتے ہیں کہ دائیں کروٹ لیٹنے کا انداز دل کو ان بھاری اعضاء کے دبنے سے محفوظ رکھتا ہے جو جسم کے دائیں جانب جمع ہوتے ہیں۔",
+      "modern_link_ur": "جدید امراض قلب اور معدے کے ماہرین اس بات کی تصدیق کرتے ہیں جو ابن حجر نے ایک عالم کی بصیرت سے دیکھا تھا: دائیں کروٹ لیٹنا رات کے وقت معدے اور غذائی نالی کے ریفلکس (ترشح) کو کم کرتا ہے (J. Clin. Gastroenterol. 2022)، دل کی دھڑکن کی تغیر پذیری کے دباؤ کو کم کرتا ہے جو دل کے اخراج پر پڑتا ہے، اور معدے کو خالی کرنے میں مدد دیتا ہے کیونکہ اس انداز میں پائلورک آؤٹ لیٹ (معدے کا نچلا دہانہ) نیچے کی طرف ہوتا ہے۔ نیند کی طب کے جائزے ریفلکس کے شکار، حاملہ اور دل کے مریضوں کے لیے دائیں کروٹ کی پوزیشن تجویز کرتے ہیں۔",
+      "hadith_en_ur": "”جب تم اپنے بستر پر جاؤ تو نماز کی طرح وضو کرو، پھر اپنی دائیں کروٹ لیٹ جاؤ...“"
     },
     {
       "slug": "honey-shifa-for-the-belly",
@@ -795,7 +1227,15 @@
       "source": "Ṣaḥīḥ al-Bukhārī 5684; Muslim 2217",
       "grade": "Ṣaḥīḥ — agreed upon",
       "classical_anchor": "Ibn al-Qayyim (al-Ṭibb al-Nabawī) lists 25 medicinal uses of honey from the classical Muslim physicians, including for diarrhoea, ulcers, and wounds.",
-      "modern_link": "Manuka and other medical-grade honeys are now licensed as wound-care products by the UK NHS, the FDA, and the TGA Australia (e.g. Medihoney®). Their high osmolarity dehydrates bacteria, the gluconic acid lowers pH below most bacterial tolerance, and the slow release of hydrogen peroxide via glucose oxidase makes honey effective against MRSA, Pseudomonas, and other antibiotic-resistant strains (Cochrane Review 2015; Journal of Wound Care 2020)."
+      "modern_link": "Manuka and other medical-grade honeys are now licensed as wound-care products by the UK NHS, the FDA, and the TGA Australia (e.g. Medihoney®). Their high osmolarity dehydrates bacteria, the gluconic acid lowers pH below most bacterial tolerance, and the slow release of hydrogen peroxide via glucose oxidase makes honey effective against MRSA, Pseudomonas, and other antibiotic-resistant strains (Cochrane Review 2015; Journal of Wound Care 2020).",
+      "topic_ar": "العسل للمعدة — \"فيه شفاء للناس\"",
+      "classical_anchor_ar": "يذكر ابن القيم في (الطب النبوي) 25 استخدامًا طبيًا للعسل من الأطباء المسلمين القدماء، بما في ذلك للإسهال والقرح والجروح.",
+      "modern_link_ar": "عسل المانوكا وغيره من أنواع العسل الطبي مرخصة الآن كمنتجات للعناية بالجروح من قبل هيئة الخدمات الصحية الوطنية في المملكة المتحدة (UK NHS)، وإدارة الغذاء والدواء الأمريكية (FDA)، وهيئة السلع العلاجية الأسترالية (TGA Australia) (مثل: ميدي هوني®). تعمل خاصية التناضح العالي فيها على تجفيف البكتيريا، ويخفض حمض الجلوكونيك درجة الحموضة (pH) إلى ما دون تحمل معظم البكتيريا، ويجعل الإطلاق البطيء لبيروكسيد الهيدروجين عن طريق إنزيم جلوكوز أوكسيديز العسل فعالاً ضد بكتيريا MRSA، والزائفة (Pseudomonas)، وغيرها من السلالات المقاومة للمضادات الحيوية (مراجعة كوكرين 2015؛ مجلة العناية بالجروح 2020).",
+      "hadith_en_ar": "جاء رجل إلى النبي ﷺ فقال: إن أخي استطلق بطنه. فقال النبي ﷺ: \"اسقه عسلاً\". فعاد الرجل مرتين أخريين يقول: لم يزد إلا استطلاقًا. فقال النبي ﷺ: \"اسقه عسلاً، صدق الله وكذب بطن أخيك\". فسقاه عسلاً فبرأ.",
+      "topic_ur": "پیٹ کے لیے شہد — \"اس میں لوگوں کے لیے شفا ہے\"",
+      "classical_anchor_ur": "ابن القیم (الطب النبوی) میں قدیم مسلم اطباء سے شہد کے 25 طبی استعمالات بیان کیے ہیں، جن میں اسہال، السر، اور زخموں کا علاج شامل ہے۔",
+      "modern_link_ur": "منوکا اور دیگر طبی معیار کے شہد اب برطانیہ کی NHS، FDA، اور TGA آسٹریلیا کی طرف سے زخموں کی دیکھ بھال کی مصنوعات کے طور پر لائسنس یافتہ ہیں۔ (مثلاً Medihoney®) ان کی اعلیٰ اسمولیرٹی بیکٹیریا کو پانی کی کمی کا شکار کرتی ہے، گلوکونک ایسڈ زیادہ تر بیکٹیریا کی برداشت کی سطح سے نیچے پی ایچ کو کم کرتا ہے، اور گلوکوز آکسیڈیز کے ذریعے ہائیڈروجن پیرو آکسائیڈ کا آہستہ اخراج شہد کو MRSA، Pseudomonas، اور دیگر اینٹی بائیوٹک مزاحم اقسام کے خلاف مؤثر بناتا ہے۔ (کوکرین ریویو 2015؛ جرنل آف وونڈ کیئر 2020)",
+      "hadith_en_ur": "ایک شخص نبی اکرم ﷺ کی خدمت میں حاضر ہوا اور عرض کیا کہ اس کے بھائی کو پیٹ کی تکلیف ہے۔ نبی اکرم ﷺ نے فرمایا: \"اسے شہد پلاؤ۔\" وہ شخص دو بار اور واپس آیا اور کہا کہ حالت میں بہتری نہیں آئی۔ نبی اکرم ﷺ نے فرمایا: \"اسے شہد پلاؤ — اللہ تعالیٰ نے سچ فرمایا ہے اور تمہارے بھائی کے پیٹ نے جھوٹ بولا ہے۔\" اس نے اسے شہد پلایا اور وہ صحت یاب ہو گیا۔"
     },
     {
       "slug": "olive-oil-blessed-tree",
@@ -805,7 +1245,15 @@
       "source": "Sunan al-Tirmidhī 1851; Ibn Mājah 3319",
       "grade": "Ḥasan (al-Albānī)",
       "classical_anchor": "The olive is cited five times in the Qur'ān, most famously in al-Nūr 24:35. Imām al-Bayhaqī, in *Shuʿab al-Īmān*, narrates from the Companions the practice of applying olive oil to the skin and hair.",
-      "modern_link": "Extra-virgin olive oil is the cornerstone of the Mediterranean diet whose protective effect against cardiovascular disease, type-II diabetes, and certain cancers is established in landmark randomised trials (PREDIMED, NEJM 2013, 2018). Its monounsaturated oleic acid, polyphenols (oleocanthal and hydroxytyrosol), and vitamin E together reduce LDL oxidation, lower systolic blood pressure, and exhibit anti-inflammatory activity comparable in vitro to ibuprofen."
+      "modern_link": "Extra-virgin olive oil is the cornerstone of the Mediterranean diet whose protective effect against cardiovascular disease, type-II diabetes, and certain cancers is established in landmark randomised trials (PREDIMED, NEJM 2013, 2018). Its monounsaturated oleic acid, polyphenols (oleocanthal and hydroxytyrosol), and vitamin E together reduce LDL oxidation, lower systolic blood pressure, and exhibit anti-inflammatory activity comparable in vitro to ibuprofen.",
+      "topic_ar": "زيت الزيتون — \"شجرة مباركة لا شرقية ولا غربية\"",
+      "classical_anchor_ar": "ذُكر الزيتون خمس مرات في القرآن، أشهرها في سورة النور 24:35. روى الإمام البيهقي في *شعب الإيمان* عن الصحابة رضي الله عنهم عادة دهن الجلد والشعر بزيت الزيتون.",
+      "modern_link_ar": "زيت الزيتون البكر الممتاز هو حجر الزاوية في حمية البحر الأبيض المتوسط التي ثبت تأثيرها الوقائي ضد أمراض القلب والأوعية الدموية، والسكري من النوع الثاني، وبعض أنواع السرطان في تجارب عشوائية رائدة (PREDIMED, NEJM 2013, 2018). حمضه الأوليك الأحادي غير المشبع، والبوليفينولات (الأوليوكانثال والهيدروكسي تيروسول)، وفيتامين E تعمل معًا على تقليل أكسدة الكوليسترول الضار (LDL)، وخفض ضغط الدم الانقباضي، وتُظهر نشاطًا مضادًا للالتهابات يُقارن في المختبر بالإيبوبروفين.",
+      "hadith_en_ar": "“كلوا زيت الزيتون وادهنوا به، فإنه من شجرة مباركة.”",
+      "topic_ur": "زیتون کا تیل — \"ایک بابرکت درخت، نہ مشرق کا نہ مغرب کا\"",
+      "classical_anchor_ur": "زیتون کا ذکر قرآن میں پانچ مرتبہ آیا ہے، سب سے زیادہ مشہور سورۃ النور 24:35 میں ہے۔ امام بیہقی اپنی کتاب *شعب الایمان* میں صحابہ کرام سے جلد اور بالوں پر زیتون کا تیل لگانے کے عمل کو روایت کرتے ہیں۔",
+      "modern_link_ur": "ایکسٹرا ورجن زیتون کا تیل بحیرہ روم کی غذا کا بنیادی جزو ہے، جس کے قلبی امراض، ٹائپ ٹو ذیابیطس، اور بعض کینسرز کے خلاف حفاظتی اثرات کو اہم رینڈمائزڈ ٹرائلز (PREDIMED, NEJM 2013, 2018) میں ثابت کیا گیا ہے۔ اس کا مونو انسیچوریٹڈ اولیک ایسڈ، پولی فینولز (اولیوکینتھل اور ہائیڈروکسی ٹائروسول)، اور وٹامن ای مل کر LDL آکسیڈیشن کو کم کرتے ہیں، سسٹولک بلڈ پریشر کو گھٹاتے ہیں، اور ان وٹرو میں آئبوپروفین کے مقابلے میں سوزش مخالف سرگرمی کا مظاہرہ کرتے ہیں۔",
+      "hadith_en_ur": "“زیتون کا تیل کھاؤ اور اسے لگاؤ، کیونکہ یہ ایک بابرکت درخت سے ہے۔”"
     },
     {
       "slug": "fly-wings-asymmetric-immunity",
@@ -815,7 +1263,15 @@
       "source": "Ṣaḥīḥ al-Bukhārī 3320; Sunan Abī Dāwūd 3844; Ibn Mājah 3505",
       "grade": "Ṣaḥīḥ",
       "classical_anchor": "Ibn Ḥajar (Fatḥ al-Bārī) records that classical Muslim physicians treated this hadith as a medical injunction worthy of empirical investigation. It is one of the most studied hadiths in 21st-century Islamic-science discourse.",
-      "modern_link": "A multi-centre study at Qassim University (Saudi Arabia, 2013), published in The Saudi Journal of Biological Sciences, isolated from the housefly bacteria that produce antibiotic actinomycetes capable of inhibiting Staphylococcus aureus and Pseudomonas. A 2017 study from Macquarie University, Sydney (Park, et al., npj Biofilms and Microbiomes) similarly identified novel antimicrobial peptides from the housefly's body — corroborating the principle that the same insect carries both pathogenic and antimicrobial loads on differing surfaces."
+      "modern_link": "A multi-centre study at Qassim University (Saudi Arabia, 2013), published in The Saudi Journal of Biological Sciences, isolated from the housefly bacteria that produce antibiotic actinomycetes capable of inhibiting Staphylococcus aureus and Pseudomonas. A 2017 study from Macquarie University, Sydney (Park, et al., npj Biofilms and Microbiomes) similarly identified novel antimicrobial peptides from the housefly's body — corroborating the principle that the same insect carries both pathogenic and antimicrobial loads on differing surfaces.",
+      "topic_ar": "حديث ذباب الجناحين — أحدهما يحمل الشفاء",
+      "classical_anchor_ar": "يسجل ابن حجر (فتح الباري) أن الأطباء المسلمين الكلاسيكيين تعاملوا مع هذا الحديث كأمر طبي يستحق البحث التجريبي. وهو أحد أكثر الأحاديث دراسةً في الخطاب العلمي الإسلامي للقرن الحادي والعشرين.",
+      "modern_link_ar": "دراسة متعددة المراكز في جامعة القصيم (المملكة العربية السعودية، 2013)، نُشرت في المجلة السعودية للعلوم البيولوجية، عزلت من الذبابة المنزلية بكتيريا تنتج أكتينوميسيتات مضادة حيوياً قادرة على تثبيط المكورات العنقودية الذهبية (Staphylococcus aureus) والزائفة (Pseudomonas). دراسة عام 2017 من جامعة ماكواري، سيدني (بارك وآخرون، npj Biofilms and Microbiomes) حددت بالمثل ببتيدات مضادة للميكروبات جديدة من جسم الذبابة المنزلية — مما يؤكد مبدأ أن الحشرة نفسها تحمل أعباءً مسببة للأمراض ومضادة للميكروبات على أسطح مختلفة.",
+      "hadith_en_ar": "«إذا وقع الذباب في شراب أحدكم فليغمسه كله ثم لينزعه، فإن في أحد جناحيه داء وفي الآخر شفاء.»",
+      "topic_ur": "مکھی کے دو پروں کی حدیث — ایک میں شفا ہے۔",
+      "classical_anchor_ur": "ابن حجر (فتح الباری) نقل کرتے ہیں کہ قدیم مسلم اطباء نے اس حدیث کو ایک طبی حکم کے طور پر لیا جو تجرباتی تحقیق کے لائق تھا۔ یہ اکیسویں صدی کے اسلامی سائنسی مباحث میں سب سے زیادہ مطالعہ کی جانے والی احادیث میں سے ایک ہے۔",
+      "modern_link_ur": "جامعہ قصیم (سعودی عرب، 2013) میں کی گئی ایک کثیر المرکزی تحقیق، جو 'دی سعودی جرنل آف بائیولوجیکل سائنسز' میں شائع ہوئی، نے گھریلو مکھی سے ایسے بیکٹیریا کو الگ کیا جو اینٹی بائیوٹک ایکٹینومائسیٹس پیدا کرتے ہیں اور اسٹیفیلوکوکس اوریئس اور سیوڈوموناس کو روکنے کی صلاحیت رکھتے ہیں۔ میکویری یونیورسٹی، سڈنی سے 2017 کی ایک تحقیق (پارک، وغیرہ، npj Biofilms and Microbiomes) نے بھی اسی طرح مکھی کے جسم سے نئے اینٹی مائکروبیل پیپٹائڈز کی نشاندہی کی — اس اصول کی تصدیق کرتے ہوئے کہ ایک ہی حشرہ اپنی مختلف سطحوں پر بیماری پیدا کرنے والے اور جراثیم کش دونوں طرح کے بوجھ رکھتا ہے۔",
+      "hadith_en_ur": "“جب تم میں سے کسی کے پینے کی چیز میں مکھی گر جائے تو اسے پوری طرح ڈبو دے اور پھر اسے نکال دے، کیونکہ اس کے ایک پر میں بیماری ہے اور دوسرے میں شفا ہے۔”"
     },
     {
       "slug": "moderation-in-eating-third-third-third",
@@ -825,7 +1281,15 @@
       "source": "Sunan al-Tirmidhī 2380; Ibn Mājah 3349; Aḥmad 4/132",
       "grade": "Ṣaḥīḥ (al-Albānī)",
       "classical_anchor": "Ibn Rajab al-Ḥanbalī wrote a full risāla on this hadith. Imām al-Shāfiʿī famously said: “I have not filled my stomach in 16 years; satiety is heaviness of the body, hardness of the heart, removal of intelligence, drowsiness in sleep, and weakness in worship.”",
-      "modern_link": "Caloric restriction without malnutrition — eating to ~70-75% of full capacity — is one of the most reproducible interventions in ageing research, extending median lifespan in every species studied (yeast, worms, flies, mice, rhesus monkeys) and reducing the incidence of type-II diabetes, cardiovascular disease, and several cancers in humans (CALERIE trial, Lancet Diabetes 2019). The Okinawa centenarian study (BMJ 2016) identified the cultural practice of *hara hachi bu* — eating until only 80 % full — as a key correlate of their world-leading longevity, mirroring the prophetic third-third-third proportion."
+      "modern_link": "Caloric restriction without malnutrition — eating to ~70-75% of full capacity — is one of the most reproducible interventions in ageing research, extending median lifespan in every species studied (yeast, worms, flies, mice, rhesus monkeys) and reducing the incidence of type-II diabetes, cardiovascular disease, and several cancers in humans (CALERIE trial, Lancet Diabetes 2019). The Okinawa centenarian study (BMJ 2016) identified the cultural practice of *hara hachi bu* — eating until only 80 % full — as a key correlate of their world-leading longevity, mirroring the prophetic third-third-third proportion.",
+      "topic_ar": "قاعدة الثلث والثلث والثلث — الاعتدال في الأكل",
+      "classical_anchor_ar": "كتب ابن رجب الحنبلي رسالة كاملة في هذا الحديث. وقال الإمام الشافعي مقولته المشهورة: «ما شبعت منذ ست عشرة سنة؛ فإن الشبع يورث ثقل البدن، وقسوة القلب، وإزالة الفطنة، وجلب النوم، وكسلاً عن العبادة».",
+      "modern_link_ar": "يُعد تقييد السعرات الحرارية دون سوء تغذية — الأكل حتى 70-75% من الشبع التام — أحد أكثر التدخلات قابلية للتكرار في أبحاث الشيخوخة، حيث يطيل متوسط العمر في كل الأنواع التي تمت دراستها (الخميرة، الديدان، الذباب، الفئران، قرود الريسوس) ويقلل من حدوث السكري من النوع الثاني، وأمراض القلب والأوعية الدموية، وعدة أنواع من السرطان لدى البشر (تجربة CALERIE، Lancet Diabetes 2019). وقد حددت دراسة معمري أوكيناوا (BMJ 2016) الممارسة الثقافية لـ *hara hachi bu* — الأكل حتى 80% فقط من الشبع — كعامل رئيسي مرتبط بطول عمرهم الرائد عالمياً، مما يعكس النسبة النبوية للثلث والثلث والثلث.",
+      "hadith_en_ar": "«ما ملأ ابن آدم وعاءً شراً من بطنه. بحسب ابن آدم لقيمات يقمن صلبه. فإن كان لا محالة فثلث لطعامه، وثلث لشرابه، وثلث لنفسه.»",
+      "topic_ur": "تہائی، تہائی، تہائی کا اصول — کھانے میں اعتدال",
+      "classical_anchor_ur": "ابن رجب الحنبلی نے اس حدیث پر ایک مکمل رسالہ لکھا۔ امام شافعی نے مشہور طور پر فرمایا: \"میں نے سولہ سال سے اپنا پیٹ نہیں بھرا؛ پیٹ بھرنا جسم کا بوجھ، دل کی سختی، عقل کا زوال، نیند میں غنودگی اور عبادت میں کمزوری ہے۔\"",
+      "modern_link_ur": "غذائی قلت کے بغیر حراروں کی کمی — یعنی اپنی مکمل گنجائش کا تقریباً 70-75% کھانا — عمر رسیدہ ہونے کی تحقیق میں سب سے زیادہ قابلِ تکرار مداخلتوں میں سے ایک ہے، جو ہر مطالعہ شدہ نوع (خمیر، کیڑے، مکھیاں، چوہے، ریسس بندر) میں اوسط عمر کو بڑھاتی ہے اور انسانوں میں ٹائپ-II ذیابیطس، قلبی امراض، اور کئی کینسرز کے واقعات کو کم کرتی ہے (CALERIE trial, Lancet Diabetes 2019)۔ اوکیناوا صد سالہ مطالعہ (BMJ 2016) نے *ہارا ہاچی بو* کی ثقافتی روایت — یعنی صرف 80% پیٹ بھرنے تک کھانا — کو ان کی عالمی سطح پر سب سے زیادہ لمبی عمر کا ایک اہم تعلق قرار دیا، جو نبوی تہائی، تہائی، تہائی کے تناسب کی عکاسی کرتا ہے۔",
+      "hadith_en_ur": "“ابن آدم اپنے پیٹ سے بدتر کوئی برتن نہیں بھرتا۔ چند لقمے اس کی کمر سیدھی رکھنے کے لیے کافی ہیں۔ اگر اسے مزید (کھانا) ضروری ہو، تو ایک تہائی اس کے کھانے کے لیے، ایک تہائی اس کے پینے کے لیے، اور ایک تہائی اس کے سانس کے لیے۔”"
     }
   ],
   "quranic_symmetry_facts": [

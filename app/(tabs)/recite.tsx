@@ -227,7 +227,7 @@ export default function ReciteScreen() {
       });
     } catch (e: any) {
       setRecording(false);
-      Alert.alert('Mic error', e?.message || String(e));
+      Alert.alert(lang === 'en' ? 'Mic error' : lang === 'ar' ? 'خطأ المايكروفون' : 'مائیک کی خرابی', e?.message || String(e));
     }
   };
 

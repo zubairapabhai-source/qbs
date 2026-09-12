@@ -82,9 +82,9 @@ export const STR: Record<string, Record<Lang, string>> = {
     ur: 'صرف £0.99 میں انلاک کریں',
   },
   unlockBody: {
-    en: 'Lifetime access. 3 free AI Sheikh questions per week. Extra packs available.',
-    ar: 'وصول مدى الحياة. ثلاثة أسئلة مجّانية للشيخ أسبوعيًّا. حزم إضافية متاحة.',
-    ur: 'تاحیات رسائی۔ ہفتے میں ۳ مفت شیخ سوالات۔ مزید پیک دستیاب۔',
+    en: 'Lifetime access. 1 free AI Sheikh question per week. Extra packs available.',
+    ar: 'وصول مدى الحياة. سؤال أسبوعي مجّاني للشيخ. حزم إضافية متاحة.',
+    ur: 'تاحیات رسائی۔ ہفتے میں ۱ مفت شیخ سوال۔ مزید پیک دستیاب۔',
   },
   quotaRemaining: {
     en: 'free questions left this week',

@@ -11,7 +11,11 @@
 export const IAP_PRODUCTS = {
   /** Non-consumable: lifetime unlock for ~£0.99 */
   lifetimeUnlock: 'com.divineseriesmobile.quranbiblescience.lifetime_unlock',
-  /** Consumable: 1 Instant Question (top-up after weekly free 3) — ~£0.49 */
+  /** Non-consumable: cross-app bundle (£1.50) — unlocks the OTHER 2 apps.
+   *  Buying this in QBS flags the Ummah Passport `bundle.claimed=true`
+   *  so Treasures + Dreams auto-unlock on their next launch. */
+  bundleOtherTwo: 'com.divineseriesmobile.quranbiblescience.bundle_other_two',
+  /** Consumable: 1 Instant Question (top-up after weekly free 1) — ~£0.49 */
   aiPack1: 'com.divineseriesmobile.quranbiblescience.ai_pack_1',
   /** Consumable: 10 Instant Questions — ~£2.99 (best value, default) */
   aiPack10: 'com.divineseriesmobile.quranbiblescience.ai_pack_10',

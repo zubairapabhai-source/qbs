@@ -193,7 +193,10 @@ export default function Settings() {
                         // Dev/web fallback
                       }
                     } catch (e) {
-                      Alert.alert('Reset failed', String(e));
+                      Alert.alert(
+                        lang === 'ar' ? 'فشل إعادة الضبط' : lang === 'ur' ? 'ری سیٹ ناکام' : 'Reset failed',
+                        String(e),
+                      );
                     }
                   },
                 },

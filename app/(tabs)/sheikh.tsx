@@ -23,6 +23,8 @@ import { Card } from '../../src/components/Card';
 import { ScreenHeader } from '../../src/components/ScreenHeader';
 import { askSheikh, getEntitlement, type SheikhAnswer } from '../../src/api';
 import { useApp } from '../../src/store/useApp';
+import { useSheikhHistory } from '../../src/personalisation/sheikhHistory';
+import { bumpReviewSignal } from '../../src/personalisation/useReviewPrompt';
 import { t } from '../../src/i18n/strings';
 import { colors, radius, spacing, type as ty } from '../../src/theme';
 import { createWebSpeechRecognizer, isWebSpeechSupported } from '../../src/utils/webSpeech';
@@ -39,6 +41,8 @@ export default function SheikhScreen() {
   const deviceId = useApp((s) => s.deviceId);
   const unlocked = useApp((s) => s.unlocked);
   const setEntitlement = useApp((s) => s.setEntitlement);
+  const recordHistory = useSheikhHistory((s) => s.record);
+  const historyCount = useSheikhHistory((s) => s.history.length);
   const rtl = lang === 'ar' || lang === 'ur';
   const [msgs, setMsgs] = useState<Msg[]>([]);
   const [input, setInput] = useState('');
@@ -47,13 +51,16 @@ export default function SheikhScreen() {
   const [lastQuota, setLastQuota] = useState<{ used: number; free: number; balance: number } | null>(null);
   const scrollRef = useRef<ScrollView>(null);
   const webRecRef = useRef<ReturnType<typeof createWebSpeechRecognizer>>(null);
-  const params = useLocalSearchParams<{ prefill?: string }>();
+  const params = useLocalSearchParams<{ prefill?: string; _t?: string }>();
 
-  // Pre-fill from deep-link (e.g. tapping "Ask Sheikh about this verse" on /verse/[key])
+  // Pre-fill from deep-link (e.g. tapping "Ask Sheikh about this verse" on
+  // /verse/[key], or "Re-ask" on /sheikh-history). The `_t` timestamp
+  // param ensures the effect re-fires even when the user re-asks the
+  // SAME question twice in a row (identical `prefill` string).
   useEffect(() => {
     const p = typeof params?.prefill === 'string' ? params.prefill : '';
     if (p) setInput(p);
-  }, [params?.prefill]);
+  }, [params?.prefill, params?._t]);
 
   // Voice ask — uses the same expo-speech-recognition the Recite tab uses
   useSpeechRecognitionEvent('result', (e: any) => {
@@ -211,6 +218,25 @@ export default function SheikhScreen() {
       if (res.data.quota) {
         setLastQuota({ used: res.data.quota.weekly_used, free: res.data.quota.free_per_week, balance: res.data.quota.pack_balance });
       }
+      // Log to permanent question-history store (independent of the
+      // rolling 40-msg active chat above). Users can revisit this at
+      // /sheikh-history at any time, star favourites, re-ask, share, etc.
+      //
+      // Wrapped in try/catch so a history-store failure NEVER freezes the
+      // Sheikh chat flow (setSending(false) must always run below).
+      try {
+        recordHistory({
+          lang: (lang === 'ar' || lang === 'ur') ? lang : 'en',
+          q,
+          a: res.data.answer,
+          snippets: res.data.snippets?.map((sn) => ({ source: sn.source, key: sn.key, text: sn.text })),
+        });
+      } catch { /* history logging is best-effort; never block the user */ }
+
+      // Nudge the user for an App-Store review after 3 successful Sheikh
+      // Q&As (with 3-day + 90-day cooldowns baked in). Firing on a
+      // positive completion event is Apple/Google's recommended pattern.
+      bumpReviewSignal('sheikh_answered').catch(() => {});
     } else if (res.status === 402) {
       const nudge =
         lang === 'en'
@@ -259,8 +285,10 @@ export default function SheikhScreen() {
           : { icon: 'sparkles-outline', onPress: () => router.push('/unlock') }}
       />
 
-      {/* Sticky quota chip — shows weekly free questions + pack balance */}
-      {(lastQuota || effectivePack > 0) ? (
+      {/* Quota + History chip row — sticky just under the header.
+          The History chip is only meaningful once the user has ever
+          received a Sheikh answer, so it's gated on historyCount>0. */}
+      {(lastQuota || effectivePack > 0 || historyCount > 0) ? (
         <View style={[styles.quotaBar, rtl && { flexDirection: 'row-reverse' }]}>
           {lastQuota ? (
             <View style={[styles.quotaChip, { borderColor: quotaTone + '88' }]}>
@@ -275,6 +303,24 @@ export default function SheikhScreen() {
               <Ionicons name="add-circle" size={12} color={colors.gold} />
               <Text style={[styles.quotaTxt, { color: colors.gold }]}>+{effectivePack} {lang === 'en' ? 'pack' : lang === 'ar' ? 'باقة' : 'پیک'}</Text>
             </View>
+          ) : null}
+          {historyCount > 0 ? (
+            <Pressable
+              onPress={() => router.push('/sheikh-history' as any)}
+              style={({ pressed }) => [
+                styles.quotaChip,
+                { borderColor: colors.silver + '55', backgroundColor: colors.silver + '11' },
+                pressed && { opacity: 0.7 },
+              ]}
+              testID="sheikh-history-btn"
+            >
+              <Ionicons name="time-outline" size={12} color={colors.silver} />
+              <Text style={[styles.quotaTxt, { color: colors.silver }]}>
+                {lang === 'en' ? `${historyCount} past · history` :
+                 lang === 'ar' ? `السجل · ${historyCount}` :
+                 `تاریخ · ${historyCount}`}
+              </Text>
+            </Pressable>
           ) : null}
         </View>
       ) : null}
@@ -324,6 +370,20 @@ export default function SheikhScreen() {
               <Card accent={colors.gold} style={{ marginTop: spacing.md }}>
                 <Text style={styles.discLabel}>ʿAQĪDAH</Text>
                 <Text style={[styles.discBody, { textAlign: rtl ? 'right' : 'left' }]}>{t('classicalPrimacy', lang)}</Text>
+                {/* Sources & Tafseer Library link — pushed as OTA (JS-only). */}
+                <Pressable
+                  onPress={() => router.push('/sources' as any)}
+                  style={({ pressed }) => [styles.sourcesLink, pressed && { opacity: 0.7 }]}
+                  testID="sheikh-view-sources"
+                >
+                  <Ionicons name="library-outline" size={14} color={colors.gold} />
+                  <Text style={styles.sourcesLinkTxt}>
+                    {lang === 'en' ? 'View classical tafseer sources' :
+                     lang === 'ar' ? 'عرض مصادر التفسير الكلاسيكي' :
+                     'کلاسیکی تفسیر کے ذرائع دیکھیں'}
+                  </Text>
+                  <Ionicons name={rtl ? 'chevron-back' : 'chevron-forward'} size={12} color={colors.gold} />
+                </Pressable>
               </Card>
             </View>
           ) : (
@@ -437,4 +497,24 @@ const styles = StyleSheet.create({
   inputBox: { flexDirection: 'row', alignItems: 'flex-end', backgroundColor: colors.card, borderRadius: 22, borderWidth: 1, borderColor: colors.cardBorder, paddingLeft: 14, paddingRight: 6, paddingVertical: 4, gap: 6 },
   input: { flex: 1, ...ty.body, color: colors.text, maxHeight: 100, paddingVertical: 8 },
   sendBtn: { width: 38, height: 38, borderRadius: 19, backgroundColor: colors.silver, alignItems: 'center', justifyContent: 'center', marginVertical: 2 },
+  // "View classical tafseer sources" — link on the Sheikh welcome card to /sources
+  sourcesLink: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    marginTop: spacing.sm,
+    paddingHorizontal: spacing.md,
+    paddingVertical: 8,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: colors.gold + '55',
+    backgroundColor: 'rgba(212,175,55,0.08)',
+  },
+  sourcesLinkTxt: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: colors.gold,
+    letterSpacing: 0.2,
+  },
 });

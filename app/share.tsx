@@ -31,9 +31,21 @@ import { useApp } from '../src/store/useApp';
 const APP_STORE_URL = 'https://apps.apple.com/app/id6801619940';
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.divineseriesmobile.quranbiblescience';
 
+// Android is CURRENTLY in Alpha closed testing on Google Play.
+// The public play.google.com URL returns "App not available" until we
+// promote to Production. Flip this to true the day QBS Android hits
+// Production so the share flow starts including the Play Store link.
+// 2026-09-07: Alpha eligibility gate (12/12 testers · Day 14/14) cleared
+// on ~04 Sept — flipped to LIVE.
+const ANDROID_LIVE = true;
+
 const SHARE_MESSAGE =
   `Assalāmu ʿalaykum 🌙\n\n` +
-  `I've been using "Qur'ān, Bible and Science" — part of Divine Series Mobile (DSM) — built in the memory and on the inspiration of my late teacher Shaykh Wājid Ḥussain Deobandī (Raḥmatullāhi ʿalayhi), under whom I studied Ṣaḥīḥ Muslim and Tafsīr al-Jalālayn, and who first opened my eyes to the comparative study of Christianity and the wonders of modern science within the Qur'ān.\n\n` +
+  `I've been using "Qur'ān, Bible and Science" — part of Divine Series Mobile (DSM). One-time £0.99 lifetime unlock, no ads, no subscriptions.\n\n` +
+  `📥 DOWNLOAD:\n` +
+  `🍎 iPhone / iPad — ${APP_STORE_URL}` +
+  (ANDROID_LIVE ? `\n🤖 Android — ${PLAY_STORE_URL}` : `\n🤖 Android — coming soon`) + `\n\n` +
+  `Built in the memory and on the inspiration of my late teacher Shaykh Wājid Ḥussain Deobandī (Raḥmatullāhi ʿalayhi), under whom I studied Ṣaḥīḥ Muslim and Tafsīr al-Jalālayn, and who first opened my eyes to the comparative study of Christianity and the wonders of modern science within the Qur'ān.\n\n` +
   `With deep gratitude also to my late spiritual Sheikh Hazrat Shaykh ʿAbdur Raḥīm Naqshbandī Chakwālī (Raḥmatullāhi ʿalayhi), and to my beloved Ustād Hadrat Muftī Aḥmad Khānpūrī (ḥafiẓahullāh) of Jāmiʿa Islāmiyyah Taʿlīmuddīn, Dhabel.\n\n` +
   `Features:\n` +
   `• 44 Qur'ānic verses paired with classical tafseer + modern science\n` +
@@ -42,9 +54,6 @@ const SHARE_MESSAGE =
   `• 40 Bible Contradictions cited verbatim to chapter & verse — opening with Qur'ān 4:82 and 15:9\n` +
   `• 50 Muslim scientists past & modern (incl. Dr Maurice Bucaille)\n` +
   `• Voice-recite verse search · AI Sheikh with citations · audio recitation by Shaykh Mishary al-ʿAfāsy\n\n` +
-  `One-time £0.99 Lifetime Unlock — no ads, no subscriptions.\n\n` +
-  `📱 iOS: ${APP_STORE_URL}\n` +
-  `🤖 Android: ${PLAY_STORE_URL}\n\n` +
   `JazākumAllāhu khayran. Please share with anyone who'd benefit, and keep in your du'ās my late father Muhammad Amin (Raḥmatullāhi ʿalayhi), my late father-in-law Mahmood Tarajia (Raḥmatullāhi ʿalayhi), my late Shaykhs, my late asātidhah, and all my living teachers. 🤲`;
 
 export default function ShareScreen() {
@@ -55,7 +64,9 @@ export default function ShareScreen() {
   const cardRef = useRef<View>(null);
   const rtl = lang === 'ar' || lang === 'ur';
 
-  const bothLinks = `📱 iOS: ${APP_STORE_URL}\n🤖 Android: ${PLAY_STORE_URL}`;
+  const bothLinks = ANDROID_LIVE
+    ? `📥 DOWNLOAD (both platforms):\n🍎 iPhone / iPad — ${APP_STORE_URL}\n🤖 Android — ${PLAY_STORE_URL}`
+    : `📥 DOWNLOAD:\n🍎 iPhone / iPad — ${APP_STORE_URL}\n🤖 Android — coming soon`;
   const L = (en: string, ar: string, ur: string) => (lang === 'ar' ? ar : lang === 'ur' ? ur : en);
 
   const onShareText = async () => {
@@ -67,13 +78,20 @@ export default function ShareScreen() {
     setBusy(true);
     try {
       const uri = await captureRef(cardRef, { format: 'png', quality: 0.95, result: 'tmpfile' });
-      if (await Sharing.isAvailableAsync()) {
-        await Sharing.shareAsync(uri, { dialogTitle: 'Share Qur’ān, Bible and Science' });
-      } else {
-        await Share.share({ message: SHARE_MESSAGE, url: uri });
-      }
+      // IMPORTANT: use Share.share (RN core) with BOTH message + url so
+      // the full message (with the correct URLs) is visible in the shared
+      // conversation. Sharing.shareAsync passes ONLY the image, which
+      // lets iMessage auto-scan a QR code and hide our message text.
+      await Share.share({ message: SHARE_MESSAGE, url: uri });
     } catch (e: any) {
-      Alert.alert('Could not share', e?.message || 'Please try again.');
+      try {
+        const uri = await captureRef(cardRef, { format: 'png', quality: 0.95, result: 'tmpfile' });
+        if (await Sharing.isAvailableAsync()) {
+          await Sharing.shareAsync(uri, { dialogTitle: 'Share Qur\u2019\u0101n, Bible and Science' });
+        }
+      } catch {
+        Alert.alert(L('Could not share', 'تعذّرت المشاركة', 'شیئر نہ ہو سکا'), e?.message || L('Please try again.', 'حاول مرة أخرى.', 'دوبارہ کوشش کریں۔'));
+      }
     } finally {
       setBusy(false);
     }
@@ -84,7 +102,7 @@ export default function ShareScreen() {
       await Clipboard.setStringAsync(bothLinks);
       Alert.alert(L('Copied', 'تم النسخ', 'کاپی ہو گیا'), L('Link copied to clipboard.', 'تم نسخ الرابط.', 'لنک کلپ بورڈ پر کاپی ہو گیا۔'));
     } catch (e: any) {
-      Alert.alert('Could not copy', e?.message || 'Please try again.');
+      Alert.alert(L('Could not copy', 'تعذّر النسخ', 'کاپی نہ ہو سکا'), e?.message || L('Please try again.', 'حاول مرة أخرى.', 'دوبارہ کوشش کریں۔'));
     }
   };
 
@@ -154,22 +172,42 @@ export default function ShareScreen() {
             </View>
 
             <View style={styles.qrCol}>
-              <View style={styles.qrInner}>
-                <QRCode
-                  value={PLAY_STORE_URL}
-                  size={130}
-                  color="#0e1f1a"
-                  backgroundColor={colors.gold}
-                  quietZone={6}
-                />
-              </View>
-              <View style={styles.qrLabelRow}>
-                <Ionicons name="logo-google-playstore" size={12} color={colors.gold} />
-                <Text style={styles.qrLabel}>Android</Text>
-              </View>
-              <Text style={styles.qrCaption}>
-                {L('Scan to download', 'امسح للتنزيل', 'ڈاؤن لوڈ کریں')}
-              </Text>
+              {ANDROID_LIVE ? (
+                <>
+                  <View style={styles.qrInner}>
+                    <QRCode
+                      value={PLAY_STORE_URL}
+                      size={130}
+                      color="#0e1f1a"
+                      backgroundColor={colors.gold}
+                      quietZone={6}
+                    />
+                  </View>
+                  <View style={styles.qrLabelRow}>
+                    <Ionicons name="logo-google-playstore" size={12} color={colors.gold} />
+                    <Text style={styles.qrLabel}>Android</Text>
+                  </View>
+                  <Text style={styles.qrCaption}>
+                    {L('Scan to download', 'امسح للتنزيل', 'ڈاؤن لوڈ کریں')}
+                  </Text>
+                </>
+              ) : (
+                <>
+                  <View style={[styles.qrInner, { alignItems: 'center', justifyContent: 'center', width: 130 + 12, height: 130 + 12, backgroundColor: 'rgba(212,175,55,0.10)', borderWidth: 1, borderColor: colors.gold + '55', borderStyle: 'dashed' }]}>
+                    <Ionicons name="hourglass-outline" size={40} color={colors.gold} />
+                    <Text style={{ color: colors.gold, fontSize: 10, fontWeight: '800', marginTop: 6, letterSpacing: 1 }}>
+                      {L('COMING SOON', 'قريباً', 'جلد آ رہا')}
+                    </Text>
+                  </View>
+                  <View style={styles.qrLabelRow}>
+                    <Ionicons name="logo-google-playstore" size={12} color={colors.gold} />
+                    <Text style={styles.qrLabel}>Android</Text>
+                  </View>
+                  <Text style={styles.qrCaption}>
+                    {L('Play Store — soon', 'قريباً على بلاي ستور', 'پلے سٹور — جلد')}
+                  </Text>
+                </>
+              )}
             </View>
           </View>
 

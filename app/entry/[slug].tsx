@@ -9,6 +9,7 @@ import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from 'react-nat
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Card } from '../../src/components/Card';
 import { ScreenHeader } from '../../src/components/ScreenHeader';
+import { TeaserGate } from '../../src/components/TeaserGate';
 import { VerseAudioButton } from '../../src/components/VerseAudioButton';
 import { listAtozSeed, type AtozEntry } from '../../src/api';
 import { isBookmarked, toggleBookmark, useBookmarks } from '../../src/store/bookmarks';
@@ -20,6 +21,7 @@ export default function EntryDetail() {
   const { slug } = useLocalSearchParams<{ slug: string }>();
   const insets = useSafeAreaInsets();
   const lang = useApp((s) => s.lang);
+  const unlocked = useApp((s) => s.unlocked);
   const rtl = lang === 'ar' || lang === 'ur';
   const [e, setE] = useState<AtozEntry | null>(null);
   const [loading, setLoading] = useState(true);
@@ -129,49 +131,57 @@ export default function EntryDetail() {
             </Card>
           ) : null}
 
-          {/* Classical anchor (PRIMARY) */}
-          <Card accent={colors.gold}>
-            <View style={[styles.iconRow, rtl && { flexDirection: 'row-reverse' }]}>
-              <Ionicons name="library" size={18} color={colors.gold} />
-              <Text style={styles.classicalLabel}>
-                {classicalAnchor
-                  ? (lang === 'en' ? 'CLASSICAL ANCHOR' : lang === 'ar' ? 'الأصل الكلاسيكي' : 'کلاسیکی اصل')
-                  : (lang === 'en' ? 'TRADITIONAL TAFSEER (PRIMARY)' : lang === 'ar' ? 'التفسير الكلاسيكي (الأصل)' : 'کلاسیکی تفسیر (اصل)')}
-              </Text>
-            </View>
-            <Text style={[styles.body, { textAlign: rtl ? 'right' : 'left' }]}>
-              {classicalAnchor || (
-                lang === 'en' ? 'The traditional tafseer of this āyah — per the Prophet ﷺ, his Companions, and the classical scholars (Ibn Kathīr, al-Ṭabarī, al-Saʿdī, al-Jalālayn) — establishes its primary meaning. Full citations will be loaded here once content authoring is complete.' :
-                lang === 'ar' ? 'التفسير الكلاسيكي لهذه الآية وفقًا للنبيّ ﷺ وصحابته والعلماء الكلاسيكيين (ابن كثير، الطبري، السعدي، الجلالين) هو الأصل. الاقتباسات الكاملة ستظهر عند اكتمال التأليف.' :
-                'اس آیت کی روایتی تفسیر — جیسا کہ نبی ﷺ، صحابہ، اور کلاسیکی علماء (ابن کثیر، طبری، السعدی، الجلالین) سے ثابت ہے — اصل ہے۔ تحریر مکمل ہونے پر حوالے لگائے جائیں گے۔'
-              )}
-            </Text>
-          </Card>
+          {/* Classical + modern content — gated for locked users. Hero, ref
+              and Arabic verse above remain fully visible as a free taste. */}
+          {(() => {
+            const classical = classicalAnchor || (
+              lang === 'en' ? 'The traditional tafseer of this āyah — per the Prophet ﷺ, his Companions, and the classical scholars (Ibn Kathīr, al-Ṭabarī, al-Saʿdī, al-Jalālayn) — establishes its primary meaning. Full citations will be loaded here once content authoring is complete.' :
+              lang === 'ar' ? 'التفسير الكلاسيكي لهذه الآية وفقًا للنبيّ ﷺ وصحابته والعلماء الكلاسيكيين (ابن كثير، الطبري، السعدي، الجلالين) هو الأصل. الاقتباسات الكاملة ستظهر عند اكتمال التأليف.' :
+              'اس آیت کی روایتی تفسیر — جیسا کہ نبی ﷺ، صحابہ، اور کلاسیکی علماء (ابن کثیر، طبری، السعدی، الجلالین) سے ثابت ہے — اصل ہے۔ تحریر مکمل ہونے پر حوالے لگائے جائیں گے۔'
+            );
+            const previewText = classical.split(/\s+/).slice(0, 55).join(' ') + (classical.split(/\s+/).length > 55 ? '…' : '');
+            return (
+              <TeaserGate locked={!unlocked} previewText={previewText} testID="teaser-entry-detail">
+                {/* Classical anchor (PRIMARY) */}
+                <Card accent={colors.gold}>
+                  <View style={[styles.iconRow, rtl && { flexDirection: 'row-reverse' }]}>
+                    <Ionicons name="library" size={18} color={colors.gold} />
+                    <Text style={styles.classicalLabel}>
+                      {classicalAnchor
+                        ? (lang === 'en' ? 'CLASSICAL ANCHOR' : lang === 'ar' ? 'الأصل الكلاسيكي' : 'کلاسیکی اصل')
+                        : (lang === 'en' ? 'TRADITIONAL TAFSEER (PRIMARY)' : lang === 'ar' ? 'التفسير الكلاسيكي (الأصل)' : 'کلاسیکی تفسیر (اصل)')}
+                    </Text>
+                  </View>
+                  <Text style={[styles.body, { textAlign: rtl ? 'right' : 'left' }]}>{classical}</Text>
+                </Card>
 
-          {/* Modern scientific link / possible reading (SECONDARY) */}
-          {(modernLink || scienceHook) ? (
-            <Card accent={colors.silver}>
-              <View style={[styles.iconRow, rtl && { flexDirection: 'row-reverse' }]}>
-                <Ionicons name="telescope" size={18} color={colors.silver} />
-                <Text style={styles.scienceLabel}>
-                  {modernLink
-                    ? (lang === 'en' ? 'MODERN SCIENTIFIC LINK' : lang === 'ar' ? 'الربط العلمي الحديث' : 'جدید سائنسی ربط')
-                    : (lang === 'en' ? 'POSSIBLE SCIENTIFIC READING' : lang === 'ar' ? 'قراءة علمية محتملة' : 'ممکنہ سائنسی قراءت')}
-                </Text>
-              </View>
-              <Text style={[styles.body, { textAlign: rtl ? 'right' : 'left' }]}>{modernLink || scienceHook}</Text>
-              <Text style={[styles.secondary, { textAlign: rtl ? 'right' : 'left' }]}>
-                {lang === 'en' ? 'Note: This is a SECONDARY inference, not a doctrine. It does not replace the traditional meaning.' :
-                  lang === 'ar' ? 'ملحوظة: هذه استنباطات ثانوييّة وليست عقيدة، ولا تحلّ محلّ المعنى الكلاسيكي.' :
-                  'نوٹ: یہ ثانوی قیاس ہے، عقیدہ نہیں۔ یہ کلاسیکی معنی کی جگہ نہیں لیتا۔'}
-              </Text>
-            </Card>
-          ) : null}
+                {/* Modern scientific link / possible reading (SECONDARY) */}
+                {(modernLink || scienceHook) ? (
+                  <Card accent={colors.silver}>
+                    <View style={[styles.iconRow, rtl && { flexDirection: 'row-reverse' }]}>
+                      <Ionicons name="telescope" size={18} color={colors.silver} />
+                      <Text style={styles.scienceLabel}>
+                        {modernLink
+                          ? (lang === 'en' ? 'MODERN SCIENTIFIC LINK' : lang === 'ar' ? 'الربط العلمي الحديث' : 'جدید سائنسی ربط')
+                          : (lang === 'en' ? 'POSSIBLE SCIENTIFIC READING' : lang === 'ar' ? 'قراءة علمية محتملة' : 'ممکنہ سائنسی قراءت')}
+                      </Text>
+                    </View>
+                    <Text style={[styles.body, { textAlign: rtl ? 'right' : 'left' }]}>{modernLink || scienceHook}</Text>
+                    <Text style={[styles.secondary, { textAlign: rtl ? 'right' : 'left' }]}>
+                      {lang === 'en' ? 'Note: This is a SECONDARY inference, not a doctrine. It does not replace the traditional meaning.' :
+                        lang === 'ar' ? 'ملحوظة: هذه استنباطات ثانوييّة وليست عقيدة، ولا تحلّ محلّ المعنى الكلاسيكي.' :
+                        'نوٹ: یہ ثانوی قیاس ہے، عقیدہ نہیں۔ یہ کلاسیکی معنی کی جگہ نہیں لیتا۔'}
+                    </Text>
+                  </Card>
+                ) : null}
 
-          {/* Universal disclaimer */}
-          <View style={styles.discWrap}>
-            <Text style={[styles.discBody, { textAlign: rtl ? 'right' : 'center' }]}>{t('classicalPrimacy', lang)}</Text>
-          </View>
+                {/* Universal disclaimer */}
+                <View style={styles.discWrap}>
+                  <Text style={[styles.discBody, { textAlign: rtl ? 'right' : 'center' }]}>{t('classicalPrimacy', lang)}</Text>
+                </View>
+              </TeaserGate>
+            );
+          })()}
         </View>
       </ScrollView>
     </View>

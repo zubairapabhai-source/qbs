@@ -6,10 +6,11 @@
 import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Card } from '../src/components/Card';
 import { ScreenHeader } from '../src/components/ScreenHeader';
+import { TeaserGate } from '../src/components/TeaserGate';
 import { useApp } from '../src/store/useApp';
 import { getEntitlement } from '../src/api';
 import { LockBanner, LockedTile, FREE_PREVIEW_LIMIT } from '../src/iap/gate';
@@ -174,14 +175,25 @@ export default function BibleComparisonsScreen() {
                 {pickT(activeTile, 'intro') ? (
                   <Text style={[styles.intro, { textAlign: rtl ? 'right' : 'left' }]}>{pickT(activeTile, 'intro')}</Text>
                 ) : null}
-                {(activeTile.sections || []).map((sec: any, i: number) => (
-                  <Card key={i} accent={ACCENTS[activeTile.accent] || colors.gold}>
-                    <Text style={[styles.sectionHead, { color: ACCENTS[activeTile.accent] || colors.gold, textAlign: rtl ? 'right' : 'left' }]}>
-                      {pickT(sec, 'heading')}
-                    </Text>
-                    <Text style={[styles.body, { textAlign: rtl ? 'right' : 'left' }]}>{pickT(sec, 'body')}</Text>
-                  </Card>
-                ))}
+                {(() => {
+                  const sections = activeTile.sections || [];
+                  // Preview: first ~55 words of the first section — a real
+                  // slice of the writing so free users can judge the depth.
+                  const firstBody = sections[0] ? pickT(sections[0], 'body') : '';
+                  const previewText = firstBody.split(/\s+/).slice(0, 55).join(' ') + (firstBody.split(/\s+/).length > 55 ? '…' : '');
+                  return (
+                    <TeaserGate locked={!unlocked} previewText={previewText} testID="teaser-tile-detail">
+                      {sections.map((sec: any, i: number) => (
+                        <Card key={i} accent={ACCENTS[activeTile.accent] || colors.gold}>
+                          <Text style={[styles.sectionHead, { color: ACCENTS[activeTile.accent] || colors.gold, textAlign: rtl ? 'right' : 'left' }]}>
+                            {pickT(sec, 'heading')}
+                          </Text>
+                          <Text style={[styles.body, { textAlign: rtl ? 'right' : 'left' }]}>{pickT(sec, 'body')}</Text>
+                        </Card>
+                      ))}
+                    </TeaserGate>
+                  );
+                })()}
                 {pickT(activeTile, 'disclaimer') ? (
                   <Text style={[styles.disclaimer, { textAlign: rtl ? 'right' : 'left' }]}>{pickT(activeTile, 'disclaimer')}</Text>
                 ) : null}
@@ -206,29 +218,37 @@ export default function BibleComparisonsScreen() {
                 <Text style={[styles.detailTitle, { textAlign: rtl ? 'right' : 'left' }]}>{pickC('topic')}</Text>
                 <Text style={[styles.verdict, { textAlign: rtl ? 'right' : 'left' }]}>{pickC('verdict')}</Text>
 
-                <Card accent={colors.rose}>
-                  <View style={[styles.secHeader, rtl && { flexDirection: 'row-reverse' }]}>
-                    <Ionicons name="book-outline" size={14} color={colors.rose} />
-                    <Text style={[styles.secLabel, { color: colors.rose }]}>{lang === 'en' ? 'BIBLE ACCOUNT' : lang === 'ar' ? 'النصّ الإنجيلي' : 'بائبل بیان'}</Text>
-                  </View>
-                  <Text style={[styles.body, { textAlign: rtl ? 'right' : 'left' }]}>{pickC('bible_claim')}</Text>
-                </Card>
+                {(() => {
+                  const bibleBody = pickC('bible_claim');
+                  const previewText = bibleBody.split(/\s+/).slice(0, 55).join(' ') + (bibleBody.split(/\s+/).length > 55 ? '…' : '');
+                  return (
+                    <TeaserGate locked={!unlocked} previewText={previewText} testID="teaser-comparison-detail">
+                      <Card accent={colors.rose}>
+                        <View style={[styles.secHeader, rtl && { flexDirection: 'row-reverse' }]}>
+                          <Ionicons name="book-outline" size={14} color={colors.rose} />
+                          <Text style={[styles.secLabel, { color: colors.rose }]}>{lang === 'en' ? 'BIBLE ACCOUNT' : lang === 'ar' ? 'النصّ الإنجيلي' : 'بائبل بیان'}</Text>
+                        </View>
+                        <Text style={[styles.body, { textAlign: rtl ? 'right' : 'left' }]}>{pickC('bible_claim')}</Text>
+                      </Card>
 
-                <Card accent={colors.emerald}>
-                  <View style={[styles.secHeader, rtl && { flexDirection: 'row-reverse' }]}>
-                    <Ionicons name="sparkles" size={14} color={colors.emerald} />
-                    <Text style={[styles.secLabel, { color: colors.emerald }]}>{lang === 'en' ? 'QURʾĀN ACCOUNT' : lang === 'ar' ? 'النصّ القرآني' : 'قرآنی بیان'}</Text>
-                  </View>
-                  <Text style={[styles.body, { textAlign: rtl ? 'right' : 'left' }]}>{pickC('quran_account')}</Text>
-                </Card>
+                      <Card accent={colors.emerald}>
+                        <View style={[styles.secHeader, rtl && { flexDirection: 'row-reverse' }]}>
+                          <Ionicons name="sparkles" size={14} color={colors.emerald} />
+                          <Text style={[styles.secLabel, { color: colors.emerald }]}>{lang === 'en' ? 'QURʾĀN ACCOUNT' : lang === 'ar' ? 'النصّ القرآني' : 'قرآنی بیان'}</Text>
+                        </View>
+                        <Text style={[styles.body, { textAlign: rtl ? 'right' : 'left' }]}>{pickC('quran_account')}</Text>
+                      </Card>
 
-                <Card accent={colors.gold}>
-                  <View style={[styles.secHeader, rtl && { flexDirection: 'row-reverse' }]}>
-                    <Ionicons name="flask-outline" size={14} color={colors.gold} />
-                    <Text style={[styles.secLabel, { color: colors.gold }]}>{lang === 'en' ? 'MODERN EVIDENCE' : lang === 'ar' ? 'الأدلّة الحديثة' : 'جدید شواہد'}</Text>
-                  </View>
-                  <Text style={[styles.body, { textAlign: rtl ? 'right' : 'left' }]}>{pickC('modern_evidence')}</Text>
-                </Card>
+                      <Card accent={colors.gold}>
+                        <View style={[styles.secHeader, rtl && { flexDirection: 'row-reverse' }]}>
+                          <Ionicons name="flask-outline" size={14} color={colors.gold} />
+                          <Text style={[styles.secLabel, { color: colors.gold }]}>{lang === 'en' ? 'MODERN EVIDENCE' : lang === 'ar' ? 'الأدلّة الحديثة' : 'جدید شواہد'}</Text>
+                        </View>
+                        <Text style={[styles.body, { textAlign: rtl ? 'right' : 'left' }]}>{pickC('modern_evidence')}</Text>
+                      </Card>
+                    </TeaserGate>
+                  );
+                })()}
 
                 {active.disclaimer ? (
                   <Text style={styles.disclaimer}>{active.disclaimer}</Text>
@@ -253,6 +273,7 @@ export default function BibleComparisonsScreen() {
                   <LockedTile
                     key={tile.slug}
                     locked={locked}
+                    previewable
                     onPress={() => openTile(tile.slug)}
                   >
                     <Card accent={accent}>
@@ -279,6 +300,7 @@ export default function BibleComparisonsScreen() {
               <LockedTile
                 key={it.slug}
                 locked={locked}
+                previewable
                 onPress={() => openDetail(it.slug)}
               >
                 <Card>

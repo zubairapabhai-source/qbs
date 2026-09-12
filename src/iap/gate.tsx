@@ -32,17 +32,24 @@ export function useIsLockedAt(index: number): boolean {
 /**
  * LockedTile — wraps any child card. When `locked` is true, dims the child
  * and overlays a gold padlock. Tap is intercepted and routes to /unlock.
+ *
+ * When `previewable` is also true, the tile keeps the visual lock chip but
+ * calls the caller's `onPress` instead — used by screens that show a full
+ * TeaserGate preview inside their detail view. Lets us respect the freemium
+ * "read a real slice before paying" pattern instead of dead-ending at /unlock.
  */
 export function LockedTile({
   locked,
   onPress,
   children,
   style,
+  previewable,
 }: {
   locked: boolean;
   onPress: () => void;
   children: React.ReactNode;
   style?: any;
+  previewable?: boolean;
 }) {
   const router = useRouter();
   const lang = useApp((s) => s.lang);
@@ -55,7 +62,23 @@ export function LockedTile({
     );
   }
 
-  const label = lang === 'ar' ? 'افتح بـ ٠٫٩٩' : lang === 'ur' ? '£0.99 میں انلاک' : 'Unlock £0.99';
+  const label = lang === 'ar' ? 'يفتح الكل بـ ٠٫٩٩' : lang === 'ur' ? '£0.99 سب انلاک' : '£0.99 unlocks all';
+
+  // Previewable path — keep tap opening the detail so TeaserGate can show
+  // a real preview + gate. Chip stays as a subtle affordance.
+  if (previewable) {
+    return (
+      <Pressable onPress={onPress} style={style}>
+        <View style={{ opacity: 0.75 }}>{children}</View>
+        <View style={lockStyles.overlay} pointerEvents="none">
+          <View style={lockStyles.chip}>
+            <Ionicons name="eye-outline" size={13} color={colors.gold} />
+            <Text style={lockStyles.chipTxt}>{lang === 'ar' ? 'معاينة' : lang === 'ur' ? 'پیش نظارہ' : 'Preview'}</Text>
+          </View>
+        </View>
+      </Pressable>
+    );
+  }
 
   return (
     <Pressable onPress={() => router.push('/unlock' as any)} style={style}>
@@ -88,9 +111,9 @@ export function LockBanner() {
       <Ionicons name="sparkles" size={16} color={colors.gold} />
       <Text style={lockStyles.bannerTxt}>
         {L(
-          `Free preview · first ${FREE_PREVIEW_LIMIT} unlocked. Unlock all for £0.99 →`,
-          `معاينة مجّانية — أوّل ${FREE_PREVIEW_LIMIT} مفتوحة. افتح الكل بـ ٠٫٩٩ ←`,
-          `مفت پیش نظارہ · پہلے ${FREE_PREVIEW_LIMIT} انلاک۔ سب کچھ £0.99 میں ←`,
+          `£0.99 one-time · unlocks the whole app — every article, every AI question, every gate →`,
+          `٠٫٩٩ £ مرة واحدة · تفتح التطبيق كاملاً — كل مقال، كل سؤال، كل قسم مقفل ←`,
+          `£0.99 ایک بار · پوری ایپ کھولے — ہر مضمون، ہر AI سوال، ہر گیٹ ←`,
         )}
       </Text>
       <Ionicons name="lock-closed" size={14} color={colors.gold} />

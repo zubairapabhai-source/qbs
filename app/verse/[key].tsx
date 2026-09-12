@@ -12,16 +12,28 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Card } from '../../src/components/Card';
 import { ScreenHeader } from '../../src/components/ScreenHeader';
 import { VerseAudioButton } from '../../src/components/VerseAudioButton';
+import { ShareButton } from '../../src/components/ShareButton';
 import { isBookmarked, toggleBookmark, useBookmarks } from '../../src/store/bookmarks';
 import { useApp } from '../../src/store/useApp';
 import { colors, spacing, type as ty } from '../../src/theme';
+import { submitEvent } from '../../src/leaderboards/api';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const BASE = process.env.EXPO_PUBLIC_QBS_API_URL || '';
 
 // Signature verse (Sūrat Fuṣṣilat 41:53) is the golden hero on the home
 // screen. Its tafseer stays FREE forever as a first-taste for new users;
-// every other verse's tafseer is gated behind the £0.99 lifetime unlock.
+// every other verse's tafseer is gated behind the £0.99 lifetime unlock —
+// EXCEPT the first 10 āyāt of the Qurʾān (all 7 of Sūrat al-Fātiḥa + the
+// first 3 of Sūrat al-Baqara), which are also free so a new reader can
+// truly begin their Qurʾān journey with tafseer before hitting the paywall.
 const SIGNATURE_VERSE_KEY = '41:53';
+const FREE_TAFSEER_KEYS: ReadonlySet<string> = new Set([
+  // Al-Fātiḥa 1:1 – 1:7
+  '1:1', '1:2', '1:3', '1:4', '1:5', '1:6', '1:7',
+  // Al-Baqara 2:1 – 2:3 (the opening 3 āyāt of the second sūrah)
+  '2:1', '2:2', '2:3',
+]);
 
 interface VerseFull {
   found: boolean;
@@ -62,7 +74,8 @@ export default function VerseFullPage() {
   // BEFORE hitting the network so locked users never see a broken /
   // spinning screen — they get a clear upgrade prompt instead.
   const isSignatureVerse = String(key) === SIGNATURE_VERSE_KEY;
-  const requiresUnlock = !isSignatureVerse && !unlocked;
+  const isFreeTaste = FREE_TAFSEER_KEYS.has(String(key));
+  const requiresUnlock = !isSignatureVerse && !isFreeTaste && !unlocked;
 
   useEffect(() => {
     let cancelled = false;
@@ -120,6 +133,22 @@ export default function VerseFullPage() {
       try {
         const body = await attempt();
         if (!cancelled) setData(body);
+        // Fire a one-time 'quran' leaderboard event per verse per day.
+        // IMPORTANT: only persist the "seen" marker AFTER the event
+        // resolves successfully — otherwise a failed call (offline,
+        // not-registered, rate-limited) permanently blocks that
+        // verse's daily credit.
+        try {
+          const dayKey = new Date().toISOString().slice(0, 10);
+          const seenKey = `qbs:verse_seen:${dayKey}:${String(key)}`;
+          const seen = await AsyncStorage.getItem(seenKey);
+          if (!seen) {
+            const ev = await submitEvent('quran', 'qbs', 1);
+            if (ev) {
+              try { await AsyncStorage.setItem(seenKey, '1'); } catch {}
+            }
+          }
+        } catch {}
       } catch (e: any) {
         if (!cancelled) {
           setLoadError(e?.message || String(e));
@@ -235,8 +264,18 @@ export default function VerseFullPage() {
         >
           <Text style={styles.kicker}>SŪRAH {data.surah} · ĀYAH {data.verse}</Text>
           <Text style={styles.arabic}>{data.text}</Text>
-          <View style={{ alignItems: 'center', marginTop: 14 }}>
+          <View style={{ alignItems: 'center', marginTop: 14, flexDirection: 'row', justifyContent: 'center', gap: 12, flexWrap: 'wrap' }}>
             <VerseAudioButton verseKey={data.key} size="md" showLabel label="🎧 Listen — Sh. Mishary al-‘Afāsy" />
+            {/* Share this verse + tafseer to WhatsApp / iMessage / etc.
+                Beautiful pre-filled trilingual message + App Store link.
+                Turns satisfied readers into distributors — the biggest
+                single organic-install lever for religious content apps. */}
+            <ShareButton
+              title={`${data.surah_name_en} · ${data.key}`}
+              body={`${data.text}\n\n${data.tafseers?.[0]?.text ?? ''}`}
+              source={`verse/${data.key}`}
+              compact
+            />
           </View>
         </LinearGradient>
 
@@ -292,7 +331,9 @@ export default function VerseFullPage() {
           {/* Tafseer cards */}
           {data.tafseers.length === 0 ? (
             <Card accent={colors.gold}>
-              <Text style={styles.label}>TAFSEER</Text>
+              <Text style={styles.label}>
+                {lang === 'ar' ? 'التفسير' : lang === 'ur' ? 'تفسیر' : 'TAFSEER'}
+              </Text>
               <Text style={styles.body}>
                 {lang === 'en' ? 'Tafseer paragraphs for this verse are being indexed. Please check back shortly.'
                  : lang === 'ar' ? 'يتم فهرسة فقرات التفسير لهذه الآية. يُرجى الرجوع لاحقاً.'

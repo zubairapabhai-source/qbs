@@ -121,7 +121,7 @@ export async function askSheikh(question: string, deviceId: string, lang: string
         answer:
           "This is a preview response. When connected to the live backend, the AI Sheikh will answer using verbatim citations from Ibn Kathīr, al-Saʿdī, al-Muyassar, and al-Jalālayn, then add any relevant scientific reading. Your question was: \"" + question + "\".\n\nThe traditional tafseer holds primacy; the scientific reading is an inference, not a doctrine.",
         snippets: [],
-        quota: { free_per_week: 3, weekly_used: 0, pack_balance: 0 },
+        quota: { free_per_week: 1, weekly_used: 0, pack_balance: 0 },
       },
     };
   }
@@ -148,7 +148,7 @@ export async function getEntitlement(deviceId: string) {
   if (!BASE) return {
     data: {
       unlocked: false,
-      weekly_questions: { used: 0, free_per_week: 3, remaining_free: 3 },
+      weekly_questions: { used: 0, free_per_week: 1, remaining_free: 1 },
       question_pack_balance: 0,
     },
     live: false,
@@ -173,7 +173,7 @@ export async function getEntitlement(deviceId: string) {
         return {
           data: {
             unlocked: false,
-            weekly_questions: { used: 0, free_per_week: 3, remaining_free: 3 },
+            weekly_questions: { used: 0, free_per_week: 1, remaining_free: 1 },
             question_pack_balance: 0,
           },
           live: false,
@@ -183,5 +183,5 @@ export async function getEntitlement(deviceId: string) {
       await new Promise((res) => setTimeout(res, 500 * (i + 1)));
     }
   }
-  return { data: { unlocked: false, weekly_questions: { used: 0, free_per_week: 3, remaining_free: 3 }, question_pack_balance: 0 }, live: false };
+  return { data: { unlocked: false, weekly_questions: { used: 0, free_per_week: 1, remaining_free: 1 }, question_pack_balance: 0 }, live: false };
 }

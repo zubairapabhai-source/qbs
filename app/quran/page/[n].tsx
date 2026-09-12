@@ -59,6 +59,7 @@ export default function MushafPageScreen() {
   const router = useRouter();
   const lang = useApp((s) => s.lang);
   const unlocked = useApp((s) => s.unlocked === true);
+  const recordAction = useApp((s) => s.recordAction);
   const {
     setLastPage, addBookmark, removeBookmark, isBookmarked, bookmarksForPage,
   } = useQuranReader();
@@ -82,9 +83,14 @@ export default function MushafPageScreen() {
   }, [lang]);
 
   // Persist "last page read" the moment we're viewing something valid.
+  // Also register today as a "read the Qur'ān" action for the streak
+  // engine — idempotent per calendar day, safe to call on every page.
   useEffect(() => {
-    if (page && page.page) setLastPage(page.page);
-  }, [page, setLastPage]);
+    if (page && page.page) {
+      setLastPage(page.page);
+      recordAction();
+    }
+  }, [page, setLastPage, recordAction]);
 
   useEffect(() => {
     let cancelled = false;
