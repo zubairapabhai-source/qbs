@@ -33,6 +33,9 @@
         "EXPO_PUBLIC_QBS_API_URL": "https://divine-series.onrender.com/q",
         "SENTRY_ALLOW_FAILURE": "true",
         "SENTRY_DISABLE_AUTO_UPLOAD": "true"
+      },
+      "ios": {
+        "credentialsSource": "remote"
       }
     }
   },
