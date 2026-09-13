@@ -64,6 +64,12 @@ jobs:
       # If build fails, the step fails loudly — no more silent submit-of-old-build.
       - name: 🍎 Build iOS (waits for cloud completion)
         if: github.event_name == 'push' || github.event.inputs.platform == 'all' || github.event.inputs.platform == 'ios'
+        env:
+          EXPO_ASC_API_KEY_PATH: /app/secrets/AuthKey_J5UV2ND69J.p8
+          EXPO_ASC_KEY_ID: J5UV2ND69J
+          EXPO_ASC_ISSUER_ID: 70b80a83-b611-4549-88da-7b4052012404
+          EXPO_APPLE_TEAM_ID: JS9N5DAZKN
+          EXPO_APPLE_TEAM_TYPE: INDIVIDUAL
         run: eas build --platform ios --profile production --non-interactive
 
       - name: 🤖 Build Android (waits for cloud completion)
