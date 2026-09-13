@@ -51,7 +51,7 @@
       },
       "android": {
         "serviceAccountKeyPath": "/app/secrets/google-play-service-account.json",
-        "track": "internal",
+        "track": "production",
         "releaseStatus": "draft",
         "applicationId": "com.divineseriesmobile.quranbiblescience",
         "changesNotSentForReview": false

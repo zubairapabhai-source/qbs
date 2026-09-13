@@ -1,0 +1,79 @@
+name: Build & Submit QBS (iOS + Android)
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**.md'
+      - '.github/**'
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: 'Which platform to build'
+        required: true
+        default: 'all'
+        type: choice
+        options: [all, ios, android]
+      submit:
+        description: 'Auto-submit to store?'
+        required: true
+        default: 'true'
+        type: choice
+        options: ['true', 'false']
+
+jobs:
+  build-and-submit:
+    name: Build & submit QBS
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 📦 Setup Yarn
+        run: |
+          corepack enable
+          corepack prepare yarn@1.22.22 --activate
+
+      # eas.json hard-codes /app/secrets/... paths (matches our container layout).
+      # GH runners are non-root, so we sudo-create it and chown to $USER.
+      - name: 🔐 Materialise credentials at /app/secrets
+        run: |
+          sudo mkdir -p /app/secrets
+          sudo chown -R "$USER" /app/secrets
+          echo "${{ secrets.ASC_API_KEY_P8_B64 }}" | base64 -d > /app/secrets/AuthKey_J5UV2ND69J.p8
+          echo "${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON_B64 }}" | base64 -d > /app/secrets/google-play-service-account.json
+          chmod 600 /app/secrets/*
+          ls -la /app/secrets
+
+      - name: 🚀 Setup EAS
+        uses: expo/expo-github-action@v8
+        with:
+          expo-version: latest
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: 📥 Install deps
+        run: yarn install --frozen-lockfile
+
+      # Wait mode (no --no-wait) — job stays alive until EAS finishes on cloud Mac.
+      # If build fails, the step fails loudly — no more silent submit-of-old-build.
+      - name: 🍎 Build iOS (waits for cloud completion)
+        if: github.event_name == 'push' || github.event.inputs.platform == 'all' || github.event.inputs.platform == 'ios'
+        run: eas build --platform ios --profile production --non-interactive
+
+      - name: 🤖 Build Android (waits for cloud completion)
+        if: github.event_name == 'push' || github.event.inputs.platform == 'all' || github.event.inputs.platform == 'android'
+        run: eas build --platform android --profile production --non-interactive
+
+      - name: 🍎 Submit iOS to App Store
+        if: (github.event_name == 'push' || github.event.inputs.submit == 'true') && (github.event_name == 'push' || github.event.inputs.platform == 'all' || github.event.inputs.platform == 'ios')
+        run: eas submit --platform ios --profile production --latest --non-interactive
+
+      - name: 🤖 Submit Android to Play Store
+        if: (github.event_name == 'push' || github.event.inputs.submit == 'true') && (github.event_name == 'push' || github.event.inputs.platform == 'all' || github.event.inputs.platform == 'android')
+        run: eas submit --platform android --profile production --latest --non-interactive
