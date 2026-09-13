@@ -65,7 +65,8 @@
         {
           "microphonePermission": "Listen as you recite to find the Qur'ānic verse."
         }
-      ]
+      ],
+      "expo-notifications"
     ],
     "experiments": {
       "typedRoutes": true
