@@ -47,6 +47,25 @@ export const colors = {
   textDim: '#C9D5C1',
   textMuted: '#8FA188',
   parchment: '#F4E9C9',
+
+  /* ─ Compatibility aliases ───────────────────────────────────────────
+   * Several screens (dua-card, calligraphy, chests, etc.) were ported
+   * from the Treasures codebase which uses the `cream` / `navy*` palette.
+   * These aliases map those keys onto the QBS emerald palette so the
+   * 25+ `colors.cream` references on each ported screen stop evaluating
+   * to `undefined` (which caused the near-transparent modal reported by
+   * the owner on 7 Oct 2026). Values hand-picked to match the QBS
+   * emerald-and-gold aesthetic — brighter than Treasures to maximise
+   * contrast on the deeper emerald background.
+   */
+  cream:        '#FFFFFF',                 // pure white, maximum contrast
+  creamBright:  '#FFF4D6',                 // warm ivory for emphasis
+  creamDim:     '#D5DCCB',                 // readable secondary
+  creamSubtle:  '#9DAD9A',                 // tertiary labels / icons
+  navy:         '#0E2A22',                 // alias → QBS primary bg (emerald)
+  navyElevated: '#163E33',                 // alias → QBS raised bg
+  navySurface:  '#1B4A3C',                 // alias → QBS card bg
+  goldBright:   '#FFD56E',                 // brighter gold for headings/CTAs
 };
 
 export const spacing = { xs: 4, sm: 8, md: 12, lg: 16, xl: 24 };
